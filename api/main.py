@@ -1,8 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
 import os
+from authenticator import UserAuthenticator
 
 app = FastAPI()
+app.include_router(UserAuthenticator.router) #from JWTAuthentication video
 
 app.add_middleware(
     CORSMiddleware,

@@ -1,5 +1,5 @@
-fastapi[all]==0.78.0
-#jwtdown-fastapi>=0.2.0
+fastapi[all]==0.82.0 #had to change this from 0.78.0 to 0.82.0 bc jwtdown-fastapi depends on it
+jwtdown-fastapi>=0.2.0
 uvicorn[standard]==0.17.6
 pytest
 pymongo==4.3.3
