@@ -503,9 +503,9 @@ Response Shape: {
 
 
 Response: GET WEATHER DATA
-Endpoint Path: WeatheAPI Data (Eric to fill in)
+Endpoint Path: WeatherAPI Data (Eric to fill in)
 Endpoint Method: GET
-Query Parameters:
+Query Parameters: http://api.weatherapi.com/v1/current+forecast.json?key=98ddf4600bf84fad95f172311232303&q=Breckenridge+CO
 Headers:
 Response Shape:
 
