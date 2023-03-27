@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
+from routers import skicolorado
 
 app = FastAPI()
 
@@ -27,3 +28,13 @@ def launch_details():
             "tz:": "PST"
         }
     }
+
+
+app.include_router(skicolorado.router, prefix="/api")
+# @app.get("/api/resorts")
+# def resort_list():
+#     return {
+#         "resort_list": {
+#         "id": 1
+#         }
+#     }

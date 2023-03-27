@@ -30,6 +30,9 @@ class ResortIn(BaseModel):
 class ResortOut(ResortIn):
     id: str
 
+class ResortList(BaseModel):
+    resorts: List[ResortOut]
+
 class AccountIn(BaseModel):
     first_name: str
     last_name: str

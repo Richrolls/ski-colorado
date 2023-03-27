@@ -19,6 +19,7 @@ services:
       - ./api:/app
     environment:
       MONGO_URL: mongodb://admin:password@mongo
+      
 
   ghi:
     image: node:lts-bullseye
