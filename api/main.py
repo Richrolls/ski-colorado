@@ -31,10 +31,4 @@ app = FastAPI()
 
 
 app.include_router(skicolorado.router)
-# @app.get("/api/resorts")
-# def resort_list():
-#     return {
-#         "resort_list": {
-#         "id": 1
-#         }
-#     }
+

@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from .client import Queries
 from models import ResortIn, ResortOut, ResortList
 from bson.objectid import ObjectId
@@ -13,24 +13,23 @@ class ResortQueries(Queries):
         resort['id'] = str(resort['_id'])
         return ResortOut(**resort)
 
-    def get_all(self) -> list[ResortOut]:
+    def get_all(self, resort_id: str = None) -> list[ResortOut]:
+        query = {}
+        if resort_id:
+            query['_id'] = ObjectId(resort_id)
         resorts = []
         for resort in self.collection.find():
             resort['id'] = str(resort['_id'])
             resorts.append(ResortOut(**resort))
         return resorts
 
-    def get_one(self, id: str) -> ResortOut:
-        resort = self.collection.get_all({'_id': ObjectId(id)})
-        return resort
+    def get_one(self, resort_id: str) -> Optional[ResortOut]:
+        resort = self.collection.find_one({'_id': ObjectId(resort_id)})
+        if resort:
+            resort['id'] = str(resort['_id'])
+            return ResortOut(**resort)
 
 
     def delete(self, id: str) -> bool:
         result = self.collection.delete_one({'_id': ObjectId(id)})
         return result.deleted_count == 1
-
-
-
-    # def delete(self, id: str) -> bool:
-    #     result = self.collection.delete_one({'_id': ObjectId(id)})
-    #     return result.deleted_count == 1

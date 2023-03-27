@@ -22,13 +22,12 @@ def get_resorts(
     }
 
 @router.get("/api/resorts/{resort_id}", response_model=ResortOut)
-def get_resort(
-    resort_id = str,
+async def get_resort(
+    resort_id: str,
     repo: ResortQueries = Depends()
     ):
-    return {
-        'resorts': repo.get_all(resort_id)
-    }
+    return repo.get_one(resort_id)
+
 
 @router.delete("/api/resorts/{resort_id}", response_model=bool)
 def delete_resort(
