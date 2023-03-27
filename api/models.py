@@ -47,8 +47,19 @@ class AccountIn(BaseModel):
     snowboard: bool
     picture_url: Optional[str] = None
 
-class AccountOut(AccountIn):
-   id: str
+class AccountOut(BaseModel):
+    id: str
+    first_name: str
+    last_name: str
+    user_name: str
+    email: str
+    address: str
+    city: str
+    state: str
+    zipcode: int
+    ski: bool
+    snowboard: bool
+    picture_url: Optional[str] = None
 
 class CommentIn(BaseModel):
 	rating: int
