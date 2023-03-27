@@ -1,7 +1,7 @@
-from bson.objectid import ObjectId
 from typing import List
 from .client import Queries
 from models import ResortIn, ResortOut, ResortList
+from bson.objectid import ObjectId
 
 class ResortQueries(Queries):
     DB_NAME = "db"
@@ -19,6 +19,10 @@ class ResortQueries(Queries):
             resort['id'] = str(resort['_id'])
             resorts.append(ResortOut(**resort))
         return resorts
+
+    def delete(self, id: str) -> bool:
+        result = self.collection.delete_one({'_id': ObjectId(id)})
+        return result.deleted_count == 1
 
 
 

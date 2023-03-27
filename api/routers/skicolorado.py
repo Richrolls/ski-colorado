@@ -20,3 +20,11 @@ def get_resorts(
     return {
         'resorts': repo.get_all()
     }
+
+@router.delete("/api/resorts/{resort_id}", response_model=bool)
+def delete_resort(
+    resort_id = str,
+    repo: ResortQueries = Depends()
+):
+    return repo.delete(resort_id)
+
