@@ -4,6 +4,7 @@ from .client import Queries
 from models import ResortIn, ResortOut, ResortList
 
 class ResortQueries(Queries):
+    DB_NAME = "db"
     COLLECTION = "resorts"
 
     def create(self, params: ResortIn) -> ResortOut:
