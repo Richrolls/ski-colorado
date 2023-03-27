@@ -479,9 +479,21 @@ Response Shape:
 Response: GET MAPS DATA
 Endpoint Path: Google Maps API (Jack to fill in)
 Endpoint Method: GET
-Query Parameters:
-Headers:
-Response Shape:
+Query Parameters: https://maps.googleapis.com/maps/api/directions/json?origin={UserStreetNumber}+{UserStreetName}+{UserStreetName2}+{UserCity}+{UserState}&destination={ResortStreetNumber}+{ResortStreetName}+{ResortStreetName2}+{ResortCity}+{ResortState}&key={APIKey}
+Headers: none
+Response Shape: {
+   "copyrights": str
+   "routes": {
+      "legs" {
+         "distance" : {
+            "text": str
+         }
+         "duration" : {
+            "text" str
+         }
+      }
+   }
+}
 
 
 ------------------------------------------------------------------
