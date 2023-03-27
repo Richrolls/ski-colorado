@@ -19,7 +19,17 @@ Response Shape (JSON):
 json
 {
    "resorts": [
-       {...}
+      {
+   	“address”: str,
+“city”: str,
+“state”: str,
+“zipcode”: int,
+“name”: str,
+	“photo_url”: str,
+	“average_rating”: float,
+	“elevation”: int,
+	“price”: str
+}
    ]
 }
 """
@@ -40,9 +50,15 @@ Response Shape (JSON):
 """
 json
 {
-   "resort_id": [
-       {...}
-   ]
+   	“AddressField”: str,
+“CityField”: str,
+“StateField”: str,
+“ZipcodeField”: int,
+“Name”: string,
+	“photo_url”: string,
+	“Average_rating”: float,
+	“Elevation”: int,
+	“Price”: string,
 }
 """
 
@@ -112,9 +128,6 @@ json
 	“Average_rating”: float,
 	“Elevation”: int,
 	“Price”: string,
-
-
-
 }
 """
 Response Shape:
@@ -130,16 +143,8 @@ json
 	“Average_rating”: float,
 	“Elevation”: int,
 	“Price”: string,
-
-
-
-
 }
 """
-
-
-
-
 
 
 
@@ -293,135 +298,97 @@ Response Shape:
 --------------------------------------------------------
 
 
-           COMMENTS
+           COMMENTS (Includes optional rating)
 
 
-Response:  LIST ALL COMMENTS FOR USER
+Response:  LIST ALL COMMENTS
 Endpoint Path: /api/comments
-Endpoint Method:
+Endpoint Method: GET
 Query Parameters:
 Headers:
+	Authorization: Bearer Token
 Response Shape:
+"""
+json
+{
+	comments:[
+{
+			“rating”: int,
+			“comment”: str,
+			“user_id”: str, reference to user id
+			“resort_id”: str, reference to resort id
+			}
+]
+}
+"""
 
 
 
 
 Response: GET SPECIFIC COMMENT'S DETAILS (is this necessary? Or can we just filter the list-all comments wherever we need?)
-Endpoint Path:
-Endpoint Method:
-Query Parameters:
+Endpoint Path: api/comments/{comment_id}
+Endpoint Method: GET
+Query Parameters: {comment_id}
 Headers:
 Response Shape:
+"""
+json
+{
+	“rating”: int,
+	“comment”: str,
+	“user_id”: str, reference to user id
+	“resort_id”: str, reference to resort id
+}
+"""
 
 
 
 
 Response: POST COMMENT
-Endpoint Path:
-Endpoint Method:
+Endpoint Path: /api/comments
+Endpoint Method: POST
 Query Parameters:
+Headers:
+Request Shape:
+"""
+json
+{
+	“rating”: int,
+	“comment”: str,
+}
+"""
+
+
+Response Shape:
+"""
+json
+{
+	“rating”: int,
+	“comment”: str,
+	“user_id”: str, reference to user id
+	“resort_id”: str, reference to resort id
+}
+"""
+
+
+
+
+Response: EDIT COMMENT (stretch goal)
+Endpoint Path: api/comments/{comment_id}
+Endpoint Method: PUT
+Query Parameters: {comment_id}
 Headers:
 Response Shape:
 
 
 
 
-Response: EDIT COMMENT
-Endpoint Path:
-Endpoint Method:
-Query Parameters:
+Response: DELETE COMMENT (stretch goal)
+Endpoint Path: api/comments/{comment_id}
+Endpoint Method: DELETE
+Query Parameters: {comment_id}
 Headers:
 Response Shape:
-
-
-
-
-Response: DELETE COMMENT (stretch goal?)
-Endpoint Path:
-Endpoint Method:
-Query Parameters:
-Headers:
-Response Shape:
-
-
-
-
---------------------------------------------------------------
-
-
-
-
-           RATINGS
-
-
-Response: LIST ALL RATINGS
-Endpoint Path: api/ratings
-Endpoint Method:
-Query Parameters:
-Headers:
-Response Shape:
-
-
-
-
-Response: LIST ALL SINGLE RESORT'S RATINGS
-Endpoint Path:
-Endpoint Method:
-Query Parameters:
-Headers:
-Response Shape:
-
-
-
-
-Response: GET A SINGLE RATING
-Endpoint Path:
-Endpoint Method:
-Query Parameters:
-Headers:
-Response Shape:
-
-
-
-
-Response: LIST ALL SINGLE USER'S RATINGS
-Endpoint Path:
-Endpoint Method:
-Query Parameters:
-Headers:
-Response Shape:
-
-
-
-
-Response: POST RATING
-Endpoint Path:
-Endpoint Method:
-Query Parameters:
-Headers:
-Response Shape:
-
-
-
-
-Response: UPDATE RATING (stretch goal)
-Endpoint Path:
-Endpoint Method:
-Query Parameters:
-Headers:
-Response Shape:
-
-
-
-
-Response: DELETE RATING (stretch goal)
-Endpoint Path:
-Endpoint Method:
-Query Parameters:
-Headers:
-Response Shape:
-
-
 
 
 --------------------------------------------------------------------------
@@ -436,6 +403,8 @@ Endpoint Method:
 Query Parameters:
 Headers:
 Response Shape:
+
+
 
 
 
