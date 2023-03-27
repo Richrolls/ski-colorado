@@ -477,9 +477,9 @@ Response Shape:
 
 
 Response: GET MAPS DATA
-Endpoint Path: Google Maps API (Jack to fill in)
+Endpoint Path: Google Maps API
 Endpoint Method: GET
-Query Parameters: https://maps.googleapis.com/maps/api/directions/json?origin={UserStreetNumber}+{UserStreetName}+{UserStreetName2}+{UserCity}+{UserState}&destination={ResortStreetNumber}+{ResortStreetName}+{ResortStreetName2}+{ResortCity}+{ResortState}&key={APIKey}
+Query Parameters: https://maps.googleapis.com/maps/api/directions/json?origin={UserStreetNumber}+{UserStreetName}+{UserStreetName2}+{UserCity}+{UserState}&destination={ResortStreetNumber}+{ResortStreetName}+{ResortStreetName2}+{ResortCity}+{ResortState}&key={GoogleMapsAPIKey}
 Headers: none
 Response Shape: {
    "copyrights": str
@@ -503,11 +503,28 @@ Response Shape: {
 
 
 Response: GET WEATHER DATA
-Endpoint Path: WeatherAPI Data (Eric to fill in)
+Endpoint Path: WeatherAPI Data
 Endpoint Method: GET
-Query Parameters: http://api.weatherapi.com/v1/current+forecast.json?key=98ddf4600bf84fad95f172311232303&q=Breckenridge+CO
-Headers:
-Response Shape:
+Query Parameters: http://api.weatherapi.com/v1/current+forecast.json?key={WeatherAPIKey}&q={ResortCity}+{ResortState}
+Headers: none
+Response Shape: {
+   "current": {
+      "temp_f": int,
+      "wind_mph": int,
+      "feelslike_f": int,
+      "uv": int
+   }
+   "forecast": {
+      "forecastday": {
+         "day": {
+            "maxtemp_f": int,
+            "mintemp_f": int,
+            "totalprecip_in": int,
+            "daily_chance_of_snow": int,
+         }
+      }
+   }
+}
 
 
 
