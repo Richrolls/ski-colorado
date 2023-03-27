@@ -20,6 +20,11 @@ class ResortQueries(Queries):
             resorts.append(ResortOut(**resort))
         return resorts
 
+    def get_one(self, id: str) -> ResortOut:
+        resort = self.collection.get_all({'_id': ObjectId(id)})
+        return resort
+
+
     def delete(self, id: str) -> bool:
         result = self.collection.delete_one({'_id': ObjectId(id)})
         return result.deleted_count == 1
