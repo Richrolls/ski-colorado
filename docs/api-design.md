@@ -56,7 +56,16 @@ Input Shape:
 """
 json
 {
-	“photo_url”:
+	“AddressField”: str,
+“CityField”: str,
+“StateField”: str,
+“ZipcodeField”: int,
+“Name”: string,
+	“photo_url”: string,
+	“Average_rating”: float,
+	“Elevation”: int,
+	“Price”: string,
+
 
 
 }
@@ -65,10 +74,24 @@ Response Shape:
 """
 json
 {
+	“_id”: string (automatically generated),
+	“Address”: str,
+“City”: str,
+“State”: str,
+“Zipcode”: int,
+“Name”: string,
+	“photo_url”: string,
+	“Average_rating”: float,
+	“Elevation”: int,
+	“Price”: string,
+
+
 
 
 }
 """
+
+
 
 
 Response: UPDATE A RESORT (if we eff up seeding DB, or for future-proofing resort pages)
@@ -76,7 +99,49 @@ Endpoint Path: api/resorts/{resort_id}
 Endpoint Method: PUT
 Query Parameters: {resort_id}
 Headers: superuser auth?
+Input Shape:
+"""
+json
+{
+	“AddressField”: str,
+“CityField”: str,
+“StateField”: str,
+“ZipcodeField”: int,
+“Name”: string,
+	“photo_url”: string,
+	“Average_rating”: float,
+	“Elevation”: int,
+	“Price”: string,
+
+
+
+}
+"""
 Response Shape:
+"""
+json
+{
+	“Address”: str,
+“City”: str,
+“State”: str,
+“Zipcode”: int,
+“Name”: string,
+	“photo_url”: string,
+	“Average_rating”: float,
+	“Elevation”: int,
+	“Price”: string,
+
+
+
+
+}
+"""
+
+
+
+
+
+
 
 
 Response: DELETE A RESORT (less important than the rest)
@@ -85,6 +150,12 @@ Endpoint Method: DELETE
 Query Parameters: {resort_id}
 Headers: superuser auth?
 Response Shape:
+"""
+json
+{
+	“Message”: “Resort has been deleted”
+}
+"""
 
 
 --------------------------------------------------------
@@ -106,18 +177,19 @@ Response Shape (JSON):
 json{
    "users":[
        {
-           FirstNameField: str
-           LastNameField: str
-           UserNameField: str
-           PasswordField: str
-           EmailField: str
-           AddressField: str
-           CityField: str
-           StateField: str
-           ZipcodeField: int
-           SkiField: bool (default = False)
-           SnowboardField: bool (default = False)
-           PictureUrl: bool (default = URL to default pic)
+	“_id”: str,
+      	“first_name”: str,
+“last_name”: str,
+“user_name”: str,
+“password”: str,
+“email”: str,
+“address”: str,
+“city”: str,
+“state”: str,
+“zipcode”: int,
+“ski”: bool,
+“snowboard”: bool,
+“picture_url”: str (default = URL to default pic),
        }
    ]
 }
@@ -133,25 +205,20 @@ Headers:
    Authorization: Bearer Token
 Response Shape (JSON):
 """
-json{
-   "users":[
-       {user_id:
-           {
-               FirstNameField: str
-               LastNameField: str
-               UserNameField: str
-               PasswordField: str
-               EmailField: str
-               AddressField: str
-               CityField: str
-               StateField: str
-               ZipcodeField: int
-               SkiField: bool (default = False)
-               SnowboardField: bool (default = False)
-               PictureUrl: bool (default = URL to default pic)
-           }
-       }
-   ]
+json
+{
+“first_name”: str,
+“last_name”: str,
+“user_name”: str,
+“password”: str,
+“email”: str,
+“address”: str,
+“city”: str,
+“state”: str,
+“zipcode”: int,
+“ski”: bool,
+“snowboard”: bool,
+“picture_url”: str (default = URL to default pic)
 }
 """
 
@@ -162,24 +229,45 @@ Endpoint Method: POST
 Query Parameters: None
 Headers:
 	Authorization: Bearer Token
-Input Shape:
-“””
+Request Shape:
+"""
 json
 {
-
-
+“first_name”: str
+“last_name”: str
+“user_name”: str
+“password”: str
+“email”: str
+“address”: str
+“city”: str
+“state”: str
+“zipcode”: int
+“ski”: bool (default = False)
+“snowboard”: bool (default = False)
+“picture_url”: bool (default = URL to default pic)
 }
-“””
+"""
 
 
 Response Shape:
-“””
+"""
 json
 {
-
-
+	“_id”: str
+“first_name”: str
+“last_name”: str
+“user_name”: str
+“password”: str
+“email”: str
+“address”: str
+“city”: str
+“state”: str
+“zipcode”: int
+“ski”: bool (default = False)
+“snowboard”: bool (default = False)
+“picture_url”: bool (default = URL to default pic)
 }
-“””
+"""
 
 
 Response: UPDATE A USER INFO (stretch goal)
@@ -208,8 +296,8 @@ Response Shape:
            COMMENTS
 
 
-Response:  LIST ALL COMMENTS
-Endpoint Path:
+Response:  LIST ALL COMMENTS FOR USER
+Endpoint Path: /api/comments
 Endpoint Method:
 Query Parameters:
 Headers:
@@ -267,7 +355,7 @@ Response Shape:
 
 
 Response: LIST ALL RATINGS
-Endpoint Path:
+Endpoint Path: api/ratings
 Endpoint Method:
 Query Parameters:
 Headers:
