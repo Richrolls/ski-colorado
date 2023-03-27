@@ -18,10 +18,10 @@ services:
     volumes:
       - ./api:/app
     environment:
-      #SIGNING_KEY: jwtdown signing key {does it need to be secret like this?}
-      #WAIT_HOSTS: db:whatever port number
-      #WAIT_BEFORE: 5
-      #WAIT_TIMEOUT: 60
+      SIGNING_KEY: jwtdown signing key {does it need to be secret like this?}
+      WAIT_HOSTS: db:whatever port number
+      WAIT_BEFORE: 5
+      WAIT_TIMEOUT: 60
       MONGO_URL: mongodb://admin:password@mongo
 
   ghi:
