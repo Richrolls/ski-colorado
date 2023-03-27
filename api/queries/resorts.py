@@ -1,16 +1,16 @@
 from bson.objectid import ObjectId
 from typing import List
 from .client import Queries
-from models import ResortIn, ResortOut
+from models import ResortIn, ResortOut, ResortList
 
 class ResortQueries(Queries):
     COLLECTION = "resorts"
 
-    # def create(self, params: ThingParams) -> Thing:
-    #     thing = params.dict()
-    #     self.collection.insert_one(thing) #Queries superclass used here
-    #     thing['id'] = str(thing['_id'])
-    #     return Thing(**thing)
+    def create(self, params: ResortIn) -> ResortOut:
+        resort = params.dict()
+        self.collection.insert_one(resort) #Queries superclass used here
+        resort['id'] = str(resort['_id'])
+        return ResortOut(**resort)
 
     def get_all(self) -> list[ResortOut]:
         resorts = []
@@ -18,6 +18,8 @@ class ResortQueries(Queries):
             resort['id'] = str(resort['_id'])
             resorts.append(ResortOut(**resort))
         return resorts
+
+
 
     # def delete(self, id: str) -> bool:
     #     result = self.collection.delete_one({'_id': ObjectId(id)})
