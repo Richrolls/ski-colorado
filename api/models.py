@@ -61,6 +61,9 @@ class AccountOut(BaseModel):
     snowboard: bool
     picture_url: Optional[str] = None
 
+class AccountList(BaseModel):
+    accounts: List[AccountOut]
+
 class CommentIn(BaseModel):
 	rating: int
 	comment: str
@@ -80,3 +83,6 @@ class FavoriteIn(BaseModel):
 
 class FavoriteOut(FavoriteIn):
     id: str
+
+class FavoriteList(BaseModel):
+    favorites: List[FavoriteOut]

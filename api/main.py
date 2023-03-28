@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from routers import skicolorado, comments
+from routers import skicolorado, comments, accounts, favorites
 
 app = FastAPI()
 
@@ -32,3 +32,5 @@ app = FastAPI()
 
 app.include_router(skicolorado.router)
 app.include_router(comments.router)
+app.include_router(accounts.router)
+app.include_router(favorites.router)
