@@ -20,7 +20,6 @@ def get_comments(
     repo: CommentQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
     ):
-    print(account_data)
     return {
         'comments': repo.get_all(user_id=account_data['id'])
     }

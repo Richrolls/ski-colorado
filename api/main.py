@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from routers import skicolorado, comments, accounts, favorites
+from routers import resorts, comments, accounts, favorites
 from authenticator import authenticator
 
 app = FastAPI()
@@ -31,7 +31,7 @@ app = FastAPI()
 #     }
 
 
-app.include_router(skicolorado.router, tags=['Resorts'])
+app.include_router(resorts.router, tags=['Resorts'])
 app.include_router(comments.router, tags=['Comments'])
 app.include_router(accounts.router, tags=['Accounts'])
 app.include_router(favorites.router, tags=['Favorites'])

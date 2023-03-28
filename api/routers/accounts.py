@@ -66,7 +66,7 @@ async def get_account(
     account_id: str,
     repo: AccountsRepo = Depends()
     ):
-    return repo.get_one(account_id)
+    return repo.get(account_id)
 
 @router.delete("/api/accounts/{account_id}", response_model=bool)
 def delete_account(

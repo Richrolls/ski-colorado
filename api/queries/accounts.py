@@ -29,15 +29,15 @@ class AccountsRepo(Queries):
     #     account['id'] = str(account['_id'])
     #     return AccountOut(**account)
 
-    # def get_all(self, account_id: str = None) -> list[AccountOut]:
-    #     query = {}
-    #     if account_id:
-    #         query['_id'] = ObjectId(account_id)
-    #     accounts = []
-    #     for account in self.collection.find():
-    #         account['id'] = str(account['_id'])
-    #         accounts.append(AccountOut(**account))
-    #     return accounts
+    def get_all(self, account_id: str = None) -> list[AccountOut]:
+        query = {}
+        if account_id:
+            query['_id'] = ObjectId(account_id)
+        accounts = []
+        for account in self.collection.find():
+            account['id'] = str(account['_id'])
+            accounts.append(AccountOut(**account))
+        return accounts
 
     def get(self, username: str):
         result = self.collection.find_one({"username": username.lower()})

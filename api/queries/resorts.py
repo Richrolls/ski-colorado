@@ -23,6 +23,7 @@ class ResortQueries(Queries):
             resorts.append(ResortOut(**resort))
         return resorts
 
+
     def get_one(self, resort_id: str) -> Optional[ResortOut]:
         resort = self.collection.find_one({'_id': ObjectId(resort_id)})
         if resort:
