@@ -22,7 +22,7 @@ def get_comments(
     ):
     print(account_data)
     return {
-        'comments': repo.get_all(user_id=account_datat['id'])
+        'comments': repo.get_all(user_id=account_data['id'])
     }
 
 @router.get("/api/comments/{comment_id}", response_model=CommentOut)
