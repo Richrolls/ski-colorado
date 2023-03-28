@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from routers import skicolorado
+from routers import skicolorado, comments
 
 app = FastAPI()
 
@@ -31,4 +31,4 @@ app = FastAPI()
 
 
 app.include_router(skicolorado.router)
-
+app.include_router(comments.router)

@@ -34,3 +34,4 @@ def delete_resort(
     repo: ResortQueries = Depends()
 ):
     return repo.delete(resort_id)
+

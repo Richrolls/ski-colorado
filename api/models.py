@@ -70,6 +70,9 @@ class CommentIn(BaseModel):
 class CommentOut(CommentIn):
     id: str
 
+class CommentList(BaseModel):
+    comments: List[CommentOut]
+
 class FavoriteIn(BaseModel):
     favorite: bool
     user_id: str #reference to account id
