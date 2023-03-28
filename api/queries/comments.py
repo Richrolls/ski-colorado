@@ -16,12 +16,9 @@ class CommentQueries(Queries):
         comment['id'] = str(comment['_id'])
         return CommentOut(**comment)
 
-    def get_all(self, comment_id: str = None, user_id: str) -> list[CommentOut]: #missed something in lecture here
-        query = {}
-        if comment_id:
-            query['_id'] = ObjectId(comment_id)
+    def get_all(self,  user_id: str) -> list[CommentOut]:
         comments = []
-        for comment in self.collection.find('user_id': user_id): #problem is here
+        for comment in self.collection.find({'user_id': user_id}):
             comment['id'] = str(comment['_id'])
             comments.append(CommentOut(**comment))
         return comments
