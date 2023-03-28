@@ -31,9 +31,8 @@ app = FastAPI()
 #     }
 
 
-app.include_router(skicolorado.router)
-app.include_router(comments.router)
+app.include_router(skicolorado.router, tags=['Resorts'])
+app.include_router(comments.router, tags=['Comments'])
 app.include_router(accounts.router, tags=['Accounts'])
-app.include_router(accounts.router, tags='Accounts')
-app.include_router(favorites.router)
-app.include_router(authenticator.router)
+app.include_router(favorites.router, tags=['Favorites'])
+app.include_router(authenticator.router, tags=['Tokens'])
