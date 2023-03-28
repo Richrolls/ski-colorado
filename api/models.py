@@ -1,6 +1,7 @@
 from bson.objectid import ObjectId
 from pydantic import BaseModel
 from typing import List, Optional
+from jwtdown_fastapi.authentication import Token
 
 # class PydanticObjectId(ObjectId):
 #     @classmethod
@@ -33,10 +34,19 @@ class ResortOut(ResortIn):
 class ResortList(BaseModel):
     resorts: List[ResortOut]
 
+class AccountLogin(BaseModel):
+    username: str
+    password: str
+
+class AccountForm(BaseModel): #dont DRY/inherit from AccountIn bc this is specific to jwtdown
+    username: str
+    password: str #user's pw
+
+
 class AccountIn(BaseModel): #what we send into the database/collection
     first_name: str
     last_name: str
-    user_name: str
+    username: str
     password: str #user's pw
     email: str
     address: str
@@ -51,7 +61,7 @@ class AccountOut(BaseModel): #what the frontend will need to display
     id: str
     first_name: str
     last_name: str
-    user_name: str
+    username: str
     email: str
     address: str
     city: str
@@ -60,6 +70,9 @@ class AccountOut(BaseModel): #what the frontend will need to display
     ski: bool
     snowboard: bool
     picture_url: Optional[str] = None
+
+class AccountToken(Token):
+    account: AccountOut
 
 class AccountOutWithHashedPassword(AccountOut):
     hashed_password: str #encrypted user's pw
