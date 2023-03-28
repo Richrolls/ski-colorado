@@ -28,7 +28,6 @@ async def get_resort(
     ):
     return repo.get_one(resort_id)
 
-
 @router.delete("/api/resorts/{resort_id}", response_model=bool)
 def delete_resort(
     resort_id = str,
