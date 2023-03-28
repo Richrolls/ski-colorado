@@ -19,14 +19,10 @@ def get_resorts(
     repo: ResortQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
     ):
-    if account_data == 
         return {
             'resorts': repo.get_all()
         }
-    else:
-        return {
-            'error': "You must be logged in to view this!"
-        }
+
 
 @router.get("/api/resorts/{resort_id}", response_model=ResortOut)
 async def get_resort(

@@ -13,10 +13,7 @@ class ResortQueries(Queries):
         resort['id'] = str(resort['_id'])
         return ResortOut(**resort)
 
-    def get_all(self, resort_id: str = None) -> list[ResortOut]:
-        query = {}
-        if resort_id:
-            query['_id'] = ObjectId(resort_id)
+    def get_all(self) -> list[ResortOut]:
         resorts = []
         for resort in self.collection.find():
             resort['id'] = str(resort['_id'])
