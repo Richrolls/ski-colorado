@@ -3,16 +3,21 @@ from .client import Queries
 from models import AccountIn, AccountOut, AccountList
 from bson.objectid import ObjectId
 
+class DuplicateAccountError(ValueError):
+    pass
 
-class AccountQueries(Queries):
+class AccountsRepo(Queries):
     DB_NAME = "db"
     COLLECTION = "accounts"
 
-    def create(self, params: AccountIn) -> AccountOut:
-        account = params.dict()
-        self.collection.insert_one(account)
-        account['id'] = str(account['_id'])
-        return AccountOut(**account)
+    def create(info: AccountIn, hashed_password: str):
+        pass
+
+    # def create(self, params: AccountIn) -> AccountOut:
+    #     account = params.dict()
+    #     self.collection.insert_one(account)
+    #     account['id'] = str(account['_id'])
+    #     return AccountOut(**account)
 
     def get_all(self, account_id: str = None) -> list[AccountOut]:
         query = {}

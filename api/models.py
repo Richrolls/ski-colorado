@@ -33,11 +33,11 @@ class ResortOut(ResortIn):
 class ResortList(BaseModel):
     resorts: List[ResortOut]
 
-class AccountIn(BaseModel):
+class AccountIn(BaseModel): #what we send into the database/collection
     first_name: str
     last_name: str
     user_name: str
-    password: str
+    password: str #user's pw
     email: str
     address: str
     city: str
@@ -47,7 +47,7 @@ class AccountIn(BaseModel):
     snowboard: bool
     picture_url: Optional[str] = None
 
-class AccountOut(BaseModel):
+class AccountOut(BaseModel): #what the frontend will need to display
     id: str
     first_name: str
     last_name: str
@@ -60,6 +60,9 @@ class AccountOut(BaseModel):
     ski: bool
     snowboard: bool
     picture_url: Optional[str] = None
+
+class AccountOutWithHashedPassword(AccountOut):
+    hashed_password: str #encrypted user's pw
 
 class AccountList(BaseModel):
     accounts: List[AccountOut]
