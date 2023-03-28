@@ -5,7 +5,7 @@ from queries.accounts import AccountsRepo
 from models import AccountOut, AccountOutWithHashedPassword
 
 
-class MyAuthenticator(Authenticator): #inheriting extra functionality Autheticator from jwtdown
+class MyAuthenticator(Authenticator): # Handles Login. Inheriting extra functionality Autheticator from jwtdown
     async def get_account_data(
         self,
         username: str,
