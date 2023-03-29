@@ -14,10 +14,7 @@ class FavoriteQueries(Queries):
         favorite['id'] = str(favorite['_id'])
         return FavoriteOut(**favorite)
 
-    def get_all(self, favorite_id: str = None) -> FavoriteList:
-        query = {}
-        if favorite_id:
-            query['_id'] = ObjectId(favorite_id)
+    def get_all(self) -> FavoriteList:
         favorites = []
         for favorite in self.collection.find():
             favorite['id'] = str(favorite['_id'])

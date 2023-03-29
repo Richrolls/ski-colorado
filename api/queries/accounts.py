@@ -30,9 +30,6 @@ class AccountsRepo(Queries):
     #     return AccountOut(**account)
 
     def get_all(self, account_id: str = None) -> list[AccountOut]:
-        query = {}
-        if account_id:
-            query['_id'] = ObjectId(account_id)
         accounts = []
         for account in self.collection.find():
             account['id'] = str(account['_id'])
