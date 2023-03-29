@@ -10,7 +10,6 @@ router = APIRouter()
 async def create_favorite(
     favorite: Favorite,
     resort_id: str,
-    user_id: str,
     repo: FavoriteQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
