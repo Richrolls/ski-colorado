@@ -7,3 +7,8 @@
     Worked as a group to finish coding in the API routes for resorts, accounts, favorites, and comments. Also got authentication working for the routes.
 
     Looking forward to working on the front end and seeing the project in action.
+
+3/29/2023
+    Got more progress on getting the favorites queries to work, we will need to see if we can get the queries to work with a single Model rather than ModelIn and ModelOut. I started working on the LoginForm.js file. I will need to figure out how to create a token upon account creation.
+
+    Looking forward to figuring out how to link front-end and back-end. Confused on how to implement the token generation.
