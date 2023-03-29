@@ -13,17 +13,10 @@ async def create_favorite(
     repo: FavoriteQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    print(account_data)
     new_favorite = Favorite(resort_id=resort_id, user_id=account_data['id'])
     favorite = repo.create(new_favorite)
     return favorite
-    # favorite = repo.create(
-    #     {
-    #     "resort_id": str,
-    #     "account_id": account_data
-    #     }
-    # )
-    # return favorite
+
 
 @router.get("/api/resorts/{resort_id}/favorites", response_model=FavoriteList)
 def get_favorites(
