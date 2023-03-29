@@ -8,5 +8,5 @@ client = pymongo.MongoClient(MONGO_URL)
 class Queries:
     @property
     def collection(self):
-        db = client['resorts'] # change 'resorts' to 'skicolorado', store in .env
+        db = client['resorts']
         return db[self.COLLECTION]

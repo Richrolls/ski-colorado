@@ -98,3 +98,6 @@ class CommentList(BaseModel):
 class Favorite(BaseModel):
     user_id: str
     resort_id: str
+
+class FavoriteList(BaseModel):
+    favorites: List[Favorite]
