@@ -8,7 +8,7 @@ class FavoriteQueries(Queries):
     DB_NAME = "db"
     COLLECTION = "favorites"
 
-    def create(self, params: Favorite) -> Favorite:
+    def insert_one(self, params: Favorite) -> Favorite:
         favorite = params.dict()
         self.collection.insert_one(favorite)
         favorite['id'] = str(favorite['_id'])

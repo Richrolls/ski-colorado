@@ -14,7 +14,7 @@ async def create_favorite(
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     new_favorite = Favorite(resort_id=resort_id, user_id=account_data['id'])
-    favorite = repo.create(new_favorite)
+    favorite = repo.insert_one(new_favorite)
     return favorite
 
 
