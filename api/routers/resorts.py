@@ -27,7 +27,8 @@ def get_resorts(
 @router.get("/api/resorts/{resort_id}", response_model=ResortOut)
 async def get_resort(
     id: str,
-    repo: ResortQueries = Depends()
+    repo: ResortQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
     ):
     return repo.get_one(id)
 
