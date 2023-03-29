@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from routers import resorts, comments, accounts, favorites, directions
+from routers import resorts,comments, accounts, favorites, directions, weather
 from authenticator import authenticator
 
 app = FastAPI()
@@ -37,3 +37,4 @@ app.include_router(accounts.router, tags=['Accounts'])
 app.include_router(favorites.router, tags=['Favorites'])
 app.include_router(authenticator.router, tags=['Tokens'])
 app.include_router(directions.router, tags=['Google Maps'])
+app.include_router(weather.router, tags=['OpenWeather'])
