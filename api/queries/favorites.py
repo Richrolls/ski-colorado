@@ -14,7 +14,7 @@ class FavoriteQueries(Queries):
         favorite['id'] = str(favorite['_id'])
         return Favorite(**favorite)
 
-    def get_all(self) -> list[Favorite]:
+    def get_all(self) -> Favorite:
         favorites = []
         for favorite in self.collection.find():
             favorite['id'] = str(favorite['_id'])
