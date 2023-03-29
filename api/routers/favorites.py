@@ -1,19 +1,19 @@
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
-from models import Favorite, FavoriteList
+from models import FavoriteIn, FavoriteOut, FavoriteList
 from queries.favorites import FavoriteQueries
 from authenticator import authenticator
 
 router = APIRouter()
 
-@router.post("/api/resorts/{resort_id}/favorites", response_model=Favorite)
+@router.post("/api/resorts/{resort_id}/favorites", response_model=FavoriteOut)
 async def create_favorite(
-    favorite: Favorite,
+    favorite: FavoriteIn,
     resort_id: str,
     repo: FavoriteQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    new_favorite = Favorite(resort_id=resort_id, user_id=account_data['id'])
+    new_favorite = FavoriteIn(resort_id=resort_id, user_id=account_data['id'])
     favorite = repo.insert_one(new_favorite)
     return favorite
 
@@ -27,7 +27,7 @@ def get_favorites(
         'favorites': repo.get_all()
     }
 
-@router.get("/api/resorts/{resort_id}/favorites/{favorite_id}", response_model=Favorite)
+@router.get("/api/resorts/{resort_id}/favorites/{favorite_id}", response_model=FavoriteOut)
 async def get_favorite(
     favorite_id: str,
     repo: FavoriteQueries = Depends(),

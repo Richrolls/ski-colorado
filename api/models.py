@@ -95,9 +95,12 @@ class CommentOut(CommentIn):
 class CommentList(BaseModel):
     comments: List[CommentOut]
 
-class Favorite(BaseModel):
+class FavoriteIn(BaseModel):
     user_id: str
     resort_id: str
 
+class FavoriteOut(FavoriteIn):
+    id: str
+
 class FavoriteList(BaseModel):
-    favorites: List[Favorite]
+    favorites: List[FavoriteOut]
