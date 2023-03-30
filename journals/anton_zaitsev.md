@@ -7,3 +7,4 @@ Caught up on the FastAPI lectures, and developed and refined the structure of th
 Followed along to Jack's explanation of the backend of our application, as well as the user authorization process. Also caught up on the functionality of FastAPI and the funcationality of MongoDB.
 
 3/29/23
+Followed along the coding of the Favorites, and how to organize its relation to users and resorts, respectively. Started working on the front-end with Alex and Richard. Implemented a basic Nav file, navigation in the App.js file, a basic MainPage file, and started working on the Login form. Will continuie tomorrow.

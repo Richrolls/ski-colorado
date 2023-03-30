@@ -4,6 +4,7 @@ import Construct from "./Construct.js";
 import ErrorNotification from "./ErrorNotification";
 import Nav from "./Nav";
 import MainPage from "./MainPage.js";
+import LoginForm from "./LoginForm.js";
 import "./App.css";
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="login" element={<LoginForm />} />
         </Routes>
       </div>
     </BrowserRouter>
