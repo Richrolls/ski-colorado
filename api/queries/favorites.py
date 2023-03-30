@@ -1,6 +1,6 @@
 from typing import List, Optional
 from .client import Queries
-from models import FavoriteIn, FavoriteOut, FavoriteList
+from models import FavoriteIn, FavoriteOut
 from bson.objectid import ObjectId
 
 
@@ -8,20 +8,18 @@ class FavoriteQueries(Queries):
     DB_NAME = "db"
     COLLECTION = "favorites"
 
-    def create(self, params: FavoriteIn) -> FavoriteOut:
+    def insert_one(self, params: FavoriteIn) -> FavoriteOut:
         favorite = params.dict()
         self.collection.insert_one(favorite)
         favorite['id'] = str(favorite['_id'])
         return FavoriteOut(**favorite)
 
-    def get_all(self, favorite_id: str = None) -> FavoriteList:
-        query = {}
-        if favorite_id:
-            query['_id'] = ObjectId(favorite_id)
+    def get_all(self) -> FavoriteOut:
         favorites = []
         for favorite in self.collection.find():
             favorite['id'] = str(favorite['_id'])
             favorites.append(FavoriteOut(**favorite))
+        print(favorites)
         return favorites
 
     def get_one(self, favorite_id: str) -> Optional[FavoriteOut]:

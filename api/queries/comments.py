@@ -8,10 +8,8 @@ class CommentQueries(Queries):
     DB_NAME = "db"
     COLLECTION = "comments"
 
-    def create(self, params: CommentIn, user_id: str) -> CommentOut:
-
+    def create(self, params: CommentIn) -> CommentOut:
         comment = params.dict()
-        comment['user_id'] = user_id
         self.collection.insert_one(comment)
         comment['id'] = str(comment['_id'])
         return CommentOut(**comment)
