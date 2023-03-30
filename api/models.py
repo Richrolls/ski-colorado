@@ -52,7 +52,8 @@ class AccountIn(BaseModel): #what we send into the database/collection
     username: str
     password: str #user's pw
     email: str
-    address: str
+    address_1: str
+    address_2: str
     city: str
     state: str
     zipcode: int
@@ -66,7 +67,8 @@ class AccountOut(BaseModel): #what the frontend will need to display
     last_name: str
     username: str
     email: str
-    address: str
+    address_1: str
+    address_2: str
     city: str
     state: str
     zipcode: int
