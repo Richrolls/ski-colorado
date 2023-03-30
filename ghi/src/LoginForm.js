@@ -10,16 +10,19 @@ function LoginForm() {
     event.preventDefault();
 
     const loginUrl = `http://localhost:8000/token`;
+    console.log(loginUrl);
 
     const fetchConfig = {
-      method: "post",
+      method: "POST",
       body: JSON.stringify(formData),
       headers: {
         "Content-Type": "application/json",
       },
     };
+    console.log(JSON.stringify(formData));
 
     const response = await fetch(loginUrl, fetchConfig);
+    console.log(response);
 
     if (response.ok) {
       setFormData({
