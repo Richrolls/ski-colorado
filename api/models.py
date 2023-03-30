@@ -59,7 +59,7 @@ class AccountIn(BaseModel): #what we send into the database/collection
     zipcode: int
     ski: bool=False
     snowboard: bool=False
-    picture_url: str
+    picture_url: Optional[str] = None
 
 class AccountOut(BaseModel): #what the frontend will need to display
     id: str
@@ -73,7 +73,7 @@ class AccountOut(BaseModel): #what the frontend will need to display
     zipcode: int
     ski: bool
     snowboard: bool
-    picture_url: str
+    picture_url: Optional[str] = None
 
 class AccountToken(Token):
     account: AccountOut
