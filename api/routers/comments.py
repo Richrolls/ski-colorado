@@ -6,16 +6,19 @@ from authenticator import authenticator
 
 router = APIRouter()
 
-@router.post("/api/comments", response_model=CommentOut)
+@router.post("/api/resorts/{resort_id}/comments", response_model=CommentOut)
 async def create_comment(
-    comment: CommentIn,
+    rating: str,
+    comment: str,
+    resort_id: str,
     repo: CommentQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data), #requires user to be logged in
 ):
-    comment = repo.create(comment, user_id=account_data['id'])
+    new_comment = CommentIn(rating=rating, comment=comment, resort_id=resort_id, user_id=account_data['id'])
+    comment = repo.create(new_comment)
     return comment
 
-@router.get("/api/comments", response_model=CommentList)
+@router.get("//api/resorts/{resort_id}/comments", response_model=CommentList)
 def get_comments(
     repo: CommentQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
@@ -24,7 +27,7 @@ def get_comments(
         'comments': repo.get_all(user_id=account_data['id'])
     }
 
-@router.get("/api/comments/{comment_id}", response_model=CommentOut)
+@router.get("/api/resorts/{resort_id}/comments/{comment_id}", response_model=CommentOut)
 async def get_comment(
     comment_id: str,
     repo: CommentQueries = Depends(),
@@ -32,7 +35,7 @@ async def get_comment(
     ):
     return repo.get_one(comment_id)
 
-@router.delete("/api/comments/{comment_id}", response_model=bool)
+@router.delete("/api/resorts/{resort_id}/comments/{comment_id}", response_model=bool)
 def delete_comment(
     comment_id = str,
     repo: CommentQueries = Depends(),
