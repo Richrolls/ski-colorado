@@ -8,7 +8,6 @@ router = APIRouter()
 
 @router.post("/api/resorts/{resort_id}/favorites", response_model=FavoriteOut)
 async def create_favorite(
-    favorite: FavoriteIn,
     resort_id: str,
     repo: FavoriteQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
