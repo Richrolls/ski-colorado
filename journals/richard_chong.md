@@ -12,3 +12,8 @@
     Got more progress on getting the favorites queries to work, we will need to see if we can get the queries to work with a single Model rather than ModelIn and ModelOut. I started working on the LoginForm.js file. I will need to figure out how to create a token upon account creation.
 
     Looking forward to figuring out how to link front-end and back-end. Confused on how to implement the token generation.
+
+3/30/2023
+    Got the SignupForm to work and create an account on the backend. Had to remove the ski/snowboard checkboxes until I figure out how to add data from checkboxes, should be easily doable. I will probably save most of the styling until we have all the pages working. Realized I did not have to generate the token on my own.
+
+    Looking forward to figuring out how to add and implement checkboxes.
