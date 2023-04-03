@@ -6,7 +6,7 @@ const ResortDetail = () => {
     const navigate = useNavigate();
     const { thisResort } = useParams();
 
-    const getData = async () => {
+    const getResortData = async () => {
         const response = await fetch(`http://localhost:8000/api/resorts/{resort_id}?id=${thisResort}`);
         if (response.ok) {
             const data = await response.json();
@@ -15,7 +15,7 @@ const ResortDetail = () => {
     }
 
     useEffect(() => {
-        getData();
+        getResortData();
     }, [thisResort]);
 
     return (
