@@ -17,3 +17,8 @@
     Got the SignupForm to work and create an account on the backend. Had to remove the ski/snowboard checkboxes until I figure out how to add data from checkboxes, should be easily doable. I will probably save most of the styling until we have all the pages working. Realized I did not have to generate the token on my own.
 
     Looking forward to figuring out how to add and implement checkboxes.
+
+4/3/2023
+    Started work on the ResortDetail.js page. Was able to link the front-end to the database. Was able to display resorts in the database on the resort detail page. Changed the link in the ResortList.js file to now link to the corresponding ResortDetail.js page. Not exactly sure how to get the data of the current user for the 3rd party APIs.
+
+    Looking forward to figuring out how to get the current user's data and pull data from the 3rd party APIs.
