@@ -10,7 +10,6 @@ function LoginForm() {
     event.preventDefault();
 
     const loginUrl = `http://localhost:8000/token`;
-    console.log(loginUrl);
 
     const fetchConfig = {
       method: "POST",
@@ -30,6 +29,7 @@ function LoginForm() {
         password: "",
       });
     }
+    localStorage.setItem("token", response.token);
   };
 
   const handleFormChange = (e) => {
