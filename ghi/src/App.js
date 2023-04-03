@@ -5,7 +5,12 @@ import ErrorNotification from "./ErrorNotification";
 import Nav from "./Nav";
 import MainPage from "./MainPage.js";
 import SignupForm from "./SignupForm.js";
+<<<<<<< HEAD
 import ResortDetail from "./ResortDetail.js"
+=======
+import LoginForm from "./LoginForm.js";
+import Home from "./components/Home.js";
+>>>>>>> main
 import "./App.css";
 
 function App() {
@@ -44,6 +49,9 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/signup" element={<SignupForm /> } />
           <Route path="/resorts/:thisResort" element = {<ResortDetail />} />
+          <Route path="login" element={<LoginForm />} />
+          <Route path="signup" element={<SignupForm />} />
+          <Route path="home" element={<Home />} />
         </Routes>
       </div>
     </BrowserRouter>
