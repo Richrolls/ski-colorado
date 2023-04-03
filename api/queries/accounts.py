@@ -47,11 +47,11 @@ class AccountsRepo(Queries):
         return AccountOutWithHashedPassword(**result)
 
 
-    # def get_one(self, account_id: str) -> Optional[AccountOut]:
-    #     account = self.collection.find_one({'_id': ObjectId(account_id)})
-    #     if account:
-    #         account['id'] = str(account['_id'])
-    #         return AccountOut(**account)
+    def get_one(self, account_id: str) -> Optional[AccountOut]:
+        account = self.collection.find_one({'_id': ObjectId(account_id)})
+        if account:
+            account['id'] = str(account['_id'])
+            return AccountOut(**account)
 
 
     # def delete(self, id: str) -> bool:

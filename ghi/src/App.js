@@ -4,6 +4,9 @@ import Construct from "./Construct.js";
 import ErrorNotification from "./ErrorNotification";
 import Nav from "./Nav";
 import MainPage from "./MainPage.js";
+import SignupForm from "./SignupForm.js";
+import LoginForm from "./LoginForm.js";
+import Home from "./components/Home.js";
 import "./App.css";
 
 function App() {
@@ -35,6 +38,7 @@ function App() {
     //   <Construct info={launch_info} /> */}
 
     // </div>
+<<<<<<< HEAD
     <>
       <BrowserRouter>
         <Nav />
@@ -45,6 +49,19 @@ function App() {
         </div>
       </BrowserRouter>
     </>
+=======
+    <BrowserRouter>
+      <Nav />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="login" element={<LoginForm />} />
+          <Route path="/signup" element={<SignupForm />} />
+          <Route path="home" element={<Home />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+>>>>>>> 26fe58995f86d12a1ef5a653100c4511da0b5d79
   );
 }
 

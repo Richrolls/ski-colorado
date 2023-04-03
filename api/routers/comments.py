@@ -18,7 +18,7 @@ async def create_comment(
     comment = repo.create(new_comment)
     return comment
 
-@router.get("//api/resorts/{resort_id}/comments", response_model=CommentList)
+@router.get("/api/resorts/{resort_id}/comments", response_model=CommentList)
 def get_comments(
     repo: CommentQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
