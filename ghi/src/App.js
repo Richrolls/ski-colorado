@@ -5,12 +5,9 @@ import ErrorNotification from "./ErrorNotification";
 import Nav from "./Nav";
 import MainPage from "./MainPage.js";
 import SignupForm from "./SignupForm.js";
-<<<<<<< HEAD
 import ResortDetail from "./ResortDetail.js"
-=======
 import LoginForm from "./LoginForm.js";
 import Home from "./components/Home.js";
->>>>>>> main
 import "./App.css";
 
 function App() {
