@@ -1,8 +1,9 @@
 import pydantic, typing
 from bson.objectid import ObjectId
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Optional, Union
 from jwtdown_fastapi.authentication import Token
+from fastapi import Path
 
 class PydanticObjectId(ObjectId):
     @classmethod
@@ -52,7 +53,8 @@ class AccountIn(BaseModel): #what we send into the database/collection
     username: str
     password: str #user's pw
     email: str
-    address: str
+    address_1: str
+    address_2: str
     city: str
     state: str
     zipcode: int
@@ -66,13 +68,14 @@ class AccountOut(BaseModel): #what the frontend will need to display
     last_name: str
     username: str
     email: str
-    address: str
+    address_1: str
+    address_2: str
     city: str
     state: str
     zipcode: int
     ski: bool
     snowboard: bool
-    picture_url: Optional[str] = "test"
+    picture_url: Optional[str] = None
 
 class AccountToken(Token):
     account: AccountOut

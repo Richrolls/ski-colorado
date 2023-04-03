@@ -64,9 +64,10 @@ def get_accounts(
 @router.get("/api/accounts/{account_id}", response_model=AccountOut)
 async def get_account(
     account_id: str,
-    repo: AccountsRepo = Depends()
+    repo: AccountsRepo = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
     ):
-    return repo.get(account_id)
+    return repo.get_one(account_id)
 
 @router.delete("/api/accounts/{account_id}", response_model=bool)
 def delete_account(

@@ -4,6 +4,7 @@ import Construct from "./Construct.js";
 import ErrorNotification from "./ErrorNotification";
 import Nav from "./Nav";
 import MainPage from "./MainPage.js";
+import SignupForm from "./SignupForm.js";
 import LoginForm from "./LoginForm.js";
 import "./App.css";
 
@@ -42,6 +43,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="login" element={<LoginForm />} />
+          <Route path="/signup" element={<SignupForm />} />
         </Routes>
       </div>
     </BrowserRouter>
