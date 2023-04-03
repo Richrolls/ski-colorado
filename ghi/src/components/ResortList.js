@@ -29,11 +29,15 @@ const ResortList = () => {
             {resort &&
                 resort.map((resorts) => {
                     return (
-                        <tr key={resorts.id}>
-                            <td>
-                                <a href={`http://localhost:8000/api/resorts/${resorts.id}`}>{resorts.name}</a>
-                            </td>
-                        </tr>
+                      <tr key={resorts.id}>
+                        <td>
+                          <a
+                            href={`http://localhost:3000/resorts/${resorts.id}`}
+                          >
+                            {resorts.name}
+                          </a>
+                        </td>
+                      </tr>
                     );
                 })}
         </tbody>
