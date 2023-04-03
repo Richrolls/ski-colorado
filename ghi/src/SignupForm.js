@@ -59,6 +59,15 @@ function SignupForm() {
         });
     };
 
+    const onCheck = (e) => {
+        const inputName = e.target.name;
+        if (!e.target.checked) {
+          setFormData({ ...formData, [inputName]: false });
+        } else if (e.target.checked) {
+          setFormData({ ...formData, [inputName]: true });
+        }
+    }
+
     return (
         <div className="row">
             <div className="offset-3 col-6">
@@ -113,14 +122,16 @@ function SignupForm() {
                                 </div>
                             </div>
                             <div className="row">
-                                {/* <div className="form-check form-check-inline">
-                                    <input onChange={handleFormChange} value="True" type="checkbox" name="ski" id="inlineCheckbox1" className="form-check-input" />
-                                    <label htmlFor="ski">Ski</label>
+                                <div className="col">
+                                    <input onChange={onCheck} checked={formData.ski === true} className="form-check-input" type="checkbox" name="ski" id="inlineCheckbox1" />
+                                    <label className="form-check-label" htmlFor="inlineCheckbox1">Ski</label>
                                 </div>
-                                <div className="form-floating mb-3">
-                                    <input onChange={handleFormChange} value={formData.snowboard} placeholder="Snowboard" required type="text" name="snowboard" id="snowboard" className="form-control" />
-                                    <label htmlFor="snowboard">Snowboard</label>
-                                </div> */}
+                                <div className="col">
+                                    <input onChange={onCheck} checked={formData.snowboard === true} className="form-check-input" type="checkbox" name="snowboard" id="inlineCheckbox1" />
+                                    <label className="form-check-label" htmlFor="inlineCheckbox1">Snowboard</label>
+                                </div>
+                            </div>
+                            <div className="row">
                                 <div className="form-floating mb-3">
                                     <input onChange={handleFormChange} value={formData.picture_url} placeholder="Picture Url" type="text" name="picture_url" id="picture_url" className="form-control" />
                                     <label htmlFor="picture_url">Picture Url</label>
