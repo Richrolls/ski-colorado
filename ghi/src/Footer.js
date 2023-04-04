@@ -3,14 +3,14 @@ import { MDBFooter, MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 function Footer() {
   return (
     <div class="fixed-bottom">
-      <MDBFooter bgColor="light" className="text-center text-lg-left">
+      <MDBFooter className="text-center text-lg-left">
         <MDBContainer className="p-4">
           <MDBRow>
             <MDBCol lg="6" md="12" className="mb-4 mb-md-0">
-              <h5 className="text-uppercase">
-                We proudly serve all Colorado resorts on the most popular season
+              <h4 className="text-uppercase">
+                We proudly serve all Colorado resorts <br/> on the most popular season
                 passes:
-              </h5>
+              </h4>
 
               <div>
                 <img
@@ -25,15 +25,16 @@ function Footer() {
             </MDBCol>
 
             <MDBCol lg="6" md="12" className="mb-4 mb-md-0">
-              <h5 className="text-uppercase">
+              <h4 className="text-uppercase">
                 Colorado Department of Transportation Updates
-              </h5>
-              <a
-                class="twitter-timeline"
-                href="https://twitter.com/ColoradoDOT?ref_src=twsrc%5Etfw"
-              >
-                View Current Tweets from ColoradoDOT
-              </a>
+                <br/>
+                <a
+                  class="twitter-timeline"
+                  href="https://twitter.com/ColoradoDOT?ref_src=twsrc%5Etfw"
+                >
+                  View Current Tweets from ColoradoDOT
+                </a>
+              </h4>
 
               <script
                 async
@@ -50,12 +51,9 @@ function Footer() {
           </MDBRow>
         </MDBContainer>
 
-        <div
-          className="text-center p-3"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-        >
+        <h4 className="text-center p-3">
           &copy; {new Date().getFullYear()} Copyright: Team 007
-        </div>
+        </h4>
       </MDBFooter>
     </div>
   );
