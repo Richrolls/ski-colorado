@@ -8,7 +8,7 @@ body {
   background-image: url("Final_Crop.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #f8f9fa !important;
+  background-color: #f8f9fa41 !important;
 }
 
 code {
@@ -30,8 +30,8 @@ img {
 h1 {
   text-align: center;
   color: white;
-  text-shadow: 2px 2px 2px black;
-  font-size: 500% !important;
+  text-shadow: 3px 3px 3px black;
+  font-size: 600% !important;
 }
 
 h2 {
@@ -39,4 +39,87 @@ h2 {
   color: white;
   text-shadow: 2px 2px 2px black;
   font-size: 175% !important;
+  text-emphasis-style: italic;
+}
+
+h3 {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  font-size: 125% !important;
+}
+
+h4 {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  font-size: 100% !important;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.container-fluid {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  background-color: rgba(95, 101, 126, 0.4);
+  background-size: cover
+}
+
+.navbar {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.navbar-brand {
+  text-shadow: 2px 2px 2px black;
+  font-size: 42px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.navbar-brand:hover {
+  color: #fbae48 !important;
+}
+
+.butt {
+  box-shadow: inset 0px 1px 0px 0px #fce2c1;
+  background: linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
+  background-color: #ffc477;
+  border-radius: 11px;
+  border: 2px solid #eeb44f;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 36px;
+  font-weight: bold;
+  padding: 10px 22px;
+  text-decoration: none;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+.butt:hover {
+  background: linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
+  background-color: #fb9e25;
+}
+
+.btn-primary {
+  color: #ffffff;
+  border-color: #000000 !important;
+  align-items: center;
+}
+
+.fixed-bottom {
+  background-color: rgba(95, 101, 126, 0.3);
+  background-size: fill;
+}
+
+.twitter-timeline {
+  color: #ffffff;
+}
+
+.twitter-timeline:hover {
+  color: #eeb44f;
 }

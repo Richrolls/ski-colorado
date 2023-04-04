@@ -11,3 +11,6 @@ Followed along the coding of the Favorites, and how to organize its relation to 
 
 3/30/23
 Continued developing the code for the login form component of the front-end. Was able to debug the styling via proper use of div and label tags. Was not successful at completing the form as of yet, as I am getting 422 errors.
+
+4/3/23
+Worked with Jack on arranging the logged in home page and styling it. Lead the daily stand ups.
