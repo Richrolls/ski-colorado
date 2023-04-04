@@ -22,3 +22,8 @@
     Started work on the ResortDetail.js page. Was able to link the front-end to the database. Was able to display resorts in the database on the resort detail page. Changed the link in the ResortList.js file to now link to the corresponding ResortDetail.js page. Not exactly sure how to get the data of the current user for the 3rd party APIs.
 
     Looking forward to figuring out how to get the current user's data and pull data from the 3rd party APIs.
+
+4/4/2023
+    Started working on changing the Signup.js from react to redux-react. Still a giant work in progress, trying to learn how redux works while attempting to implement it.
+
+    Looking forward to figuring out how to implement redux.
