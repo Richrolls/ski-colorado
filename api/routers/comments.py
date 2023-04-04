@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.post("/api/resorts/{resort_id}/comments", response_model=CommentOut)
 async def create_comment(
-    rating: str,
+    rating: int,
     comment: str,
     resort_id: str,
     repo: CommentQueries = Depends(),
@@ -24,7 +24,7 @@ async def create_comment(
 # @router.post("/api/resorts/{resort_id}/comments", response_model=CommentList)
 # async def create_comments(
 #     comments: List[CommentIn],
-#     resort_id: str,
+#     resort_id: int,
 #     repo: CommentQueries = Depends(),
 #     account_data: dict = Depends(authenticator.get_current_account_data)
 # ):
