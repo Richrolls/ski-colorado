@@ -15,6 +15,8 @@ router = APIRouter()
 #     resort = repo.create(resort)
 #     return resort
 
+### BELOW THIS LINE IS A POST METHOD FOR CREATING MULTIPLE RESORT INSTANCES AT ONCE. TO REVERT TO SINGLE-INSTANCE, COMMENT OUT LINES 20-29 AND COMMENT IN LINES 10-16. ###
+
 @router.post("/api/resorts", response_model=List[ResortOut])
 async def create_resorts(
     resorts: List[ResortIn],
