@@ -46,3 +46,5 @@ const ResortList = () => {
 };
 
 export default ResortList;
+
+

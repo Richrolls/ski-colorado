@@ -31,6 +31,8 @@ class ResortIn(BaseModel):
     price: int
     vertical_drop: int
     num_trails: int
+    pass_type: Optional[str] = None
+    resort_website: Optional[str] = None
 
 class ResortOut(ResortIn):
     id: str
@@ -52,6 +54,7 @@ class AccountIn(BaseModel): #what we send into the database/collection
     last_name: str
     username: str
     password: str #user's pw
+    password_conf: str
     email: str
     address_1: str
     address_2: str
