@@ -5,6 +5,7 @@ import ErrorNotification from "./ErrorNotification";
 import Nav from "./Nav";
 import MainPage from "./MainPage.js";
 import SignupForm from "./SignupForm.js";
+import ResortDetail from "./ResortDetail.js";
 import LoginForm from "./LoginForm.js";
 import Home from "./components/Home.js";
 import "./App.css";
@@ -16,16 +17,16 @@ function App() {
   useEffect(() => {
     async function getData() {
       let url = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/launch-details`;
-      console.log("fastapi url: ", url);
+      //console.log("fastapi url: ", url);
       let response = await fetch(url);
-      console.log("------- hello? -------");
+      //console.log("------- hello? -------");
       let data = await response.json();
 
       if (response.ok) {
-        console.log("got launch data!");
+        //console.log("got launch data!");
         setLaunchInfo(data.launch_details);
       } else {
-        console.log("drat! something happened");
+        //console.log("drat! something happened");
         setError(data.message);
       }
     }
@@ -38,19 +39,21 @@ function App() {
     //   <Construct info={launch_info} /> */}
 
     // </div>
-  <>
-    <BrowserRouter>
-      <Nav />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="login" element={<LoginForm />} />
-          <Route path="signup" element={<SignupForm />} />
-          <Route path="home" element={<Home />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
-  </>
+    <>
+      <BrowserRouter>
+        <Nav />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/signup" element={<SignupForm />} />
+            <Route path="/resorts/:thisResort" element={<ResortDetail />} />
+            <Route path="login" element={<LoginForm />} />
+            <Route path="signup" element={<SignupForm />} />
+            <Route path="home" element={<Home />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </>
   );
 }
 
