@@ -31,6 +31,8 @@ class ResortIn(BaseModel):
     price: int
     vertical_drop: int
     num_trails: int
+    pass_type: str
+    resort_website: str
 
 class ResortOut(ResortIn):
     id: str
