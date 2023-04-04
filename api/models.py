@@ -54,6 +54,7 @@ class AccountIn(BaseModel): #what we send into the database/collection
     last_name: str
     username: str
     password: str #user's pw
+    password_conf: str
     email: str
     address_1: str
     address_2: str
