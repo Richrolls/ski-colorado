@@ -3,7 +3,10 @@ import { MDBFooter, MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 function Footer() {
   return (
     <div class="fixed-bottom">
-      <MDBFooter bgColor="light" className="text-center text-lg-left">
+      <MDBFooter
+        className="text-center text-lg-left"
+        bgColor="secondary"
+      >
         <MDBContainer className="p-4">
           <MDBRow>
             <MDBCol lg="6" md="12" className="mb-4 mb-md-0">
@@ -50,10 +53,7 @@ function Footer() {
           </MDBRow>
         </MDBContainer>
 
-        <div
-          className="text-center p-3"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-        >
+        <div className="text-center p-3">
           &copy; {new Date().getFullYear()} Copyright: Team 007
         </div>
       </MDBFooter>

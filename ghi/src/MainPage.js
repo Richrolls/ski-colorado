@@ -9,6 +9,10 @@ function MainPage() {
       <h1 className="snow">SkiColorado</h1>
       <h2>The ultimate community of Ski Colorado fanatics.</h2>
       <h2>View current conditions, explore new mountains, and so much more!</h2>
+      <br />
+      <h3>
+        <button className="butt btn-primary">Join Now!</button>
+      </h3>
       <Footer />
     </>
   );
