@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-s navbar-dark bg-primary bg-gradient">
+    <nav className="navbar navbar-expand-s navbar-dark bg-white bg-gradient">
       <div className="container-fluid">
         <div className="snow">
           <NavLink className="navbar-brand" to="/">
