@@ -147,6 +147,22 @@ function SignupForm() {
                   <div className="form-floating mb-3">
                     <input
                       onChange={handleFormChange}
+                      value={formData.password}
+                      placeholder="Confirm Password"
+                      required
+                      type="text"
+                      name="confirm-password"
+                      id="confirm-password"
+                      className="form-control bg-secondary bg-opacity-50 bg-gradient"
+                    />
+                    <label htmlFor="confirm-password">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Confirm
+                      Password
+                    </label>
+                  </div>
+                  <div className="form-floating mb-3">
+                    <input
+                      onChange={handleFormChange}
                       value={formData.email}
                       placeholder="Email"
                       required
@@ -292,7 +308,7 @@ function SignupForm() {
                   </div>
                 </div>
               </div>
-              <div class="button-box col d-flex justify-content-center align-items-center">
+              <div class="button-box col d-flex justify-content-end">
                 <button className="butt btn-lg btn-primary">Create</button>
               </div>
             </form>
