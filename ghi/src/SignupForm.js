@@ -233,9 +233,9 @@ function SignupForm() {
                       id="zipcode"
                       className="form-control bg-secondary bg-opacity-50 bg-gradient"
                     />
-                    <label htmlFor="zipcode">
+                    {/* <label htmlFor="zipcode">
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zipcode
-                    </label>
+                    </label> */}
                   </div>
                 </div>
                 <div className="row">
