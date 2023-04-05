@@ -155,7 +155,7 @@ function SignupForm() {
                   <div className="col form-floating mb-3">
                     <input
                       onChange={handleFormChange}
-                      value={formData.password}
+                      value={formData.password_conf}
                       placeholder="Confirm Password"
                       required
                       type="text"
