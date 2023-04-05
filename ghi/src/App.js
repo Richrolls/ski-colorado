@@ -4,7 +4,7 @@ import Construct from "./Construct.js";
 import ErrorNotification from "./ErrorNotification";
 import Nav from "./Nav";
 import MainPage from "./MainPage.js";
-import Signup from "./Signup.js";
+import Signup from "./components/signup/Signup.jsx";
 import ResortDetail from "./ResortDetail.js";
 import LoginForm from "./components/login/LoginForm.js";
 import Home from "./components/Home.js";
