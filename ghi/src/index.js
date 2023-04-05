@@ -6,14 +6,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-<<<<<<< HEAD
-import { store } from './store/store'
-import { Provider } from 'react-redux'
-
-=======
 import { store } from "./app/store";
 import { Provider } from "react-redux";
->>>>>>> main
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,17 +15,6 @@ root.render(
     <Provider store={store}>
       <App />
     </Provider>
-<<<<<<< HEAD
-      <div
-        style={{
-          height: "1px",
-          width: "1px",
-          position: "fill",
-        }}
-      >
-        <Snowfall snowflakeCount={300} />
-      </div>
-=======
     <div
       style={{
         height: "1px",
@@ -41,7 +24,6 @@ root.render(
     >
       <Snowfall snowflakeCount={300} />
     </div>
->>>>>>> main
   </React.StrictMode>
 );
 
