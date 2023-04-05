@@ -2,5 +2,17 @@
   "editor.formatOnPaste": true,
   "python.formatting.provider": "black",
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "explorer.excludeGitIgnore": true,
+  "search.exclude": {
+    "**/bower_components": false,
+    "**/node_modules": false
+  },
+  "files.exclude": {
+    "**/.DS_Store": false,
+    "**/.hg": false,
+    "**/.svn": false,
+    "**/CVS": false,
+    "**/Thumbs.db": false
+  }
 }

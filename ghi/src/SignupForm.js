@@ -279,56 +279,56 @@ function SignupForm() {
                     </label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="col">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input
-                      onChange={onCheck}
-                      checked={formData.ski === true}
-                      onFocus={null}
-                      className="form-check-input bg-secondary bg-opacity-50 bg-gradient"
-                      type="checkbox"
-                      name="ski"
-                      id="inlineCheckbox1"
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor="inlineCheckbox1"
-                    >
-                      Skier?
-                    </label>
-                  </div>
-                  <div className="col">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input
-                      onChange={onCheck}
-                      checked={formData.snowboard === true}
-                      onFocus={null}
-                      className="form-check-input bg-secondary bg-opacity-50 bg-gradient"
-                      type="checkbox"
-                      name="snowboard"
-                      id="inlineCheckbox2"
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor="inlineCheckbox2"
-                    >
-                      Snowboarder?
-                    </label>
-                  </div>
+                <form id="my-form">
                   <div className="row">
-                    <div className="col justify-content-center">
-                      <img
-                        src="https://i.imgur.com/trwig2h.gif"
-                        class="img-fluid rounded mx-auto d-block"
+                    <div className="col">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input
+                        onChange={onCheck}
+                        checked={formData.ski === true}
+                        className="form-check-input bg-secondary bg-opacity-50 bg-gradient custom-checkbox"
+                        type="checkbox"
+                        name="ski"
+                        id="inlineCheckbox1"
                       />
+                      <label
+                        className="form-check-label custom-checkbox-label"
+                        htmlFor="inlineCheckbox1"
+                      >
+                        Skier?
+                      </label>
                     </div>
-                    <div className="col align-content-center">
-                      <img
-                        src="https://i.imgur.com/oW26dZg.gif"
-                        class="img-fluid rounded mx-auto d-block"
+                    <div className="col">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input
+                        onChange={onCheck}
+                        checked={formData.snowboard === true}
+                        className="form-check-input bg-secondary bg-opacity-50 bg-gradient custom-checkbox"
+                        type="checkbox"
+                        name="snowboard"
+                        id="inlineCheckbox2"
                       />
+                      <label
+                        className="form-check-label custom-checkbox-label"
+                        htmlFor="inlineCheckbox2"
+                      >
+                        Snowboarder?
+                      </label>
                     </div>
+                  </div>
+                </form>
+                <div className="row">
+                  <div className="col justify-content-center">
+                    <img
+                      src="https://i.imgur.com/trwig2h.gif"
+                      class="img-fluid rounded mx-auto d-block"
+                    />
+                  </div>
+                  <div className="col justify-content-center">
+                    <img
+                      src="https://i.imgur.com/C5wNKa6.gif"
+                      class="img-fluid rounded mx-auto d-block"
+                    />
                   </div>
                 </div>
               </div>

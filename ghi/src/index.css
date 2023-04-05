@@ -147,6 +147,12 @@ label {
   padding-top: 6px;
 }
 
+#my-form .form-check-input.custom-checkbox:focus:not(:checked)+.custom-checkbox-label::before {
+  background-color: #ff0000 !important;
+  border-color: #ff0000 !important;
+  box-shadow: none !important;
+}
+
 /* .upper-padding-form {
   padding-top: 14px; */
 /* } */
