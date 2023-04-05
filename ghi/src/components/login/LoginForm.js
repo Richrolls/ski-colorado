@@ -1,23 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  handlePasswordChange,
-  handleUsernameChange,
-  reset,
-} from "./loginSlice";
+import { handlePasswordChange, handleUsernameChange, reset,} from "./loginSlice";
 import { useLoginMutation } from "./auth";
+import {useNavigate} from "react-router-dom"
 
-function LoginForm() {
+const LoginForm = () => {
   const dispatch = useDispatch();
   const [login] = useLoginMutation();
   const { fields } = useSelector((state) => state.login);
+  const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("handleSubmit");
     console.log({ fields });
     login(fields);
     dispatch(reset());
+
+    const result = await login(fields).unwrap()
+    console.log(result)
+    if (result.access_token) {
+      navigate("/home")
+    } else {
+      alert("Incorrect username or password, please try again you fat-fingered fool")
+    }
+
   };
 
   return (
