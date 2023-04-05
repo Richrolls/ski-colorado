@@ -2,7 +2,7 @@ import { MDBFooter, MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 
 function Footer() {
   return (
-    <div class="fixed-bottom">
+    <div className="fixed-bottom">
       <MDBFooter className="text-center text-lg-left">
         <MDBContainer className="p-4">
           <MDBRow>
@@ -29,7 +29,7 @@ function Footer() {
                 Colorado Department of Transportation Updates
                 <br/>
                 <a
-                  class="twitter-timeline"
+                  className="twitter-timeline"
                   href="https://twitter.com/ColoradoDOT?ref_src=twsrc%5Etfw"
                 >
                   View Current Tweets from ColoradoDOT
@@ -39,7 +39,7 @@ function Footer() {
               <script
                 async
                 src="https://platform.twitter.com/widgets.js"
-                charset="utf-8"
+                charSet="utf-8"
               ></script>
               <div>
                 <img
