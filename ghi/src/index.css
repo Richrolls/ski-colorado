@@ -140,20 +140,26 @@ label {
 }
 
 .big-container {
-  padding-top: 24px;
+  padding-top: 12px;
 }
 
 .button-box {
   padding-top: 6px;
 }
 
-.upper-padding-form {
-  padding-top: 14px;
-}
+/* .upper-padding-form {
+  padding-top: 14px; */
+/* } */
 
 .url-label {
-  padding-top: 29px !important;
+  padding-top: 16px !important;
 }
+
+/* .btn-sm {
+  font-size: 100% !important;
+  border: 2px solid !important;
+  border-color: #000000 !important;
+} */
 
 input {
   color: white !important;
