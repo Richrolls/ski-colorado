@@ -145,6 +145,7 @@ label {
 
 .button-box {
   padding-top: 6px;
+  padding-right: 18px;
 }
 
 .upper-padding-form {
@@ -154,6 +155,12 @@ label {
 .url-label {
   padding-top: 29px !important;
 }
+
+/* .btn-sm {
+  font-size: 100% !important;
+  border: 2px solid !important;
+  border-color: #000000 !important;
+} */
 
 input {
   color: white !important;

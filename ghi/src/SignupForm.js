@@ -77,6 +77,14 @@ function SignupForm() {
           >
             <h1 className="snow">Sign Up</h1>
             <form onSubmit={handleSubmit} id="signup-form">
+              <div>
+                <h3>
+                  Already have an account?&nbsp;&nbsp;
+                  <a href="#" class="link-warning">
+                    Click here!
+                  </a>
+                </h3>
+              </div>
               <div className="container container-top">
                 <div className="row">
                   <div className="col form-floating mb-3">
@@ -129,7 +137,7 @@ function SignupForm() {
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Username
                     </label>
                   </div>
-                  <div className="form-floating mb-3">
+                  <div className="col form-floating mb-3">
                     <input
                       onChange={handleFormChange}
                       value={formData.password}
@@ -141,10 +149,10 @@ function SignupForm() {
                       className="form-control bg-secondary bg-opacity-50 bg-gradient"
                     />
                     <label htmlFor="password">
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password
                     </label>
                   </div>
-                  <div className="form-floating mb-3">
+                  <div className="col form-floating mb-3">
                     <input
                       onChange={handleFormChange}
                       value={formData.password}
@@ -156,7 +164,7 @@ function SignupForm() {
                       className="form-control bg-secondary bg-opacity-50 bg-gradient"
                     />
                     <label htmlFor="confirm-password">
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Confirm
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Confirm
                       Password
                     </label>
                   </div>
@@ -269,7 +277,7 @@ function SignupForm() {
                       className="form-check-label"
                       htmlFor="inlineCheckbox1"
                     >
-                      Ski
+                      Skier?
                     </label>
                   </div>
                   <div className="col">
@@ -286,9 +294,11 @@ function SignupForm() {
                       className="form-check-label"
                       htmlFor="inlineCheckbox1"
                     >
-                      Snowboard
+                      Snowboarder?
                     </label>
                   </div>
+                  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHRzeWdlMWp1Zml1NGcyeHdqdW1vb3ZtNWQwZTlmZ25ncWhuMDQxZiZjdD1z/8JTA2Bt7CeQzoOYqAN/giphy.gif" />
+                  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa202azhxMjR0bWVmMWZ4a28wZHFsbDBubzliaHVkeWRyenYwZTRqZCZjdD1z/lkJrRkle9t0NifLZ3Z/giphy.gif" />
                 </div>
                 <div className="row">
                   <div className="upper-padding-form form-floating mb-3">
@@ -308,7 +318,7 @@ function SignupForm() {
                   </div>
                 </div>
               </div>
-              <div class="button-box col d-flex justify-content-end">
+              <div class="button-box col d-flex justify-content-center">
                 <button className="butt btn-lg btn-primary">Create</button>
               </div>
             </form>
