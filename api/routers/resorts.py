@@ -21,7 +21,6 @@ router = APIRouter()
 async def create_resorts(
     resorts: List[ResortIn],
     repo: ResortQueries = Depends()
-    
 ):
     created_resorts = []
     for resort in resorts:
