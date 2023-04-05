@@ -16,11 +16,12 @@ const initialState = {
         ski: false,
         snowboard: false,
         picture_url: ""
-    }
+    },
+    errorMessage: null
 }
 
-const accountSlice = createSlice({
-  name: "account",
+const signupSlice = createSlice({
+  name: "signup",
   initialState,
   reducers: {
     handleFirstNameChange: (state, action) => {
@@ -65,10 +66,27 @@ const accountSlice = createSlice({
     handlePictureUrlChange: (state, action) => {
       state.fields.picture_url = action.payload;
     },
+    error: (state, action) => {
+      state.errorMessage = action.payload;
+    },
     reset: () => initialState,
   },
 });
 
-export const { handleFirstNameChange, handleLastNameChange, handleUsernameChange, handlePasswordChange, handlePasswordConfChange, handleEmailChange, handleAddress1Change, handleAddress2Change, handleCityChange, handleStateChange, handleZipcodeChange, handleSkiChange, handleSnowboardChange, handlePictureUrlChange } = accountSlice.actions;
+export const {
+  handleFirstNameChange,
+  handleLastNameChange,
+  handleUsernameChange,
+  handlePasswordChange,
+  handlePasswordConfChange,
+  handleEmailChange,
+  handleAddress1Change,
+  handleAddress2Change,
+  handleCityChange,
+  handleStateChange,
+  handleZipcodeChange,
+  handleSkiChange,
+  handleSnowboardChange,
+  handlePictureUrlChange } = signupSlice.actions;
 
-export default accountSlice.reducer;
+export default signupSlice.reducer;

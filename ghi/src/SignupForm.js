@@ -5,6 +5,7 @@ import {
   handleLastNameChange,
   handleUsernameChange,
   handlePasswordChange,
+  handlePasswordConfChange,
   handleEmailChange,
   handleAddress1Change,
   handleAddress2Change,
@@ -14,16 +15,19 @@ import {
   handleSkiChange,
   handleSnowboardChange,
   handlePictureUrlChange,
-} from "./features/account/newAccountSlice";
-import { useCreateAccountMutation } from "./services/account";
+} from "./features/auth/signupSlice";
+import { use} from afwea;
 
-function SignupForm() {
+const SignupForm = () => {
   const dispatch = useDispatch()
   const [account] = useCreateAccountMutation()
-  const { fields } = useSelector(state => state.account)
+  const { fields } = useSelector(state => state.signup)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (fields.password != fields.passwordConf) {
+      dispatch(error("Passwords do not match"))
+    }
     account(fields)
     dispatch(reset())
     };
@@ -49,11 +53,11 @@ function SignupForm() {
                 <div className="row">
                   <div className="col form-floating mb-3">
                     <input
-                      onChange={handleFirstNameChange}
+                      onChange={e => dispatch(handleFirstNameChange(e.target.value))}
                       value={fields.first_name}
                       placeholder="First Name"
                       required
-                      type="text"
+                      type={`text`}
                       name="first_name"
                       id="first_name"
                       className="form-control"
@@ -77,8 +81,8 @@ function SignupForm() {
                 <div className="row">
                   <div className="form-floating mb-3">
                     <input
-                      onChange={handleFormChange}
-                      value={formData.username}
+                      onChange={handleUsernameChange}
+                      value={fields.username}
                       placeholder="Username"
                       required
                       type="text"
