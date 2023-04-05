@@ -6,21 +6,25 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { store } from './store/store'
+import { Provider } from 'react-redux'
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
-    <div
-      style={{
-        height: "1px",
-        width: "1px",
-        position: "fill",
-      }}
-    >
-      <Snowfall snowflakeCount={300} />
-    </div>
+    <Provider store={store}>
+      <App />
+    </Provider>
+      <div
+        style={{
+          height: "1px",
+          width: "1px",
+          position: "fill",
+        }}
+      >
+        <Snowfall snowflakeCount={300} />
+      </div>
   </React.StrictMode>
 );
 
