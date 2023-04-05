@@ -37,7 +37,7 @@ const signupSlice = createSlice({
       state.fields.password = action.payload;
     },
     handlePasswordConfChange: (state, action) => {
-      state.fields.password = action.payload;
+      state.fields.password_conf = action.payload;
     },
     handleEmailChange: (state, action) => {
       state.fields.email = action.payload;
@@ -87,6 +87,9 @@ export const {
   handleZipcodeChange,
   handleSkiChange,
   handleSnowboardChange,
-  handlePictureUrlChange } = signupSlice.actions;
+  handlePictureUrlChange,
+  reset,
+  error
+} = signupSlice.actions;
 
 export default signupSlice.reducer;

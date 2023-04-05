@@ -4,7 +4,7 @@ import Construct from "./Construct.js";
 import ErrorNotification from "./ErrorNotification";
 import Nav from "./Nav";
 import MainPage from "./MainPage.js";
-import SignupForm from "./SignupForm.js";
+import Signup from "./Signup.js";
 import ResortDetail from "./ResortDetail.js";
 import LoginForm from "./LoginForm.js";
 import Home from "./components/Home.js";
@@ -45,10 +45,9 @@ function App() {
         <div className="container">
           <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/signup" element={<SignupForm />} />
             <Route path="/resorts/:thisResort" element={<ResortDetail />} />
             <Route path="login" element={<LoginForm />} />
-            <Route path="signup" element={<SignupForm />} />
+            <Route path="signup" element={<Signup />} />
             <Route path="home" element={<Home />} />
           </Routes>
         </div>
