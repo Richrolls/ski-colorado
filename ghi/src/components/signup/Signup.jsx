@@ -16,25 +16,25 @@ import {
   handleSnowboardChange,
   handlePictureUrlChange,
   error,
-  reset
-} from "./features/auth/signupSlice";
-import { useSignupMutation } from "./services/signup";
-import ErrorMessage from "./ErrorMessage";
+  reset,
+} from "./signupSlice";
+import { useSignupMutation } from "./signup";
+import ErrorMessage from "../../ErrorMessage";
 
 const Signup = () => {
-  const dispatch = useDispatch()
-  const [signup] = useSignupMutation()
-  const { errorMessage, fields } = useSelector(state => state.signup)
+  const dispatch = useDispatch();
+  const [signup] = useSignupMutation();
+  const { errorMessage, fields } = useSelector((state) => state.signup);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (fields.password != fields.password_conf) {
-      dispatch(error("Passwords do not match"))
+      dispatch(error("Passwords do not match"));
       return;
     }
-    signup(fields)
-    dispatch(reset())
-    };
+    signup(fields);
+    dispatch(reset());
+  };
 
   return (
     <div className="container">
@@ -48,7 +48,9 @@ const Signup = () => {
                 <div className="row">
                   <div className="col form-floating mb-3">
                     <input
-                      onChange={e => dispatch(handleFirstNameChange(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(handleFirstNameChange(e.target.value))
+                      }
                       value={fields.first_name}
                       required
                       type={`text`}
@@ -60,7 +62,9 @@ const Signup = () => {
                   </div>
                   <div className="col form-floating mb-3">
                     <input
-                      onChange={e => dispatch(handleLastNameChange(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(handleLastNameChange(e.target.value))
+                      }
                       value={fields.last_name}
                       required
                       type={`text`}
@@ -74,7 +78,9 @@ const Signup = () => {
                 <div className="row">
                   <div className="form-floating mb-3">
                     <input
-                     onChange={e => dispatch(handleUsernameChange(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(handleUsernameChange(e.target.value))
+                      }
                       value={fields.username}
                       required
                       type={`text`}
@@ -86,7 +92,9 @@ const Signup = () => {
                   </div>
                   <div className="form-floating mb-3">
                     <input
-                      onChange={e => dispatch(handlePasswordChange(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(handlePasswordChange(e.target.value))
+                      }
                       value={fields.password}
                       required
                       type={`password`}
@@ -98,7 +106,9 @@ const Signup = () => {
                   </div>
                   <div className="form-floating mb-3">
                     <input
-                      onChange={e => dispatch(handlePasswordConfChange(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(handlePasswordConfChange(e.target.value))
+                      }
                       value={fields.password_conf}
                       required
                       type={`password`}
@@ -110,7 +120,9 @@ const Signup = () => {
                   </div>
                   <div className="form-floating mb-3">
                     <input
-                      onChange={e => dispatch(handleEmailChange(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(handleEmailChange(e.target.value))
+                      }
                       value={fields.email}
                       required
                       type={`email`}
@@ -122,7 +134,9 @@ const Signup = () => {
                   </div>
                   <div className="form-floating mb-3">
                     <input
-                      onChange={e => dispatch(handleAddress1Change(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(handleAddress1Change(e.target.value))
+                      }
                       value={fields.address_1}
                       required
                       type={`text`}
@@ -134,7 +148,9 @@ const Signup = () => {
                   </div>
                   <div className="form-floating mb-3">
                     <input
-                      onChange={e => dispatch(handleAddress2Change(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(handleAddress2Change(e.target.value))
+                      }
                       value={fields.address_2}
                       type={`text`}
                       name="address_2"
@@ -147,7 +163,9 @@ const Signup = () => {
                 <div className="row">
                   <div className="col form-floating mb-3">
                     <input
-                      onChange={e => dispatch(handleCityChange(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(handleCityChange(e.target.value))
+                      }
                       value={fields.city}
                       required
                       type={`text`}
@@ -159,7 +177,9 @@ const Signup = () => {
                   </div>
                   <div className="col form-floating mb-3">
                     <input
-                      onChange={e => dispatch(handleStateChange(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(handleStateChange(e.target.value))
+                      }
                       value={fields.state}
                       required
                       type={`text`}
@@ -171,7 +191,9 @@ const Signup = () => {
                   </div>
                   <div className="form-floating mb-3">
                     <input
-                      onChange={e => dispatch(handleZipcodeChange(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(handleZipcodeChange(e.target.value))
+                      }
                       value={fields.zipcode}
                       required
                       type={`number`}
@@ -185,7 +207,9 @@ const Signup = () => {
                 <div className="row">
                   <div className="col">
                     <input
-                      onChange={e => dispatch(handleSkiChange(e.target.checked))}
+                      onChange={(e) =>
+                        dispatch(handleSkiChange(e.target.checked))
+                      }
                       checked={fields.ski === true}
                       className="form-check-input"
                       type="checkbox"
@@ -201,7 +225,9 @@ const Signup = () => {
                   </div>
                   <div className="col">
                     <input
-                      onChange={e => dispatch(handleSnowboardChange(e.target.checked))}
+                      onChange={(e) =>
+                        dispatch(handleSnowboardChange(e.target.checked))
+                      }
                       checked={fields.snowboard === true}
                       className="form-check-input"
                       type="checkbox"
@@ -219,7 +245,9 @@ const Signup = () => {
                 <div className="row">
                   <div className="form-floating mb-3">
                     <input
-                      onChange={e => dispatch(handlePictureUrlChange(e.target.value))}
+                      onChange={(e) =>
+                        dispatch(handlePictureUrlChange(e.target.value))
+                      }
                       value={fields.picture_url}
                       type={`url`}
                       name="picture_url"
@@ -230,7 +258,9 @@ const Signup = () => {
                   </div>
                 </div>
               </div>
-              <button type="submit" className="btn btn-primary">Signup</button>
+              <button type="submit" className="btn btn-primary">
+                Signup
+              </button>
             </form>
           </div>
         </div>

@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import signupReducer from "../features/auth/signupSlice";
+import signupReducer from "../components/signup/signupSlice";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { signupApi } from "../services/signup";
-import { authApi } from "../features/auth/auth";
+import { signupApi } from "../components/signup/signup";
+import { authApi } from "../components/login/auth";
 import loginReducer from "../components/login/loginSlice";
 
 export const store = configureStore({
