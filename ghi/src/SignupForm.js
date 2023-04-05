@@ -263,11 +263,29 @@ function SignupForm() {
                   </div>
                 </div>
                 <div className="row">
+                  <div className="upper-padding-form form-floating mb-3">
+                    <input
+                      onChange={handleFormChange}
+                      value={formData.picture_url}
+                      placeholder="Picture Url"
+                      type="text"
+                      name="picture_url"
+                      id="picture_url"
+                      className="form-control bg-secondary bg-opacity-50 bg-gradient"
+                    />
+                    <label htmlFor="picture_url" className="url-label">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Profile
+                      Picture URL (optional)
+                    </label>
+                  </div>
+                </div>
+                <div className="row">
                   <div className="col">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input
                       onChange={onCheck}
                       checked={formData.ski === true}
+                      onFocus={null}
                       className="form-check-input bg-secondary bg-opacity-50 bg-gradient"
                       type="checkbox"
                       name="ski"
@@ -281,40 +299,36 @@ function SignupForm() {
                     </label>
                   </div>
                   <div className="col">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input
                       onChange={onCheck}
                       checked={formData.snowboard === true}
+                      onFocus={null}
                       className="form-check-input bg-secondary bg-opacity-50 bg-gradient"
                       type="checkbox"
                       name="snowboard"
-                      id="inlineCheckbox1"
+                      id="inlineCheckbox2"
                     />
                     <label
                       className="form-check-label"
-                      htmlFor="inlineCheckbox1"
+                      htmlFor="inlineCheckbox2"
                     >
                       Snowboarder?
                     </label>
                   </div>
-                  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHRzeWdlMWp1Zml1NGcyeHdqdW1vb3ZtNWQwZTlmZ25ncWhuMDQxZiZjdD1z/8JTA2Bt7CeQzoOYqAN/giphy.gif" />
-                  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa202azhxMjR0bWVmMWZ4a28wZHFsbDBubzliaHVkeWRyenYwZTRqZCZjdD1z/lkJrRkle9t0NifLZ3Z/giphy.gif" />
-                </div>
-                <div className="row">
-                  <div className="upper-padding-form form-floating mb-3">
-                    <input
-                      onChange={handleFormChange}
-                      value={formData.picture_url}
-                      placeholder="Picture Url"
-                      type="text"
-                      name="picture_url"
-                      id="picture_url"
-                      className="form-control bg-secondary bg-opacity-50 bg-gradient"
-                    />
-                    <label htmlFor="picture_url" className="url-label">
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Picture
-                      Url (optional)
-                    </label>
+                  <div className="row">
+                    <div className="col justify-content-center">
+                      <img
+                        src="https://i.imgur.com/trwig2h.gif"
+                        class="img-fluid rounded mx-auto d-block"
+                      />
+                    </div>
+                    <div className="col align-content-center">
+                      <img
+                        src="https://i.imgur.com/oW26dZg.gif"
+                        class="img-fluid rounded mx-auto d-block"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

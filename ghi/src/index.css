@@ -140,20 +140,19 @@ label {
 }
 
 .big-container {
-  padding-top: 24px;
+  padding-top: 12px;
 }
 
 .button-box {
   padding-top: 6px;
-  padding-right: 18px;
 }
 
-.upper-padding-form {
-  padding-top: 14px;
-}
+/* .upper-padding-form {
+  padding-top: 14px; */
+/* } */
 
 .url-label {
-  padding-top: 29px !important;
+  padding-top: 16px !important;
 }
 
 /* .btn-sm {
