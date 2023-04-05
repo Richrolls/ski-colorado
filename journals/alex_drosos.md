@@ -3,4 +3,4 @@
 3/29/23 -
 3/30/23 - Began work on design of SkiColorado main page. Worked through some issues with package installations.
 4/3/23 - Continued work on main page with goal to finish. Collaborated with Eric to tweak existing elements until we were happy with product.
-4/4/23 -
+4/4/23 - Implemented few additional features to main page with Eric, including raining snow on page. Compiled all resort data into formatted strings for future ease of populating database.

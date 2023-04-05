@@ -29,3 +29,5 @@ Week 3
 Day 1: Collaborate with Alex on Front End. Lots of experimenting and troubleshooting with the background image to get the right aesthetic. Went through 10-12 iterations of the background image and lengthened it vertically to eliminate empty white space.
 
 Day 2: FINISHED Main Page with Alex! SNOWFALL!
+
+Day 3: Signup Page Aesthetics. CSS/HTML/Bootstrap etc. It's finished! I think.

@@ -6,7 +6,7 @@ import Nav from "./Nav";
 import MainPage from "./MainPage.js";
 import Signup from "./Signup.js";
 import ResortDetail from "./ResortDetail.js";
-import LoginForm from "./LoginForm.js";
+import LoginForm from "./components/login/LoginForm.js";
 import Home from "./components/Home.js";
 import "./App.css";
 
