@@ -8,6 +8,7 @@ import SignupForm from "./SignupForm.js";
 import ResortDetail from "./ResortDetail.js";
 import LoginForm from "./LoginForm.js";
 import Home from "./components/Home.js";
+import AccountDetail from "./components/Account.js";
 import "./App.css";
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
             <Route path="login" element={<LoginForm />} />
             <Route path="signup" element={<SignupForm />} />
             <Route path="home" element={<Home />} />
+            <Route path="account" element={< AccountDetail/> } />
           </Routes>
         </div>
       </BrowserRouter>
