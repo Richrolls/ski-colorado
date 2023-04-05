@@ -62,10 +62,9 @@ a {
 }
 
 .container-fluid {
+  background-image: url("Nav_Background.png") !important;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
-  background-color: rgba(95, 101, 126, 0.4);
-  background-size: cover
 }
 
 .navbar {
@@ -81,7 +80,7 @@ a {
 }
 
 .navbar-brand:hover {
-  color: #fbae48 !important;
+  color: #ffbf6c !important;
 }
 
 .butt {
@@ -112,7 +111,7 @@ a {
 }
 
 .fixed-bottom {
-  background-color: rgba(95, 101, 126, 0.3);
+  background-color: rgba(0, 44, 120, 0.303);
   background-size: fill;
 }
 
@@ -122,4 +121,41 @@ a {
 
 .twitter-timeline:hover {
   color: #eeb44f;
+}
+
+label {
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  font-size: 100% !important;
+}
+
+.btn-lg {
+  font-size: 150% !important;
+  padding: 10px 22px !important;
+  border-radius: 11px !important;
+}
+
+.container-top {
+  padding-top: 16px;
+}
+
+.big-container {
+  padding-top: 24px;
+}
+
+.button-box {
+  padding-top: 6px;
+}
+
+.upper-padding-form {
+  padding-top: 14px;
+}
+
+.url-label {
+  padding-top: 29px !important;
+}
+
+input {
+  color: white !important;
+  text-align: center;
 }
