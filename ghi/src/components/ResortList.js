@@ -7,7 +7,6 @@ const ResortList = () => {
     const response = await fetch("http://localhost:8000/api/resorts");
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       setResortData(data.resorts);
     }
   };
