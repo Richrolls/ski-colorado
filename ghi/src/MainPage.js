@@ -1,9 +1,16 @@
 import Footer from "./Footer.js";
+import { useNavigate} from "react-router-dom"
 
 function MainPage() {
+  const navigate = useNavigate();
+
+  const handleJoinClick = () => {
+    navigate("/signup")
+  }
+
   return (
     <>
-      <body></body>
+      
       <br></br>
       <br></br>
       <h1 className="snow">SkiColorado</h1>
@@ -11,7 +18,7 @@ function MainPage() {
       <h3>View current conditions, explore new mountains, and so much more!</h3>
       <br />
       <h3>
-        <button className="butt btn-primary">Join Now!</button>
+        <button className="butt btn-primary" onClick={handleJoinClick}>Join Now!</button>
       </h3>
       <Footer />
     </>
