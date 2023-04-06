@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
 
-function Nav() {
+function NavLoggedIn() {
   return (
     <nav className="navbar navbar-expand-s navbar-dark bg-gradient">
       <div className="container-fluid">
         <div className="snow">
-          <NavLink className="navbar-brand" to="/">
+          <NavLink className="navbar-brand" to="/home">
             SC
           </NavLink>
         </div>
@@ -30,4 +30,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default NavLoggedIn;
