@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-function Nav() {
+function NavLoggedOut() {
   return (
     <nav className="navbar navbar-expand-s navbar-dark bg-gradient">
       <div className="container-fluid">
@@ -30,4 +30,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default NavLoggedOut;

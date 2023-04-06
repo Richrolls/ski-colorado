@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import NavLoggedIn from "../header/NavLoggedIn.js"
 
 const ResortDetail = () => {
     const [resort, setResort] = useState([]);
@@ -19,6 +20,8 @@ const ResortDetail = () => {
     }, [thisResort]);
 
     return (
+        <>
+        <NavLoggedIn />
         <div className="row bg-primary">
             <div className="col-4 bg-info min-vh-100">
                 <div>
@@ -40,6 +43,7 @@ const ResortDetail = () => {
                 <p>Test</p>
             </div>
         </div>
+        </>
     );
 
 }

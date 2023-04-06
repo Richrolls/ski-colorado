@@ -50,10 +50,6 @@ function Footer() {
             </MDBCol>
           </MDBRow>
         </MDBContainer>
-
-        <h4 className="text-center p-3">
-          &copy; {new Date().getFullYear()} Copyright: Team 007
-        </h4>
       </MDBFooter>
     </div>
   );

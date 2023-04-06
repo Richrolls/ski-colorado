@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import ResortList from './ResortList.js';
+import NavLoggedIn from "../header/NavLoggedIn.js"
 
 function Checkbox(props) {
   const { name, label } = props
@@ -22,6 +23,7 @@ function Checkbox(props) {
 function HomePage() {
   return (
     <>
+    <NavLoggedIn />
       <div className="Page text-center">
         <div className="col">
           <div className="row row-cols-2">
