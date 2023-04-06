@@ -53,6 +53,18 @@ const LoginForm = () => {
               style={{ borderRadius: 8 }}
             >
               <h1 class="snow">Login</h1>
+
+              <h3>
+                Don't have an account?&nbsp;&nbsp;
+                <a
+                  href="#"
+                  class="link-warning"
+                  onClick={(e) => dispatch(handleJoinClick(e.target.value))}
+                >
+                  Click here!
+                </a>
+              </h3>
+              <br />
               <form onSubmit={handleSubmit} id="login-form">
                 <div className="mb-3">
                   <input
@@ -82,19 +94,7 @@ const LoginForm = () => {
                   <button className="butt btn-lg btn-primary">Log in</button>
                 </div>
               </form>
-              <div>
-                <br />
-                <h3>
-                  Don't have an account?&nbsp;&nbsp;
-                  <a
-                    href="#"
-                    class="link-warning"
-                    onClick={(e) => dispatch(handleJoinClick(e.target.value))}
-                  >
-                    Click here!
-                  </a>
-                </h3>
-              </div>
+              <div></div>
             </div>
           </div>
         </div>
