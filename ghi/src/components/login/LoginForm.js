@@ -3,16 +3,22 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   handlePasswordChange,
   handleUsernameChange,
+  error,
   reset,
 } from "./loginSlice";
 import { useLoginMutation } from "./auth";
 import { useNavigate } from "react-router-dom";
+import ErrorMessage from "./ErrorMessage";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
   const [login] = useLoginMutation();
-  const { fields } = useSelector((state) => state.login);
+  const { errorMessage, fields } = useSelector((state) => state.login);
   const navigate = useNavigate();
+
+  const handleJoinClick = (e) => {
+    navigate("/signup");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -80,7 +86,11 @@ const LoginForm = () => {
                 <br />
                 <h3>
                   Don't have an account?&nbsp;&nbsp;
-                  <a href="#" class="link-warning">
+                  <a
+                    href="#"
+                    class="link-warning"
+                    onClick={(e) => dispatch(handleJoinClick(e.target.value))}
+                  >
                     Click here!
                   </a>
                 </h3>
