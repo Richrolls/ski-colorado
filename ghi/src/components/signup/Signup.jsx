@@ -63,7 +63,7 @@ const Signup = () => {
                     Already have an account?&nbsp;&nbsp;
                     <a
                       href="#"
-                      class="link-warning"
+                      className="link-warning"
                       onClick={(e) => dispatch(handleJoinClick(e.target.value))}
                     >
                       Click here!
