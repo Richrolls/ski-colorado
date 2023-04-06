@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Construct from "./Construct.js";
-import ErrorNotification from "./ErrorNotification";
-import Nav from "./Nav";
-import MainPage from "./MainPage.js";
+import ErrorNotification from "./components/errorhandling/ErrorNotification"
+import MainPage from "./components/mainpage/MainPage.js";
 import Signup from "./components/signup/Signup.jsx";
-import ResortDetail from "./ResortDetail.js";
+import ResortDetail from "./components/resort/ResortDetail.js";
 import LoginForm from "./components/login/LoginForm.js";
-import Home from "./components/Home.js";
+import Home from "./components/homepage/Home.js";
 import "./App.css";
 
 function App() {
@@ -41,8 +40,7 @@ function App() {
     // </div>
     <>
       <BrowserRouter>
-        <Nav />
-        <div className="container">
+        {/* <div className="container"> */}
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/resorts/:thisResort" element={<ResortDetail />} />
@@ -50,7 +48,7 @@ function App() {
             <Route path="signup" element={<Signup />} />
             <Route path="home" element={<Home />} />
           </Routes>
-        </div>
+        {/* </div> */}
       </BrowserRouter>
     </>
   );

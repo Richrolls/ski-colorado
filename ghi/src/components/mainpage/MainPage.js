@@ -1,5 +1,6 @@
-import Footer from "./Footer.js";
-import { useNavigate } from "react-router-dom";
+import Footer from "../footer/Footer.js";
+import { useNavigate} from "react-router-dom"
+import NavLoggedOut from "../header/NavLoggedOut.js";
 
 function MainPage() {
   const navigate = useNavigate();
@@ -10,6 +11,9 @@ function MainPage() {
 
   return (
     <>
+    <NavLoggedOut />
+    <>
+
       <br></br>
       <br></br>
       <h1 className="snow">SkiColorado</h1>
@@ -33,6 +37,8 @@ function MainPage() {
 
       <Footer />
     </>
+</>
+
   );
 }
 
