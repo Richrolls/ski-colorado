@@ -18,7 +18,7 @@ import {
   error,
   reset,
 } from "./signupSlice";
-import { useSignupMutation } from "./Signup";
+import { useSignupMutation } from "./signup";
 import ErrorMessage from "./errorhandling/ErrorMessage.js"
 
 const Signup = () => {

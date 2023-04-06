@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Construct from "./Construct.js";
-import ErrorNotification from "./errorhandling/ErrorNotification.js";
-import Nav from "./header/Nav.js";
-import MainPage from "./mainpage/MainPage.js";
+import ErrorNotification from "./components/errorhandling/ErrorNotification"
+import Nav from "./components/header/Nav.js";
+import MainPage from "./components/mainpage/MainPage.js";
 import Signup from "./components/signup/Signup.jsx";
-import ResortDetail from ".resort//ResortDetail.js";
+import ResortDetail from "./components/resort/ResortDetail.js";
 import LoginForm from "./components/login/LoginForm.js";
 import Home from "./components/homepage/Home.js";
 import "./App.css";
