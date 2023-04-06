@@ -155,11 +155,39 @@ label {
   padding-top: 29px !important;
 }
 
-.form-check-input:focus {
-  box-shadow: 0, 0, 0, 0, none, none;
-}
-
 input {
   color: white !important;
   text-align: center;
+}
+
+.form-control {
+  height: 36px !important;
+  padding-top: 4px !important;
+}
+
+.form-floating {
+  height: 32px !important;
+}
+
+.mb-3 {
+  height: 32px !important;
+}
+
+label {
+  padding-bottom: 16px !important;
+  padding-top: 2px !important;
+}
+
+input::-webkit-input-placeholder {
+  text-align: center;
+  color: white !important;
+  text-shadow: 2px 2px 2px black;
+  font-size: 100% !important;
+  padding-top: 4px !important;
+}
+
+input:focus::-webkit-input-placeholder { font-size: 0% !important; }
+
+input[type="checkbox"] {
+  accent-color: rgb(255, 166, 0);
 }
