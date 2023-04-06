@@ -78,6 +78,15 @@ const LoginForm = () => {
                   <button className="butt btn-lg btn-primary">Log in</button>
                 </div>
               </form>
+              <div>
+                <br />
+                <h3>
+                  Don't have an account?&nbsp;&nbsp;
+                  <a href="#" class="link-warning">
+                    Click here!
+                  </a>
+                </h3>
+              </div>
             </div>
           </div>
         </div>
