@@ -155,11 +155,13 @@ label {
   padding-top: 16px !important;
 }
 
-/* .btn-sm {
-  font-size: 100% !important;
-  border: 2px solid !important;
-  border-color: #000000 !important;
-} */
+.form-check-input:focus {
+  box-shadow: 0, 0, 0, 0, none, none;
+}
+
+.form-check-input:focus {
+  box-shadow: 0, 0, 0, 0, none, none;
+}
 
 input {
   color: white !important;
