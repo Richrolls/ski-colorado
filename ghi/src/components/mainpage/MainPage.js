@@ -1,4 +1,4 @@
-import Footer from "./footer/Footer.js";
+import Footer from "../footer/Footer.js";
 import { useNavigate} from "react-router-dom"
 
 function MainPage() {
