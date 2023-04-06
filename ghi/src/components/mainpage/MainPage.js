@@ -1,4 +1,4 @@
-import Footer from "./Footer.js";
+import Footer from "./Footer.js.js";
 import { useNavigate} from "react-router-dom"
 
 function MainPage() {
@@ -10,7 +10,7 @@ function MainPage() {
 
   return (
     <>
-      
+
       <br></br>
       <br></br>
       <h1 className="snow">SkiColorado</h1>

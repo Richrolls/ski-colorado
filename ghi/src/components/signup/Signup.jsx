@@ -18,8 +18,8 @@ import {
   error,
   reset,
 } from "./signupSlice";
-import { useSignupMutation } from "./signup";
-import ErrorMessage from "../../ErrorMessage";
+import { useSignupMutation } from "./Signup";
+import ErrorMessage from "./errorhandling/ErrorMessage.js"
 
 const Signup = () => {
   const dispatch = useDispatch();
