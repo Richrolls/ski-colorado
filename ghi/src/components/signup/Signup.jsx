@@ -62,16 +62,16 @@ const Signup = () => {
             >
               <a
                 href="#"
-                class="link-warning"
+                className="link-warning"
                 onClick={(e) => dispatch(handleMainClick(e.target.value))}
               >
-                <button type="button" class="btn btn-secondary">
+                <button type="button" className="btn btn-secondary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
                     fill="currentColor"
-                    class="bi bi-arrow-return-left"
+                    className="bi bi-arrow-return-left"
                     viewBox="0 0 16 16"
                   >
                     <path
@@ -315,18 +315,18 @@ const Signup = () => {
                     <div className="col justify-content-center">
                       <img
                         src="https://i.imgur.com/trwig2h.gif"
-                        class="img-fluid rounded mx-auto d-block"
+                        className="img-fluid rounded mx-auto d-block"
                       />
                     </div>
                     <div className="col justify-content-center">
                       <img
                         src="https://i.imgur.com/oW26dZg.gif"
-                        class="img-fluid rounded mx-auto d-block"
+                        className="img-fluid rounded mx-auto d-block"
                       />
                     </div>
                   </div>
                 </div>
-                <div class="button-box col d-flex justify-content-center">
+                <div className="button-box col d-flex justify-content-center">
                   <button className="butt btn-lg btn-primary">Create</button>
                 </div>
               </form>

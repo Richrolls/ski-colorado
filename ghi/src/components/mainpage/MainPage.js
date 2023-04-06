@@ -31,7 +31,7 @@ function MainPage() {
             Already have an account?&nbsp;&nbsp;
             <a
               href="#"
-              class="link-warning"
+              className="link-warning"
               onClick={(e) => dispatch(handleLoginClick(e.target.value))}
             >
               Click here!
