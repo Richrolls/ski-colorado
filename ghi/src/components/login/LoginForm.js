@@ -6,11 +6,6 @@ import {
   error,
   reset,
 } from "./loginSlice";
-import {
-  handlePasswordChange,
-  handleUsernameChange,
-  reset,
-} from "./loginSlice";
 import { useLoginMutation } from "./auth";
 import { useNavigate } from "react-router-dom";
 import ErrorMessage from "./ErrorMessage";
@@ -20,8 +15,6 @@ const LoginForm = () => {
   const [login] = useLoginMutation();
   const { errorMessage, fields } = useSelector((state) => state.login);
   const navigate = useNavigate();
-  const { fields } = useSelector((state) => state.login);
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,8 +23,6 @@ const LoginForm = () => {
     login(fields);
     dispatch(reset());
 
-    const result = await login(fields).unwrap();
-    console.log(result);
     const result = await login(fields).unwrap();
     console.log(result);
     if (result.access_token) {
