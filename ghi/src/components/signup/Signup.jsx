@@ -19,13 +19,18 @@ import {
   reset,
 } from "./signupSlice";
 import { useSignupMutation } from "./signup";
-import ErrorMessage from "../errorhandling/ErrorMessage"
+import ErrorMessage from "../errorhandling/ErrorMessage";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const dispatch = useDispatch();
   const [signup] = useSignupMutation();
   const { errorMessage, fields } = useSelector((state) => state.signup);
+  const navigate = useNavigate();
 
+  const handleJoinClick = (e) => {
+    navigate("/login");
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (fields.password != fields.password_conf) {
@@ -56,7 +61,11 @@ const Signup = () => {
                 <div>
                   <h3>
                     Already have an account?&nbsp;&nbsp;
-                    <a href="#" class="link-warning">
+                    <a
+                      href="#"
+                      class="link-warning"
+                      onClick={(e) => dispatch(handleJoinClick(e.target.value))}
+                    >
                       Click here!
                     </a>
                   </h3>

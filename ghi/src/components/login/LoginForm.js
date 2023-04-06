@@ -16,6 +16,10 @@ const LoginForm = () => {
   const { errorMessage, fields } = useSelector((state) => state.login);
   const navigate = useNavigate();
 
+  const handleJoinClick = (e) => {
+    navigate("/signup");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("handleSubmit");
@@ -82,7 +86,11 @@ const LoginForm = () => {
                 <br />
                 <h3>
                   Don't have an account?&nbsp;&nbsp;
-                  <a href="#" class="link-warning">
+                  <a
+                    href="#"
+                    class="link-warning"
+                    onClick={(e) => dispatch(handleJoinClick(e.target.value))}
+                  >
                     Click here!
                   </a>
                 </h3>
