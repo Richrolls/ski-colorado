@@ -4,8 +4,8 @@ import NavLoggedIn from "../header/NavLoggedIn.js"
 import { Link } from 'react-router-dom';
 import { useGetCommentsQuery } from "../../app/commentsApi.js";
 
-function CommentList() {
-    const { data, error, isLoading } = useGetCommentsQuery();
+function CommentList( {resortId }) {
+    const { data, error, isLoading } = useGetCommentsQuery(resortId);
     console.log(data)
 
     if (isLoading) {
@@ -16,15 +16,16 @@ function CommentList() {
 
     return (
         <>
-        <div className="row bg-primary">
-            <table className="table is-striped">
-            <thead>
-            </thead>
-            <tbody>
-               HELLO
-            </tbody>
-            </table>
-        </div>
+            <div>
+            {comments.map(comment => (
+                <div key={comment.id}>
+                <p>Rating: {comment.rating}</p>
+                <p>Comment: {comment.comment}</p>
+                <p>User ID: {comment.user_id}</p>
+                <p>Resort ID: {comment.resort_id}</p>
+                </div>
+            ))}
+    </div>
         </>
     );
 
