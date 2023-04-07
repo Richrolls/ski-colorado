@@ -31,4 +31,9 @@
 4/5/2023
     Finished swapping the SignupForm.js from react to react-redux. It mostly involved changing the onChange for each of the fields. Previously, the code to set the fields and the state of the fields was in the SignupForm.js file, additionally the code to handle changes was in a function called handleFormChange. That has all been moved to the signupSlice.js file. The initial states, as well as the code to handleFormChange(reducers), are now in the singupSlice.js file and imported into the Signup.jsx file. We still need to add the authentication functionality to the Signup page, the user should be logged in upon creating a new account. There was a mistake where I changed the name of the SignupForm.js to Signup.jsx on my working branch and subsequent changes that were made to the CSS of the page was invalidated and had to be redone. Learned to confirm before changing the layout/naming of files in the project.
 
-    Looking forward to finalizing the Signup page and getting to work on other pages that come after. 
+    Looking forward to finalizing the Signup page and getting to work on other pages that come after.
+
+4/6/2023
+    The team came together and we decided on a file organization system to avoid any future mishaps. We worked on styling for the login and signup pages. We need to start working on front-end authorization. Now that we are able to generate the token, we need to started seeing if the front-end authorization works by uncommenting the authorization on the routers. We need to implement the signout feature to see if the token goes away.
+
+    Looking forward to figuring out how to implement the signout feature.
