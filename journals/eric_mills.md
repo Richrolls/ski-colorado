@@ -31,3 +31,7 @@ Day 1: Collaborate with Alex on Front End. Lots of experimenting and troubleshoo
 Day 2: FINISHED Main Page with Alex! SNOWFALL!
 
 Day 3: Signup Page Aesthetics. CSS/HTML/Bootstrap etc. It's finished! I think.
+
+Day 4: Had to redo the signup page stuff due to a git/merge conflict causing us to lose all of the styling/changes
+
+Day 5: Stylized login page
