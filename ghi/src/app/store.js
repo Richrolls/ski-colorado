@@ -12,7 +12,7 @@ export const store = configureStore({
     signup: signupReducer,
     [signupApi.reducerPath]: signupApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
-    [commentsApi.reducerPath]: comemntsApi.reducer
+    [commentsApi.reducerPath]: commentsApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat([signupApi.middleware, authApi.middleware, commentsApi.middleware]),

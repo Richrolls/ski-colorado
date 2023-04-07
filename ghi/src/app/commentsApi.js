@@ -8,9 +8,9 @@ export const commentsApi = createApi({
     tagTypes: ['CommentsList'],
     endpoints: builder => ({
         getComments: builder.query({
-            query: () => 'api/resorts',
+            query: (resort_id) => `api/resorts/${resort_id}/comments`,
             providesTags: ['CommentsList'],
-        });
+        })
     })
 })
 
