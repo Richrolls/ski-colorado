@@ -6,7 +6,7 @@ export const authApi = createApi({
     baseUrl: `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}`,
     credentials: "include", // sends cookie to FastAPI
   }),
-  tagTypes: ["Account", "Resorts"],
+  tagTypes: ["Account", "Resorts", "Resort"],
   endpoints: (builder) => ({
     getAccount: builder.query({
       query: () => "/token",
@@ -40,6 +40,23 @@ export const authApi = createApi({
         method: "DELETE",
       }),
       invalidatesTags: ["Account"],
+    }),
+    getResorts: builder.query({
+      query: () => "/api/resorts",
+      providesTags: (result) => {
+        const tags = [{ type: "Resort", id: "LIST" }];
+        if (!result) return tags;
+        return [...result.map(({ id }) => ({ type: "Resorts", id })), ...tags];
+      },
+    }),
+    getResort: builder.query({
+      query: () => `/api/resorts/${id}`,
+      transformResponse: (response) => response.resorts,
+      providesTags: (result) => {
+        const tags = [{ type: "Resort"}];
+        if (!result) return tags;
+        return [...result.map(({ id }) => ({ type: "Resorts", id })), ...tags];
+      },
     }),
   }),
 });

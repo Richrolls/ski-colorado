@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import NavLoggedIn from "../header/NavLoggedIn.js"
 
 const ResortDetail = () => {
     const [resort, setResort] = useState([]);
-    const navigate = useNavigate();
     const { thisResort } = useParams();
 
     const getResortData = async () => {
