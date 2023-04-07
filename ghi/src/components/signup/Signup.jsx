@@ -18,7 +18,7 @@ import {
   error,
   reset,
 } from "./signupSlice";
-import { useSignupMutation } from "./signup";
+import { useSignupMutation } from "../login/auth";
 import ErrorMessage from "../errorhandling/ErrorMessage";
 import { useNavigate } from "react-router-dom";
 
@@ -42,9 +42,12 @@ const Signup = () => {
       dispatch(error("Passwords do not match"));
       return;
     }
-    signup(fields);
     dispatch(reset());
+    const result = await signup(fields).unwrap();
+    if (result.access_token) {
+      navigate("/home");
   };
+}
 
   return (
     <>
