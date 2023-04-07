@@ -93,7 +93,8 @@ a:hover {
   background: linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
   background-color: #ffc477;
   border-radius: 11px;
-  border: 2px solid #eeb44f;
+  border: 2px solid #000000;
+  border-color: #000000 !important;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -138,6 +139,11 @@ label {
   font-size: 150% !important;
   padding: 10px 22px !important;
   border-radius: 11px !important;
+}
+
+.btn-sm {
+  font-size:80% !important;
+  border-radius: 6px !important;
 }
 
 .container-top {
