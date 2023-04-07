@@ -8,6 +8,7 @@ import ResortDetail from "./components/resort/ResortDetail.js";
 import LoginForm from "./components/login/LoginForm.js";
 import Home from "./components/homepage/Home.js";
 import "./App.css";
+import TestComments from "./components/resort/comments_test.jsx";
 
 function App() {
   const [launch_info, setLaunchInfo] = useState([]);
@@ -47,6 +48,7 @@ function App() {
             <Route path="login" element={<LoginForm />} />
             <Route path="signup" element={<Signup />} />
             <Route path="home" element={<Home />} />
+            <Route path="/comments" element={<TestComments />} />
           </Routes>
         {/* </div> */}
       </BrowserRouter>
