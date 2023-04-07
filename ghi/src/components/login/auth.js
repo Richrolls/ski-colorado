@@ -42,24 +42,24 @@ export const authApi = createApi({
       invalidatesTags: ["Account"],
     }),
     getResorts: builder.query({
+      transformResponse: (response) => response.resorts,
       query: () => "/api/resorts",
       providesTags: (result) => {
-        const tags = [{ type: "Resort", id: "LIST" }];
+        const tags = [{ type: "Resorts", id: "LIST" }];
         if (!result) return tags;
         return [...result.map(({ id }) => ({ type: "Resorts", id })), ...tags];
       },
     }),
     getResort: builder.query({
-      query: () => `/api/resorts/${id}`,
-      transformResponse: (response) => response.resorts,
+      query: (id) => `/api/resorts/${id}`,
       providesTags: (result) => {
-        const tags = [{ type: "Resort"}];
+        const tags = [{ type: "Resort" }];
         if (!result) return tags;
-        return [...result.map(({ id }) => ({ type: "Resorts", id })), ...tags];
+        return [result, ...tags];
       },
     }),
   }),
 });
 
-export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation, useGetResortsQuery } =
+export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation, useGetResortsQuery, useGetResortQuery } =
   authApi;

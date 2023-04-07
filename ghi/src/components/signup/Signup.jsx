@@ -42,9 +42,12 @@ const Signup = () => {
       dispatch(error("Passwords do not match"));
       return;
     }
-    signup(fields);
     dispatch(reset());
+    const result = await signup(fields).unwrap();
+    if (result.access_token) {
+      navigate("/home");
   };
+}
 
   return (
     <>
