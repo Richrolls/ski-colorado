@@ -3,14 +3,23 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `http://localhost:8000`,
+    baseUrl: `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}`,
     credentials: "include", // sends cookie to FastAPI
   }),
+  tagTypes: ["Account", "Resorts"],
   endpoints: (builder) => ({
     getAccount: builder.query({
       query: () => "/token",
       transformResponse: (response) => response?.account,
       providesTags: ["Account"],
+    }),
+    signup: builder.mutation({
+      query: (body) => ({
+        url: "/api/accounts",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["Account"],
     }),
     login: builder.mutation({
       query: (body) => {
@@ -21,20 +30,19 @@ export const authApi = createApi({
           url: "/token",
           method: "POST",
           body: formData,
-          credentials: "include",
         };
       },
-      invalidatesTags: ["Account", { type: "Things", id: "LIST" }],
+      invalidatesTags: ["Account"],
     }),
     logout: builder.mutation({
       query: () => ({
         url: "/token",
         method: "DELETE",
       }),
-      invalidatesTags: ["Account", { type: "Things", id: "LIST" }],
+      invalidatesTags: ["Account"],
     }),
   }),
 });
 
-export const { useGetAccountQuery, useLogoutMutation, useLoginMutation } =
+export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation, useGetResortsQuery } =
   authApi;
