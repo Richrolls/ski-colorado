@@ -43,7 +43,7 @@ const Signup = () => {
         <br />
         <br />
       </h5>
-      <div className="container">
+      <div className="logcon container">
         <div className="row">
           <div className="offset-3 col-6">
             <div
@@ -212,9 +212,9 @@ const Signup = () => {
                           dispatch(handleZipcodeChange(e.target.value))
                         }
                         value={fields.zipcode}
-                        placeholder="   Zipcode"
+                        placeholder="Zipcode"
                         required
-                        type={`number`}
+                        type={`text`}
                         name="zipcode"
                         id="zipcode"
                         className="form-control bg-secondary bg-opacity-50 bg-gradient"

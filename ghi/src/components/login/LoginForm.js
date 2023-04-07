@@ -48,30 +48,34 @@ const LoginForm = () => {
             >
               <h1 class="snow">Login</h1>
               <form onSubmit={handleSubmit} id="login-form">
-                <div className="mb-3">
-                  <input
-                    value={fields.username}
-                    placeholder="Username"
-                    type={`text`}
-                    id="username"
-                    className="form-control bg-secondary bg-opacity-50 bg-gradient"
-                    onChange={(e) =>
-                      dispatch(handleUsernameChange(e.target.value))
-                    }
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    value={fields.password}
-                    placeholder="Password"
-                    type={`password`}
-                    id="password"
-                    className="form-control bg-secondary bg-opacity-50 bg-gradientl"
-                    onChange={(e) =>
-                      dispatch(handlePasswordChange(e.target.value))
-                    }
-                  />
-                </div>
+                <center>
+                  <div className="from-outline w-75 mb-3">
+                    <input
+                      value={fields.username}
+                      placeholder="Username"
+                      type={`text`}
+                      id="username"
+                      className="form-control bg-secondary bg-opacity-50 bg-gradient"
+                      onChange={(e) =>
+                        dispatch(handleUsernameChange(e.target.value))
+                      }
+                    />
+                  </div>
+                </center>
+                <center>
+                  <div className="from-outline w-75 mb-3">
+                    <input
+                      value={fields.password}
+                      placeholder="Password"
+                      type={`password`}
+                      id="password"
+                      className="form-control bg-secondary bg-opacity-50 bg-gradientl"
+                      onChange={(e) =>
+                        dispatch(handlePasswordChange(e.target.value))
+                      }
+                    />
+                  </div>
+                </center>
                 <div class="button-box col d-flex justify-content-center">
                   <button className="butt btn-lg btn-primary">Log in</button>
                 </div>

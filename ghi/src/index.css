@@ -57,8 +57,13 @@ h4 {
 }
 
 a {
-  color: blue;
-  text-decoration: underline;
+  color: rgb(255, 255, 255) !important;
+  text-shadow: 2px 2px 2px black;
+  font-size: 125% !important;
+}
+
+a:hover {
+  color: #eeb44f !important;
 }
 
 .container-fluid {
@@ -188,6 +193,6 @@ input::-webkit-input-placeholder {
 
 input:focus::-webkit-input-placeholder { font-size: 0% !important; }
 
-input[type="checkbox"] {
+input[type="checkbox"]:checked {
   accent-color: rgb(255, 166, 0);
 }
