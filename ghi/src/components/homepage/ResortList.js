@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
-const ResortList = () => {
+function ResortList() {
   const [resort, setResortData] = useState([]);
 
   const getData = async () => {
@@ -26,13 +27,13 @@ const ResortList = () => {
       </thead>
       <tbody>
         {resort &&
-          resort.map((resorts) => {
+          resort.map((resort) => {
             return (
-              <tr key={resorts.id}>
+              <tr key={resort.id}>
                 <td>
-                  <a href={`http://localhost:3000/resorts/${resorts.id}`}>
-                    {resorts.name}
-                  </a>
+                  <Link to={`/resorts/${resort.id}/comments`}>
+                    {resort.name}
+                  </Link>
                 </td>
               </tr>
             );

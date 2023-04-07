@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import NavLoggedIn from "../header/NavLoggedIn.js"
 import { Link } from 'react-router-dom';
-import { useGetCommentsQuery } from "../../app/commentsApi.js";
+import { useGetCommentsByResortIdQuery } from "../../app/commentsApi.js";
 
 function CommentList( {resortId }) {
-    const { data, error, isLoading } = useGetCommentsQuery(resortId);
+    const { data, error, isLoading } = useGetCommentsByResortIdQuery({ resortId });
     console.log(data)
 
     if (isLoading) {
@@ -16,16 +16,16 @@ function CommentList( {resortId }) {
 
     return (
         <>
-            <div>
-            {comments.map(comment => (
-                <div key={comment.id}>
+        <div>
+            {data && data.map(comment => (
+            <div key={comment.id}>
                 <p>Rating: {comment.rating}</p>
                 <p>Comment: {comment.comment}</p>
                 <p>User ID: {comment.user_id}</p>
                 <p>Resort ID: {comment.resort_id}</p>
-                </div>
+            </div>
             ))}
-    </div>
+        </div>
         </>
     );
 
