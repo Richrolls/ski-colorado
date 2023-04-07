@@ -13,3 +13,8 @@ and API data was successfully queried and returned via Insomnia.
 4/3/23 - Worked with Anton to frame Home.js component and begain framing ResortList.js component. Modeled containers with group input and successfully accessed and retrived data from the Resorts API. Rendered each item in list of resorts on ResortList.js as a hyperlink to its respective individual resort page. Encountering routing errors while doing so, will address tomorrow.
 
 4/4/23 - Created and deployed Checkbox() function to reduce HTML/CSS redundancy in src/components/Home.js. Created and deployed functionalities to create many instances of ResortIn, CommentIn, and FavoriteIn at once vs having to manually enter each instance every time the database is destroyed/recreated. For rest of evening, learning how to set up Redux functionality to get average of all user ratings for each resort, store that value in Redux cache, and automatically update that value every time a new rating value is entered.
+
+4/5/23 - Learned how to impleemnt pathing for various onClick() and onSubmit() button events. Implemented these for several buttons. Helped troubleshoot Login and Signup page programming. Helped reconcile git issues.
+
+4/6/23 - Reorganized ghi/src file into consistent, repeateable patterns to avoid future problems. Troubleshot all associated import pathing errors with file reorganization.
+
