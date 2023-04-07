@@ -52,7 +52,7 @@ const LoginForm = () => {
               className="shadow p-4 mt-4 bg-primary bg-gradient"
               style={{ borderRadius: 8 }}
             >
-              <h1 class="snow">Login</h1>
+              <h1 className="snow">Login</h1>
               <form onSubmit={handleSubmit} id="login-form">
                 <div className="mb-3">
                   <input
@@ -78,7 +78,7 @@ const LoginForm = () => {
                     }
                   />
                 </div>
-                <div class="button-box col d-flex justify-content-center">
+                <div className="button-box col d-flex justify-content-center">
                   <button className="butt btn-lg btn-primary">Log in</button>
                 </div>
               </form>
@@ -88,7 +88,7 @@ const LoginForm = () => {
                   Don't have an account?&nbsp;&nbsp;
                   <a
                     href="#"
-                    class="link-warning"
+                    className="link-warning"
                     onClick={(e) => dispatch(handleJoinClick(e.target.value))}
                   >
                     Click here!

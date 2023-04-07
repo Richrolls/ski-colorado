@@ -289,18 +289,18 @@ const Signup = () => {
                     <div className="col justify-content-center">
                       <img
                         src="https://i.imgur.com/trwig2h.gif"
-                        class="img-fluid rounded mx-auto d-block"
+                        className="img-fluid rounded mx-auto d-block"
                       />
                     </div>
                     <div className="col justify-content-center">
                       <img
                         src="https://i.imgur.com/oW26dZg.gif"
-                        class="img-fluid rounded mx-auto d-block"
+                        className="img-fluid rounded mx-auto d-block"
                       />
                     </div>
                   </div>
                 </div>
-                <div class="button-box col d-flex justify-content-center">
+                <div className="button-box col d-flex justify-content-center">
                   <button className="butt btn-lg btn-primary">Create</button>
                 </div>
               </form>
