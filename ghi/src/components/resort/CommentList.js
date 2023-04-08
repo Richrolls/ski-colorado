@@ -5,17 +5,12 @@ import { Link } from 'react-router-dom';
 import { useGetCommentsByResortIdQuery } from "../../app/commentsApi.js";
 
 function CommentList( {resortId }) {
-    const { data, error, isLoading } = useGetCommentsByResortIdQuery({ resortId });
+    const { data } = useGetCommentsByResortIdQuery({ resortId });
     console.log(data)
-
-    if (isLoading) {
-        return (
-            <progress className="progress is-primary" max="100"></progress>
-        )
-    }
 
     return (
         <>
+        
         <div>
             {data && data.map(comment => (
             <div key={comment.id}>
@@ -26,6 +21,7 @@ function CommentList( {resortId }) {
             </div>
             ))}
         </div>
+
         </>
     );
 
