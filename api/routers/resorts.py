@@ -32,7 +32,7 @@ async def create_resorts(
 @router.get("/api/resorts", response_model=ResortList)
 def get_resorts(
     repo: ResortQueries = Depends(),
-    #account_data: dict = Depends(authenticator.get_current_account_data),
+    account_data: dict = Depends(authenticator.get_current_account_data),
     ):
         return {
             'resorts': repo.get_all()
@@ -43,7 +43,7 @@ def get_resorts(
 async def get_resort(
     id: str,
     repo: ResortQueries = Depends(),
-    #account_data: dict = Depends(authenticator.get_current_account_data),
+    account_data: dict = Depends(authenticator.get_current_account_data),
     ):
     return repo.get_one(id)
 

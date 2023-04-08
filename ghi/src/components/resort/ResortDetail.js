@@ -1,31 +1,16 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React from "react";
+import { useGetResortQuery } from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js"
 
 const ResortDetail = () => {
-    const [resort, setResort] = useState([]);
-    const navigate = useNavigate();
-    const { thisResort } = useParams();
-
-    const getResortData = async () => {
-        const response = await fetch(`http://localhost:8000/api/resorts/{resort_id}?id=${thisResort}`);
-        if (response.ok) {
-            const data = await response.json();
-            setResort(data)
-        }
-    }
-
-    useEffect(() => {
-        getResortData();
-    }, [thisResort]);
-
+    const { data } = useGetResortQuery();
     return (
         <>
         <NavLoggedIn />
         <div className="row bg-primary">
             <div className="col-4 bg-info min-vh-100">
                 <div>
-                    <h1 className="text-center">{resort.name}</h1>
+                    <h1 className="text-center">{data?.name}</h1>
                         {/* Change this to resort name later */}
                     <div className="text-center">
                         RATINGS
@@ -33,9 +18,9 @@ const ResortDetail = () => {
                 </div>
                 <div className="rounded bg-white m-3">
                     <h2 className="text-center">Resort Info</h2>
-                    <p className="text-center">{resort.elevation} m</p>
-                    <p className="text-center">{resort.address} {resort.city}, {resort.state} {resort.zipcode}</p>
-                    <p className="text-center">{resort.price}</p>
+                    <p className="text-center">{data?.elevation} m</p>
+                    <p className="text-center">{data?.address} {data?.city}, {data?.state} {data?.zipcode}</p>
+                    <p className="text-center">{data?.price}</p>
                     <p className="text-center">Distance/Travel Time</p>
                 </div>
             </div>

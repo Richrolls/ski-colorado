@@ -3,14 +3,23 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `http://localhost:8000`,
+    baseUrl: `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}`,
     credentials: "include", // sends cookie to FastAPI
   }),
+  tagTypes: ["Account", "Resorts", "Resort"],
   endpoints: (builder) => ({
     getAccount: builder.query({
       query: () => "/token",
       transformResponse: (response) => response?.account,
       providesTags: ["Account"],
+    }),
+    signup: builder.mutation({
+      query: (body) => ({
+        url: "/api/accounts",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["Account"],
     }),
     login: builder.mutation({
       query: (body) => {
@@ -21,20 +30,36 @@ export const authApi = createApi({
           url: "/token",
           method: "POST",
           body: formData,
-          credentials: "include",
         };
       },
-      invalidatesTags: ["Account", { type: "Things", id: "LIST" }],
+      invalidatesTags: ["Account"],
     }),
     logout: builder.mutation({
       query: () => ({
         url: "/token",
         method: "DELETE",
       }),
-      invalidatesTags: ["Account", { type: "Things", id: "LIST" }],
+      invalidatesTags: ["Account"],
+    }),
+    getResorts: builder.query({
+      transformResponse: (response) => response.resorts,
+      query: () => "/api/resorts",
+      providesTags: (result) => {
+        const tags = [{ type: "Resorts", id: "LIST" }];
+        if (!result) return tags;
+        return [...result.map(({ id }) => ({ type: "Resorts", id })), ...tags];
+      },
+    }),
+    getResort: builder.query({
+      query: (id) => `/api/resorts/${id}`,
+      providesTags: (result) => {
+        const tags = [{ type: "Resort" }];
+        if (!result) return tags;
+        return [result, ...tags];
+      },
     }),
   }),
 });
 
-export const { useGetAccountQuery, useLogoutMutation, useLoginMutation } =
+export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation, useGetResortsQuery, useGetResortQuery } =
   authApi;

@@ -1,43 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import React from "react";
+import { useGetResortsQuery } from "../login/auth";
+import IndividualResort from "./IndividualResort";
 
-function ResortList() {
-  const [resort, setResortData] = useState([]);
 
-  const getData = async () => {
-    const response = await fetch("http://localhost:8000/api/resorts");
-    if (response.ok) {
-      const data = await response.json();
-      setResortData(data.resorts);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+const ResortList = () => {
+  const { data } = useGetResortsQuery();
 
   return (
-    <table className="table table-striped">
-      <thead>
+    <table className="table table-striped shadow" style={{ borderRadius: 16 }}>
+      <thead className="bg-primary bg-gradient">
         <tr>
           <th>
-            <h2>Resort Name</h2>
+            <h1 className="snow">Resorts</h1>
           </th>
         </tr>
       </thead>
       <tbody>
-        {resort &&
-          resort.map((resort) => {
-            return (
-              <tr key={resort.id}>
-                <td>
-                  <Link to={`/resorts/${resort.id}/comments`}>
-                    {resort.name}
-                  </Link>
-                </td>
-              </tr>
-            );
-          })}
+        {data?.map(resort => <IndividualResort key={resort.id} {...resort} />)}
       </tbody>
     </table>
   );
