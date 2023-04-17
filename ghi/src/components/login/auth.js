@@ -51,7 +51,7 @@ export const authApi = createApi({
       },
     }),
     getResort: builder.query({
-      query: (id) => `/api/resorts/${id}`,
+      query: (thisResort) => `/api/resorts/${thisResort}`,
       providesTags: (result) => {
         const tags = [{ type: "Resort" }];
         if (!result) return tags;
