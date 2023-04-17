@@ -7,7 +7,7 @@ export const authApi = createApi({
     baseUrl: `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}`,
     credentials: "include", // sends cookie to FastAPI
   }),
-  tagTypes: ["Account", "Resorts", "Resort", "CommentsList"],
+  tagTypes: ["Account", "Resorts", "Resort", "CommentsList", "Distance"],
   endpoints: (builder) => ({
     getAccount: builder.query({
       query: () => "/token",
@@ -63,8 +63,12 @@ export const authApi = createApi({
       query: ({ thisResort }) => `/api/resorts/${thisResort}/comments`,
       providesTags: ["CommentsList"],
     }),
+    getDistance: builder.query({
+      query: ({ thisResort, origin, destination }) => `/api/resorts/${thisResort}/comments`,
+      providesTags: ["Distance"],
+    }),
   }),
 });
 
-export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation, useGetResortsQuery, useGetResortQuery, useGetCommentsQuery } =
+export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation, useGetResortsQuery, useGetResortQuery, useGetCommentsQuery, useGetDistanceQuery } =
   authApi;
