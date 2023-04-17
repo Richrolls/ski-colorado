@@ -64,7 +64,6 @@ const LoginForm = () => {
                 <button className="butt btn-sm btn-primary">Back</button>
               </a>
               <h1 class="snow">Login</h1>
-
               <h3>
                 Don't have an account?&nbsp;&nbsp;
                 <a
@@ -78,7 +77,7 @@ const LoginForm = () => {
               <br />
               <form onSubmit={handleSubmit} id="login-form">
                 <center>
-                  <div className="from-outline w-75 mb-3">
+                  <div className="w-75 mb-3">
                     <input
                       value={fields.username}
                       placeholder="Username"
@@ -92,13 +91,13 @@ const LoginForm = () => {
                   </div>
                 </center>
                 <center>
-                  <div className="from-outline w-75 mb-3">
+                  <div className="w-75 mb-3">
                     <input
                       value={fields.password}
                       placeholder="Password"
                       type={`password`}
                       id="password"
-                      className="form-control bg-secondary bg-opacity-50 bg-gradientl"
+                      className="form-control bg-secondary bg-opacity-50 bg-gradient"
                       onChange={(e) =>
                         dispatch(handlePasswordChange(e.target.value))
                       }
