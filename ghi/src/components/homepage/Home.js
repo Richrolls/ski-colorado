@@ -27,7 +27,7 @@ function HomePage() {
       <NavLoggedIn />
       <div className="text-center">
         <div className="col">
-          <div className="row row-cols-2">
+          <div className="row row-cols-3">
             <div
               className="shadow p-4 mt-4 bg-primary bg-gradient"
               style={{
@@ -58,40 +58,31 @@ function HomePage() {
                 <Checkbox name="$$$$" label=" $$$$" />
                 <Checkbox name="$$$$$" label=" $$$$$" />
               </div>
-
-              <div className="bg-primary bg-gradient container p-3 rounded">
-                <div>
-                  <Timeline
-                    dataSource={{
-                      sourceType: "profile",
-                      screenName: "ColoradoDOT",
-                    }}
-                    options={{
-                      height: "800",
-                      width: "500",
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="bg-primary bg-gradient container p-3 rounded">
-                <div>
-                  <Timeline
-                    dataSource={{
-                      sourceType: "profile",
-                      screenName: "ColoradoDOT",
-                    }}
-                    options={{
-                      height: "800",
-                      width: "500",
-                    }}
-                  />
-                </div>
-              </div>
             </div>
             <div>
               <div>
                 <ResortList />
+              </div>
+            </div>
+            <div
+              className="shadow p-4 mt-4 bg-primary bg-gradient"
+              style={{
+                borderRadius: 8,
+                height: 847,
+                width: 547,
+              }}
+            >
+              <div>
+                <Timeline
+                  dataSource={{
+                    sourceType: "profile",
+                    screenName: "ColoradoDOT",
+                  }}
+                  options={{
+                    height: "800",
+                    width: "500",
+                  }}
+                />
               </div>
             </div>
           </div>
