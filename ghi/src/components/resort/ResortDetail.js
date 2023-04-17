@@ -11,6 +11,10 @@ export default function ResortDetail() {
   if (!data) {
     return <div>Loading...</div>;
   }
+
+  function dollarPrice(resortprice) {
+    return "$".repeat(resortprice);
+  }
   return (
     <>
       <NavLoggedIn />
@@ -23,11 +27,18 @@ export default function ResortDetail() {
           </div>
           <div className="rounded bg-white m-3">
             <h2 className="text-center">Resort Info</h2>
-            <p className="text-center">{data?.elevation} m</p>
             <p className="text-center">
-              {data?.address} {data?.city}, {data?.state} {data?.zipcode}
+              {data?.address}
+              <br></br> {data?.city}, {data?.state} {data?.zipcode}
             </p>
-            <p className="text-center">{data?.price}</p>
+            <p className="text-center">
+              Top Elevation: {data?.elevation} ft<br></br>Vertical Drop:{" "}
+              {data?.vertical_drop} ft<br></br>Number of Trails:{" "}
+              {data?.num_trails}
+            </p>
+            <p className="text-center">
+              Price Rating: {dollarPrice(data?.price)}
+            </p>
             <p className="text-center">Distance/Travel Time</p>
           </div>
         </div>
