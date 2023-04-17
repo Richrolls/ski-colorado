@@ -7,7 +7,6 @@ import CommentList from "../comments/CommentList.js";
 
 
 
-
 export default function ResortDetail() {
   const { thisResort } = useParams();
   const { data, error, isLoading } = useGetResortQuery(thisResort);
