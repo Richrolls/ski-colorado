@@ -1,7 +1,7 @@
-import React from "react";
-import { useGetResortsQuery } from "../login/auth";
-import IndividualResort from "./IndividualResort";
+import React, { useEffect, useState } from "react";
 
+const ResortList = () => {
+  const [resort, setResortData] = useState([]);
 
 const ResortList = () => {
   const { data } = useGetResortsQuery();
@@ -16,7 +16,18 @@ const ResortList = () => {
         </tr>
       </thead>
       <tbody>
-        {data?.map(resort => <IndividualResort key={resort.id} {...resort} />)}
+        {resort &&
+          resort.map((resorts) => {
+            return (
+              <tr key={resorts.id}>
+                <td>
+                  <a href={`http://localhost:3000/resorts/${resorts.id}`}>
+                    {resorts.name}
+                  </a>
+                </td>
+              </tr>
+            );
+          })}
       </tbody>
     </table>
   );

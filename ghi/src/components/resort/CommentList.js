@@ -2,29 +2,32 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import NavLoggedIn from "../header/NavLoggedIn.js"
 import { Link } from 'react-router-dom';
-import { useGetCommentsByResortIdQuery } from "../login/auth.js";
-import IndividualComment from "./IndividualComment.js";
+import { useGetCommentsQuery } from "../../app/commentsApi.js";
 
-function CommentList( {resort_id }) {
-    const { data } = useGetCommentsByResortIdQuery({ resort_id });
+function CommentList( {resortId }) {
+    const { data, error, isLoading } = useGetCommentsQuery(resortId);
     console.log(data)
 
-  return (
-    <>
-    <table className="table table-striped shadow" style={{ borderRadius: 16 }}>
-      <thead className="bg-primary bg-gradient">
-        <tr>
-          <th>
-            <h1 className="snow">Resorts</h1>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {data?.comments?.map(comment => <IndividualComment key={comment.rating} {...comment}/>)}
-      </tbody>
-    </table>
-    </>
-  );
+    if (isLoading) {
+        return (
+            <progress className="progress is-primary" max="100"></progress>
+        )
+    }
+
+    return (
+        <>
+            <div>
+            {comments.map(comment => (
+                <div key={comment.id}>
+                <p>Rating: {comment.rating}</p>
+                <p>Comment: {comment.comment}</p>
+                <p>User ID: {comment.user_id}</p>
+                <p>Resort ID: {comment.resort_id}</p>
+                </div>
+            ))}
+    </div>
+        </>
+    );
 
 }
 export default CommentList;
