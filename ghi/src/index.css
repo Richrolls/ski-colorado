@@ -188,6 +188,15 @@ input {
   height: 32px !important;
 }
 
+.white-border {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
 label {
   padding-bottom: 16px !important;
   padding-top: 2px !important;
@@ -205,4 +214,8 @@ input:focus::-webkit-input-placeholder { font-size: 0% !important; }
 
 input[type="checkbox"]:checked {
   accent-color: rgb(255, 166, 0);
+}
+
+.left-container {
+  padding-left: 24px;
 }

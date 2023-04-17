@@ -35,3 +35,9 @@ Day 3: Signup Page Aesthetics. CSS/HTML/Bootstrap etc. It's finished! I think.
 Day 4: Had to redo the signup page stuff due to a git/merge conflict causing us to lose all of the styling/changes
 
 Day 5: Stylized login page
+
+Week 4
+
+Right before the break, I pushed the "back" button after working on it with Alex
+
+Day 1: 
