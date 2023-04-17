@@ -18,6 +18,7 @@ services:
     volumes:
       - ./api:/app
     environment:
+      DISTANCE_API_KEY: ${DISTANCE_API_KEY}
       SIGNING_KEY: ${SIGNING_KEY}
       MONGO_URL: mongodb://admin:password@mongo
 
