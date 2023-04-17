@@ -2,9 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom"
 import { useGetResortQuery } from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js"
-import CommentList from "./CommentList.js";
-
-console.log(CommentList)
 
 
 export default function ResortDetail() {
@@ -24,7 +21,6 @@ export default function ResortDetail() {
                     <h1 className="text-center">{data.name}</h1>
                         {/* Change this to resort name later */}
                     <div className="text-center">
-                        <CommentList/>
                     </div>
                 </div>
                 <div className="rounded bg-white m-3">
