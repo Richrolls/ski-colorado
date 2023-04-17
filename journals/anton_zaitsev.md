@@ -14,3 +14,6 @@ Continued developing the code for the login form component of the front-end. Was
 
 4/3/23
 Worked with Jack on arranging the logged in home page and styling it. Lead the daily stand ups.
+
+4/7/23
+Since I forgot to update throughout the week, the major points that I worked in was redirect route logic to the sign up form from the login form, and vice versa. Also implementing login user authorization, so that the user is redirected to the main page of a list of all resorts with them displaying properly.
