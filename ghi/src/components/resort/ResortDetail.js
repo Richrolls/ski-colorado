@@ -7,7 +7,6 @@ import NavLoggedIn from "../header/NavLoggedIn.js"
 export default function ResortDetail() {
     const { thisResort } = useParams();
     const { data, error, isLoading } = useGetResortQuery(thisResort);
-    console.log(data)
 
     if (!data) {
         return <div>Loading...</div>

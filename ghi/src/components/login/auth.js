@@ -59,12 +59,12 @@ export const authApi = createApi({
         return [result, ...tags];
       },
     }),
-    getCommentsByResortId: builder.query({
+    getComments: builder.query({
       query: ({ resort_id }) => `/api/resorts/${resort_id}/comments`,
       providesTags: ["CommentsList"]
     }),
   }),
 });
 
-export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation, useGetResortsQuery, useGetResortQuery, useGetCommentsByResortIdQuery } =
+export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation, useGetResortsQuery, useGetResortQuery, useGetCommentsQuery } =
   authApi;
