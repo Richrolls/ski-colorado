@@ -1,6 +1,9 @@
 import React from "react";
 import { useGetResortQuery } from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js"
+import CommentList from "./CommentList.js";
+
+console.log(CommentList)
 
 const ResortDetail = () => {
     const { data } = useGetResortQuery();
@@ -13,7 +16,7 @@ const ResortDetail = () => {
                     <h1 className="text-center">{data?.name}</h1>
                         {/* Change this to resort name later */}
                     <div className="text-center">
-                        RATINGS
+                        <CommentList/>
                     </div>
                 </div>
                 <div className="rounded bg-white m-3">

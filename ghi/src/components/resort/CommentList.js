@@ -2,28 +2,29 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import NavLoggedIn from "../header/NavLoggedIn.js"
 import { Link } from 'react-router-dom';
-import { useGetCommentsByResortIdQuery } from "../../app/commentsApi.js";
+import { useGetCommentsByResortIdQuery } from "../login/auth.js";
+import IndividualComment from "./IndividualComment.js";
 
-function CommentList( {resortId }) {
-    const { data } = useGetCommentsByResortIdQuery({ resortId });
+function CommentList( {resort_id }) {
+    const { data } = useGetCommentsByResortIdQuery({ resort_id });
     console.log(data)
 
-    return (
-        <>
-        
-        <div>
-            {data && data.map(comment => (
-            <div key={comment.id}>
-                <p>Rating: {comment.rating}</p>
-                <p>Comment: {comment.comment}</p>
-                <p>User ID: {comment.user_id}</p>
-                <p>Resort ID: {comment.resort_id}</p>
-            </div>
-            ))}
-        </div>
-
-        </>
-    );
+  return (
+    <>
+    <table className="table table-striped shadow" style={{ borderRadius: 16 }}>
+      <thead className="bg-primary bg-gradient">
+        <tr>
+          <th>
+            <h1 className="snow">Resorts</h1>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {data?.comments?.map(comment => <IndividualComment key={comment.rating} {...comment}/>)}
+      </tbody>
+    </table>
+    </>
+  );
 
 }
 export default CommentList;
