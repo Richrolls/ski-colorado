@@ -4,9 +4,10 @@ import { useGetCommentsQuery } from "../login/auth.js";
 import IndividualComment from "./IndividualComment.js";
 
 
-export default function ResortFilteredCommentList() {
+export default function AverageRatingByResort() {
     const { thisResort } = useParams();
     const { data, error, isLoading } = useGetCommentsQuery(thisResort);
+    console.log(data)
 
     if (isLoading) {
         return (
@@ -15,6 +16,14 @@ export default function ResortFilteredCommentList() {
     }
 
     const filteredComments = data.comments.filter(comment => comment.resort_id === thisResort);
+
+    function averageRating(filteredComments) {
+        const sum = filteredComments.reduce((total, comment) => total + comment.rating, 0);
+        const average = sum / filteredComments.length;
+        return parseFloat(average.toFixed(2))
+    }
+
+
 
     return (
         <>
@@ -26,13 +35,11 @@ export default function ResortFilteredCommentList() {
             style={{ borderRadius: 8, marginLeft: 0, }}
           >
             <div>
-              <h1 className="snow">Comments</h1>
+              <h1 className="snow">Average Rating</h1>
             </div>
             <br/>
             <div className="row mx-auto w-75">
-              {filteredComments.map((comment) => (
-                <IndividualComment key={comment.id} {...comment} />
-              ))}
+              Average Rating: {averageRating(filteredComments)}
             </div>
           </div>
         </div>

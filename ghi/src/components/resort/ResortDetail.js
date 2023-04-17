@@ -4,6 +4,7 @@ import { useGetResortQuery, useGetCommentsQuery } from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js";
 import IndividualComment from "../comments/IndividualComment.js";
+import AverageRatingByResort from "../comments/AverageRatingFunction.js";
 
 
 
@@ -12,7 +13,7 @@ import IndividualComment from "../comments/IndividualComment.js";
 export default function ResortDetail() {
   const { thisResort } = useParams();
   const { data, error, isLoading } = useGetResortQuery(thisResort);
-  
+
 
   if (!data) {
     return <div>Loading...</div>;
@@ -51,6 +52,9 @@ export default function ResortDetail() {
         <div className="col-auto">
           <div>
             <ResortFilteredCommentList comments={data.comments} thisResort={thisResort} />
+          </div>
+          <div>
+            <AverageRatingByResort/>
           </div>
         </div>
       </div>
