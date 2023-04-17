@@ -9,7 +9,7 @@ function Checkbox(props) {
   return (
     <div>
       <input
-        className="form-check-input"
+        className="bg-secondary bg-opacity-50"
         type="checkbox"
         name={name}
         id={`inlineCheckbox-${name}`}
@@ -25,23 +25,53 @@ function HomePage() {
   return (
     <>
       <NavLoggedIn />
-      <div className="Page text-center">
+      <div className="text-center">
         <div className="col">
           <div className="row row-cols-2">
-            <div className="border w-25 p-3">
-              <div className="border">Filters</div>
-              <div className="border">
-                <div> Pass </div>
+            <div
+              className="shadow p-4 mt-4 bg-primary bg-gradient"
+              style={{
+                borderRadius: 8,
+                height: 570,
+                width: "20%",
+                marginLeft: 52,
+              }}
+            >
+              <h2 style={{ paddingBottom: 12 }}>Filters</h2>
+              <div
+                className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
+                style={{ paddingTop: 20 }}
+              >
+                <h3>Pass</h3>
                 <Checkbox name="epic" label="Epic" />
                 <Checkbox name="ikon" label="Ikon" />
               </div>
-              <div className="border">
-                <div>Price</div>
+              <br />
+              <div
+                className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
+                style={{ paddingTop: 20 }}
+              >
+                <h3>Price</h3>
                 <Checkbox name="$" label="$" />
-                <Checkbox name="$$" label="$$" />
-                <Checkbox name="$$$" label="$$$" />
-                <Checkbox name="$$$$" label="$$$$" />
-                <Checkbox name="$$$$$" label="$$$$$" />
+                <Checkbox name="$$" label=" $$" />
+                <Checkbox name="$$$" label=" $$$" />
+                <Checkbox name="$$$$" label=" $$$$" />
+                <Checkbox name="$$$$$" label=" $$$$$" />
+              </div>
+
+              <div className="bg-primary bg-gradient container p-3 rounded">
+                <div>
+                  <Timeline
+                    dataSource={{
+                      sourceType: "profile",
+                      screenName: "ColoradoDOT",
+                    }}
+                    options={{
+                      height: "800",
+                      width: "500",
+                    }}
+                  />
+                </div>
               </div>
 
               <div className="bg-primary bg-gradient container p-3 rounded">
@@ -59,9 +89,8 @@ function HomePage() {
                 </div>
               </div>
             </div>
-
-            <div className="border w-75 p-3">
-              <div className="border">
+            <div>
+              <div>
                 <ResortList />
               </div>
             </div>
