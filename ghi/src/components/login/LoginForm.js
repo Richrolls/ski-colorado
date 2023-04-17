@@ -8,7 +8,7 @@ import {
 } from "./loginSlice";
 import { useLoginMutation } from "./auth";
 import { useNavigate } from "react-router-dom";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "../errorhandling/ErrorMessage";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -26,19 +26,13 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("handleSubmit");
-    console.log({ fields });
-    login(fields);
+    // login(fields);
     dispatch(reset());
 
     const result = await login(fields).unwrap();
     console.log(result);
     if (result.access_token) {
       navigate("/home");
-    } else {
-      alert(
-        "Incorrect username or password, please try again you fat-fingered fool"
-      );
     }
   };
 
@@ -63,13 +57,13 @@ const LoginForm = () => {
               >
                 <button className="butt btn-sm btn-primary">Back</button>
               </a>
-              <h1 class="snow">Login</h1>
+              <h1 className="snow">Login</h1>
 
               <h3>
                 Don't have an account?&nbsp;&nbsp;
                 <a
                   href="#"
-                  class="link-warning"
+                  className="link-warning"
                   onClick={(e) => dispatch(handleJoinClick(e.target.value))}
                 >
                   Click here!
@@ -77,6 +71,7 @@ const LoginForm = () => {
               </h3>
               <br />
               <form onSubmit={handleSubmit} id="login-form">
+                {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
                 <center>
                   <div className="from-outline w-75 mb-3">
                     <input
@@ -106,7 +101,7 @@ const LoginForm = () => {
                   </div>
                   <br />
                 </center>
-                <div class="button-box col d-flex justify-content-center">
+                <div className="button-box col d-flex justify-content-center">
                   <button className="butt btn-lg btn-primary">Log in</button>
                 </div>
               </form>

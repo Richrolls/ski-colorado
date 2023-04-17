@@ -2,7 +2,6 @@ import React from "react";
 import { useGetResortsQuery } from "../login/auth";
 import IndividualResort from "./IndividualResort";
 
-
 const ResortList = () => {
   const { data } = useGetResortsQuery();
 
@@ -16,7 +15,9 @@ const ResortList = () => {
         </tr>
       </thead>
       <tbody>
-        {data?.map(resort => <IndividualResort key={resort.id} {...resort} />)}
+        {data?.map((resort) => (
+          <IndividualResort key={resort.id} {...resort} />
+        ))}
       </tbody>
     </table>
   );
