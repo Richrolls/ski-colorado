@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import NavLoggedIn from "../header/NavLoggedIn.js"
 import { Link } from 'react-router-dom';
 import { useGetCommentsQuery } from "../login/auth.js";
 import IndividualComment from "./IndividualComment.js";

@@ -6,16 +6,13 @@ import CommentList from "../comments/CommentList.js";
 
 
 
-function CommentsFilteredByResort(CommentList) {
 
-}
 
 export default function ResortDetail() {
   const { thisResort } = useParams();
   const { data, error, isLoading } = useGetResortQuery(thisResort);
-  const { commentData, commentError, commentIsLoading } = useGetCommentsQuery(thisResort);
   console.log(data);
-  console.log(commentData)
+
   if (!data) {
     return <div>Loading...</div>;
   }
@@ -52,7 +49,7 @@ export default function ResortDetail() {
         </div>
         <div className="col-auto">
           <div>
-            CommentListPlaceholder
+            <CommentList/>
           </div>
         </div>
       </div>
