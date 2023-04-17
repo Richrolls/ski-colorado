@@ -1,6 +1,22 @@
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useLogoutMutation } from "../login/auth";
+import { useNavigate } from "react-router-dom";
 
 function NavLoggedIn() {
+  const dispatch = useDispatch();
+  const [logout] = useLogoutMutation();
+  const navigate = useNavigate();
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    const result = await logout();
+
+    if (result) {
+      navigate("/");
+    }
+  };
+
   return (
     <nav className="navbar navbar-expand-s navbar-dark bg-gradient">
       <div className="container-fluid">
@@ -36,9 +52,12 @@ function NavLoggedIn() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-                <div className="snow">
-          <NavLink className="navbar-brand" to="/">
-            SignoutButton
+        <div className="snow">
+          <NavLink
+            className="navbar-brand"
+            onClick={(e) => dispatch(handleLogout(e))}
+          >
+            Logout
           </NavLink>
         </div>
         <button
