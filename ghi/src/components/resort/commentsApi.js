@@ -2,16 +2,12 @@
 
 export const commentsApi = createApi({
     reducerPath: 'comments',
-    baseQuery: fetchBaseQuery({
-        baseUrl: process.env.REACT_APP_SAMPLE_SERVICE_API_HOST
-    }),
-    tagTypes: ['CommentsList'],
+    baseQuery: processResult.env.REACT_APP_SAMPLE_SERVICE_API_HOST,
     endpoints: builder => ({
         getComments: builder.query({
-            query: (resort_id) => `api/resorts/${resort_id}/comments`,
-            providesTags: ['CommentsList'],
+            query: () => '/api/resorts'
         })
     })
-})
+});
 
 export const { useGetCommentsQuery } = commentsApi
