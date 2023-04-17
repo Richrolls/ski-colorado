@@ -1,18 +1,25 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import { useGetResortQuery } from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 
-const ResortDetail = () => {
-  const { data } = useGetResortQuery();
+export default function ResortDetail() {
+  const { thisResort } = useParams();
+  const { data, error, isLoading } = useGetResortQuery(thisResort);
+  console.log(data);
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       <NavLoggedIn />
       <div className="row bg-primary">
         <div className="col-4 bg-info min-vh-100">
           <div>
-            <h1 className="text-center">{data?.name}</h1>
+            <h1 className="text-center">{data.name}</h1>
             {/* Change this to resort name later */}
-            <div className="text-center">RATINGS</div>
+            <div className="text-center"></div>
           </div>
           <div className="rounded bg-white m-3">
             <h2 className="text-center">Resort Info</h2>
@@ -25,10 +32,9 @@ const ResortDetail = () => {
           </div>
         </div>
         <div className="col-auto">
-          <p>Test</p>
+          <div></div>
         </div>
       </div>
     </>
   );
-};
-export default ResortDetail;
+}

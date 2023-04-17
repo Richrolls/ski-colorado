@@ -1,12 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}`,
     credentials: "include", // sends cookie to FastAPI
   }),
-  tagTypes: ["Account", "Resorts", "Resort"],
+  tagTypes: ["Account", "Resorts", "Resort", "CommentsList"],
   endpoints: (builder) => ({
     getAccount: builder.query({
       query: () => "/token",
@@ -51,15 +52,19 @@ export const authApi = createApi({
       },
     }),
     getResort: builder.query({
-      query: (id) => `/api/resorts/${id}`,
+      query: (thisResort) => `/api/resorts/${thisResort}`,
       providesTags: (result) => {
         const tags = [{ type: "Resort" }];
         if (!result) return tags;
         return [result, ...tags];
       },
     }),
+    getCommentsByResortId: builder.query({
+      query: ({ resort_id }) => `/api/resorts/${resort_id}/comments`,
+      providesTags: ["CommentsList"]
+    }),
   }),
 });
 
-export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation, useGetResortsQuery, useGetResortQuery } =
+export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation, useGetResortsQuery, useGetResortQuery, useGetCommentsByResortIdQuery } =
   authApi;
