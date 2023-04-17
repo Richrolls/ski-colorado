@@ -60,7 +60,7 @@ export const authApi = createApi({
       },
     }),
     getComments: builder.query({
-      query: ({ resort_id }) => `/api/resorts/${resort_id}/comments`,
+      query: ({ thisResort}) => `/api/resorts/${thisResort}/comments`,
       providesTags: ["CommentsList"]
     }),
   }),

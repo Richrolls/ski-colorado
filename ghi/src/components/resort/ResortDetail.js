@@ -1,13 +1,21 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useGetResortQuery } from "../login/auth.js";
+import { useGetResortQuery, useGetCommentsQuery } from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
+import CommentList from "../comments/CommentList.js";
+
+
+
+function CommentsFilteredByResort(CommentList) {
+
+}
 
 export default function ResortDetail() {
   const { thisResort } = useParams();
   const { data, error, isLoading } = useGetResortQuery(thisResort);
+  const { commentData, commentError, commentIsLoading } = useGetCommentsQuery(thisResort);
   console.log(data);
-
+  console.log(commentData)
   if (!data) {
     return <div>Loading...</div>;
   }
@@ -43,7 +51,9 @@ export default function ResortDetail() {
           </div>
         </div>
         <div className="col-auto">
-          <div></div>
+          <div>
+            CommentListPlaceholder
+          </div>
         </div>
       </div>
     </>

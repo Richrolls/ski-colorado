@@ -1,33 +1,44 @@
-// import { useState, useEffect } from "react";
-// import { useNavigate, useParams } from "react-router-dom";
-// import NavLoggedIn from "../header/NavLoggedIn.js"
-// import { Link } from 'react-router-dom';
-// import { useGetCommentsQuery } from "../../app/commentsApi.js";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import NavLoggedIn from "../header/NavLoggedIn.js"
+import { Link } from 'react-router-dom';
+import { useGetCommentsQuery } from "../login/auth.js";
+import IndividualComment from "./IndividualComment.js";
 
-// function CommentList( {resortId }) {
-//     const { data, error, isLoading } = useGetCommentsQuery(resortId);
-//     console.log(data)
+export default function CommentList() {
+    const { thisResort } = useParams();
+    const { data, error, isLoading } = useGetCommentsQuery(thisResort);
+    console.log(data)
 
-//     if (isLoading) {
-//         return (
-//             <progress className="progress is-primary" max="100"></progress>
-//         )
-//     }
+    if (isLoading) {
+        return (
+            <progress className="progress is-primary" max="100"></progress>
+        )
+    }
 
-//     return (
-//         <>
-//             <div>
-//             {comments.map(comment => (
-//                 <div key={comment.id}>
-//                 <p>Rating: {comment.rating}</p>
-//                 <p>Comment: {comment.comment}</p>
-//                 <p>User ID: {comment.user_id}</p>
-//                 <p>Resort ID: {comment.resort_id}</p>
-//                 </div>
-//             ))}
-//     </div>
-//         </>
-//     );
+    return (
+        <>
+    <div className="container">
+      <div className="row">
+        <div>
+          <div
+            className="shadow p-4 mt-4 bg-primary bg-gradient"
+            style={{ borderRadius: 8, marginLeft: 0, }}
+          >
+            <div>
+              <h1 className="snow">Comments</h1>
+            </div>
+            <br/>
+            <div className="row mx-auto w-75">
+              {data.comments?.map((comment) => (
+                <IndividualComment key={comment.id} {...comment} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        </>
+    );
 
-// }
-// export default CommentList;
+}
