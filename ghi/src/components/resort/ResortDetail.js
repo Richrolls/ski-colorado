@@ -33,7 +33,13 @@ export default function ResortDetail() {
       <div className="row bg-primary">
         <div className="col-4 bg-info min-vh-100">
           <div>
-            <h1 className="text-center">{data.name}</h1>
+            <a
+              href={data.resort_website}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h1 className="text-center">{data.name}</h1>
+            </a>
             {/* Change this to resort name later */}
             <div className="text-center"></div>
           </div>
