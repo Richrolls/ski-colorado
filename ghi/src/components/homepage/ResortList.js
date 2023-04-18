@@ -1,4 +1,4 @@
-import IndividualResort from "./IndividualResort"
+import IndividualResort from "./IndividualResort";
 import { useGetResortsQuery } from "../login/auth";
 
 const ResortList = () => {
@@ -15,7 +15,7 @@ const ResortList = () => {
             <div>
               <h1 className="snow">Resorts</h1>
             </div>
-            <br/>
+            <br />
             <div className="row mx-auto w-75">
               {data?.map((resort) => (
                 <IndividualResort key={resort.id} {...resort} />
