@@ -14,10 +14,8 @@ import Directions from "../directions/Directions.js";
 export default function ResortDetail() {
   const { thisResort } = useParams();
   const { data, error, isLoading } = useGetResortQuery(thisResort);
-  console.log(data)
 
-  const { data: account } = useGetAccountQuery();
-  console.log(account)
+
 
 
   if (!data) {
