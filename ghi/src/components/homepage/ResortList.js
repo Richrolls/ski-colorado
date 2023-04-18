@@ -1,6 +1,5 @@
 import IndividualResort from "./IndividualResort";
 import { useGetResortsQuery } from "../login/auth";
-import IndividualResort from "./IndividualResort";
 
 const ResortList = () => {
   const { data } = useGetResortsQuery();

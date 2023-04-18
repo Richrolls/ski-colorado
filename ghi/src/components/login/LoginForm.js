@@ -29,10 +29,14 @@ const LoginForm = () => {
     // login(fields);
     dispatch(reset());
 
-    const result = await login(fields).unwrap();
-    console.log(result);
-    if (result.access_token) {
-      navigate("/home");
+    try {
+      const result = await login(fields).unwrap();
+      console.log(result);
+      if (result.access_token) {
+        navigate("/home");
+      }
+    } catch {
+      dispatch(error("Incorrect username or password"));
     }
   };
 
