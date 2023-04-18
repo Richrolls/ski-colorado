@@ -6,6 +6,7 @@ import { useGetDirectionsQuery } from "./directionsSlice"
 
 export default function Directions() {
     const { data, error, isLoading } = useGetDirectionsQuery()
+    console.log(data)
 
     // if (isLoading) {
     //     return <div>Loading...</div>
