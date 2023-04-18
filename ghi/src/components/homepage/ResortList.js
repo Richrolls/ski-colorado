@@ -9,8 +9,8 @@ const ResortList = () => {
       <div className="row">
         <div>
           <div
-            className="shadow p-4 mt-4 bg-primary bg-gradient"
-            style={{ borderRadius: 8, marginLeft: 0, }}
+            className="center shadow p-4 mt-4 bg-primary bg-gradient"
+            style={{ borderRadius: 8 }}
           >
             <div>
               <h1 className="snow">Resorts</h1>

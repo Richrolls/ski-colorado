@@ -219,3 +219,18 @@ input[type="checkbox"]:checked {
 .left-container {
   padding-left: 24px;
 }
+
+.right {
+  position: absolute;
+  right: 36px;
+  width: 300px;
+}
+
+.center {
+  position: absolute;
+  /* margin-right: 48px; */
+  right: 35%;
+  left: 25.5%;
+  justify-content: center !important;
+  align-items: center !important;
+}
