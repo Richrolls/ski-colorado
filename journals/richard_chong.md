@@ -37,3 +37,8 @@
     The team came together and we decided on a file organization system to avoid any future mishaps. We worked on styling for the login and signup pages. We need to start working on front-end authorization. Now that we are able to generate the token, we need to started seeing if the front-end authorization works by uncommenting the authorization on the routers. We need to implement the signout feature to see if the token goes away.
 
     Looking forward to figuring out how to implement the signout feature.
+
+4/17/2023
+    Before leaving for break we were able to get authorization working for all of our routers that needed it. The ResortList page works, it displays a list of all of our resorts only when logged in. I am currently trying to figure out how to make queries to 3rd party APIs. Once that is done, the functionality of the rest of the project should be repeats of completed features.
+
+    Looking forward to figuring out how to make requests to 3rd party APIs.

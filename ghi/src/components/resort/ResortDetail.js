@@ -4,6 +4,7 @@ import { useGetResortQuery, useGetCommentsQuery, useGetAccountQuery} from "../lo
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js";
 import IndividualComment from "../comments/IndividualComment.js";
+import AverageRatingByResort from "../comments/AverageRatingFunction.js";
 
 
 
@@ -53,6 +54,9 @@ export default function ResortDetail() {
         <div className="col-auto">
           <div>
             <ResortFilteredCommentList comments={data.comments} thisResort={thisResort} />
+          </div>
+          <div>
+            <AverageRatingByResort/>
           </div>
         </div>
       </div>
