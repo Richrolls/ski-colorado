@@ -60,11 +60,14 @@ export const authApi = createApi({
       },
     }),
     getComments: builder.query({
-      query: ({ thisResort}) => `/api/resorts/${thisResort}/comments`,
-      providesTags: ["CommentsList"]
+      query: ({ thisResort }) => `/api/resorts/${thisResort}/comments`,
+      providesTags: ["CommentsList"],
+    }),
+    getDistance: builder.query({
+      query: ({ origin, destination }) => `/api/directions?origin=${origin}&destination=${destination}`,
     }),
   }),
 });
 
-export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation, useGetResortsQuery, useGetResortQuery, useGetCommentsQuery } =
+export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation, useGetResortsQuery, useGetResortQuery, useGetCommentsQuery, useGetDistanceQuery } =
   authApi;
