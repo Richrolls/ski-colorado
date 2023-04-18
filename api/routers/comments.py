@@ -51,11 +51,12 @@ def get_comments(
 
 @router.get("/api/resorts/{resort_id}/comments/{comment_id}", response_model=CommentOut)
 async def get_comment(
+    resort_id: str,
     comment_id: str,
     repo: CommentQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
     ):
-    return repo.get_one(comment_id)
+    return repo.get_one(resort_id, comment_id, user_id=account_data['id'])
 
 @router.delete("/api/resorts/{resort_id}/comments/{comment_id}", response_model=bool)
 def delete_comment(

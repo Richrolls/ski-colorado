@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useGetCommentsQuery } from "../login/auth.js";
 import IndividualComment from "./IndividualComment.js";
 
-export default function CommentList() {
+
+export default function AverageRatingByResort() {
     const { thisResort } = useParams();
     const { data, error, isLoading } = useGetCommentsQuery(thisResort);
     console.log(data)
@@ -13,6 +14,16 @@ export default function CommentList() {
             <progress className="progress is-primary" max="100"></progress>
         )
     }
+
+    const filteredComments = data.comments.filter(comment => comment.resort_id === thisResort);
+
+    function averageRating(filteredComments) {
+        const sum = filteredComments.reduce((total, comment) => total + comment.rating, 0);
+        const average = sum / filteredComments.length;
+        return parseFloat(average.toFixed(2))
+    }
+
+
 
     return (
         <>
@@ -24,13 +35,11 @@ export default function CommentList() {
             style={{ borderRadius: 8, marginLeft: 0, }}
           >
             <div>
-              <h1 className="snow">Comments</h1>
+              <h1 className="snow">Average Rating</h1>
             </div>
             <br/>
             <div className="row mx-auto w-75">
-              {data.comments?.map((comment) => (
-                <IndividualComment key={comment.id} {...comment} />
-              ))}
+              Average Rating: {averageRating(filteredComments)}
             </div>
           </div>
         </div>

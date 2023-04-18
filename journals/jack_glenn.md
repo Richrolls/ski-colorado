@@ -18,3 +18,4 @@ and API data was successfully queried and returned via Insomnia.
 
 4/6/23 - Reorganized ghi/src file into consistent, repeateable patterns to avoid future problems. Troubleshot all associated import pathing errors with file reorganization.
 
+4/17/23 - Returned from Spring Break! Reacquainted myself with the project's status, successfully refactored backend Comments model to allow access to all Comment instances. Frontend will filter Comments as necessary. For ResortDetail pages, filtered comments by resort_id attribute. Implemented average rating function for each resort, unstylized yet.

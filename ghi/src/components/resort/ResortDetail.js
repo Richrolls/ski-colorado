@@ -1,12 +1,19 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useGetResortQuery } from "../login/auth.js";
+import { useGetResortQuery, useGetCommentsQuery } from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
+import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js";
+import IndividualComment from "../comments/IndividualComment.js";
+import AverageRatingByResort from "../comments/AverageRatingFunction.js";
+
+
+
+
 
 export default function ResortDetail() {
   const { thisResort } = useParams();
   const { data, error, isLoading } = useGetResortQuery(thisResort);
-  console.log(data);
+
 
   if (!data) {
     return <div>Loading...</div>;
@@ -43,7 +50,12 @@ export default function ResortDetail() {
           </div>
         </div>
         <div className="col-auto">
-          <div></div>
+          <div>
+            <ResortFilteredCommentList comments={data.comments} thisResort={thisResort} />
+          </div>
+          <div>
+            <AverageRatingByResort/>
+          </div>
         </div>
       </div>
     </>

@@ -3,16 +3,18 @@ import { Link } from 'react-router-dom';
 import { useGetCommentsQuery } from "../login/auth.js";
 import IndividualComment from "./IndividualComment.js";
 
-export default function CommentList() {
+
+export default function ResortFilteredCommentList() {
     const { thisResort } = useParams();
     const { data, error, isLoading } = useGetCommentsQuery(thisResort);
-    console.log(data)
 
     if (isLoading) {
         return (
             <progress className="progress is-primary" max="100"></progress>
         )
     }
+
+    const filteredComments = data.comments.filter(comment => comment.resort_id === thisResort);
 
     return (
         <>
@@ -28,7 +30,7 @@ export default function CommentList() {
             </div>
             <br/>
             <div className="row mx-auto w-75">
-              {data.comments?.map((comment) => (
+              {filteredComments.map((comment) => (
                 <IndividualComment key={comment.id} {...comment} />
               ))}
             </div>
