@@ -59,6 +59,9 @@ export default function ResortDetail() {
             </p>
             <p className="text-center">Distance/Travel Time</p>
           </div>
+          <div className="text-center">
+            <img src={data?.photo_url} alt={data.name}></img>
+          </div>
         </div>
         <div className="col-auto">
           <div>
