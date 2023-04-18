@@ -5,6 +5,7 @@ import NavLoggedIn from "../header/NavLoggedIn.js";
 import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js";
 import IndividualComment from "../comments/IndividualComment.js";
 import AverageRatingByResort from "../comments/AverageRatingFunction.js";
+import Directions from "../directions/Directions.js";
 
 
 
@@ -55,6 +56,9 @@ export default function ResortDetail() {
           </div>
           <div>
             <AverageRatingByResort/>
+          </div>
+          <div>
+            <Directions/>
           </div>
         </div>
       </div>
