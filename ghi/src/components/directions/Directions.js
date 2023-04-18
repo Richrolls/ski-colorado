@@ -46,11 +46,14 @@ export default function Directions() {
 //   }
 
     return (
-        <div>
-            <h1>Directions</h1>
-            <ul>
-              {distance.routes.legs[0].distance.text}
-            </ul>
-        </div>
+  <div>
+    <h1>Directions</h1>
+    {distance && distance.routes.length > 0 && (
+      <div>
+        <p>Distance: {distance.routes[0].legs[0].distance.text}</p>
+        <p>Travel Time: {distance.routes[0].legs[0].duration.text}</p>
+      </div>
+    )}
+  </div>
     )
 }
