@@ -19,3 +19,5 @@ and API data was successfully queried and returned via Insomnia.
 4/6/23 - Reorganized ghi/src file into consistent, repeateable patterns to avoid future problems. Troubleshot all associated import pathing errors with file reorganization.
 
 4/17/23 - Returned from Spring Break! Reacquainted myself with the project's status, successfully refactored backend Comments model to allow access to all Comment instances. Frontend will filter Comments as necessary. For ResortDetail pages, filtered comments by resort_id attribute. Implemented average rating function for each resort, unstylized yet.
+
+4/18/23 - Extremely tedious day, but working together with Richard and Anton we returned Google Maps API data to the ResortDetail.js page, using the logged-in user's address information and the address information of the individual resort they are viewing. Took all day but very satisfying to finally achieve.
