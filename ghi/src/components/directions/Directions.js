@@ -38,7 +38,7 @@ export default function Directions() {
   console.log(origin)
   const destination = get_resort_address(data)
   console.log(destination);
-
+  
   const { data: distance } = useGetDistanceQuery({origin, destination})
   console.log(distance)
 //   function get_directions = async (get_account_address, get_resort_address) =>  {
@@ -49,7 +49,7 @@ export default function Directions() {
         <div>
             <h1>Directions</h1>
             <ul>
-              {distance.routes.legs[0].distance.text}
+              {/* {distance.routes.legs[0].distance.text} */}
             </ul>
         </div>
     )
