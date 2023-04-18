@@ -40,4 +40,8 @@ Week 4
 
 Right before the break, I pushed the "back" button after working on it with Alex
 
-Day 1: 
+Day 1: Stylized home page (resorts list) with Alex
+
+Day 2: Finished stylizing home page with incorporated Twitter feed resizing. Worked on NavBar (profile icon and logout).
+
+

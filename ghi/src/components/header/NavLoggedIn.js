@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useLogoutMutation } from "../login/auth";
 import { useNavigate } from "react-router-dom";
+import skierIcon from "./Skier_Icon.png"
 
 function NavLoggedIn() {
   const dispatch = useDispatch();
@@ -25,56 +26,17 @@ function NavLoggedIn() {
             SC
           </NavLink>
         </div>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="snow">
-          <NavLink className="navbar-brand" to="/profile">
-            *ProfileLinkImage*
+        <div>
+          <NavLink className="navbar-misc" to="/profile">
+            <img className="profile-icon" src={skierIcon} />
           </NavLink>
-        </div>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="snow">
+          &nbsp;&nbsp;
           <NavLink
-            className="navbar-brand"
+            className="navbar-misc"
             onClick={(e) => dispatch(handleLogout(e))}
           >
-            Logout
+            Log Out
           </NavLink>
-        </div>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <ul></ul>
-          </ul>
         </div>
       </div>
     </nav>

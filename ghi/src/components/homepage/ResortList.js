@@ -1,4 +1,4 @@
-import IndividualResort from "./IndividualResort"
+import IndividualResort from "./IndividualResort";
 import { useGetResortsQuery } from "../login/auth";
 
 const ResortList = () => {
@@ -9,13 +9,13 @@ const ResortList = () => {
       <div className="row">
         <div>
           <div
-            className="shadow p-4 mt-4 bg-primary bg-gradient"
-            style={{ borderRadius: 8, marginLeft: 0, }}
+            className="center shadow p-4 mt-4 bg-primary bg-gradient"
+            style={{ borderRadius: 8 }}
           >
             <div>
               <h1 className="snow">Resorts</h1>
             </div>
-            <br/>
+            <br />
             <div className="row mx-auto w-75">
               {data?.map((resort) => (
                 <IndividualResort key={resort.id} {...resort} />
