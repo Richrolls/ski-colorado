@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useGetResortQuery, useGetCommentsQuery } from "../login/auth.js";
+import { useGetResortQuery, useGetCommentsQuery, useGetAccountQuery } from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js";
 import IndividualComment from "../comments/IndividualComment.js";
@@ -14,6 +14,10 @@ import Directions from "../directions/Directions.js";
 export default function ResortDetail() {
   const { thisResort } = useParams();
   const { data, error, isLoading } = useGetResortQuery(thisResort);
+  console.log(data)
+
+  const { data: account } = useGetAccountQuery();
+  console.log(account)
 
 
   if (!data) {
