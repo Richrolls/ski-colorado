@@ -33,7 +33,6 @@ export default function Directions() {
     }
   }
 
-
   const origin = get_account_address(account)
   console.log(origin)
   const destination = get_resort_address(data)
@@ -41,9 +40,7 @@ export default function Directions() {
 
   const { data: distance } = useGetDistanceQuery({origin, destination})
   console.log(distance)
-//   function get_directions = async (get_account_address, get_resort_address) =>  {
-//     let
-//   }
+
 
     return (
   <div>
