@@ -26,7 +26,6 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // login(fields);
     dispatch(reset());
 
     try {

@@ -1,5 +1,16 @@
 import IndividualResort from "./IndividualResort";
+import { useSelector, useDispatch } from "react-redux";
 import { useGetResortsQuery } from "../login/auth";
+import {
+  handleIkonChange,
+  handleEpicChange,
+  handle$Change,
+  handle$$Change,
+  handle$$$Change,
+  handle$$$$Change,
+  handle$$$$$Change,
+  reset,
+} from "./checkboxSlice";
 
 const ResortList = () => {
   const { data } = useGetResortsQuery();

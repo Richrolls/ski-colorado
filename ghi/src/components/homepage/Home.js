@@ -3,6 +3,16 @@ import { NavLink } from "react-router-dom";
 import ResortList from "./ResortList.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import { Timeline } from "react-twitter-widgets";
+import {
+  handleIkonChange,
+  handleEpicChange,
+  handle$Change,
+  handle$$Change,
+  handle$$$Change,
+  handle$$$$Change,
+  handle$$$$$Change,
+  reset,
+} from "./checkboxSlice";
 
 function Checkbox(props) {
   const { name, label } = props;
@@ -60,21 +70,21 @@ function HomePage() {
               </div>
               <br />
               <br />
-                          <div
-              className="shadow p-4 mt-4 bg-primary bg-gradient"
-              style={{
-                borderRadius: 8,
-                left: 0,
-                height: 300,
-                width: "100%",
-              }}
-            >
-              <iframe
-                width="100%"
-                height="250"
-                src="https://embed.windy.com/embed2.html?lat=38.840&lon=-105.381&detailLat=30.175&detailLon=-97.820&width=650&height=450&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
-                frameborder="0"
-              ></iframe>
+              <div
+                className="shadow p-4 mt-4 bg-primary bg-gradient"
+                style={{
+                  borderRadius: 8,
+                  left: 0,
+                  height: 300,
+                  width: "100%",
+                }}
+              >
+                <iframe
+                  width="100%"
+                  height="250"
+                  src="https://embed.windy.com/embed2.html?lat=38.840&lon=-105.381&detailLat=30.175&detailLon=-97.820&width=650&height=450&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
+                  frameborder="0"
+                ></iframe>
               </div>
             </div>
             <div>
