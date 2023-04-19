@@ -47,7 +47,9 @@ export default function ResortDetail() {
                 marginLeft: 52,
               }}
             >
-              <h2 style={{ paddingBottom: 12 }}>Current Weather</h2>
+              <h2 style={{ paddingBottom: 12 }} className="underlined">
+                Current Weather
+              </h2>
               <div
                 className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
                 style={{ paddingTop: 20 }}
