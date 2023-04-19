@@ -8,18 +8,21 @@ function Footer() {
           <MDBRow>
             <MDBCol lg="6" md="12" className="mb-4 mb-md-0">
               <h4 className="text-uppercase">
-                We proudly serve all Colorado resorts <br/> on the most popular season
-                passes:
+                We proudly serve all Colorado resorts <br /> on the most popular
+                season passes:
               </h4>
 
               <div>
                 <img
                   src="https://static.wixstatic.com/media/6c47ef_526275ae9eae4a64bd748509405010bd~mv2.png/v1/crop/x_98,y_33,w_398,h_167/fill/w_318,h_134,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Epic%20Pass%20Logo.png"
                   alt="epic logo"
+                  style={{ paddingTop: 8 }}
                 ></img>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <img
                   src="https://www.skibig3.com/wp-content/uploads/2020/06/IKON_Pass-Logo.png"
                   alt="ikon logo"
+                  style={{ paddingTop: 8 }}
                 ></img>
               </div>
             </MDBCol>
@@ -27,7 +30,7 @@ function Footer() {
             <MDBCol lg="6" md="12" className="mb-4 mb-md-0">
               <h4 className="text-uppercase">
                 Colorado Department of Transportation Updates
-                <br/>
+                <br />
                 <a
                   className="twitter-timeline"
                   href="https://twitter.com/ColoradoDOT?ref_src=twsrc%5Etfw"
@@ -45,6 +48,7 @@ function Footer() {
                 <img
                   src="https://dtdapps.coloradodot.info/prolojs/assets/images/cdot_logo_2019.png"
                   alt="cdot logo"
+                  style={{ paddingTop: 8 }}
                 ></img>
               </div>
             </MDBCol>

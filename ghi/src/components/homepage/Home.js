@@ -58,6 +58,24 @@ function HomePage() {
                 <Checkbox name="$$$$" label="&nbsp;$$$$" />
                 <Checkbox name="$$$$$" label="&nbsp;$$$$$" />
               </div>
+              <br />
+              <br />
+                          <div
+              className="shadow p-4 mt-4 bg-primary bg-gradient"
+              style={{
+                borderRadius: 8,
+                left: 0,
+                height: 300,
+                width: "100%",
+              }}
+            >
+              <iframe
+                width="100%"
+                height="250"
+                src="https://embed.windy.com/embed2.html?lat=38.840&lon=-105.381&detailLat=30.175&detailLon=-97.820&width=650&height=450&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
+                frameborder="0"
+              ></iframe>
+              </div>
             </div>
             <div>
               <div>
@@ -71,7 +89,7 @@ function HomePage() {
                   borderRadius: 8,
                   marginRight: 0,
                   marginLeft: 52,
-                  height: 847,
+                  height: 950,
                   width: "30%",
                 }}
               >
@@ -82,7 +100,7 @@ function HomePage() {
                       screenName: "ColoradoDOT",
                     }}
                     options={{
-                      height: "800",
+                      height: "900",
                       width: "100%",
                     }}
                   />

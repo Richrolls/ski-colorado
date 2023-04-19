@@ -42,3 +42,8 @@
     Before leaving for break we were able to get authorization working for all of our routers that needed it. The ResortList page works, it displays a list of all of our resorts only when logged in. I am currently trying to figure out how to make queries to 3rd party APIs. Once that is done, the functionality of the rest of the project should be repeats of completed features.
 
     Looking forward to figuring out how to make requests to 3rd party APIs.
+
+4/18/2023
+    We worked on getting the distance data from the google maps api. After many attempts we were able to get query the 3rd party api and get the data to show on the frontend. That was the last big hurdle we had to overcome and everything from now on should be a repeat of an existing feature.
+
+    Looking forward to finally working on a different feature of the website.

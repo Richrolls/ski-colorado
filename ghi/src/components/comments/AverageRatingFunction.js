@@ -1,13 +1,11 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { useGetCommentsQuery } from "../login/auth.js";
-import IndividualComment from "./IndividualComment.js";
+
 
 
 export default function AverageRatingByResort() {
     const { thisResort } = useParams();
-    const { data, error, isLoading } = useGetCommentsQuery(thisResort);
-    console.log(data)
+    const { data, isLoading } = useGetCommentsQuery(thisResort);
 
     if (isLoading) {
         return (
@@ -16,14 +14,11 @@ export default function AverageRatingByResort() {
     }
 
     const filteredComments = data.comments.filter(comment => comment.resort_id === thisResort);
-
     function averageRating(filteredComments) {
         const sum = filteredComments.reduce((total, comment) => total + comment.rating, 0);
         const average = sum / filteredComments.length;
         return parseFloat(average.toFixed(2))
     }
-
-
 
     return (
         <>
