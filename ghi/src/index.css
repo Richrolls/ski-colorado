@@ -94,6 +94,10 @@ a:hover {
   color: #ffbf6c !important;
 }
 
+.title-link:hover {
+  color: #ffbf6c !important;
+}
+
 .butt {
   box-shadow: inset 0px 1px 0px 0px #fce2c1;
   background: linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
@@ -246,4 +250,9 @@ input[type="checkbox"]:checked {
   width: 48px;
   padding-top: 4px;
   padding-bottom: 2px;
+}
+
+.resort-photo {
+  width: 100%;
+  height: 300px;
 }
