@@ -1,10 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useGetResortQuery, useGetCommentsQuery } from "../login/auth.js";
+import { useGetResortQuery, useGetCommentsQuery, useGetAccountQuery } from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js";
 import IndividualComment from "../comments/IndividualComment.js";
 import AverageRatingByResort from "../comments/AverageRatingFunction.js";
+import Directions from "../directions/Directions.js";
 
 export default function ResortDetail() {
   const { thisResort } = useParams();
@@ -133,6 +134,9 @@ export default function ResortDetail() {
                 <AverageRatingByResort />
               </div>
             </div>
+          </div>
+          <div>
+            <Directions/>
           </div>
         </div>
       </div>
