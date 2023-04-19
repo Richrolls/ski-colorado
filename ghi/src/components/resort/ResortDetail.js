@@ -68,7 +68,10 @@ export default function ResortDetail() {
                   width: "100%",
                 }}
               >
-                <h3>Directions</h3>
+                <h2>Location</h2>
+                <div>
+                  <Directions />
+                </div>
               </div>
             </div>
             <div>
@@ -108,7 +111,9 @@ export default function ResortDetail() {
                       <p className="text-center">
                         Price Rating: {dollarPrice(data?.price)}
                       </p>
-                      <p className="text-center">Distance/Travel Time</p>
+                      <div>
+                        <AverageRatingByResort />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -130,13 +135,7 @@ export default function ResortDetail() {
                   thisResort={thisResort}
                 />
               </div>
-              <div>
-                <AverageRatingByResort />
-              </div>
             </div>
-          </div>
-          <div>
-            <Directions/>
           </div>
         </div>
       </div>

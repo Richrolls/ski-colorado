@@ -47,11 +47,10 @@ export default function Directions() {
 
     return (
   <div>
-    <h1>Directions</h1>
     {distance && distance.routes.length > 0 && (
       <div>
-        <p>Distance: {distance.routes[0].legs[0].distance.text}</p>
-        <p>Travel Time: {distance.routes[0].legs[0].duration.text}</p>
+        <h4><br/>Distance: {distance.routes[0].legs[0].distance.text}</h4>
+        <h4>Travel Time: {distance.routes[0].legs[0].duration.text}</h4>
       </div>
     )}
   </div>
