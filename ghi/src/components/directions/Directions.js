@@ -6,6 +6,7 @@ import { useGetResortQuery, useGetAccountQuery, useGetDistanceQuery } from "../l
 export default function Directions() {
 
   const { thisResort } = useParams();
+  console.log(thisResort)
   const { data } = useGetResortQuery(thisResort);
 
 
@@ -33,15 +34,10 @@ export default function Directions() {
     }
   }
 
-
   const origin = get_account_address(account)
-  console.log(origin)
   const destination = get_resort_address(data)
-  console.log(destination);
-
   const { data: distance } = useGetDistanceQuery({origin, destination})
-  console.log(distance)
-  
+
     return (
   <div>
     <h1>Directions</h1>
