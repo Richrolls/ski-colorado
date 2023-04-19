@@ -10,6 +10,8 @@ import Home from "./components/homepage/Home.js";
 import CommentList from "./components/comments/CommentList.js";
 import { AddCommentForm } from "./components/comments/CreateComment/AddNewComment.js";
 import { CommentsList } from "./components/comments/CommentListRedux.js";
+import Profile from "./components/profile/profile.jsx";
+
 import "./App.css";
 
 function App() {
@@ -51,6 +53,8 @@ function App() {
             <Route path="signup" element={<Signup />} />
             <Route path="home" element={<Home />} />
             <Route path="/resorts/:thisResort/comments" element={<CommentsList/>}/>
+            <Route path="profile/:accountId" element={<Profile />} />
+            <Route path="/resorts/:thisResort/comments" element={<CommentList />} />
           </Routes>
         {/* </div> */}
       </BrowserRouter>

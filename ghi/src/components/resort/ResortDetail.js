@@ -1,6 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useGetResortQuery, useGetCommentsQuery, useGetAccountQuery } from "../login/auth.js";
+import {
+  useGetResortQuery,
+  useGetCommentsQuery,
+  useGetAccountQuery,
+} from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js";
 import IndividualComment from "../comments/IndividualComment.js";
@@ -43,7 +47,9 @@ export default function ResortDetail() {
                 marginLeft: 52,
               }}
             >
-              <h2 style={{ paddingBottom: 12 }}>Current Weather</h2>
+              <h2 style={{ paddingBottom: 12 }} className="underlined">
+                Current Weather
+              </h2>
               <div
                 className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
                 style={{ paddingTop: 20 }}
@@ -68,7 +74,7 @@ export default function ResortDetail() {
                   width: "100%",
                 }}
               >
-                <h2>Location</h2>
+                <h2 className="underlined">Travel Information</h2>
                 <div>
                   <Directions />
                 </div>
@@ -88,7 +94,6 @@ export default function ResortDetail() {
                     >
                       <h1 className="snow title-link">{data.name}</h1>
                     </a>
-                    {/* Change this to resort name later */}
                     <div className="text-center">
                       <img
                         className="resort-photo"
@@ -97,22 +102,40 @@ export default function ResortDetail() {
                       ></img>
                     </div>
                     <div className="rounded m-3">
-                      <h2 className="text-center">Resort Info</h2>
-                      <p className="text-center">
+                      <h2 className="text-center underlined">Resort Info</h2>
+                      <h4 className="text-center">
                         {data?.address}
                         <br></br> {data?.city}, {data?.state} {data?.zipcode}
-                      </p>
-                      <p className="text-center">
-                        Top Elevation: {addComma(data?.elevation)} ft<br></br>
-                        Vertical Drop: {addComma(data?.vertical_drop)} ft
-                        <br></br>
-                        Number of Trails: {data?.num_trails}
-                      </p>
-                      <p className="text-center">
-                        Price Rating: {dollarPrice(data?.price)}
-                      </p>
-                      <div>
-                        <AverageRatingByResort />
+                      </h4>
+                    </div>
+
+                    <div className="container">
+                      <div class="row">
+                        <div
+                          className="col shadow p-4 mt-4 bg-primary bg-gradient"
+                          style={{
+                            borderRadius: 8,
+                            marginLeft: 0,
+                            marginRight: 10,
+                          }}
+                        >
+                          <h2 className="underlined">Stats</h2>
+                          <h4 className="text-center">
+                            Top Elevation: {addComma(data?.elevation)} ft
+                            <br></br>
+                            Vertical Drop: {addComma(data?.vertical_drop)} ft
+                            <br></br>
+                            Number of Trails: {data?.num_trails}
+                            <br></br>
+                            Price Rating: {dollarPrice(data?.price)}{" "}
+                          </h4>
+                        </div>
+                        <div
+                          className="col shadow p-4 mt-4 bg-primary bg-gradient"
+                          style={{ borderRadius: 8, marginLeft: 0 }}
+                        >
+                          <AverageRatingByResort />
+                        </div>
                       </div>
                     </div>
                   </div>
