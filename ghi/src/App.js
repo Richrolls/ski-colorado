@@ -8,6 +8,8 @@ import ResortDetail from "./components/resort/ResortDetail.js";
 import LoginForm from "./components/login/LoginForm.js";
 import Home from "./components/homepage/Home.js";
 import CommentList from "./components/comments/CommentList.js";
+import { AddCommentForm } from "./components/comments/CreateComment/AddNewComment.js";
+import { CommentsList } from "./components/comments/CommentListRedux.js";
 import "./App.css";
 
 function App() {
@@ -48,7 +50,7 @@ function App() {
             <Route path="login" element={<LoginForm />} />
             <Route path="signup" element={<Signup />} />
             <Route path="home" element={<Home />} />
-            <Route path="/resorts/:thisResort/comments" element={<CommentList />} />
+            <Route path="/resorts/:thisResort/comments" element={<CommentsList/>}/>
           </Routes>
         {/* </div> */}
       </BrowserRouter>

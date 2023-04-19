@@ -1,45 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
-    fields: {
-	rating: 5,
-	comment: "",
-	user_id: "",
-	resort_id: "",
-    },
-    errorMessage: null
-}
+const initialState = [
+  { id: '1', resort_id: '64404dd3c9ea1983943e11d6', rating: 3, comment: 'Decent, but forgettable' },
+  { id: '2', resort_id: '64404dd3c9ea1983943e11d6', rating: 2, comment: 'Mediocre' }
+]
 
-const commentSlice = createSlice({
-  name: "comment",
+const commentsSlice = createSlice({
+  name: 'comments',
   initialState,
   reducers: {
-    handleRatingChange: (state, action) => {
-      state.fields.rating = action.payload;
-    },
-    handleCommentChange: (state, action) => {
-      state.fields.comment = action.payload;
-    },
-    handleUserIDChange: (state, action) => {
-      state.fields.user_id = action.payload;
-    },
-    handleResortIDChange: (state, action) => {
-      state.fields.resort_id = action.payload;
-    },
-    error: (state, action) => {
-      state.errorMessage = action.payload;
-    },
-    reset: () => initialState,
-  },
-});
+    commentAdded(state, action) {
+      state.push(action.payload)
+    }
+  }
+})
 
-export const {
-  handleRatingChange,
-  handleCommentChange,
-  handleUserIDChange,
-  handleResortIDChange,
-  reset,
-  error
-} = commentSlice.actions;
+export const { commentAdded } = commentsSlice.actions
 
-export default commentSlice.reducer;
+export default commentsSlice.reducer
