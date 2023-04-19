@@ -94,6 +94,15 @@ a:hover {
   color: #ffbf6c !important;
 }
 
+.title-link:hover {
+  color: #ffbf6c !important;
+}
+
+.title-link{
+  font-size: 72px !important;
+  padding-bottom: 12px;
+}
+
 .butt {
   box-shadow: inset 0px 1px 0px 0px #fce2c1;
   background: linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
@@ -148,7 +157,7 @@ label {
 }
 
 .btn-sm {
-  font-size:80% !important;
+  font-size: 80% !important;
   border-radius: 6px !important;
 }
 
@@ -216,7 +225,9 @@ input::-webkit-input-placeholder {
   padding-top: 4px !important;
 }
 
-input:focus::-webkit-input-placeholder { font-size: 0% !important; }
+input:focus::-webkit-input-placeholder {
+  font-size: 0% !important;
+}
 
 input[type="checkbox"]:checked {
   accent-color: rgb(255, 166, 0);
@@ -248,3 +259,12 @@ input[type="checkbox"]:checked {
   padding-bottom: 2px;
 }
 
+.resort-photo {
+  width: 480px;
+  height: 360px;
+  padding-bottom: 12px;
+}
+
+.underlined {
+  text-decoration: underline;
+}
