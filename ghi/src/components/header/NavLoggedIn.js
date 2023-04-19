@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useLogoutMutation } from "../login/auth";
+import { useLogoutMutation, useGetAccountQuery } from "../login/auth";
 import { useNavigate } from "react-router-dom";
 import skierIcon from "./Skier_Icon.png"
 
@@ -8,6 +8,8 @@ function NavLoggedIn() {
   const dispatch = useDispatch();
   const [logout] = useLogoutMutation();
   const navigate = useNavigate();
+  const { data } = useGetAccountQuery();
+
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -27,9 +29,11 @@ function NavLoggedIn() {
           </NavLink>
         </div>
         <div>
-          <NavLink className="navbar-misc" to="/profile">
-            <img className="profile-icon" src={skierIcon} />
-          </NavLink>
+          {data && (
+            <NavLink className="navbar-misc" to={`/profile/${data.id}`}>
+              <img className="profile-icon rounded-circle" src={data.picture_url} />
+            </NavLink>
+          )}
           &nbsp;&nbsp;
           <NavLink
             className="navbar-misc"

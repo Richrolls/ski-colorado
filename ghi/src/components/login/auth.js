@@ -66,8 +66,20 @@ export const authApi = createApi({
     getDistance: builder.query({
       query: ({ origin, destination }) => `/api/directions?origin=${origin}&destination=${destination}`,
     }),
+    getProfile: builder.query({
+      query: (accountId ) => `/api/accounts/${accountId}`,
+    }),
   }),
 });
 
-export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation, useGetResortsQuery, useGetResortQuery, useGetCommentsQuery, useGetDistanceQuery } =
-  authApi;
+export const {
+  useGetAccountQuery,
+  useLogoutMutation,
+  useLoginMutation,
+  useSignupMutation,
+  useGetResortsQuery,
+  useGetResortQuery,
+  useGetCommentsQuery,
+  useGetDistanceQuery,
+  useGetProfileQuery
+} = authApi;

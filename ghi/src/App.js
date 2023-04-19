@@ -8,6 +8,8 @@ import ResortDetail from "./components/resort/ResortDetail.js";
 import LoginForm from "./components/login/LoginForm.js";
 import Home from "./components/homepage/Home.js";
 import CommentList from "./components/comments/CommentList.js";
+import Profile from "./components/profile/profile.jsx";
+
 import "./App.css";
 
 function App() {
@@ -48,6 +50,7 @@ function App() {
             <Route path="login" element={<LoginForm />} />
             <Route path="signup" element={<Signup />} />
             <Route path="home" element={<Home />} />
+            <Route path="profile/:accountId" element={<Profile />} />
             <Route path="/resorts/:thisResort/comments" element={<CommentList />} />
           </Routes>
         {/* </div> */}
