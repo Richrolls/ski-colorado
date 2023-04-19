@@ -26,7 +26,7 @@ export default function ResortFilteredCommentList() {
             style={{ borderRadius: 8, marginLeft: 0, }}
           >
             <div>
-              <h1 className="snow">Comments</h1>
+              <h2>Comments</h2>
             </div>
             <br/>
             <div className="row mx-auto w-75">

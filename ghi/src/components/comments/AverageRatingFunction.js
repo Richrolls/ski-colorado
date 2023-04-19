@@ -35,7 +35,7 @@ export default function AverageRatingByResort() {
             style={{ borderRadius: 8, marginLeft: 0, }}
           >
             <div>
-              <h1 className="snow">Average Rating</h1>
+              <h2>Average Rating</h2>
             </div>
             <br/>
             <div className="row mx-auto w-75">

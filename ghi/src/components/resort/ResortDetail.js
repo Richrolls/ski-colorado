@@ -30,48 +30,109 @@ export default function ResortDetail() {
   return (
     <>
       <NavLoggedIn />
-      <div className="row bg-primary">
-        <div className="col-4 bg-info min-vh-100">
-          <div>
-            <a
-              href={data.resort_website}
-              target="_blank"
-              rel="noopener noreferrer"
+      <div className="text-center">
+        <div className="col">
+          <div className="row row-cols-3">
+            <div
+              className="shadow p-4 mt-4 bg-primary bg-gradient"
+              style={{
+                borderRadius: 8,
+                height: 260,
+                width: "20%",
+                marginLeft: 52,
+              }}
             >
-              <h1 className="text-center">{data.name}</h1>
-            </a>
-            {/* Change this to resort name later */}
-            <div className="text-center"></div>
-          </div>
-          <div className="rounded bg-white m-3">
-            <h2 className="text-center">Resort Info</h2>
-            <p className="text-center">
-              {data?.address}
-              <br></br> {data?.city}, {data?.state} {data?.zipcode}
-            </p>
-            <p className="text-center">
-              Top Elevation: {addComma(data?.elevation)} ft<br></br>Vertical
-              Drop: {addComma(data?.vertical_drop)} ft<br></br>Number of Trails:{" "}
-              {data?.num_trails}
-            </p>
-            <p className="text-center">
-              Price Rating: {dollarPrice(data?.price)}
-            </p>
-            <p className="text-center">Distance/Travel Time</p>
-          </div>
-          <div className="text-center">
-            <img src={data?.photo_url} alt={data.name}></img>
-          </div>
-        </div>
-        <div className="col-auto">
-          <div>
-            <ResortFilteredCommentList
-              comments={data.comments}
-              thisResort={thisResort}
-            />
-          </div>
-          <div>
-            <AverageRatingByResort />
+              <h2 style={{ paddingBottom: 12 }}>Current Weather</h2>
+              <div
+                className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
+                style={{ paddingTop: 20 }}
+              >
+                <h3>Temp</h3>
+              </div>
+              <br />
+              <div
+                className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
+                style={{ paddingTop: 20 }}
+              >
+                <h3>Precip</h3>
+              </div>
+              <br />
+              <br />
+              <div
+                className="shadow p-4 mt-4 bg-primary bg-gradient"
+                style={{
+                  borderRadius: 8,
+                  left: 0,
+                  height: 300,
+                  width: "100%",
+                }}
+              >
+                <h3>Directions</h3>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div className="container">
+                  <div
+                    className="center shadow p-4 mt-4 bg-primary bg-gradient"
+                    style={{ borderRadius: 8 }}
+                  >
+                    <a
+                      href={data.resort_website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <h1 className="snow title-link">{data.name}</h1>
+                    </a>
+                    {/* Change this to resort name later */}
+                    <div className="text-center">
+                      <img
+                        className="resort-photo"
+                        src={data?.photo_url}
+                        alt={data.name}
+                      ></img>
+                    </div>
+                    <div className="rounded m-3">
+                      <h2 className="text-center">Resort Info</h2>
+                      <p className="text-center">
+                        {data?.address}
+                        <br></br> {data?.city}, {data?.state} {data?.zipcode}
+                      </p>
+                      <p className="text-center">
+                        Top Elevation: {addComma(data?.elevation)} ft<br></br>
+                        Vertical Drop: {addComma(data?.vertical_drop)} ft
+                        <br></br>
+                        Number of Trails: {data?.num_trails}
+                      </p>
+                      <p className="text-center">
+                        Price Rating: {dollarPrice(data?.price)}
+                      </p>
+                      <p className="text-center">Distance/Travel Time</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="right shadow p-4 mt-4 bg-primary bg-gradient"
+              style={{
+                borderRadius: 8,
+                marginRight: 0,
+                marginLeft: 52,
+                height: 950,
+                width: "30%",
+              }}
+            >
+              <div>
+                <ResortFilteredCommentList
+                  comments={data.comments}
+                  thisResort={thisResort}
+                />
+              </div>
+              <div>
+                <AverageRatingByResort />
+              </div>
+            </div>
           </div>
         </div>
       </div>
