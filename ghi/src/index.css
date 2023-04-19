@@ -157,7 +157,7 @@ label {
 }
 
 .btn-sm {
-  font-size:80% !important;
+  font-size: 80% !important;
   border-radius: 6px !important;
 }
 
@@ -225,7 +225,9 @@ input::-webkit-input-placeholder {
   padding-top: 4px !important;
 }
 
-input:focus::-webkit-input-placeholder { font-size: 0% !important; }
+input:focus::-webkit-input-placeholder {
+  font-size: 0% !important;
+}
 
 input[type="checkbox"]:checked {
   accent-color: rgb(255, 166, 0);
@@ -261,4 +263,8 @@ input[type="checkbox"]:checked {
   width: 480px;
   height: 360px;
   padding-bottom: 12px;
+}
+
+.underlined {
+  text-decoration: underline;
 }
