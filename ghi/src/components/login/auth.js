@@ -64,10 +64,28 @@ export const authApi = createApi({
       providesTags: ["CommentsList"],
     }),
     getDistance: builder.query({
-      query: ({ origin, destination }) => `/api/directions?origin=${origin}&destination=${destination}`,
+      query: ({ origin, destination }) =>
+        `/api/directions?origin=${origin}&destination=${destination}`,
     }),
     getProfile: builder.query({
-      query: (accountId ) => `/api/accounts/${accountId}`,
+      query: (accountId) => `/api/accounts/${accountId}`,
+    }),
+    favorite: builder.mutation({
+      query: (body) => {
+        return {
+          url: "/token",
+          method: "POST",
+          body: formData,
+        };
+      },
+      invalidatesTags: ["Account"],
+    }),
+    logout: builder.mutation({
+      query: () => ({
+        url: "/token",
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Account"],
     }),
   }),
 });
