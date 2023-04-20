@@ -8,7 +8,6 @@ import {
 
 export default function Directions() {
   const { thisResort } = useParams();
-  console.log(thisResort)
   const { data } = useGetResortQuery(thisResort);
 
   const { data: account } = useGetAccountQuery();

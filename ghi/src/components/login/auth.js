@@ -75,17 +75,17 @@ export const authApi = createApi({
       query: (accountId) => `/api/accounts/${accountId}`,
     }),
     favorite: builder.mutation({
-      query: ({ body, thisResort }) => {
+      query: (info) => {
         return {
-          url: `/api/resorts/${thisResort}/favorites`,
+          url: `/api/resorts/${info.resort_id}/favorites`,
           method: "POST",
-          body: body,
+          body: info,
         };
       },
       invalidatesTags: ["Favorite"],
     }),
     deleteFavorite: builder.mutation({
-      query: ({ thisResort, thisFavorite }) => ({
+      query: ( thisResort, thisFavorite) => ({
         url: `/api/resorts/${thisResort}/favorites${thisFavorite}`,
         method: "DELETE",
       }),

@@ -8,26 +8,18 @@ export default function Favorite() {
 
   const handleOnClick = async (event) => {
     event.preventDefault();
-    let body = {user_id: account.id, resort_id: thisResort}
-    const result = await favorite({body, thisResort})
+    const info = {"user_id": account.id, "resort_id": thisResort}
+    const result = await favorite(info).unwrap();
+
 
   }
 
   return (
     <>
-      <div className="container">
-        <div className="row">
-          <div>
-            <div
-              className="shadow p-4 mt-4 bg-primary bg-gradient"
-              style={{ borderRadius: 8, marginLeft: 0 }}
-            >
-              <button onClick={handleOnClick}>
-                Favorite
-              </button>
-            </div>
-          </div>
-        </div>
+      <div>
+        <button onClick={handleOnClick}>
+        Favorite
+        </button>
       </div>
     </>
   );
