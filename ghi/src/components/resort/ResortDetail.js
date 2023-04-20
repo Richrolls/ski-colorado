@@ -71,7 +71,7 @@ export default function ResortDetail() {
                 style={{
                   borderRadius: 8,
                   left: 0,
-                  height: 300,
+                  height: "auto",
                   width: "100%",
                 }}
               >
@@ -154,7 +154,7 @@ export default function ResortDetail() {
               }}
             >
               <div>
-                <NewCommentForm/>
+                <NewCommentForm />
               </div>
               <div>
                 <ResortFilteredCommentList
