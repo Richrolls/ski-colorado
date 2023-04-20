@@ -51,4 +51,9 @@
 4/19/2023
     I worked on getting the currently available data to show on the frontend on the profile page. I was able to successfully get all the data showing, functionally it is done until we get the comments and favorites working. The group is currently working on css/formating for the ResortDetail page and getting the comments to work. I started work on favorites. I have an idea of how I think it should work, we'll see if it works tomorrow.
 
-    Looking forward to getting favorites working. 
+    Looking forward to getting favorites working.
+
+4/20/2023
+    Worked on getting a favorite button working, was successful in creating a button that would create a favorite. However, the next issue that has arisen is how to implement the unfavorite feature. I also helped Jack in getting the comment creation feature working.
+
+    Looking forward to getting the unfavorite feature working.
