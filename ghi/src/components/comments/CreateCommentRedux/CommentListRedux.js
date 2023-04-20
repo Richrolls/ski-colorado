@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { AddCommentForm } from './CreateCommentRedux/AddNewCommentRedux'
-import { NewCommentForm } from './AddNewComment'
+import { AddCommentForm } from './CreateComment/AddNewComment'
+import { NewCommentForm } from '../AddNewComment'
 
 export const CommentsList = () => {
   const comments = useSelector(state => state.comments)
@@ -21,7 +21,7 @@ export const CommentsList = () => {
       <h2>Comments</h2>
       {renderedComments}
     </section>
-    <NewCommentForm/>
+    
     </>
   )
 }

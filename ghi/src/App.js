@@ -8,7 +8,7 @@ import ResortDetail from "./components/resort/ResortDetail.js";
 import LoginForm from "./components/login/LoginForm.js";
 import Home from "./components/homepage/Home.js";
 import CommentList from "./components/comments/CommentList.js";
-import { AddCommentForm } from "./components/comments/CreateComment/AddNewComment.js";
+import { AddCommentForm } from "./components/comments/CreateCommentRedux/AddNewCommentRedux.js";
 import { CommentsList } from "./components/comments/CommentListRedux.js";
 import Profile from "./components/profile/profile.jsx";
 

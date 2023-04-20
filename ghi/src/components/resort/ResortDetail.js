@@ -10,6 +10,7 @@ import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js"
 import IndividualComment from "../comments/IndividualComment.js";
 import AverageRatingByResort from "../comments/AverageRatingFunction.js";
 import Directions from "../directions/Directions.js";
+import { NewCommentForm } from "../comments/AddNewComment.js";
 
 export default function ResortDetail() {
   const { thisResort } = useParams();
@@ -152,6 +153,9 @@ export default function ResortDetail() {
                 width: "30%",
               }}
             >
+              <div>
+                <NewCommentForm/>
+              </div>
               <div>
                 <ResortFilteredCommentList
                   comments={data.comments}
