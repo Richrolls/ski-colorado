@@ -110,7 +110,7 @@ export default function ResortDetail() {
                     </div>
 
                     <div className="container">
-                      <div class="row">
+                      <div className="row">
                         <div
                           className="col shadow p-4 mt-4 bg-primary bg-gradient"
                           style={{

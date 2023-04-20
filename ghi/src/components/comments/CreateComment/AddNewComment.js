@@ -23,7 +23,6 @@ export const AddCommentForm = () => {
                     comment
                 })
             )
-
             setRating()
             setComment('')
             } else {
@@ -43,6 +42,7 @@ export const AddCommentForm = () => {
           id="commentRating"
           name="commentRating"
           value={rating}
+          style={{ backgroundColor: 'black' }}
           onChange={onRatingChanged}
         />
         <label htmlFor="commentContent">Content:</label>
