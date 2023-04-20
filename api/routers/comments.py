@@ -9,15 +9,33 @@ router = APIRouter()
 
 @router.post("/api/resorts/{resort_id}/comments", response_model=CommentOut)
 async def create_comment(
-    rating: int,
-    comment: str,
-    resort_id: str,
+    comment: CommentIn,
     repo: CommentQueries = Depends(),
-    account_data: dict = Depends(authenticator.get_current_account_data), #requires user to be logged in
+    account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    new_comment = CommentIn(rating=rating, comment=comment, resort_id=resort_id, user_id=account_data['id'])
-    comment = repo.create(new_comment)
+    comment = repo.create(comment)
     return comment
+
+
+# @router.post("/api/resorts", response_model=ResortOut)
+# async def create_resort(
+#     resort: ResortIn,
+#     repo: ResortQueries = Depends(),
+# ):
+#     resort = repo.create(resort)
+#     return resort
+
+# @router.post("/api/resorts/{resort_id}/comments", response_model=CommentOut)
+# async def create_comment(
+#     rating: int,
+#     comment: str,
+#     resort_id: str,
+#     repo: CommentQueries = Depends(),
+#     account_data: dict = Depends(authenticator.get_current_account_data),
+# ):
+#     new_comment = CommentIn(rating=rating, comment=comment, resort_id=resort_id, user_id=account_data['id'])
+#     comment = repo.create(new_comment)
+#     return comment
 
 #### BELOW THIS LINE IS FUNCTIONALITY FOR POSTING/SEEDING MULTIPLE COMMENTS AT ONCE. TO USE, UNCOMMENT LINES 24-41 AND COMMENT OUT LINES 11-20. NOT YET INTEGRATING DUE TO FRONTEND CONCERNS ###
 

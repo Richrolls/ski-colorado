@@ -42,6 +42,10 @@ export const authApi = createApi({
       }),
       invalidatesTags: ["Account"],
     }),
+    getAccountToken: builder.query({
+      query: () => "/token",
+      providesTags: ["Token"],
+    }),
     getResorts: builder.query({
       transformResponse: (response) => response.resorts,
       query: () => "/api/resorts",
@@ -104,6 +108,7 @@ export const {
   useGetCommentsQuery,
   useGetDistanceQuery,
   useGetProfileQuery,
+  useGetAccountTokenQuery,
   useFavoriteMutation,
   useDeleteFavoriteMutation,
   useGetFavoritesQuery

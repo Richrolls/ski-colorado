@@ -4,6 +4,7 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { authApi } from "../components/login/auth";
 import loginReducer from "../components/login/loginSlice";
 
+
 export const store = configureStore({
   reducer: {
     login: loginReducer,

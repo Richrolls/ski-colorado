@@ -10,6 +10,7 @@ import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js"
 import IndividualComment from "../comments/IndividualComment.js";
 import AverageRatingByResort from "../comments/AverageRatingFunction.js";
 import Directions from "../directions/Directions.js";
+import { NewCommentForm } from "../comments/AddNewComment.js";
 import Favorite from "../favorites/Favorite.js";
 
 export default function ResortDetail() {
@@ -111,7 +112,7 @@ export default function ResortDetail() {
                     </div>
 
                     <div className="container">
-                      <div class="row">
+                      <div className="row">
                         <div
                           className="col shadow p-4 mt-4 bg-primary bg-gradient"
                           style={{
@@ -153,6 +154,9 @@ export default function ResortDetail() {
                 width: "30%",
               }}
             >
+              <div>
+                <NewCommentForm/>
+              </div>
               <div>
                 <ResortFilteredCommentList
                   comments={data.comments}
