@@ -7,7 +7,7 @@ export const authApi = createApi({
     baseUrl: `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}`,
     credentials: "include", // sends cookie to FastAPI
   }),
-  tagTypes: ["Account", "Resorts", "Resort", "CommentsList"],
+  tagTypes: ["Account", "Resorts", "Resort", "CommentsList", "Favorite", "FavoriteList"],
   endpoints: (builder) => ({
     getAccount: builder.query({
       query: () => "/token",
@@ -71,21 +71,25 @@ export const authApi = createApi({
       query: (accountId) => `/api/accounts/${accountId}`,
     }),
     favorite: builder.mutation({
-      query: (body) => {
+      query: ({ body, thisResort }) => {
         return {
-          url: "/token",
+          url: `/api/resorts/${thisResort}/favorites`,
           method: "POST",
-          body: formData,
+          body: body,
         };
       },
-      invalidatesTags: ["Account"],
+      invalidatesTags: ["Favorite"],
     }),
-    logout: builder.mutation({
-      query: () => ({
-        url: "/token",
+    deleteFavorite: builder.mutation({
+      query: ({ thisResort, thisFavorite }) => ({
+        url: `/api/resorts/${thisResort}/favorites${thisFavorite}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Account"],
+      invalidatesTags: ["Favorite"],
+    }),
+    getFavorites: builder.query({
+      query: ({ thisResort }) => `/api/resorts/${thisResort}/favorites`,
+      providesTags: ["FavoriteList"],
     }),
   }),
 });
@@ -99,5 +103,8 @@ export const {
   useGetResortQuery,
   useGetCommentsQuery,
   useGetDistanceQuery,
-  useGetProfileQuery
+  useGetProfileQuery,
+  useFavoriteMutation,
+  useDeleteFavoriteMutation,
+  useGetFavoritesQuery
 } = authApi;

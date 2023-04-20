@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
-import {useGetFavorites}
+import { useGetFavoritesQuery } from "../login/auth";
 
 export default function FavoriteList() {
-  const { thisResort } = useParams();
-  const { data: favorites } =
+  const { account } = useParams();
+  const { data: favorites } = useGetFavoritesQuery();
   console.log(data);
 
   if (isLoading) {
@@ -24,8 +24,10 @@ export default function FavoriteList() {
               </div>
               <br />
               <div className="row mx-auto w-75">
-                {data.comments?.map((comment) => (
-                  <IndividualFavorite key={resort.id} {...resort} />
+                {data.favorites?.map((favorite) => (
+                  <a href={`http://localhost:3000/resorts/${resort_id}`}>
+                    {}
+                  </a>
                 ))}
               </div>
             </div>

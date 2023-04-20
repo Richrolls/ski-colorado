@@ -10,6 +10,7 @@ import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js"
 import IndividualComment from "../comments/IndividualComment.js";
 import AverageRatingByResort from "../comments/AverageRatingFunction.js";
 import Directions from "../directions/Directions.js";
+import Favorite from "../favorites/Favorite.js";
 
 export default function ResortDetail() {
   const { thisResort } = useParams();
@@ -157,6 +158,9 @@ export default function ResortDetail() {
                   comments={data.comments}
                   thisResort={thisResort}
                 />
+              </div>
+              <div>
+                <Favorite />
               </div>
             </div>
           </div>
