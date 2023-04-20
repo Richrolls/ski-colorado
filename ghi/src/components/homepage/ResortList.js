@@ -1,5 +1,6 @@
 import IndividualResort from "./IndividualResort";
 import { useGetResortsQuery } from "../login/auth";
+import { Link } from "react-router-dom";
 
 
 const ResortList = () => {

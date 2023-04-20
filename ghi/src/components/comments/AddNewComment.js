@@ -4,6 +4,7 @@ import { useGetResortQuery, useGetAccountTokenQuery } from '../login/auth'
 
 
 
+
 export const NewCommentForm = () => {
     const [rating, setRating]  = useState(0)
     const [comment, setComment] = useState('')
@@ -42,7 +43,7 @@ export const NewCommentForm = () => {
         data.user_id = token.account.id;
         data.resort_id = thisResort
         console.log(data)
-        const commentUrl = `http://localhost:8000/api/resorts/${thisResort}/comments`
+        const commentUrl = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/resorts/${thisResort}/comments`
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
