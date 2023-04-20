@@ -3,37 +3,14 @@ import { useParams } from 'react-router-dom'
 import { useGetResortQuery, useGetAccountTokenQuery } from '../login/auth'
 
 
-
-
 export const NewCommentForm = () => {
     const [rating, setRating]  = useState(0)
     const [comment, setComment] = useState('')
     const { thisResort } = useParams();
     const  { data: token } = useGetAccountTokenQuery()
 
-
-
-
     const handleRatingChange = e => setRating(e.target.value)
     const handleCommentChange = e => setComment(e.target.value)
-
-    // const getUser = async () => {
-    //     const userUrl = "http://localhost:8000/api/accounts/"
-    //     const response = await fetch(userUrl);
-    //     if (response.ok) {
-    //         const data = await response.json();
-    //         setUserId(data.accounts.id)
-    //     }
-    // }
-
-    // const getResort = async () => {
-    // const resortUrl = "http://localhost:8000/api/resorts/"
-    // const response = await fetch(resortUrl);
-    // if (response.ok) {
-    //     const data = await response.json();
-    //     setResortId(data.resorts.id)
-    // }
-    // }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -56,18 +33,12 @@ export const NewCommentForm = () => {
         if (response.ok) {
             setRating(0);
             setComment("");
-            // setUserId("");
-            // setResortId("");
+            window.location.reload();
             alert("Created new comment!")
         } else {
             alert("Failed to create new comment :(")
         }
     };
-
-    // useEffect(() => {
-    //     getUser();
-    //     getResort()
-    // }, []);
 
     return (
         <section>

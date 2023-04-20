@@ -21,3 +21,7 @@ and API data was successfully queried and returned via Insomnia.
 4/17/23 - Returned from Spring Break! Reacquainted myself with the project's status, successfully refactored backend Comments model to allow access to all Comment instances. Frontend will filter Comments as necessary. For ResortDetail pages, filtered comments by resort_id attribute. Implemented average rating function for each resort, unstylized yet.
 
 4/18/23 - Extremely tedious day, but working together with Richard and Anton we returned Google Maps API data to the ResortDetail.js page, using the logged-in user's address information and the address information of the individual resort they are viewing. Took all day but very satisfying to finally achieve.
+
+4/19/23 - Difficult day, attempted to create new Comment instances from frontend form, store them in Redux store, update backend database with new instance, update store. Successfully created new comments and rendered them to browser via Redux store, but stuck on propagating changes to backend.
+
+4/20/23 - More struggles with propagating new Comment instances to backend, complicated by jwtdown authentication and CORS issues. Eventually changed tack and tried creating new Comments with a hybrid of React and Redux hooks, bypassing sending new comments to Redux store. Successfully stored new Comment instances in backend and loaded them to browser upon manual refresh. Next step is to auto-refresh on new comment creation, and potentially update store. Signing off for long weekend!
