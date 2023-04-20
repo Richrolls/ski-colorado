@@ -8,7 +8,7 @@ import {
 
 export default function Directions() {
   const { thisResort } = useParams();
-  console.log(thisResort)
+  console.log(thisResort);
   const { data } = useGetResortQuery(thisResort);
 
   const { data: account } = useGetAccountQuery();
@@ -35,9 +35,19 @@ export default function Directions() {
     }
   };
 
-  const origin = get_account_address(account)
-  const destination = get_resort_address(data)
-  const { data: distance } = useGetDistanceQuery({origin, destination})
+  const origin = get_account_address(account);
+  const destination = get_resort_address(data);
+  const { data: distance } = useGetDistanceQuery({ origin, destination });
+
+  function add2(add_2) {
+    if (add_2 != "") {
+      return (
+        <div>
+          {add_2} <br />
+        </div>
+      );
+    }
+  }
 
   return (
     <div>
@@ -45,8 +55,8 @@ export default function Directions() {
         <div>
           <br></br>
           <h3>
-            {account.address_1} <br></br> {account.city}, {account.state}{" "}
-            <br></br>to<br></br>
+            {account.address_1} <br></br> {add2(account.address_2)}{" "}
+            {account.city}, {account.state} <br></br>to<br></br>
             {data.name}
           </h3>
           <h4>
