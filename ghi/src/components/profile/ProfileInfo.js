@@ -1,69 +1,87 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import {
-  useGetProfileQuery,
-  useGetAccountQuery,
-} from "../login/auth.js";
+import { useGetProfileQuery, useGetAccountQuery } from "../login/auth.js";
 
 export default function ProfileInfo() {
   const { accountId } = useParams();
   const { data } = useGetProfileQuery(accountId);
 
   const { data: account } = useGetAccountQuery();
-  let ski = ""
-  let snowboard = ""
-  if (data?.ski == true){
-    ski = "Is a Skier"
-  } else {
-    ski = "Not a Skier"
+  let ski = "";
+  let snowboard = "";
+  if (data?.ski == true) {
+    ski = (
+      <img
+        src="https://i.imgur.com/trwig2h.gif"
+        class="img-fluid rounded mx-auto d-block"
+      />
+    );
   }
+  // else {
+  //   ski = "Not a Skier";
+  // }
   if (data?.snowboard == true) {
-    snowboard = "Is a Snowboarder"
-  } else {
-    snowboard = "Not a Snowboarder"
+    snowboard = (
+      <img
+        src="https://i.imgur.com/oW26dZg.gif"
+        class="img-fluid rounded mx-auto d-block"
+      />
+    );
+  }
+  // else {
+  //   snowboard = "Not a Snowboarder";
+  // }
+
+  function add2(add_2) {
+    if (add_2 != "") {
+      return (
+        <div>
+          {add_2} <br />
+        </div>
+      );
+    }
   }
 
   if (data?.id == account?.id) {
     return (
       <div>
-        <h2>Info</h2>
+        <h3>
+          {ski}
+          {snowboard}
+        </h3>
+        <br></br>
+        <h2 className="underlined">Info</h2>
         {account && data && (
           <div>
             <h3>
               {data.address_1}
-              <br />
+              <br></br>
+              {add2(data.address_2)}
               {data.city} {data.state}, {data.zipcode}
             </h3>
-            <br />
-            <h3>
-              {ski}
-              <br />
-              {snowboard}
-            </h3>
           </div>
         )}
       </div>
     );
-  }
-
-  else {
+  } else {
     return (
       <div>
-        <h2>Info</h2>
+        <div className="container">
+          <div className="row">
+            {ski}
+            {snowboard}
+          </div>
+        </div>
+        <br></br>
+        <h2 className="underlined">Info</h2>
         {account && data && (
           <div>
-            <h3>{data.city}, {data.state}</h3>
-            <br/>
             <h3>
-                {ski}
-                <br/>
-                {snowboard}
+              {data.city}, {data.state}
             </h3>
           </div>
         )}
       </div>
     );
   }
-
-
 }

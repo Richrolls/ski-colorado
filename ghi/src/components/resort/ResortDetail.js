@@ -96,7 +96,7 @@ export default function ResortDetail() {
                     </a>
                     <div className="text-center">
                       <img
-                        className="resort-photo"
+                        className="resort-photo rounded"
                         src={data?.photo_url}
                         alt={data.name}
                       ></img>
