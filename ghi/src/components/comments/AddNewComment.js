@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useGetAccountTokenQuery } from '../login/auth'
+import { useGetResortQuery, useGetAccountTokenQuery } from '../login/auth'
 
 
 
@@ -9,7 +9,7 @@ export const NewCommentForm = () => {
     const [comment, setComment] = useState('')
     const { thisResort } = useParams();
     const  { data: token } = useGetAccountTokenQuery()
-    console.log(typeof thisResort)
+
 
 
 
@@ -36,11 +36,12 @@ export const NewCommentForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const data = []
+        const data = {}
         data.rating = rating;
         data.comment = comment;
         data.user_id = token.account.id;
         data.resort_id = thisResort
+        console.log(data)
         const commentUrl = `http://localhost:8000/api/resorts/${thisResort}/comments`
         const fetchConfig = {
             method: "post",
