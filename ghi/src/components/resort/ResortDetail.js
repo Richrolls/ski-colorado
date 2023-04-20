@@ -72,7 +72,7 @@ export default function ResortDetail() {
                 style={{
                   borderRadius: 8,
                   left: 0,
-                  height: 300,
+                  height: "auto",
                   width: "100%",
                 }}
               >
@@ -98,7 +98,7 @@ export default function ResortDetail() {
                     </a>
                     <div className="text-center">
                       <img
-                        className="resort-photo"
+                        className="resort-photo rounded"
                         src={data?.photo_url}
                         alt={data.name}
                       ></img>
@@ -155,7 +155,7 @@ export default function ResortDetail() {
               }}
             >
               <div>
-                <NewCommentForm/>
+                <NewCommentForm />
               </div>
               <div>
                 <ResortFilteredCommentList

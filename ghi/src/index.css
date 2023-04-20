@@ -98,7 +98,7 @@ a:hover {
   color: #ffbf6c !important;
 }
 
-.title-link{
+.title-link {
   font-size: 72px !important;
   padding-bottom: 12px;
 }
@@ -267,4 +267,9 @@ input[type="checkbox"]:checked {
 
 .underlined {
   text-decoration: underline;
+}
+
+.profilep {
+  border: #eeb44f;
+  border-style: solid;
 }

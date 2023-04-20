@@ -1,5 +1,4 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { useGetCommentsQuery } from "../login/auth.js";
 import IndividualComment from "./IndividualComment.js";
 
