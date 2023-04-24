@@ -1,19 +1,42 @@
 import IndividualResort from "./IndividualResort";
-import { useSelector, useDispatch } from "react-redux";
 import { useGetResortsQuery } from "../login/auth";
-import {
-  handleIkonChange,
-  handleEpicChange,
-  handle$Change,
-  handle$$Change,
-  handle$$$Change,
-  handle$$$$Change,
-  handle$$$$$Change,
-  reset,
-} from "./checkboxSlice";
+import React, { useEffect, useState } from "react";
 
-const ResortList = () => {
-  const { data } = useGetResortsQuery();
+const ResortList = ({ filters }) => {
+  const { data: resorts } = useGetResortsQuery();
+  const [filteredResorts, setFilteredResorts] = useState([]);
+
+  useEffect(() => {
+    if (!resorts) {
+      return;
+    }
+    const tempFilteredResorts = resorts.filter((resort) => {
+      if (filters.$ && resort.price === 1) {
+        return true;
+      }
+      if (filters.$$ && resort.price === 2) {
+        return true;
+      }
+      if (filters.$$$ && resort.price === 3) {
+        return true;
+      }
+      if (filters.$$$$ && resort.price === 4) {
+        return true;
+      }
+      if (filters.$$$$$ && resort.price === 5) {
+        return true;
+      }
+      if (filters.epic && resort.pass_type === "Epic") {
+        return true;
+      }
+      if (filters.ikon && resort.pass_type === "Ikon") {
+        return true;
+      }
+      return false;
+    });
+    // console.log("TEST", tempFilteredResorts);
+    setFilteredResorts(tempFilteredResorts);
+  }, [filters, resorts]);
 
   return (
     <div className="container">
@@ -28,7 +51,7 @@ const ResortList = () => {
             </div>
             <br />
             <div className="row mx-auto w-75">
-              {data?.map((resort) => (
+              {filteredResorts?.map((resort) => (
                 <IndividualResort key={resort.id} {...resort} />
               ))}
             </div>

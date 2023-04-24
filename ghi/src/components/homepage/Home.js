@@ -3,22 +3,21 @@ import { NavLink } from "react-router-dom";
 import ResortList from "./ResortList.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import { Timeline } from "react-twitter-widgets";
-import {
-  handleIkonChange,
-  handleEpicChange,
-  handle$Change,
-  handle$$Change,
-  handle$$$Change,
-  handle$$$$Change,
-  handle$$$$$Change,
-  reset,
-} from "./checkboxSlice";
 
 function Checkbox(props) {
-  const { name, label } = props;
+  const { name, label, setFilters, isChecked } = props;
+  const handleClick = (e) => {
+    setFilters((previousFilters) => ({
+      ...previousFilters,
+      [e.target.name]: !previousFilters[e.target.name],
+    }));
+  };
+
   return (
     <div>
       <input
+        checked={isChecked}
+        onClick={handleClick}
         className="bg-secondary bg-opacity-50"
         type="checkbox"
         name={name}
@@ -32,6 +31,17 @@ function Checkbox(props) {
 }
 
 function HomePage() {
+  const [filters, setFilters] = useState({
+    epic: true,
+    ikon: true,
+    $: true,
+    $$: true,
+    $$$: true,
+    $$$$: true,
+    $$$$$: true,
+  });
+  console.log("FILTERSE", filters);
+
   return (
     <>
       <NavLoggedIn />
@@ -53,8 +63,18 @@ function HomePage() {
                 style={{ paddingTop: 20 }}
               >
                 <h3>Pass</h3>
-                <Checkbox name="epic" label="&nbsp;Epic" />
-                <Checkbox name="ikon" label="&nbsp;Ikon" />
+                <Checkbox
+                  isChecked={filters.epic}
+                  setFilters={setFilters}
+                  name="epic"
+                  label="&nbsp;Epic"
+                />
+                <Checkbox
+                  isChecked={filters.ikon}
+                  setFilters={setFilters}
+                  name="ikon"
+                  label="&nbsp;Ikon"
+                />
               </div>
               <br />
               <div
@@ -62,11 +82,36 @@ function HomePage() {
                 style={{ paddingTop: 20 }}
               >
                 <h3>Price</h3>
-                <Checkbox name="$" label="&nbsp;$" />
-                <Checkbox name="$$" label="&nbsp;$$" />
-                <Checkbox name="$$$" label="&nbsp;$$$" />
-                <Checkbox name="$$$$" label="&nbsp;$$$$" />
-                <Checkbox name="$$$$$" label="&nbsp;$$$$$" />
+                <Checkbox
+                  setFilters={setFilters}
+                  isChecked={filters.$}
+                  name="$"
+                  label="&nbsp;$"
+                />
+                <Checkbox
+                  setFilters={setFilters}
+                  isChecked={filters.$$}
+                  name="$$"
+                  label="&nbsp;$$"
+                />
+                <Checkbox
+                  setFilters={setFilters}
+                  isChecked={filters.$$$}
+                  name="$$$"
+                  label="&nbsp;$$$"
+                />
+                <Checkbox
+                  setFilters={setFilters}
+                  isChecked={filters.$$$$}
+                  name="$$$$"
+                  label="&nbsp;$$$$"
+                />
+                <Checkbox
+                  setFilters={setFilters}
+                  isChecked={filters.$$$$$}
+                  name="$$$$$"
+                  label="&nbsp;$$$$$"
+                />
               </div>
               <br />
               <br />
@@ -89,7 +134,7 @@ function HomePage() {
             </div>
             <div>
               <div>
-                <ResortList />
+                <ResortList filters={filters} />
               </div>
             </div>
             <div>
