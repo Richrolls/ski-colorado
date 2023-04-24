@@ -1,12 +1,10 @@
-import { useNavigate, useParams } from "react-router-dom";
 import { useGetCommentsQuery } from "../login/auth.js";
+import {useParams} from "react-router-dom"
 import IndividualComment from "./IndividualComment.js";
-
-
-
 
 export default function UserFilteredCommentList() {
   const { data, isLoading } = useGetCommentsQuery('');
+  const {accountId} = useParams()
   console.log(data)
 
 
@@ -14,7 +12,10 @@ export default function UserFilteredCommentList() {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
-
+  const filteredComments = data.comments.filter(
+    (comment) => comment.user_id === accountId
+  )
+  console.log(filteredComments)
 
   return (
     <>
@@ -27,7 +28,9 @@ export default function UserFilteredCommentList() {
               </div>
               <br />
               <div className="row mx-auto w-75">
-                {/* <CommentList/> */}
+                {filteredComments.map((comment) => (
+                    <IndividualComment key={comment.id} {...comment} />
+                ))}
               </div>
             </div>
           </div>
