@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import skierIcon from "../header/Skier_Icon.png";
 import ProfileInfo from "./ProfileInfo";
 import NavLoggedIn from "../header/NavLoggedIn.js";
+import ProfileName from "./ProfileName";
 
 const Profile = () => {
   const { accountId } = useParams();
@@ -43,9 +44,7 @@ const Profile = () => {
                 />
               </div>
               <div class="col-md-8">
-                <h1 className="snow">
-                  {profile.first_name} {profile.last_name}
-                </h1>
+                <ProfileName />
                 <h3>@{profile.username}</h3>
               </div>
             </div>
