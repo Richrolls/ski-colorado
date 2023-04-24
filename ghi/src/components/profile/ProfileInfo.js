@@ -10,23 +10,13 @@ export default function ProfileInfo() {
   let ski = "";
   let snowboard = "";
   if (data?.ski == true) {
-    ski = (
-      <img
-        src="https://i.imgur.com/trwig2h.gif"
-        class="img-fluid rounded mx-auto d-block"
-      />
-    );
+    ski = <img src="https://i.imgur.com/trwig2h.gif" class="" />;
   }
   // else {
   //   ski = "Not a Skier";
   // }
   if (data?.snowboard == true) {
-    snowboard = (
-      <img
-        src="https://i.imgur.com/oW26dZg.gif"
-        class="img-fluid rounded mx-auto d-block"
-      />
-    );
+    snowboard = <img src="https://i.imgur.com/oW26dZg.gif" class="" />;
   }
   // else {
   //   snowboard = "Not a Snowboarder";
@@ -45,15 +35,18 @@ export default function ProfileInfo() {
   if (data?.id == account?.id) {
     return (
       <div>
-        <h3>
+        <div>
           {ski}
           {snowboard}
-        </h3>
+        </div>
         <br></br>
         <h2 className="underlined">Info</h2>
         {account && data && (
           <div>
             <h3>
+              {data.email}
+              <br></br>
+              <br></br>
               {data.address_1}
               <br></br>
               {add2(data.address_2)}
@@ -66,11 +59,9 @@ export default function ProfileInfo() {
   } else {
     return (
       <div>
-        <div className="container">
-          <div className="row">
-            {ski}
-            {snowboard}
-          </div>
+        <div>
+          {ski}
+          {snowboard}
         </div>
         <br></br>
         <h2 className="underlined">Info</h2>
