@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import skierIcon from "../header/Skier_Icon.png";
 import ProfileInfo from "./ProfileInfo";
 import NavLoggedIn from "../header/NavLoggedIn.js";
+import UserFilteredCommentList from "../comments/UserFilteredCommentList";
 import ProfileName from "./ProfileName";
 
 const Profile = () => {
@@ -58,7 +59,7 @@ const Profile = () => {
                 </div>
               </div>
               <div className="col-md-8 border">
-                <p>COMMENT FEED GOES HERE</p>
+                <UserFilteredCommentList/>
               </div>
             </div>
           </div>
