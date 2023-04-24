@@ -2,7 +2,7 @@ import { useGetCommentsQuery } from "../login/auth.js";
 import {useParams} from "react-router-dom"
 import IndividualComment from "./IndividualComment.js";
 
-export default function UserFilteredCommentList() {
+const UserFilteredCommentList = () => {
   const { data, isLoading } = useGetCommentsQuery('');
   const {accountId} = useParams()
   console.log(data)
@@ -39,3 +39,5 @@ export default function UserFilteredCommentList() {
     </>
   );
 }
+
+export default UserFilteredCommentList;
