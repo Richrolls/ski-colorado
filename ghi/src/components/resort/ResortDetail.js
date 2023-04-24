@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   useGetResortQuery,
   useGetCommentsQuery,
@@ -89,13 +89,13 @@ export default function ResortDetail() {
                     className="center shadow p-4 mt-4 bg-primary bg-gradient"
                     style={{ borderRadius: 8 }}
                   >
-                    <a
-                      href={data.resort_website}
+                    <Link
+                      to={data.resort_website}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <h1 className="snow title-link">{data.name}</h1>
-                    </a>
+                    </Link>
                     <div className="text-center">
                       <img
                         className="resort-photo rounded"

@@ -21,6 +21,7 @@ import {
 import { useSignupMutation } from "../login/auth";
 import ErrorMessage from "../errorhandling/ErrorMessage";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -28,9 +29,9 @@ const Signup = () => {
   const { errorMessage, fields } = useSelector((state) => state.signup);
   const navigate = useNavigate();
 
-  const handleJoinClick = (e) => {
-    navigate("/login");
-  };
+  // const handleJoinClick = (e) => {
+  //   navigate("/login");
+  // };
 
   const handleMainClick = (e) => {
     navigate("/");
@@ -63,28 +64,28 @@ const Signup = () => {
               className="shadow p-4 mt-4 bg-primary bg-gradient"
               style={{ borderRadius: 8 }}
             >
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="link-warning"
-                onClick={(e) => dispatch(handleMainClick(e.target.value))}
+                // onClick={(e) => dispatch(handleMainClick(e.target.value))}
               >
                 <button className="butt btn-sm btn-primary">
                   Back
                 </button>
-              </a>
+              </Link>
               <h1 className="snow">Sign Up</h1>
               <form onSubmit={handleSubmit} id="signup-form">
                 {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
                 <div>
                   <h3>
                     Already have an account?&nbsp;&nbsp;
-                    <a
-                      href="#"
+                    <Link
+                      to="/login"
                       className="link-warning"
-                      onClick={(e) => dispatch(handleJoinClick(e.target.value))}
+                      // onClick={(e) => dispatch(handleJoinClick(e.target.value))}
                     >
                       Click here!
-                    </a>
+                    </Link>
                   </h3>
                 </div>
                 <div className="container container-top">

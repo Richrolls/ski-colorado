@@ -9,6 +9,7 @@ import {
 import { useLoginMutation } from "./auth";
 import { useNavigate } from "react-router-dom";
 import ErrorMessage from "../errorhandling/ErrorMessage";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -20,9 +21,9 @@ const LoginForm = () => {
     navigate("/signup");
   };
 
-  const handleMainClick = (e) => {
-    navigate("/");
-  };
+  // const handleMainClick = (e) => {
+  //   navigate("/");
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,23 +55,23 @@ const LoginForm = () => {
               className="shadow p-4 mt-4 bg-primary bg-gradient"
               style={{ borderRadius: 8 }}
             >
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="link-warning"
-                onClick={(e) => dispatch(handleMainClick(e.target.value))}
+                // onClick={(e) => dispatch(handleMainClick(e.target.value))}
               >
                 <button className="butt btn-sm btn-primary">Back</button>
-              </a>
+              </Link>
               <h1 className="snow">Login</h1>
               <h3>
                 Don't have an account?&nbsp;&nbsp;
-                <a
-                  href="#"
+                <Link
+                  to="/login"
                   className="link-warning"
-                  onClick={(e) => dispatch(handleJoinClick(e.target.value))}
+                  // onClick={(e) => dispatch(handleJoinClick(e.target.value))}
                 >
                   Click here!
-                </a>
+                </Link>
               </h3>
               <br />
               <form onSubmit={handleSubmit} id="login-form">

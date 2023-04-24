@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useGetFavoritesQuery } from "../login/auth";
+import { Link } from "react-router-dom";
 
 export default function FavoriteList() {
   const { account } = useParams();
@@ -25,9 +26,9 @@ export default function FavoriteList() {
               <br />
               <div className="row mx-auto w-75">
                 {data.favorites?.map((favorite) => (
-                  <a href={`http://localhost:3000/resorts/${resort_id}`}>
+                  <Link to={`/resorts/${resort_id}`}>
                     {}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
