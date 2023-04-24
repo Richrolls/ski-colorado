@@ -65,7 +65,7 @@ const LoginForm = () => {
               <h3>
                 Don't have an account?&nbsp;&nbsp;
                 <Link
-                  to="/login"
+                  to="/signup"
                   className="link-warning"
                   // onClick={(e) => dispatch(handleJoinClick(e.target.value))}
                 >
