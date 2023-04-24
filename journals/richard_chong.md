@@ -57,3 +57,8 @@
     Worked on getting a favorite button working, was successful in creating a button that would create a favorite. However, the next issue that has arisen is how to implement the unfavorite feature. I also helped Jack in getting the comment creation feature working.
 
     Looking forward to getting the unfavorite feature working.
+
+4/24/2023
+    I worked on getting the favorite/unfavorite feature working. The previously existing favorite button would be replaced when pressed and would show a new unfavorite button. Due to it being done through redux, the button refreshes automatically. I also changed the default picture to be our custom skiier icon. Most of the larger features have been completed and now there are just a few smaller features such as listing out the comments and favorites.
+
+    Looking forward to getting the list of favorites working. 
