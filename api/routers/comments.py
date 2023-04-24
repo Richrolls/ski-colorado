@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 from models import CommentIn, CommentOut, CommentList
 from queries.comments import CommentQueries
 from authenticator import authenticator
@@ -59,13 +59,17 @@ async def create_comment(
 #     return CommentList(comments=created_comments)
 
 @router.get("/api/resorts/{resort_id}/comments", response_model=CommentList)
-def get_comments(
+async def get_comments(
     repo: CommentQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
+    resort_id: Optional[str] = '_'
     ):
-    return {
-        'comments': repo.get_all(user_id=account_data['id'])
-    }
+    if resort_id:
+        comments = repo.get_all(user_id=account_data['id'], resort_id=resort_id)
+    else:
+        comments = repo.get_all(user_id=account_data['id'])
+    return {'comments': comments}
+
 
 @router.get("/api/resorts/{resort_id}/comments/{comment_id}", response_model=CommentOut)
 async def get_comment(

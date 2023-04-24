@@ -5,8 +5,8 @@ import IndividualComment from "./IndividualComment.js";
 
 export default function CommentList() {
     const { thisResort } = useParams();
-    const { data, error, isLoading } = useGetCommentsQuery(thisResort);
-    console.log(data)
+    const { data, isLoading } = useGetCommentsQuery(thisResort);
+
 
     if (isLoading) {
         return (
