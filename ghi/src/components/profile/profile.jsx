@@ -44,7 +44,7 @@ const Profile = () => {
                   className="profilep"
                 />
               </div>
-              <div class="col-md-8">
+              <div className="col-md-8">
                 <ProfileName />
                 <h3>@{profile.username}</h3>
               </div>
