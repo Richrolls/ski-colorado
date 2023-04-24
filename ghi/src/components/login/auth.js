@@ -7,7 +7,7 @@ export const authApi = createApi({
     baseUrl: `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}`,
     credentials: "include", // sends cookie to FastAPI
   }),
-  tagTypes: ["Account", "Resorts", "Resort", "CommentsList", "Favorite", "FavoriteList"],
+  tagTypes: ["Account", "Resorts", "Resort", "CommentsList", "FavoriteList"],
   endpoints: (builder) => ({
     getAccount: builder.query({
       query: () => "/token",
@@ -82,14 +82,14 @@ export const authApi = createApi({
           body: info,
         };
       },
-      invalidatesTags: ["Favorite"],
+      invalidatesTags: ["FavoriteList"],
     }),
     deleteFavorite: builder.mutation({
-      query: ( thisResort, thisFavorite) => ({
-        url: `/api/resorts/${thisResort}/favorites${thisFavorite}`,
+      query: ({thisResort, thisFavorite}) => ({
+        url: `/api/resorts/${thisResort}/favorites/${thisFavorite}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Favorite"],
+      invalidatesTags: ["FavoriteList"],
     }),
     getFavorites: builder.query({
       query: ({ thisResort }) => `/api/resorts/${thisResort}/favorites`,
