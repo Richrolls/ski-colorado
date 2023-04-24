@@ -52,6 +52,10 @@ const Profile = () => {
               <div className="col-md-4">
                 <br></br>
                 <ProfileInfo />
+                <div className="shadow p-4 mt-4 bg-primary bg-gradient rounded">
+                  <h2 className="underlined">Favorite Resorts</h2>
+                  <h3>Placeholder</h3>
+                </div>
               </div>
               <div className="col-md-8 border">
                 <p>COMMENT FEED GOES HERE</p>
