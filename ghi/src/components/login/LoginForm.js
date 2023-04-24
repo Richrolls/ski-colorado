@@ -61,7 +61,7 @@ const LoginForm = () => {
               >
                 <button className="butt btn-sm btn-primary">Back</button>
               </a>
-              <h1 class="snow">Login</h1>
+              <h1 className="snow">Login</h1>
               <h3>
                 Don't have an account?&nbsp;&nbsp;
                 <a

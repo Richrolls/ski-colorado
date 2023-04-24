@@ -33,28 +33,28 @@ const Profile = () => {
       <NavLoggedIn />
       {profile && data && (
         <>
-          <div class="container rounded shadow p-4 mt-4 bg-primary bg-gradient">
-            <div class="row align-items-center">
-              <div class="col-md-4 text-center">
+          <div className="container rounded shadow p-4 mt-4 bg-primary bg-gradient">
+            <div className="row align-items-center">
+              <div className="col-md-4 text-center">
                 <img
                   style={{ height: 200, width: 200 }}
                   src={profile.picture_url}
                   className="profilep"
                 />
               </div>
-              <div class="col-md-8">
+              <div className="col-md-8">
                 <h1 className="snow">
                   {profile.first_name} {profile.last_name}
                 </h1>
                 <h3>@{profile.username}</h3>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-4">
+            <div className="row">
+              <div className="col-md-4">
                 <br></br>
                 <ProfileInfo />
               </div>
-              <div class="col-md-8 border">
+              <div className="col-md-8 border">
                 <p>COMMENT FEED GOES HERE</p>
               </div>
             </div>

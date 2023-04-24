@@ -10,13 +10,13 @@ export default function ProfileInfo() {
   let ski = "";
   let snowboard = "";
   if (data?.ski == true) {
-    ski = <img src="https://i.imgur.com/trwig2h.gif" class="" />;
+    ski = <img src="https://i.imgur.com/trwig2h.gif" className="" />;
   }
   // else {
   //   ski = "Not a Skier";
   // }
   if (data?.snowboard == true) {
-    snowboard = <img src="https://i.imgur.com/oW26dZg.gif" class="" />;
+    snowboard = <img src="https://i.imgur.com/oW26dZg.gif" className="" />;
   }
   // else {
   //   snowboard = "Not a Snowboarder";
