@@ -2,6 +2,7 @@ import { useGetAccountQuery, useGetProfileQuery } from "../login/auth";
 import { useParams } from "react-router-dom";
 import skierIcon from "../header/Skier_Icon.png";
 import ProfileInfo from "./ProfileInfo";
+import NavLoggedIn from "../header/NavLoggedIn.js";
 
 const Profile = () => {
   const { accountId } = useParams();
@@ -29,6 +30,7 @@ const Profile = () => {
 
   return (
     <>
+      <NavLoggedIn />
       {profile && data && (
         <>
           <div class="container rounded shadow p-4 mt-4 bg-primary bg-gradient">
@@ -44,6 +46,7 @@ const Profile = () => {
                 <h1 className="snow">
                   {profile.first_name} {profile.last_name}
                 </h1>
+                <h3>@{profile.username}</h3>
               </div>
             </div>
             <div class="row">
