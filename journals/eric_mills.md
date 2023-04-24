@@ -44,4 +44,8 @@ Day 1: Stylized home page (resorts list) with Alex
 
 Day 2: Finished stylizing home page with incorporated Twitter feed resizing. Worked on NavBar (profile icon and logout).
 
+Day 3: Worked on stylizing Individual Resort Pages
 
+Week 5
+
+Day 1: Reconfigured all <a> tags and related functionality to React component <Link> tags with appropriate syntax

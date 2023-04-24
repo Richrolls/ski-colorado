@@ -1,4 +1,5 @@
 import { MDBFooter, MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -31,12 +32,12 @@ function Footer() {
               <h4 className="text-uppercase">
                 Colorado Department of Transportation Updates
                 <br />
-                <a
+                <Link
                   className="twitter-timeline"
-                  href="https://twitter.com/ColoradoDOT?ref_src=twsrc%5Etfw"
+                  to="https://twitter.com/ColoradoDOT?ref_src=twsrc%5Etfw"
                 >
                   View Current Tweets from ColoradoDOT
-                </a>
+                </Link>
               </h4>
 
               <script

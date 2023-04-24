@@ -1,11 +1,17 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { useGetResortQuery, useGetCommentsQuery, useGetAccountQuery } from "../login/auth.js";
+import { Link, useParams } from "react-router-dom";
+import {
+  useGetResortQuery,
+  useGetCommentsQuery,
+  useGetAccountQuery,
+} from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js";
 import IndividualComment from "../comments/IndividualComment.js";
 import AverageRatingByResort from "../comments/AverageRatingFunction.js";
 import Directions from "../directions/Directions.js";
+import { NewCommentForm } from "../comments/AddNewComment.js";
+import Favorite from "../favorites/Favorite.js";
 
 export default function ResortDetail() {
   const { thisResort } = useParams();
@@ -31,51 +37,136 @@ export default function ResortDetail() {
   return (
     <>
       <NavLoggedIn />
-      <div className="row bg-primary">
-        <div className="col-4 bg-info min-vh-100">
-          <div>
-            <a
-              href={data.resort_website}
-              target="_blank"
-              rel="noopener noreferrer"
+      <div className="text-center">
+        <div className="col">
+          <div className="row row-cols-3">
+            <div
+              className="shadow p-4 mt-4 bg-primary bg-gradient"
+              style={{
+                borderRadius: 8,
+                height: 260,
+                width: "20%",
+                marginLeft: 52,
+              }}
             >
-              <h1 className="text-center">{data.name}</h1>
-            </a>
-            {/* Change this to resort name later */}
-            <div className="text-center"></div>
-          </div>
-          <div className="rounded bg-white m-3">
-            <h2 className="text-center">Resort Info</h2>
-            <p className="text-center">
-              {data?.address}
-              <br></br> {data?.city}, {data?.state} {data?.zipcode}
-            </p>
-            <p className="text-center">
-              Top Elevation: {addComma(data?.elevation)} ft<br></br>Vertical
-              Drop: {addComma(data?.vertical_drop)} ft<br></br>Number of Trails:{" "}
-              {data?.num_trails}
-            </p>
-            <p className="text-center">
-              Price Rating: {dollarPrice(data?.price)}
-            </p>
-            <p className="text-center">Distance/Travel Time</p>
-          </div>
-          <div className="text-center">
-            <img src={data?.photo_url} alt={data.name}></img>
-          </div>
-        </div>
-        <div className="col-auto">
-          <div>
-            <ResortFilteredCommentList
-              comments={data.comments}
-              thisResort={thisResort}
-            />
-          </div>
-          <div>
-            <AverageRatingByResort />
-          </div>
-          <div>
-            <Directions/>
+              <h2 style={{ paddingBottom: 12 }} className="underlined">
+                Current Weather
+              </h2>
+              <div
+                className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
+                style={{ paddingTop: 20 }}
+              >
+                <h3>Temp</h3>
+              </div>
+              <br />
+              <div
+                className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
+                style={{ paddingTop: 20 }}
+              >
+                <h3>Precip</h3>
+              </div>
+              <br />
+              <br />
+              <div
+                className="shadow p-4 mt-4 bg-primary bg-gradient"
+                style={{
+                  borderRadius: 8,
+                  left: 0,
+                  height: "auto",
+                  width: "100%",
+                }}
+              >
+                <h2 className="underlined">Travel Information</h2>
+                <div>
+                  <Directions />
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div className="container">
+                  <div
+                    className="center shadow p-4 mt-4 bg-primary bg-gradient"
+                    style={{ borderRadius: 8 }}
+                  >
+                    <Link
+                      to={data.resort_website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <h1 className="snow title-link">{data.name}</h1>
+                    </Link>
+                    <div className="text-center">
+                      <img
+                        className="resort-photo rounded"
+                        src={data?.photo_url}
+                        alt={data.name}
+                      ></img>
+                    </div>
+                    <div className="rounded m-3">
+                      <h2 className="text-center underlined">Resort Info</h2>
+                      <h4 className="text-center">
+                        {data?.address}
+                        <br></br> {data?.city}, {data?.state} {data?.zipcode}
+                      </h4>
+                    </div>
+
+                    <div className="container">
+                      <div className="row">
+                        <div
+                          className="col shadow p-4 mt-4 bg-primary bg-gradient"
+                          style={{
+                            borderRadius: 8,
+                            marginLeft: 0,
+                            marginRight: 10,
+                          }}
+                        >
+                          <h2 className="underlined">Stats</h2>
+                          <h4 className="text-center">
+                            Top Elevation: {addComma(data?.elevation)} ft
+                            <br></br>
+                            Vertical Drop: {addComma(data?.vertical_drop)} ft
+                            <br></br>
+                            Number of Trails: {data?.num_trails}
+                            <br></br>
+                            Price Rating: {dollarPrice(data?.price)}{" "}
+                          </h4>
+                        </div>
+                        <div
+                          className="col shadow p-4 mt-4 bg-primary bg-gradient"
+                          style={{ borderRadius: 8, marginLeft: 0 }}
+                        >
+                          <AverageRatingByResort />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="right shadow p-4 mt-4 bg-primary bg-gradient"
+              style={{
+                borderRadius: 8,
+                marginRight: 0,
+                marginLeft: 52,
+                height: 950,
+                width: "30%",
+              }}
+            >
+              <div>
+                <NewCommentForm />
+              </div>
+              <div>
+                <ResortFilteredCommentList
+                  comments={data.comments}
+                  thisResort={thisResort}
+                />
+              </div>
+              <div>
+                <Favorite />
+              </div>
+            </div>
           </div>
         </div>
       </div>

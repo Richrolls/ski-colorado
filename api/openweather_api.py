@@ -1,6 +1,8 @@
 from fastapi import APIRouter
 import requests
+import os
 
+GOOGLE_MAPS_API_KEY = os.environ["GOOGLE_MAPS_API_KEY"]
 openweather_router = APIRouter()
 
 @openweather_router.get("/api/resort/{resort_id}/weather")

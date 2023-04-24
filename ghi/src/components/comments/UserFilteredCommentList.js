@@ -1,18 +1,21 @@
-import { useNavigate, useParams } from "react-router-dom";
 import { useGetCommentsQuery } from "../login/auth.js";
+import {useParams} from "react-router-dom"
 import IndividualComment from "./IndividualComment.js";
 
-export default function ResortFilteredCommentList() {
-  const { thisResort } = useParams();
-  const { data, error, isLoading } = useGetCommentsQuery(thisResort);
+const UserFilteredCommentList = () => {
+  const { data, isLoading } = useGetCommentsQuery('');
+  const {accountId} = useParams()
+  console.log(data)
+
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
   const filteredComments = data.comments.filter(
-    (comment) => comment.resort_id === thisResort
-  );
+    (comment) => comment.user_id === accountId
+  )
+  console.log(filteredComments)
 
   return (
     <>
@@ -26,7 +29,7 @@ export default function ResortFilteredCommentList() {
               <br />
               <div className="row mx-auto w-75">
                 {filteredComments.map((comment) => (
-                  <IndividualComment key={comment.id} {...comment} />
+                    <IndividualComment key={comment.id} {...comment} />
                 ))}
               </div>
             </div>
@@ -36,3 +39,5 @@ export default function ResortFilteredCommentList() {
     </>
   );
 }
+
+export default UserFilteredCommentList;
