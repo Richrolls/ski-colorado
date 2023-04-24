@@ -10,26 +10,21 @@ const ResortList = ({ filters }) => {
     if (!resorts) {
       return;
     }
+
     const tempFilteredResorts = resorts.filter((resort) => {
-      if (filters.$ && resort.price === 1) {
+      if (
+        (filters.$ && resort.price === 1) ||
+        (filters.$$ && resort.price === 2) ||
+        (filters.$$$ && resort.price === 3) ||
+        (filters.$$$$ && resort.price === 4) ||
+        (filters.$$$$$ && resort.price === 5)
+      ) {
         return true;
       }
-      if (filters.$$ && resort.price === 2) {
-        return true;
-      }
-      if (filters.$$$ && resort.price === 3) {
-        return true;
-      }
-      if (filters.$$$$ && resort.price === 4) {
-        return true;
-      }
-      if (filters.$$$$$ && resort.price === 5) {
-        return true;
-      }
-      if (filters.epic && resort.pass_type === "Epic") {
-        return true;
-      }
-      if (filters.ikon && resort.pass_type === "Ikon") {
+      if (
+        (filters.epic && resort.pass_type === "Epic") ||
+        (filters.ikon && resort.pass_type === "Ikon")
+      ) {
         return true;
       }
       return false;
@@ -51,9 +46,11 @@ const ResortList = ({ filters }) => {
             </div>
             <br />
             <div className="row mx-auto w-75">
-              {filteredResorts?.map((resort) => (
-                <IndividualResort key={resort.id} {...resort} />
-              ))}
+              {filteredResorts
+                ?.sort((a, b) => a.name.localeCompare(b.name))
+                .map((resort) => (
+                  <IndividualResort key={resort.id} {...resort} />
+                ))}
             </div>
           </div>
         </div>
