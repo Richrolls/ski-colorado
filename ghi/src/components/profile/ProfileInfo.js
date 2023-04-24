@@ -39,21 +39,22 @@ export default function ProfileInfo() {
           {ski}
           {snowboard}
         </div>
-        <br></br>
-        <h2 className="underlined">Info</h2>
-        {account && data && (
-          <div>
-            <h3>
-              {data.email}
-              <br></br>
-              <br></br>
-              {data.address_1}
-              <br></br>
-              {add2(data.address_2)}
-              {data.city} {data.state}, {data.zipcode}
-            </h3>
-          </div>
-        )}
+        <div className="shadow p-4 mt-4 bg-primary bg-gradient rounded">
+          <h2 className="underlined">Info</h2>
+          {account && data && (
+            <div>
+              <h3>
+                {data.email}
+                <br></br>
+                <br></br>
+                {data.address_1}
+                <br></br>
+                {add2(data.address_2)}
+                {data.city} {data.state}, {data.zipcode}
+              </h3>
+            </div>
+          )}
+        </div>
       </div>
     );
   } else {
@@ -63,15 +64,16 @@ export default function ProfileInfo() {
           {ski}
           {snowboard}
         </div>
-        <br></br>
-        <h2 className="underlined">Info</h2>
-        {account && data && (
-          <div>
-            <h3>
-              {data.city}, {data.state}
-            </h3>
-          </div>
-        )}
+        <div className="shadow p-4 mt-4 bg-primary bg-gradient rounded">
+          <h2 className="underlined">Info</h2>
+          {account && data && (
+            <div>
+              <h3>
+                {data.city}, {data.state}
+              </h3>
+            </div>
+          )}
+        </div>
       </div>
     );
   }

@@ -4,6 +4,7 @@ import skierIcon from "../header/Skier_Icon.png";
 import ProfileInfo from "./ProfileInfo";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import UserFilteredCommentList from "../comments/UserFilteredCommentList";
+import ProfileName from "./ProfileName";
 
 const Profile = () => {
   const { accountId } = useParams();
@@ -43,10 +44,8 @@ const Profile = () => {
                   className="profilep"
                 />
               </div>
-              <div className="col-md-8">
-                <h1 className="snow">
-                  {profile.first_name} {profile.last_name}
-                </h1>
+              <div class="col-md-8">
+                <ProfileName />
                 <h3>@{profile.username}</h3>
               </div>
             </div>
@@ -54,6 +53,10 @@ const Profile = () => {
               <div className="col-md-4">
                 <br></br>
                 <ProfileInfo />
+                <div className="shadow p-4 mt-4 bg-primary bg-gradient rounded">
+                  <h2 className="underlined">Favorite Resorts</h2>
+                  <h3>Placeholder</h3>
+                </div>
               </div>
               <div className="col-md-8 border">
                 <UserFilteredCommentList/>
