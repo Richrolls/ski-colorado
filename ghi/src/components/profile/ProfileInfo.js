@@ -35,10 +35,11 @@ export default function ProfileInfo() {
   if (data?.id == account?.id) {
     return (
       <div>
-        <div>
+        <h3>
           {ski}
           {snowboard}
-        </div>
+        </h3>
+
         <div className="shadow p-4 mt-4 bg-primary bg-gradient rounded">
           <h2 className="underlined">Info</h2>
           {account && data && (
@@ -60,10 +61,10 @@ export default function ProfileInfo() {
   } else {
     return (
       <div>
-        <div>
+        <h3>
           {ski}
           {snowboard}
-        </div>
+        </h3>
         <div className="shadow p-4 mt-4 bg-primary bg-gradient rounded">
           <h2 className="underlined">Info</h2>
           {account && data && (

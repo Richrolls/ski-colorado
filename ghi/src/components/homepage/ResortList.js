@@ -1,10 +1,37 @@
 import IndividualResort from "./IndividualResort";
 import { useGetResortsQuery } from "../login/auth";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
+const ResortList = ({ filters }) => {
+  const { data: resorts } = useGetResortsQuery();
+  const [filteredResorts, setFilteredResorts] = useState([]);
 
-const ResortList = () => {
-  const { data } = useGetResortsQuery();
+  useEffect(() => {
+    if (!resorts) {
+      return;
+    }
+
+    const tempFilteredResorts = resorts.filter((resort) => {
+      if (
+        (filters.$ && resort.price === 1) ||
+        (filters.$$ && resort.price === 2) ||
+        (filters.$$$ && resort.price === 3) ||
+        (filters.$$$$ && resort.price === 4) ||
+        (filters.$$$$$ && resort.price === 5)
+      ) {
+        return true;
+      }
+      if (
+        (filters.epic && resort.pass_type === "Epic") ||
+        (filters.ikon && resort.pass_type === "Ikon")
+      ) {
+        return true;
+      }
+      return false;
+    });
+    // console.log("TEST", tempFilteredResorts);
+    setFilteredResorts(tempFilteredResorts);
+  }, [filters, resorts]);
 
   return (
     <div className="container">
@@ -19,9 +46,11 @@ const ResortList = () => {
             </div>
             <br />
             <div className="row mx-auto w-75">
-              {data?.map((resort) => (
-                <IndividualResort key={resort.id} {...resort} />
-              ))}
+              {filteredResorts
+                ?.sort((a, b) => a.name.localeCompare(b.name))
+                .map((resort) => (
+                  <IndividualResort key={resort.id} {...resort} />
+                ))}
             </div>
           </div>
         </div>
