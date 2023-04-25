@@ -1,23 +1,33 @@
-import { useGetCommentsQuery } from "../login/auth.js";
-import {useParams} from "react-router-dom"
+import { useGetCommentsQuery, useGetResortsQuery } from "../login/auth.js";
+import {useParams, Link } from "react-router-dom"
 import IndividualComment from "./IndividualComment.js";
+import ResortList from "../homepage/ResortList.js";
 
 const UserFilteredCommentList = () => {
   const { data, isLoading } = useGetCommentsQuery('');
+  const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery()
   const {accountId} = useParams()
-  console.log(data)
 
-
-  if (isLoading) {
+  if (isLoading || isResortsLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
   const filteredComments = data.comments.filter(
     (comment) => comment.user_id === accountId
   )
-  console.log(filteredComments)
 
-  return (
+
+  const commentsWithResorts = filteredComments.map(comment => {
+    const resort = resorts.find(resort => resort.id === comment.resort_id);
+    return {
+      ...comment,
+      resortName: resort ? resort.name : 'Unknown resort',
+    }
+  })
+  console.log(commentsWithResorts)
+
+
+return (
     <>
       <div className="container">
         <div className="row">
@@ -28,8 +38,12 @@ const UserFilteredCommentList = () => {
               </div>
               <br />
               <div className="row mx-auto w-75">
-                {filteredComments.map((comment) => (
-                    <IndividualComment key={comment.id} {...comment} />
+                {commentsWithResorts.map((comment) => (
+                  <div key={comment.id}>
+                    <p>Resort: <Link to={`/resorts/${comment.resort_id}`}>{comment.resortName}</Link></p>
+                    <p>Rating: {comment.rating}</p>
+                    <p>Comment: {comment.comment}</p>
+                  </div>
                 ))}
               </div>
             </div>
@@ -41,3 +55,5 @@ const UserFilteredCommentList = () => {
 }
 
 export default UserFilteredCommentList;
+
+

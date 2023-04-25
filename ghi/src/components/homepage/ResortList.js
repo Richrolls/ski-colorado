@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const ResortList = () => {
   const { data } = useGetResortsQuery();
+  console.log(data)
 
   return (
     <div className="container">
