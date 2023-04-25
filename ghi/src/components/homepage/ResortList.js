@@ -4,7 +4,6 @@ import { useGetResortsQuery } from "../login/auth";
 const ResortList = ({ filters }) => {
   const { data: resorts } = useGetResortsQuery();
   const [filteredResorts, setFilteredResorts] = useState([]);
-  console.log(resorts)
 
   useEffect(() => {
     if (resorts && resorts.length > 0) {
@@ -47,7 +46,7 @@ const ResortList = ({ filters }) => {
               {filteredResorts
                 ?.sort((a, b) => a.name.localeCompare(b.name))
                 .map((resort) => (
-                  <div className="col-4 mb-3">
+                  <div className="col-4 mb-3" key={resort.id}>
                     <div className="card">
                       <div className="card-body">
                         <h5 className="card-title">{resort.name}</h5>
