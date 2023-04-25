@@ -54,6 +54,6 @@ class AccountsRepo(Queries):
             return AccountOut(**account)
 
 
-    # def delete(self, id: str) -> bool:
-    #     result = self.collection.delete_one({'_id': ObjectId(id)})
-    #     return result.deleted_count == 1
+    def delete(self, id: str) -> bool:
+        result = self.collection.delete_one({'_id': ObjectId(id)})
+        return result.deleted_count == 1
