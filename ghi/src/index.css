@@ -204,12 +204,12 @@ input {
 }
 
 .white-border {
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(255, 255, 255);
-  border-radius: 4px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: rgb(255, 255, 255) !important;
+  border-radius: 4px !important;
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
 }
 
 label {
