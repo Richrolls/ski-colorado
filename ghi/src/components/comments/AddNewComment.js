@@ -18,7 +18,7 @@ export const NewCommentForm = () => {
         const data = {}
         data.rating = parseInt(rating, 10); // convert to integer
         data.comment = comment;
-        data.user_id = token.account.id;
+        data.user_id = token?.account.id;
         data.resort_id = thisResort
         const commentUrl = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/resorts/${thisResort}/comments`
         const fetchConfig = {
