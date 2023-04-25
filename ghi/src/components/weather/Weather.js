@@ -18,9 +18,8 @@ const Weather = () => {
     };
 
     const resort_address = get_resort_address(resorts)
-    console.log(resort_address)
     const { data: weather, isLoading: isWeatherLoading } = useGetWeatherQuery({thisResort, resort_address})
-    console.log(weather)
+    // console.log(weather)
 
     if (isWeatherLoading || isResortLoading || !weather || !weather.data) {
     return <progress className="progress is-primary" max="100"></progress>;

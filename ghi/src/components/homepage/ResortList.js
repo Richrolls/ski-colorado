@@ -1,37 +1,35 @@
-import IndividualResort from "./IndividualResort";
-import { useGetResortsQuery } from "../login/auth";
 import React, { useEffect, useState } from "react";
+import { useGetResortsQuery } from "../login/auth";
 
 const ResortList = ({ filters }) => {
   const { data: resorts } = useGetResortsQuery();
   const [filteredResorts, setFilteredResorts] = useState([]);
+  console.log(resorts)
 
   useEffect(() => {
-    if (!resorts) {
-      return;
+    if (resorts && resorts.length > 0) {
+      const tempFilteredResorts = resorts.filter((resort) => {
+        return (
+          (filters.epic && resort.pass_type === "Epic") ||
+          (filters.ikon && resort.pass_type === "Ikon")
+        ) && (
+          (filters.$ && resort.price === 1) ||
+          (filters.$$ && resort.price === 2) ||
+          (filters.$$$ && resort.price === 3) ||
+          (filters.$$$$ && resort.price === 4) ||
+          (filters.$$$$$ && resort.price === 5)
+        );
+      });
+      setFilteredResorts(tempFilteredResorts);
     }
 
-    const tempFilteredResorts = resorts.filter((resort) => {
-      if (
-        (filters.$ && resort.price === 1) ||
-        (filters.$$ && resort.price === 2) ||
-        (filters.$$$ && resort.price === 3) ||
-        (filters.$$$$ && resort.price === 4) ||
-        (filters.$$$$$ && resort.price === 5)
-      ) {
-        return true;
-      }
-      if (
-        (filters.epic && resort.pass_type === "Epic") ||
-        (filters.ikon && resort.pass_type === "Ikon")
-      ) {
-        return true;
-      }
-      return false;
-    });
-    // console.log("TEST", tempFilteredResorts);
-    setFilteredResorts(tempFilteredResorts);
   }, [filters, resorts]);
+
+    const getDollarString = (price) => {
+    return "$".repeat(price);
+  }
+
+
 
   return (
     <div className="container">
@@ -49,7 +47,16 @@ const ResortList = ({ filters }) => {
               {filteredResorts
                 ?.sort((a, b) => a.name.localeCompare(b.name))
                 .map((resort) => (
-                  <IndividualResort key={resort.id} {...resort} />
+                  <div className="col-4 mb-3">
+                    <div className="card">
+                      <div className="card-body">
+                        <h5 className="card-title">{resort.name}</h5>
+                        <p className="card-text">
+                          {resort.pass_type} Pass, {getDollarString(resort.price)}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 ))}
             </div>
           </div>
