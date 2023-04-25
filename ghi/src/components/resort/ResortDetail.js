@@ -54,14 +54,14 @@ export default function ResortDetail() {
                 <Weather />
               </div>
               <div
-                className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
+                className="mx-auto w-25 bg-secondary bg-opacity-50 bg-gradient white-border"
                 style={{ paddingTop: 20 }}
               >
                 <h3>Temp</h3>
               </div>
               <br />
               <div
-                className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
+                className="mx-auto w-25 bg-secondary bg-opacity-50 bg-gradient white-border"
                 style={{ paddingTop: 20 }}
               >
                 <h3>Precip</h3>
