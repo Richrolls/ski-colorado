@@ -40,7 +40,7 @@ return (
                   <div key={comment.id}>
                     <p>Resort: <Link to={`/resorts/${comment.resort_id}`}>{comment.resortName}</Link></p>
                     <p>Rating: {comment.rating}</p>
-                    <p>Comment: {comment.comment}</p>
+                    <p>Comment: {comment.comment} {comment.rating}/5</p>
                   </div>
                 ))}
               </div>

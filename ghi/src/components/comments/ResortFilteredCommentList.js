@@ -42,7 +42,7 @@ export default function ResortFilteredCommentList() {
                       <Link to={`/profile/${comment.user_id}`}>{comment.userName}</Link>
                     </div>
                     <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
-                      {comment.comment}
+                      {comment.comment} {comment.rating}/5
                     </div>
                     <br />
                   </div>

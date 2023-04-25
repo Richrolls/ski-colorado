@@ -20,7 +20,6 @@ export const NewCommentForm = () => {
         data.comment = comment;
         data.user_id = token.account.id;
         data.resort_id = thisResort
-        console.log(data)
         const commentUrl = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/resorts/${thisResort}/comments`
         const fetchConfig = {
             method: "post",
