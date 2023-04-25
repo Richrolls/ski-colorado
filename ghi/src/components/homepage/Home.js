@@ -6,7 +6,7 @@ import { Timeline } from "react-twitter-widgets";
 
 function Checkbox(props) {
   const { name, label, setFilters, isChecked } = props;
-  const handleClick = (e) => {
+  const handleChange = (e) => {
     setFilters((previousFilters) => ({
       ...previousFilters,
       [e.target.name]: !previousFilters[e.target.name],
@@ -17,7 +17,7 @@ function Checkbox(props) {
     <div>
       <input
         checked={isChecked}
-        onClick={handleClick}
+        onChange={handleChange}
         className="bg-secondary bg-opacity-50"
         type="checkbox"
         name={name}
