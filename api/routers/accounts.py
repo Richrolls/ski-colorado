@@ -19,6 +19,8 @@ async def create_account(
     response: Response,
     repo: AccountsRepo = Depends(),
 ):
+    if info.picture_url == "":
+        info.picture_url = "https://i.imgur.com/J3ranqA.png"
     hashed_password = authenticator.hash_password(info.password)
     try:
         account = repo.create(info, hashed_password)

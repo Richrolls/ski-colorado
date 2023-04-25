@@ -5,10 +5,19 @@ import NavLoggedIn from "../header/NavLoggedIn.js";
 import { Timeline } from "react-twitter-widgets";
 
 function Checkbox(props) {
-  const { name, label } = props;
+  const { name, label, setFilters, isChecked } = props;
+  const handleClick = (e) => {
+    setFilters((previousFilters) => ({
+      ...previousFilters,
+      [e.target.name]: !previousFilters[e.target.name],
+    }));
+  };
+
   return (
     <div>
       <input
+        checked={isChecked}
+        onClick={handleClick}
         className="bg-secondary bg-opacity-50"
         type="checkbox"
         name={name}
@@ -22,6 +31,17 @@ function Checkbox(props) {
 }
 
 function HomePage() {
+  const [filters, setFilters] = useState({
+    epic: true,
+    ikon: true,
+    $: true,
+    $$: true,
+    $$$: true,
+    $$$$: true,
+    $$$$$: true,
+  });
+  console.log("FILTERSE", filters);
+
   return (
     <>
       <NavLoggedIn />
@@ -43,8 +63,18 @@ function HomePage() {
                 style={{ paddingTop: 20 }}
               >
                 <h3>Pass</h3>
-                <Checkbox name="epic" label="&nbsp;Epic" />
-                <Checkbox name="ikon" label="&nbsp;Ikon" />
+                <Checkbox
+                  isChecked={filters.epic}
+                  setFilters={setFilters}
+                  name="epic"
+                  label="&nbsp;Epic"
+                />
+                <Checkbox
+                  isChecked={filters.ikon}
+                  setFilters={setFilters}
+                  name="ikon"
+                  label="&nbsp;Ikon"
+                />
               </div>
               <br />
               <div
@@ -52,34 +82,59 @@ function HomePage() {
                 style={{ paddingTop: 20 }}
               >
                 <h3>Price</h3>
-                <Checkbox name="$" label="&nbsp;$" />
-                <Checkbox name="$$" label="&nbsp;$$" />
-                <Checkbox name="$$$" label="&nbsp;$$$" />
-                <Checkbox name="$$$$" label="&nbsp;$$$$" />
-                <Checkbox name="$$$$$" label="&nbsp;$$$$$" />
+                <Checkbox
+                  setFilters={setFilters}
+                  isChecked={filters.$}
+                  name="$"
+                  label="&nbsp;$"
+                />
+                <Checkbox
+                  setFilters={setFilters}
+                  isChecked={filters.$$}
+                  name="$$"
+                  label="&nbsp;$$"
+                />
+                <Checkbox
+                  setFilters={setFilters}
+                  isChecked={filters.$$$}
+                  name="$$$"
+                  label="&nbsp;$$$"
+                />
+                <Checkbox
+                  setFilters={setFilters}
+                  isChecked={filters.$$$$}
+                  name="$$$$"
+                  label="&nbsp;$$$$"
+                />
+                <Checkbox
+                  setFilters={setFilters}
+                  isChecked={filters.$$$$$}
+                  name="$$$$$"
+                  label="&nbsp;$$$$$"
+                />
               </div>
               <br />
               <br />
-                          <div
-              className="shadow p-4 mt-4 bg-primary bg-gradient"
-              style={{
-                borderRadius: 8,
-                left: 0,
-                height: 300,
-                width: "100%",
-              }}
-            >
-              <iframe
-                width="100%"
-                height="250"
-                src="https://embed.windy.com/embed2.html?lat=38.840&lon=-105.381&detailLat=30.175&detailLon=-97.820&width=650&height=450&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
-                frameBorder="0"
-              ></iframe>
+              <div
+                className="shadow p-4 mt-4 bg-primary bg-gradient"
+                style={{
+                  borderRadius: 8,
+                  left: 0,
+                  height: 300,
+                  width: "100%",
+                }}
+              >
+                <iframe
+                  width="100%"
+                  height="250"
+                  src="https://embed.windy.com/embed2.html?lat=38.840&lon=-105.381&detailLat=30.175&detailLon=-97.820&width=650&height=450&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
+                  frameborder="0"
+                ></iframe>
               </div>
             </div>
             <div>
               <div>
-                <ResortList />
+                <ResortList filters={filters} />
               </div>
             </div>
             <div>

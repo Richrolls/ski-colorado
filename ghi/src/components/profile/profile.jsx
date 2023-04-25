@@ -59,7 +59,7 @@ const Profile = () => {
                 </div>
               </div>
               <div className="col-md-8 border">
-                <UserFilteredCommentList/>
+                <UserFilteredCommentList />
               </div>
             </div>
           </div>

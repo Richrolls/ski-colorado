@@ -1,5 +1,6 @@
 import Footer from "../footer/Footer.js";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import NavLoggedOut from "../header/NavLoggedOut.js";
 import { useDispatch } from "react-redux";
 
@@ -11,9 +12,9 @@ function MainPage() {
     navigate("/signup");
   };
 
-  const handleLoginClick = (e) => {
-    navigate("/login");
-  };
+  // const handleLoginClick = (e) => {
+  //   navigate("/login");
+  // };
 
   return (
     <>
@@ -29,13 +30,13 @@ function MainPage() {
         <div>
           <h3>
             Already have an account?&nbsp;&nbsp;
-            <a
-              href="#"
+            <Link
+            to="/login"
               className="link-warning"
-              onClick={(e) => dispatch(handleLoginClick(e.target.value))}
+              // onClick={(e) => dispatch(handleLoginClick(e.target.value))}
             >
               Click here!
-            </a>
+            </Link>
           </h3>
         </div>
         <br />
