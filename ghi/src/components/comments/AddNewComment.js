@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useGetResortQuery, useGetAccountTokenQuery } from '../login/auth'
+import { useGetCommentsQuery, useGetAccountTokenQuery } from '../login/auth'
 
 
 export const NewCommentForm = () => {
-    const [rating, setRating]  = useState(0)
+    const [rating, setRating]  = useState('')
     const [comment, setComment] = useState('')
     const { thisResort } = useParams();
     const  { data: token } = useGetAccountTokenQuery()
+    const { refetch } = useGetCommentsQuery(thisResort)
 
     const handleRatingChange = e => setRating(e.target.value)
     const handleCommentChange = e => setComment(e.target.value)
@@ -15,7 +16,7 @@ export const NewCommentForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const data = {}
-        data.rating = rating;
+        data.rating = parseInt(rating, 10); // convert to integer
         data.comment = comment;
         data.user_id = token.account.id;
         data.resort_id = thisResort
@@ -31,14 +32,24 @@ export const NewCommentForm = () => {
         };
         const response = await fetch(commentUrl, fetchConfig);
         if (response.ok) {
-            setRating(0);
-            setComment("");
-            window.location.reload();
+            setRating('');
+            setComment('');
+            refetch();
             alert("Created new comment!")
         } else {
             alert("Failed to create new comment :(")
         }
     };
+
+    const validateRating = (value) => {
+        const intValue = parseInt(value, 10)
+        if ( intValue < 1 || intValue > 5) {
+            alert('Please enter a rating value between 1 and 5.')
+            setRating('')
+        } else {
+            setRating(value)
+        }
+    }
 
     return (
         <section>
@@ -46,12 +57,12 @@ export const NewCommentForm = () => {
         <form>
             <label htmlFor="commentRating">Rating:</label>
             <input
-            type="number"
+            type="text"
             id="commentRating"
             name="commentRating"
             value={rating}
             style={{ backgroundColor: 'black' }}
-            onChange={handleRatingChange}
+            onChange={(e) => validateRating(e.target.value)}
             />
             <label htmlFor="commentContent">Content:</label>
             <textarea
