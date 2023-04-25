@@ -65,9 +65,9 @@ async def get_comments(
     resort_id: Optional[str] = '_'
     ):
     if resort_id:
-        comments = repo.get_all(user_id=account_data['id'], resort_id=resort_id)
+        comments = repo.get_all()
     else:
-        comments = repo.get_all(user_id=account_data['id'])
+        comments = repo.get_all()
     return {'comments': comments}
 
 
