@@ -51,7 +51,7 @@ export default function ResortDetail() {
                 Current Weather
               </h2>
               <div>
-                <Weather/>
+                {/* <Weather/> */}
               </div>
               <div
                 className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
@@ -168,7 +168,6 @@ export default function ResortDetail() {
                 <Favorite />
               </div>
             </div>
-            )
           </div>
         </div>
       </div>
