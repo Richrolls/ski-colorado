@@ -1,18 +1,28 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { useGetCommentsQuery } from "../login/auth.js";
-import IndividualComment from "./IndividualComment.js";
+import { Link, useParams } from "react-router-dom";
+import { useGetCommentsQuery, useGetProfilesQuery } from "../login/auth.js";
+
 
 export default function ResortFilteredCommentList() {
   const { thisResort } = useParams();
-  const { data, error, isLoading } = useGetCommentsQuery(thisResort);
+  const { data: commentsData, isLoading } = useGetCommentsQuery(thisResort);
+  const { data: accountsData, isLoading: isAccountsLoading } = useGetProfilesQuery();
 
-  if (isLoading) {
+
+  if (isLoading || isAccountsLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
-  const filteredComments = data.comments.filter(
+  const filteredComments = commentsData.comments.filter(
     (comment) => comment.resort_id === thisResort
   );
+
+  const commentsWithUsernames = filteredComments.map(comment => {
+    const user = accountsData.accounts.find(user => user.id === comment.user_id);
+    return {
+      ...comment,
+      userName: user ? user.username : 'Unknown User',
+    }
+  })
 
   return (
     <>
@@ -25,8 +35,17 @@ export default function ResortFilteredCommentList() {
               </div>
               <br />
               <div className="row mx-auto w-75">
-                {filteredComments.map((comment) => (
-                  <IndividualComment key={comment.id} {...comment} />
+                {commentsWithUsernames.map((comment) => (
+                  <div key={comment.id}>
+
+                    <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
+                      <Link to={`/profile/${comment.user_id}`}>{comment.userName}</Link>
+                    </div>
+                    <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
+                      {comment.comment}
+                    </div>
+                    <br />
+                  </div>
                 ))}
               </div>
             </div>

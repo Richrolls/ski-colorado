@@ -7,7 +7,7 @@ export const authApi = createApi({
     baseUrl: `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}`,
     credentials: "include", // sends cookie to FastAPI
   }),
-  tagTypes: ["Account", "Resorts", "Resort", "CommentsList", "FavoriteList"],
+  tagTypes: ["Account", "Resorts", "Resort", "CommentsList", "FavoriteList", "Accounts"],
   endpoints: (builder) => ({
     getAccount: builder.query({
       query: () => "/token",
@@ -74,6 +74,10 @@ export const authApi = createApi({
     getProfile: builder.query({
       query: (accountId) => `/api/accounts/${accountId}`,
     }),
+    getProfiles: builder.query({
+      query: () => `/api/accounts`,
+      providesTags: ["Accounts"]
+    }),
     favorite: builder.mutation({
       query: (info) => {
         return {
@@ -111,5 +115,6 @@ export const {
   useGetAccountTokenQuery,
   useFavoriteMutation,
   useDeleteFavoriteMutation,
-  useGetFavoritesQuery
+  useGetFavoritesQuery,
+  useGetProfilesQuery,
 } = authApi;

@@ -1,6 +1,5 @@
 import { useGetCommentsQuery, useGetResortsQuery } from "../login/auth.js";
 import {useParams, Link } from "react-router-dom"
-import IndividualComment from "./IndividualComment.js";
 import ResortList from "../homepage/ResortList.js";
 
 const UserFilteredCommentList = () => {
@@ -24,7 +23,6 @@ const UserFilteredCommentList = () => {
       resortName: resort ? resort.name : 'Unknown resort',
     }
   })
-  console.log(commentsWithResorts)
 
 
 return (
@@ -55,5 +53,3 @@ return (
 }
 
 export default UserFilteredCommentList;
-
-

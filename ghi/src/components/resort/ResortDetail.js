@@ -2,12 +2,9 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   useGetResortQuery,
-  useGetCommentsQuery,
-  useGetAccountQuery,
 } from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js";
-import IndividualComment from "../comments/IndividualComment.js";
 import AverageRatingByResort from "../comments/AverageRatingFunction.js";
 import Directions from "../directions/Directions.js";
 import { NewCommentForm } from "../comments/AddNewComment.js";
