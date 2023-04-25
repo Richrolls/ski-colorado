@@ -274,3 +274,11 @@ input[type="checkbox"]:checked {
   border-style: solid;
   border-radius: 50%;
 }
+
+Link:hover {
+  color: #ffbf6c !important;
+}
+
+textarea {
+  color: white !important;
+}

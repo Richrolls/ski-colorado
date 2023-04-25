@@ -28,8 +28,11 @@ if (thisFavorite.length > 1) {
     return (
       <>
         <div>
-          <button onClick={handleUnfavorite}>
-          Unfavorite
+          <button
+            className="butt btn-sm btn-primary"
+            onClick={handleUnfavorite}
+          >
+            Unfavorite
           </button>
         </div>
       </>
@@ -38,7 +41,9 @@ if (thisFavorite.length > 1) {
     return (
       <>
         <div>
-          <button onClick={handleFavorite}>Favorite</button>
+          <button className="butt btn-sm btn-primary" onClick={handleFavorite}>
+            Favorite
+          </button>
         </div>
       </>
     );

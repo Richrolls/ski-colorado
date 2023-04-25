@@ -51,7 +51,7 @@ export default function ResortDetail() {
                 Current Weather
               </h2>
               <div>
-                <Weather/>
+                <Weather />
               </div>
               <div
                 className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
@@ -90,6 +90,13 @@ export default function ResortDetail() {
                     className="center shadow p-4 mt-4 bg-primary bg-gradient"
                     style={{ borderRadius: 8 }}
                   >
+                    <div
+                      className="d-flex justify-content-center"
+                      style={{ paddingBottom: "14px" }}
+                    >
+                      <Favorite />
+                      <br />
+                    </div>
                     <Link
                       to={data.resort_website}
                       target="_blank"
@@ -151,13 +158,10 @@ export default function ResortDetail() {
                 borderRadius: 8,
                 marginRight: 0,
                 marginLeft: 52,
-                height: 950,
+                height: "auto",
                 width: "30%",
               }}
             >
-              <div>
-                <NewCommentForm />
-              </div>
               <div>
                 <ResortFilteredCommentList
                   comments={data.comments}
@@ -165,7 +169,7 @@ export default function ResortDetail() {
                 />
               </div>
               <div>
-                <Favorite />
+                <NewCommentForm />
               </div>
             </div>
             )

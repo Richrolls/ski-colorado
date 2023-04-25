@@ -16,7 +16,7 @@ root.render(
     <App />
     <div
       style={{
-        height: "1px",
+        height: "auto",
         width: "1px",
         position: "fill",
       }}
