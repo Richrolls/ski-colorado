@@ -71,6 +71,11 @@ export const authApi = createApi({
       query: ({ origin, destination }) =>
         `/api/directions?origin=${origin}&destination=${destination}`,
     }),
+    getWeather: builder.query({
+      query: ({ thisResort, resort_address }) =>
+        `/api/resort/${thisResort}/weather/?resort_address=${resort_address}`,
+
+      }),
     getProfile: builder.query({
       query: (accountId) => `/api/accounts/${accountId}`,
     }),
@@ -117,4 +122,5 @@ export const {
   useDeleteFavoriteMutation,
   useGetFavoritesQuery,
   useGetProfilesQuery,
+  useGetWeatherQuery,
 } = authApi;

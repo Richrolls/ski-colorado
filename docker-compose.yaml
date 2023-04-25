@@ -21,7 +21,7 @@ services:
       SIGNING_KEY: ${SIGNING_KEY}
       MONGO_URL: mongodb://admin:password@mongo
       GOOGLE_MAPS_API_KEY: ${GOOGLE_MAPS_API_KEY}
-      OPEN_WEATHER_API_KEY: ${OPEN_WEATHER_API_KEY}
+      OPENWEATHER_API_KEY: ${OPENWEATHER_API_KEY}
 
 
   ghi:

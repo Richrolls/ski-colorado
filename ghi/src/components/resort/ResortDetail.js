@@ -7,6 +7,7 @@ import NavLoggedIn from "../header/NavLoggedIn.js";
 import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js";
 import AverageRatingByResort from "../comments/AverageRatingFunction.js";
 import Directions from "../directions/Directions.js";
+import Weather from "../weather/Weather.js";
 import { NewCommentForm } from "../comments/AddNewComment.js";
 import Favorite from "../favorites/Favorite.js";
 
@@ -49,6 +50,9 @@ export default function ResortDetail() {
               <h2 style={{ paddingBottom: 12 }} className="underlined">
                 Current Weather
               </h2>
+              <div>
+                <Weather/>
+              </div>
               <div
                 className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
                 style={{ paddingTop: 20 }}

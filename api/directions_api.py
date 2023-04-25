@@ -7,9 +7,7 @@ GOOGLE_MAPS_API_KEY = os.environ["GOOGLE_MAPS_API_KEY"]
 
 directions_router = APIRouter()
 
-def convert_account_address_to_string(AccountOut: AccountOut):
-    x = AccountOut.address
-    print(x)
+
 
 @directions_router.get("/api/directions")
 async def directions(origin: str, destination: str):
