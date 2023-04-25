@@ -168,6 +168,7 @@ export default function ResortDetail() {
                 <Favorite />
               </div>
             </div>
+            )
           </div>
         </div>
       </div>

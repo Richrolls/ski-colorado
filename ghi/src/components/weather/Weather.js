@@ -23,28 +23,32 @@ const Weather = () => {
   const { data: weather, isLoading: isWeatherLoading } = useGetWeatherQuery({thisResort, resort_address})
   console.log(weather)
 
-    if (isWeatherLoading || isResortLoading) {
+  if (isWeatherLoading || isResortLoading || !weather || !weather.data) {
     return <progress className="progress is-primary" max="100"></progress>;
-    }
+  }
 
 
 
 
 
-  return (
-    <div>
-      {weather && weather.data && weather.data.current && (
-        <div>
-          <br></br>
-          <h4>
-            <br />
-            Temp: {weather.data.current.temp_f}
-          </h4>
-          <h4>Precip: {weather.data.current.precip_in}</h4>
+return (
+  <div>
+    {weather && weather.data && weather.data.current && (
+      <div>
+        <br />
+        <div className="shadow p-4 mt-4 bg-primary bg-gradient" style={{ borderRadius: 8 }}>
+          <div className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border" style={{ paddingTop: 20 }}>
+            <h3>Temp: {weather.data.current.temp_f}</h3>
+          </div>
+          <br />
+          <div className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border" style={{ paddingTop: 20 }}>
+            <h3>Precip: {weather.data.current.precip_in}</h3>
+          </div>
         </div>
-      )}
-    </div>
-  );
+      </div>
+    )}
+  </div>
+);
 };
 
 export default Weather;
