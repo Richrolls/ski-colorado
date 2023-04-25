@@ -1,7 +1,7 @@
 from main import app
 from fastapi.testclient import TestClient
 from queries.favorites import FavoriteQueries
-from models import FavoriteOut
+from models import Favorite
 from authenticator import authenticator
 
 client = TestClient(app)
@@ -12,7 +12,7 @@ def fake_get_current_account_data():
     }
 
 class FavoriteQueriesMock:
-    def get_all(self, resort_id) -> FavoriteOut:
+    def get_all(self, resort_id) -> Favorite:
         return [{
             "user_id": "644700330409a2b637f70f67",
             "resort_id": resort_id,
