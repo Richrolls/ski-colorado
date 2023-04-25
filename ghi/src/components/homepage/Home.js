@@ -51,12 +51,12 @@ function HomePage() {
               className="shadow p-4 mt-4 bg-primary bg-gradient"
               style={{
                 borderRadius: 8,
-                height: 570,
+                height: 560,
                 width: "20%",
                 marginLeft: 52,
               }}
             >
-              <h2 style={{ paddingBottom: 12 }}>Filters</h2>
+              <h2 style={{ paddingBottom: 14 }}>Filters</h2>
               <div
                 className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
                 style={{ paddingTop: 20 }}
@@ -112,6 +112,7 @@ function HomePage() {
                   label="&nbsp;$$$$$"
                 />
               </div>
+              <br />
               <br />
               <br />
               <div
