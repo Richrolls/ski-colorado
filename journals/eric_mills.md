@@ -49,3 +49,7 @@ Day 3: Worked on stylizing Individual Resort Pages
 Week 5
 
 Day 1: Reconfigured all <a> tags and related functionality to React component <Link> tags with appropriate syntax
+
+Day 2: Reconfigured and stylized buttons on comment/rating input. Assisted Jack/Anton with home page filtering.
+
+

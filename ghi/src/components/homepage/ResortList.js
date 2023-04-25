@@ -46,14 +46,12 @@ const ResortList = ({ filters }) => {
               {filteredResorts
                 ?.sort((a, b) => a.name.localeCompare(b.name))
                 .map((resort) => (
-                  <div className="col-4 mb-3" key={resort.id}>
-                    <div className="card">
-                      <div className="card-body">
-                        <h5 className="card-title">{resort.name}</h5>
-                        <p className="card-text">
-                          {resort.pass_type} Pass, {getDollarString(resort.price)}
-                        </p>
-                      </div>
+                  <div className="card bg-secondary bg-opacity-50 bg-gradient white-border">
+                    <div className="card-body">
+                      <h2 className="card-title">{resort.name}</h2>
+                      <h4 className="card-text">
+                        {resort.pass_type} Pass, {getDollarString(resort.price)}
+                      </h4>
                     </div>
                   </div>
                 ))}

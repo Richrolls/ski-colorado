@@ -80,6 +80,7 @@ async def get_comment(
     ):
     return repo.get_one(resort_id, comment_id, user_id=account_data['id'])
 
+
 @router.delete("/api/resorts/{resort_id}/comments/{comment_id}", response_model=bool)
 def delete_comment(
     comment_id = str,
