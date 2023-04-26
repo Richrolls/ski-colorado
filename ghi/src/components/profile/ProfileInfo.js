@@ -5,8 +5,10 @@ import { useGetProfileQuery, useGetAccountQuery } from "../login/auth.js";
 export default function ProfileInfo() {
   const { accountId } = useParams();
   const { data } = useGetProfileQuery(accountId);
+  console.log(data)
 
   const { data: account } = useGetAccountQuery();
+  console.log(account)
   let ski = "";
   let snowboard = "";
   if (data?.ski == true) {
@@ -22,15 +24,15 @@ export default function ProfileInfo() {
   //   snowboard = "Not a Snowboarder";
   // }
 
-  function add2(add_2) {
-    if (add_2 != "") {
-      return (
-        <div>
-          {add_2} <br />
-        </div>
-      );
-    }
-  }
+  // function add2(add_2) {
+  //   if (add_2 != "") {
+  //     return (
+  //       <div>
+  //         {add_2} <br />
+  //       </div>
+  //     );
+  //   }
+  // }
 
   if (data?.id == account?.id) {
     return (
@@ -45,13 +47,13 @@ export default function ProfileInfo() {
           {account && data && (
             <div>
               <h3>
-                {data.email}
+                {/* {account.email}
                 <br></br>
                 <br></br>
-                {data.address_1}
+                {account.address_1}
                 <br></br>
-                {add2(data.address_2)}
-                {data.city} {data.state}, {data.zipcode}
+                {add2(account.address_2)} */}
+                {account.city} {account.state}, {account.zipcode}
               </h3>
             </div>
           )}

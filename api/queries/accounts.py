@@ -1,6 +1,6 @@
 from typing import List, Optional
 from .client import Queries
-from models import AccountIn, AccountOut, AccountList, AccountOutWithHashedPassword
+from models import AccountIn, AccountOut, AccountOutPublic, AccountList, AccountOutWithHashedPassword
 from bson.objectid import ObjectId
 
 class DuplicateAccountError(ValueError):
@@ -29,14 +29,14 @@ class AccountsRepo(Queries):
     #     account['id'] = str(account['_id'])
     #     return AccountOut(**account)
 
-    def get_all(self, account_id: str = None) -> list[AccountOut]:
+    def get_all(self, account_id: str = None) -> AccountList:
         query = {}
         if account_id:
             query['_id'] = ObjectId(account_id)
         accounts = []
         for account in self.collection.find():
             account['id'] = str(account['_id'])
-            accounts.append(AccountOut(**account))
+            accounts.append(AccountOutPublic(**account))
         return accounts
 
     def get(self, username: str):
@@ -47,11 +47,11 @@ class AccountsRepo(Queries):
         return AccountOutWithHashedPassword(**result)
 
 
-    def get_one(self, account_id: str) -> Optional[AccountOut]:
+    def get_one(self, account_id: str) -> AccountOutPublic:
         account = self.collection.find_one({'_id': ObjectId(account_id)})
         if account:
             account['id'] = str(account['_id'])
-            return AccountOut(**account)
+            return AccountOutPublic(**account)
 
 
     def delete(self, id: str) -> bool:

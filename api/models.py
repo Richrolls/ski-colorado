@@ -64,7 +64,7 @@ class AccountIn(BaseModel): #what we send into the database/collection
     snowboard: bool=False
     picture_url: Optional[str] = None
 
-class AccountOut(BaseModel): #what the frontend will need to display
+class AccountOut(BaseModel):
     id: str
     first_name: str
     last_name: str
@@ -79,6 +79,15 @@ class AccountOut(BaseModel): #what the frontend will need to display
     snowboard: bool
     picture_url: Optional[str] = None
 
+class AccountOutPublic(BaseModel):
+    id: str
+    username: str
+    city: str
+    state: str
+    ski: bool
+    snowboard: bool
+    picture_url: Optional[str] = None
+
 class AccountToken(Token):
     account: AccountOut
 
@@ -86,7 +95,7 @@ class AccountOutWithHashedPassword(AccountOut):
     hashed_password: str #encrypted user's pw
 
 class AccountList(BaseModel):
-    accounts: List[AccountOut]
+    accounts: List[AccountOutPublic]
 
 class CommentIn(BaseModel):
 	rating: int
