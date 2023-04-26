@@ -1,35 +1,30 @@
 import { useParams, Link } from "react-router-dom";
-import { useGetUserFavoritesQuery } from "../login/auth";
+import { useGetResortsQuery, useGetUserFavoritesQuery } from "../login/auth";
 
 export default function FavoriteList() {
-  const { account } = useParams()
-  console.log(account)
-  const { data: favorites } = useGetUserFavoritesQuery(account);
-  console.log(favorites)
+  const { accountId } = useParams()
+  const { data: favorites, isLoading: isFavoritesLoading } = useGetUserFavoritesQuery(accountId);
+  const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery();
+  if (isFavoritesLoading || isResortsLoading) {
+    return <progress className="progress is-primary" max="100"></progress>;
+  }
+
+  const favoritesWithResorts = favorites.favorites.map((favorite) => {
+    const resort = resorts.find((resort) => resort.id === favorite.resort_id);
+    return {
+      ...favorite,
+      resortName: resort ? resort.name : "Unknown resort",
+    };
+  });
 
   return (
     <>
-      <div className="container">
-        <div className="row">
-          <div>
-            <div
-              className="shadow p-4 mt-4 bg-primary bg-gradient"
-              style={{ borderRadius: 8, marginLeft: 0 }}
-            >
-              <div>
-                <h1 className="snow">F</h1>
-              </div>
-              <br />
-              <div className="row mx-auto w-75">
-                {/* {favoriteList?.map((favorite) => (
-                  <div key={favorite.id}>
-                    <p>Resort: <Link to={`/resorts/${favorite.resort_id}`}>Something</Link></p>
-                  </div>
-                ))} */}
-              </div>
-            </div>
+      <div className="row mx-auto w-75">
+        {favoritesWithResorts.map((favorite) => (
+          <div key={favorite.id}>
+            <p>Resort: <Link to={`/resorts/${favorite.resort_id}`}>{favorite.resortName}</Link></p>
           </div>
-        </div>
+        ))}
       </div>
     </>
   );

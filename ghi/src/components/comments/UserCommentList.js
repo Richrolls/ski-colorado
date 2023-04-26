@@ -12,9 +12,6 @@ const UserCommentList = () => {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
-  console.log(commentsData)
-  console.log(resorts)
-
   const commentsWithResorts = commentsData.comments.map(comment => {
     const resort = resorts.find(resort => resort.id === comment.resort_id);
     return {
@@ -22,9 +19,6 @@ const UserCommentList = () => {
       resortName: resort ? resort.name : 'Unknown resort',
     }
   })
-
-  console.log(commentsWithResorts)
-
 
 return (
     <>
