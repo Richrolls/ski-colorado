@@ -5,6 +5,7 @@ import ProfileInfo from "./ProfileInfo";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import UserCommentList from "../comments/UserCommentList";
 import ProfileName from "./ProfileName";
+import FavoriteList from "../favorites/FavoriteList";
 
 const Profile = () => {
   const { accountId } = useParams();
@@ -55,11 +56,10 @@ const Profile = () => {
                 <ProfileInfo />
                 <div className="shadow p-4 mt-4 bg-primary bg-gradient rounded">
                   <h2 className="underlined">Favorite Resorts</h2>
-                  <h3>Placeholder</h3>
+                  <FavoriteList/>
                 </div>
               </div>
               <div className="col-md-8 border">
-                <UserCommentList />
               </div>
             </div>
           </div>

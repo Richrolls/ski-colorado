@@ -1,15 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useGetUserFavoritesQuery } from "../login/auth";
-import { Link } from "react-router-dom";
 
 export default function FavoriteList() {
-  const { account } = useParams();
+  const { account } = useParams()
+  console.log(account)
   const { data: favorites } = useGetUserFavoritesQuery(account);
-  console.log(favorites);
-
-  if (isLoading) {
-    return <progress className="progress is-primary" max="100"></progress>;
-  }
+  console.log(favorites)
 
   return (
     <>
@@ -21,15 +17,15 @@ export default function FavoriteList() {
               style={{ borderRadius: 8, marginLeft: 0 }}
             >
               <div>
-                <h1 className="snow">Comments</h1>
+                <h1 className="snow">F</h1>
               </div>
               <br />
               <div className="row mx-auto w-75">
-                {data.favorites?.map((favorite) => (
-                  <Link to={`/resorts/${resort_id}`}>
-                    {}
-                  </Link>
-                ))}
+                {/* {favoriteList?.map((favorite) => (
+                  <div key={favorite.id}>
+                    <p>Resort: <Link to={`/resorts/${favorite.resort_id}`}>Something</Link></p>
+                  </div>
+                ))} */}
               </div>
             </div>
           </div>
