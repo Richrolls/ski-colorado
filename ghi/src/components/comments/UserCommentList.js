@@ -188,7 +188,7 @@ const UserCommentList = () => {
                 <h2 className="underlined">Comments</h2>
               </div> */}
 
-              <div className="row mx-auto w-75">
+              <div className="row mx-auto w-75 container">
                 {commentsWithResorts.map((comment) => (
                   <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
                     <div key={comment.id}>

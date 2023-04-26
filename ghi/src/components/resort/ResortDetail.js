@@ -82,7 +82,6 @@ export default function ResortDetail() {
                       style={{ paddingBottom: 14 }}
                     >
                       <Favorite />
-                      <br />
                     </div>
                     <h1
                       className="snow title-link"
@@ -97,6 +96,7 @@ export default function ResortDetail() {
                       </Link>
                     </h1>
                     <div className="text-center">
+                      <br/>
                       <img
                         className="resort-photo rounded"
                         src={data?.photo_url}
@@ -104,7 +104,8 @@ export default function ResortDetail() {
                       ></img>
                     </div>
                     <div className="rounded m-3">
-                      <h2 className="text-center underlined">Resort Info</h2>
+                      <br/>
+                      <h2 className="text-center underlined">Address</h2>
                       <h4 className="text-center">
                         {data?.address}
                         <br></br> {data?.city}, {data?.state} {data?.zipcode}
