@@ -8,19 +8,22 @@ export default function ResortCommentList() {
   const { data: profilesData, isLoading: isProfilesLoading } = useGetProfilesQuery();
 
 
-  // if (isCommentsLoading || isProfilesLoading) {
-  //   return <progress className="progress is-primary" max="100"></progress>;
-  // }
-  console.log(commentsData)
+  if (isCommentsLoading || isProfilesLoading) {
+    return <progress className="progress is-primary" max="100"></progress>;
+  }
+
+  // console.log(commentsData);
+  console.log(profilesData);
 
 
-  // const commentsWithUsernames = commentsData.map(comment => {
-  //   const user = profilesData.accounts.find(user => user.id === comment.user_id);
-  //   return {
-  //     ...comment,
-  //     userName: user ? user.username : 'Unknown User',
-  //   }
-  // })
+  const commentsWithUsernames = commentsData.comments.map(comment => {
+    const user = profilesData.accounts.find(user => user.id === comment.user_id);
+    return {
+      ...comment,
+      userName: user ? user.username : 'Unknown User',
+    }
+  })
+  console.log(commentsWithUsernames)
 
   return (
     <>
@@ -32,7 +35,7 @@ export default function ResortCommentList() {
                 <h2 className="underlined">Recent Comments</h2>
               </div>
               <br/>
-              {/* <div className="row mx-auto w-75">
+              <div className="row mx-auto w-75">
                 {commentsWithUsernames.map((comment) => (
                   <div key={comment.id}>
                       <h4>
@@ -48,7 +51,7 @@ export default function ResortCommentList() {
                     <br />
                   </div>
                 ))}
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
