@@ -17,6 +17,23 @@ async def create_comment(
     comment = repo.create(comment, resort_id=resort_id, user_id=account_data['id'])
     return comment
 
+@router.get("/api/resorts/{resort_id}/comments", response_model=CommentList)
+def get_resort_comments(
+    resort_id: str,
+    repo: CommentQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+    ):
+    return {'comments': repo.get_all_for_resort(resort_id=resort_id)}
+
+@router.get("/api/accounts/{user_id}/comments", response_model=CommentList)
+def get_user_comments(
+    user_id: str,
+    repo: CommentQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+    ):
+    return {
+        'comments': repo.get_all_for_user(user_id=user_id)
+        }
 
 @router.get("/api/resorts/{resort_id}/comments", response_model=CommentList)
 async def get_comments(

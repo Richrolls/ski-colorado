@@ -16,9 +16,23 @@ class CommentQueries(Queries):
         comment['id'] = str(comment['_id'])
         return CommentOut(**comment)
 
-    def get_all(self, resort_id: str) -> CommentList:
+    def get_all_for_resort(self, resort_id: str) -> CommentList:
         comments = []
-        for comment in self.collection.find({"resort_id":resort_id}):
+        for comment in self.collection.find({"resort_id": resort_id}):
+            comment['id'] = str(comment['_id'])
+            comments.append(CommentOut(**comment))
+        return comments
+
+    def get_all_for_user(self, user_id: str) -> CommentList:
+        comments = []
+        for comment in self.collection.find({"user_id": user_id}):
+            comment['id'] = str(comment['_id'])
+            comments.append(CommentOut(**comment))
+        return comments
+
+    def get_all(self) -> CommentList:
+        comments = []
+        for comment in self.collection.find():
             comment['id'] = str(comment['_id'])
             comments.append(CommentOut(**comment))
         return comments
