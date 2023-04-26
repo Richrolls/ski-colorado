@@ -21,6 +21,8 @@ export default function ResortCommentList() {
     }
   })
 
+  commentsWithUsernames.reverse()
+
   return (
     <>
       <div className="container">

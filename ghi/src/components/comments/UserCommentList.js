@@ -23,7 +23,7 @@ const UserCommentList = () => {
     }
   })
 
-  console.log(commentsWithResorts)
+  commentsWithResorts.reverse()
 
 
 return (
