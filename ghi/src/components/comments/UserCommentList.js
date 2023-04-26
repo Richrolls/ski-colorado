@@ -190,10 +190,10 @@ const UserCommentList = () => {
               {/* <div>
                 <h2 className="underlined">Comments</h2>
               </div> */}
-              <br />
+
               <div className="row mx-auto w-75">
-                <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
-                  {commentsWithResorts.map((comment) => (
+                {commentsWithResorts.map((comment) => (
+                  <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
                     <div key={comment.id}>
                       <h3>"{comment.comment}"</h3>
                       <h4>
@@ -204,8 +204,8 @@ const UserCommentList = () => {
                         {stars(comment.rating)}
                       </h4>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
