@@ -191,10 +191,15 @@ export default function ResortCommentList() {
               </div>
               <div className="row mx-auto w-75">
                 {commentsWithUsernames.map((comment) => (
+<<<<<<< HEAD
                   <div>
                   <br/>
                   <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
                     <div key={comment.id}>
+=======
+                  <div className="bg-secondary bg-opacity-50 bg-gradient white-border" key={comment.id}>
+                    <div>
+>>>>>>> a825083da50a1efd68f4413fcde320924765a93f
                       <h3>"{comment.comment}"</h3>
                       <h4 className="m-0">
                         <Link to={`/profile/${comment.user_id}`}>

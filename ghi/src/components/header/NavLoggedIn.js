@@ -1,8 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useLogoutMutation, useGetAccountQuery } from "../login/auth";
 import { useNavigate } from "react-router-dom";
 import skierIcon from "./Skier_Icon.png"
+import NavbarFavoriteList from "../favorites/NavbarFavoriteList";
 
 function NavLoggedIn() {
   const dispatch = useDispatch();
@@ -27,6 +28,14 @@ function NavLoggedIn() {
           <NavLink className="navbar-brand" to="/home">
             SC
           </NavLink>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Favorites
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <NavbarFavoriteList/>
+          </ul>
         </div>
         <div>
           {data && (

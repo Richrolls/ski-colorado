@@ -17,7 +17,6 @@ export default function ProfileInfo() {
     snowboard = <img src="https://i.imgur.com/oW26dZg.gif" className="" />;
   }
 
-
   function add2(add_2) {
     if (add_2 != "") {
       return (
