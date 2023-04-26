@@ -47,7 +47,7 @@ const ResortList = ({ filters }) => {
               {filteredResorts
                 ?.sort((a, b) => a.name.localeCompare(b.name))
                 .map((resort) => (
-                  <div>
+                  <div key={resort.id}>
                     <div className="card bg-secondary bg-opacity-50 bg-gradient white-border">
                       <div>
                         <h3>
