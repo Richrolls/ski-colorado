@@ -88,14 +88,18 @@ class AccountOutWithHashedPassword(AccountOut):
 class AccountList(BaseModel):
     accounts: List[AccountOut]
 
-class Comment(BaseModel):
-    id: str
+class CommentIn(BaseModel):
     rating: int
     comment: str
 
+class CommentOut(CommentIn):
+    id: str
+    user_id: str
+    resort_id: str
+
 
 class CommentList(BaseModel):
-    comments: List[Comment]
+    comments: List[CommentOut]
 
 class Favorite(BaseModel):
     id: str
