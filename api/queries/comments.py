@@ -1,6 +1,6 @@
 from typing import List, Optional
 from .client import Queries
-from models import CommentIn, CommentOut, CommentList
+from models import Comment, CommentList
 from bson.objectid import ObjectId
 
 
@@ -8,24 +8,24 @@ class CommentQueries(Queries):
     DB_NAME = "db"
     COLLECTION = "comments"
 
-    def create(self, params: CommentIn) -> CommentOut:
-        comment = params.dict()
-        self.collection.insert_one(comment)
+    def create(self, resort_id, user_id, params: Comment) -> Comment:
+        comment = Comment(resort_id=resort_id, user_id=user_id)
+        self.collection.insert_one(comment.dict())
         comment['id'] = str(comment['_id'])
-        return CommentOut(**comment)
+        return Comment(**comment)
 
-    def get_all(self) -> list[CommentOut]:
+    def get_all(self, resort_id: str) -> list[Comment]:
         comments = []
         for comment in self.collection.find():
             comment['id'] = str(comment['_id'])
-            comments.append(CommentOut(**comment))
+            comments.append(Comment(**comment))
         return comments
 
-    def get_one(self, comment_id: str) -> Optional[CommentOut]:
+    def get_one(self, comment_id: str) -> Optional[Comment]:
         comment = self.collection.find_one({'_id': ObjectId(comment_id)})
         if comment:
             comment['id'] = str(comment['_id'])
-            return CommentOut(**comment)
+            return Comment(**comment)
 
 
     def delete(self, id: str, user_id: str) -> bool:

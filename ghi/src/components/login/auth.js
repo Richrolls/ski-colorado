@@ -71,7 +71,7 @@ export const authApi = createApi({
       },
     }),
     getComments: builder.query({
-      query: ({ thisResort }) => `/api/resorts/${thisResort}/comments`,
+      query: ({ resort_id }) => `/api/resorts/${resort_id}/comments`,
       providesTags: ["CommentsList"],
     }),
     getDistance: builder.query({
