@@ -2,24 +2,25 @@ import { Link, useParams } from "react-router-dom";
 import { useGetResortCommentsQuery, useGetProfilesQuery } from "../login/auth.js";
 
 
-export default function ResortFilteredCommentList() {
+export default function ResortCommentList() {
   const { thisResort } = useParams();
   const { data: commentsData, isLoading: isCommentsLoading } = useGetResortCommentsQuery(thisResort);
   const { data: profilesData, isLoading: isProfilesLoading } = useGetProfilesQuery();
 
 
-  if (isCommentsLoading || isProfilesLoading) {
-    return <progress className="progress is-primary" max="100"></progress>;
-  }
+  // if (isCommentsLoading || isProfilesLoading) {
+  //   return <progress className="progress is-primary" max="100"></progress>;
+  // }
+  console.log(commentsData)
 
 
-  const commentsWithUsernames = commentsData.map(comment => {
-    const user = profilesData.accounts.find(user => user.id === comment.user_id);
-    return {
-      ...comment,
-      userName: user ? user.username : 'Unknown User',
-    }
-  })
+  // const commentsWithUsernames = commentsData.map(comment => {
+  //   const user = profilesData.accounts.find(user => user.id === comment.user_id);
+  //   return {
+  //     ...comment,
+  //     userName: user ? user.username : 'Unknown User',
+  //   }
+  // })
 
   return (
     <>
@@ -31,7 +32,7 @@ export default function ResortFilteredCommentList() {
                 <h2 className="underlined">Recent Comments</h2>
               </div>
               <br/>
-              <div className="row mx-auto w-75">
+              {/* <div className="row mx-auto w-75">
                 {commentsWithUsernames.map((comment) => (
                   <div key={comment.id}>
                       <h4>
@@ -47,7 +48,7 @@ export default function ResortFilteredCommentList() {
                     <br />
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

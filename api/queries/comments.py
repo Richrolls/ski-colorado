@@ -30,12 +30,12 @@ class CommentQueries(Queries):
             comments.append(CommentOut(**comment))
         return comments
 
-    def get_all(self) -> CommentList:
-        comments = []
-        for comment in self.collection.find():
-            comment['id'] = str(comment['_id'])
-            comments.append(CommentOut(**comment))
-        return comments
+    # def get_all(self) -> CommentList:
+    #     comments = []
+    #     for comment in self.collection.find():
+    #         comment['id'] = str(comment['_id'])
+    #         comments.append(CommentOut(**comment))
+    #     return comments
 
     def get_one(self, comment_id: str) -> Optional[CommentOut]:
         comment = self.collection.find_one({'_id': ObjectId(comment_id)})
