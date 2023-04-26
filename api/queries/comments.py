@@ -18,7 +18,7 @@ class CommentQueries(Queries):
 
     def get_all(self, resort_id: str) -> list[CommentOut]:
         comments = []
-        for comment in self.collection.find():
+        for comment in self.collection.find({"resort_id":resort_id}):
             comment['id'] = str(comment['_id'])
             comments.append(CommentOut(**comment))
         return comments
