@@ -2,27 +2,28 @@ import { useGetUserCommentsQuery, useGetResortsQuery } from "../login/auth.js";
 import {useParams, Link } from "react-router-dom"
 import ResortList from "../homepage/ResortList.js";
 
-const UserFilteredCommentList = () => {
-  const { data, isLoading } = useGetUserCommentsQuery('');
+const UserCommentList = () => {
+  const { accountId } = useParams()
+  const { data: commentsData, isLoading: isCommentsLoading } = useGetUserCommentsQuery( accountId );
   const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery()
-  const {accountId} = useParams()
 
-  if (isLoading || isResortsLoading) {
+
+  if (isCommentsLoading || isResortsLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
-  const filteredComments = data.comments.filter(
-    (comment) => comment.user_id === accountId
-  )
+  console.log(commentsData)
+  console.log(resorts)
 
-
-  const commentsWithResorts = filteredComments.map(comment => {
+  const commentsWithResorts = commentsData.comments.map(comment => {
     const resort = resorts.find(resort => resort.id === comment.resort_id);
     return {
       ...comment,
       resortName: resort ? resort.name : 'Unknown resort',
     }
   })
+
+  console.log(commentsWithResorts)
 
 
 return (
@@ -52,4 +53,4 @@ return (
   );
 }
 
-export default UserFilteredCommentList;
+export default UserCommentList;

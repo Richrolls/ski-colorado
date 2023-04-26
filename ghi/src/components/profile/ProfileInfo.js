@@ -5,10 +5,8 @@ import { useGetProfileQuery, useGetAccountQuery } from "../login/auth.js";
 export default function ProfileInfo() {
   const { accountId } = useParams();
   const { data } = useGetProfileQuery(accountId);
-  console.log(data)
-
   const { data: account } = useGetAccountQuery();
-  console.log(account)
+
   let ski = "";
   let snowboard = "";
   if (data?.ski == true) {
