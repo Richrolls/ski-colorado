@@ -24,6 +24,7 @@ class ResortIn(BaseModel):
     city: str
     state: str
     zipcode: int
+    coordinates: str
     name: str
     photo_url: str
     average_rating: float

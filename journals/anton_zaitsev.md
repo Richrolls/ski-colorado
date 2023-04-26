@@ -17,3 +17,6 @@ Worked with Jack on arranging the logged in home page and styling it. Lead the d
 
 4/7/23
 Since I forgot to update throughout the week, the major points that I worked in was redirect route logic to the sign up form from the login form, and vice versa. Also implementing login user authorization, so that the user is redirected to the main page of a list of all resorts with them displaying properly.
+
+4/25/23
+Have not journaled for almost three weeks, but as a general summary the big things that I worked on was the login logic, login error logic, and the user login authentication associated with login. I also worked with Jack on styling the basic wireframe for the home page that displays all of the resorts. In addition, I worked on the front-end filtering logic to dynamically display resorts based on the selected filters. And today, I wrote the unit tests for querying for a list of all accounts, and querying for a specific account.
