@@ -15,7 +15,7 @@ def fake_get_account_data():
 
 
 class FakeCommentQueries:
-    def get_all(self, resort_id, user_id):
+    def get_all_for_resort(self, resort_id):
         return [
         {
             "rating": 5,
@@ -33,14 +33,11 @@ class FakeCommentQueries:
         }
     ]
 
-def create(self, resort_id, user_id):
+def create(self):
     return[
         {
             "rating": 1,
             "comment": "ABSOLUTELY AWFUL",
-            "user_id": 1,
-            "resort_id": "1",
-            "id": 3
         }
     ]
 
@@ -68,10 +65,13 @@ def fake_get_current_account_data():
     }
 
 class CommentQueriesMock:
-    def create(self, params: CommentIn) -> CommentOut:
+    def create(self, params: CommentIn, resort_id, user_id) -> CommentOut:
         comment = params.dict()
+        comment['resort_id'] = 'abcdefg'
+        comment['user_id'] = '1'
         comment['id'] = '10'
         return CommentOut(**comment)
+
 
 def test_create_comments():
     app.dependency_overrides[CommentQueries] = CommentQueriesMock
@@ -79,8 +79,6 @@ def test_create_comments():
     comment = {
     "rating": 5,
     "comment": "stringggggg",
-    "user_id": "1",
-    "resort_id": "1",
     }
     res = client.post('/api/resorts/1/comments', json=comment)
     assert res.status_code == 200

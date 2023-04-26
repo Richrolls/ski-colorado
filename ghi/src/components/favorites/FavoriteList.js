@@ -2,8 +2,9 @@ import { useParams, Link } from "react-router-dom";
 import { useGetResortsQuery, useGetUserFavoritesQuery } from "../login/auth";
 
 export default function FavoriteList() {
-  const { accountId } = useParams()
-  const { data: favorites, isLoading: isFavoritesLoading } = useGetUserFavoritesQuery(accountId);
+  const { accountId } = useParams();
+  const { data: favorites, isLoading: isFavoritesLoading } =
+    useGetUserFavoritesQuery(accountId);
   const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery();
   if (isFavoritesLoading || isResortsLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -22,7 +23,11 @@ export default function FavoriteList() {
       <div className="row mx-auto w-75">
         {favoritesWithResorts.map((favorite) => (
           <div key={favorite.id}>
-            <p>Resort: <Link to={`/resorts/${favorite.resort_id}`}>{favorite.resortName}</Link></p>
+            <h4>
+              <Link to={`/resorts/${favorite.resort_id}`}>
+                {favorite.resortName}
+              </Link>
+            </h4>
           </div>
         ))}
       </div>

@@ -52,4 +52,4 @@ Day 1: Reconfigured all <a> tags and related functionality to React component <L
 
 Day 2: Reconfigured and stylized buttons on comment/rating input. Assisted Jack/Anton with home page filtering.
 
-
+Day 3: WEATHER API!!! WOOO!!!!
