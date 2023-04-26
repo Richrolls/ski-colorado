@@ -16,7 +16,7 @@ class CommentQueries(Queries):
         comment['id'] = str(comment['_id'])
         return CommentOut(**comment)
 
-    def get_all(self, resort_id: str) -> list[CommentOut]:
+    def get_all(self, resort_id: str) -> CommentList:
         comments = []
         for comment in self.collection.find({"resort_id":resort_id}):
             comment['id'] = str(comment['_id'])
@@ -27,7 +27,7 @@ class CommentQueries(Queries):
         comment = self.collection.find_one({'_id': ObjectId(comment_id)})
         if comment:
             comment['id'] = str(comment['_id'])
-            return Comment(**comment)
+            return CommentOut(**comment)
 
 
     def delete(self, id: str, user_id: str) -> bool:

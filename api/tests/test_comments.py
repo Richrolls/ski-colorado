@@ -1,5 +1,5 @@
 from main import app
-from models import Comment
+from models import CommentIn, CommentOut
 from fastapi.testclient import TestClient
 from queries.comments import CommentQueries
 from authenticator import authenticator
