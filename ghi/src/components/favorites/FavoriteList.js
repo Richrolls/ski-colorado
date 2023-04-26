@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function FavoriteList() {
   const { account } = useParams();
-  const { data: favorites } = useGetUserFavoritesQuery();
+  const { data: favorites } = useGetUserFavoritesQuery(account);
   console.log(favorites);
 
   if (isLoading) {

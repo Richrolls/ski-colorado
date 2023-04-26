@@ -115,7 +115,7 @@ export const authApi = createApi({
       providesTags: ["FavoriteList"],
     }),
     getUserFavorites: builder.query({
-      query: (user_id) => `/api/resorts/${user_id}/favorites`,
+      query: (user_id) => `/api/accounts/${user_id}/favorites`,
       providesTags: ["FavoriteList"],
     }),
   }),
