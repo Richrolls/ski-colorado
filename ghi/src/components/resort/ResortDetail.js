@@ -4,7 +4,7 @@ import {
   useGetResortQuery,
 } from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
-// import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js";
+import ResortCommentList from "../comments/ResortCommentList.js";
 // import AverageRatingByResort from "../comments/AverageRatingFunction.js";
 import Directions from "../directions/Directions.js";
 import Weather from "../weather/Weather.js";
@@ -163,10 +163,10 @@ export default function ResortDetail() {
               }}
             >
               <div>
-                {/* <ResortFilteredCommentList
-                  comments={data.comments}
-                  thisResort={thisResort}
-                /> */}
+                <ResortCommentList
+                  // comments={data.comments}
+                  // thisResort={thisResort}
+                />
               </div>
               <div>
                 <NewCommentForm />

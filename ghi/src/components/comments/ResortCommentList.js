@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useGetResortCommentsQuery, useGetProfilesQuery } from "../login/auth.js";
 
 
-export default function ResortFilteredCommentList() {
+export default function ResortCommentList() {
   const { thisResort } = useParams();
   const { data: commentsData, isLoading: isCommentsLoading } = useGetResortCommentsQuery(thisResort);
   const { data: profilesData, isLoading: isProfilesLoading } = useGetProfilesQuery();
@@ -12,14 +12,18 @@ export default function ResortFilteredCommentList() {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
+  // console.log(commentsData);
+  console.log(profilesData);
 
-  const commentsWithUsernames = commentsData.map(comment => {
+
+  const commentsWithUsernames = commentsData.comments.map(comment => {
     const user = profilesData.accounts.find(user => user.id === comment.user_id);
     return {
       ...comment,
       userName: user ? user.username : 'Unknown User',
     }
   })
+  console.log(commentsWithUsernames)
 
   return (
     <>
