@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
-import { useGetFavoritesQuery } from "../login/auth";
+import { useGetUserFavoritesQuery } from "../login/auth";
 import { Link } from "react-router-dom";
 
 export default function FavoriteList() {
   const { account } = useParams();
-  const { data: favorites } = useGetFavoritesQuery();
-  console.log(data);
+  const { data: favorites } = useGetUserFavoritesQuery();
+  console.log(favorites);
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;

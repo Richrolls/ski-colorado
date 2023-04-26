@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
-import { useGetAccountQuery, useFavoriteMutation, useDeleteFavoriteMutation, useGetFavoritesQuery } from "../login/auth";
+import { useGetAccountQuery, useFavoriteMutation, useDeleteFavoriteMutation, useGetResortFavoritesQuery } from "../login/auth";
 
 export default function Favorite() {
   const { thisResort } = useParams();
   const { data: account } = useGetAccountQuery();
   const [favorite] = useFavoriteMutation();
   const [unfavorite] = useDeleteFavoriteMutation();
-  const { data: resortFavorites } = useGetFavoritesQuery(thisResort);
+  const { data: resortFavorites } = useGetResortFavoritesQuery(thisResort);
   let thisFavorite = ""
   let thisUserResortFavorite = resortFavorites?.favorites.filter(e => e.user_id === (account.id))
   if (thisUserResortFavorite?.length > 0) {
