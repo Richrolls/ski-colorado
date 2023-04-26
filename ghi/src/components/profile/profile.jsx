@@ -37,7 +37,7 @@ const Profile = () => {
       {profile && data && (
         <>
           <div className="container rounded shadow p-4 mt-4 bg-primary bg-gradient">
-            <div className="row align-items-center">
+            <div className="row">
               <div className="col-md-4 text-center">
                 <img
                   style={{ height: 200, width: 200 }}
@@ -58,7 +58,7 @@ const Profile = () => {
                   <FavoriteList/>
                 </div>
               </div>
-              <div className="col-md-8">
+              <div className="col">
                 <UserCommentList />
               </div>
             </div>

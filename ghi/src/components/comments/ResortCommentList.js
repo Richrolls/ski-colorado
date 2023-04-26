@@ -189,9 +189,10 @@ export default function ResortCommentList() {
               <div>
                 <h2 className="underlined">Recent Comments</h2>
               </div>
-
               <div className="row mx-auto w-75">
                 {commentsWithUsernames.map((comment) => (
+                  <div>
+                  <br/>
                   <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
                     <div key={comment.id}>
                       <h3>"{comment.comment}"</h3>
@@ -203,7 +204,9 @@ export default function ResortCommentList() {
                       </h4>
                     </div>
                   </div>
+                  </div>
                 ))}
+                <br/>
               </div>
             </div>
           </div>

@@ -179,36 +179,39 @@ const UserCommentList = () => {
   commentsWithResorts.reverse();
 
   return (
-    <>
-      <div className="container">
-        <div className="row">
-          <div>
-            <div style={{ borderRadius: 8, marginLeft: 0 }}>
-              {/* <div>
+    <div className="container">
+      <div className="row justify-content-center">
+        <div>
+          <div style={{ borderRadius: 8, marginLeft: 0 }}>
+            {/* <div>
                 <h2 className="underlined">Comments</h2>
               </div> */}
-
-              <div className="row mx-auto w-75 container">
+            <div className="mx-auto container">
+              <div>
                 {commentsWithResorts.map((comment) => (
-                  <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
-                    <div key={comment.id}>
-                      <h3>"{comment.comment}"</h3>
-                      <h4>
-                        <Link to={`/resorts/${comment.resort_id}`}>
-                          {comment.resortName}
-                        </Link>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        {stars(comment.rating)}
-                      </h4>
+                  <div>
+                    <br />
+                    <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
+                      <div key={comment.id}>
+                        <h3>"{comment.comment}"</h3>
+                        <h4>
+                          <Link to={`/resorts/${comment.resort_id}`}>
+                            {comment.resortName}
+                          </Link>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          {stars(comment.rating)}
+                        </h4>
+                      </div>
                     </div>
                   </div>
                 ))}
+                <br />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
