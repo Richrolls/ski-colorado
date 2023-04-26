@@ -55,8 +55,7 @@ export default function Directions() {
           <br></br>
           <h3>
             {account.address_1} <br></br> {add2(account.address_2)}{" "}
-            {account.city}, {account.state} <br></br>to<br></br>
-            {data.name}
+            {account.city}, {account.state} <br></br>to {data.name}
           </h3>
           <h4>
             <br />

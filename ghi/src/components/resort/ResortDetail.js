@@ -1,13 +1,12 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import {
-  useGetResortQuery,
-} from "../login/auth.js";
+import { useGetResortQuery } from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import ResortFilteredCommentList from "../comments/ResortFilteredCommentList.js";
 import AverageRatingByResort from "../comments/AverageRatingFunction.js";
 import Directions from "../directions/Directions.js";
-import Weather from "../weather/Weather.js";
+import Weather from "../weather/CurrentWeather.js";
+import DailyForecast from "../weather/DailyForecast.js";
 import { NewCommentForm } from "../comments/AddNewComment.js";
 import Favorite from "../favorites/Favorite.js";
 
@@ -42,31 +41,19 @@ export default function ResortDetail() {
               className="shadow p-4 mt-4 bg-primary bg-gradient"
               style={{
                 borderRadius: 8,
-                height: 260,
+                height: 770,
                 width: "20%",
                 marginLeft: 52,
               }}
             >
-              <h2 style={{ paddingBottom: 12 }} className="underlined">
-                Current Weather
-              </h2>
+              <h2 className="underlined">Current Weather</h2>
               <div>
-                {/* <Weather/> */}
+                <Weather />
               </div>
-              <div
-                className="mx-auto w-25 bg-secondary bg-opacity-50 bg-gradient white-border"
-                style={{ paddingTop: 20 }}
-              >
-                <h3>Temp</h3>
+              <h2 className="underlined">Today's Forecast</h2>
+              <div>
+                <DailyForecast />
               </div>
-              <br />
-              <div
-                className="mx-auto w-25 bg-secondary bg-opacity-50 bg-gradient white-border"
-                style={{ paddingTop: 20 }}
-              >
-                <h3>Precip</h3>
-              </div>
-              <br />
               <br />
               <div
                 className="shadow p-4 mt-4 bg-primary bg-gradient"
@@ -92,18 +79,23 @@ export default function ResortDetail() {
                   >
                     <div
                       className="d-flex justify-content-center"
-                      style={{ paddingBottom: "14px" }}
+                      style={{ paddingBottom: 14 }}
                     >
                       <Favorite />
                       <br />
                     </div>
-                    <Link
-                      to={data.resort_website}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <h1
+                      className="snow title-link"
+                      style={{ paddingBottom: 4 }}
                     >
-                      <h1 className="snow title-link">{data.name}</h1>
-                    </Link>
+                      <Link
+                        to={data.resort_website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {data.name}
+                      </Link>
+                    </h1>
                     <div className="text-center">
                       <img
                         className="resort-photo rounded"
