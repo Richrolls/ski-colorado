@@ -46,7 +46,6 @@ const Profile = () => {
               </div>
               <div className="col-md-8">
                 <ProfileName />
-                <h3>@{profile.username}</h3>
               </div>
             </div>
             <div className="row">
@@ -58,7 +57,7 @@ const Profile = () => {
                   <h3>Placeholder</h3>
                 </div>
               </div>
-              <div className="col-md-8 border">
+              <div className="col-md-8">
                 <UserCommentList />
               </div>
             </div>

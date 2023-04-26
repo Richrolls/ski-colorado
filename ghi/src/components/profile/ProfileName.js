@@ -12,16 +12,19 @@ export default function ProfileInfo() {
   //   return lastname.charAt(0) + ".";
   // }
 
-  if (data?.id == account?.id) {
+  if (accountId == account?.id) {
     return (
-      <h1 className="snow">
-        {account.first_name} {account.last_name}
-      </h1>
+      <>
+        <h1 className="snow">
+          {account.first_name} {account.last_name}
+        </h1>
+        <h3>@{account.username}</h3>
+      </>
     );
   } else {
     return (
       <h1 className="snow">
-        {data?.username}
+        @{data?.username}
         {/* {getLastInitial(data?.last_name)} */}
       </h1>
     );
