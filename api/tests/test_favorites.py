@@ -12,7 +12,7 @@ def fake_get_current_account_data():
     }
 
 class FavoriteQueriesMock:
-    def get_all(self, resort_id) -> Favorite:
+    def get_all_for_resort(self, resort_id) -> Favorite:
         return [{
             "user_id": "644700330409a2b637f70f67",
             "resort_id": resort_id,
@@ -25,4 +25,5 @@ def test_get_all_favorites():
     app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_account_data
     res = client.get('/api/resorts/(resort_id)/favorites')
     assert len(res.json()['favorites']) == 1
+    assert res.status_code == 200
     app.dependency_overrides = {}
