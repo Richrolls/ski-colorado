@@ -61,4 +61,9 @@
 4/24/2023
     I worked on getting the favorite/unfavorite feature working. The previously existing favorite button would be replaced when pressed and would show a new unfavorite button. Due to it being done through redux, the button refreshes automatically. I also changed the default picture to be our custom skiier icon. Most of the larger features have been completed and now there are just a few smaller features such as listing out the comments and favorites.
 
-    Looking forward to getting the list of favorites working. 
+    Looking forward to getting the list of favorites working.
+
+4/25/2023
+    Noticed there was a bug with the favorites button. Was able to fix it. We also met with Riley and we were told that the way our queries were done, there were security vulnerabilities. I was able to redo the query to create a favorite automatically get the resort_id and user_id of the logged in user and to not take any user input data so another user can't send in a post request and make a favorite for another user. We are currently working on comments to fix the same vulnerabilities.
+
+    Looking forward to getting the comments fixed.
