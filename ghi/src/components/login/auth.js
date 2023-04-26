@@ -71,7 +71,7 @@ export const authApi = createApi({
       },
     }),
     getResortComments: builder.query({
-      query: ( resort_id ) => `/api/resorts/${resort_id}/comments`,
+      query: (resort_id) => `/api/resorts/${resort_id}/comments`,
       providesTags: ["ResortCommentsList"],
     }),
     getUserComments: builder.query({
@@ -110,8 +110,12 @@ export const authApi = createApi({
       }),
       invalidatesTags: ["FavoriteList"],
     }),
-    getFavorites: builder.query({
+    getResortFavorites: builder.query({
       query: (resort_id) => `/api/resorts/${resort_id}/favorites`,
+      providesTags: ["FavoriteList"],
+    }),
+    getUserFavorites: builder.query({
+      query: (user_id) => `/api/accounts/${user_id}/favorites`,
       providesTags: ["FavoriteList"],
     }),
   }),
@@ -131,7 +135,8 @@ export const {
   useGetAccountTokenQuery,
   useFavoriteMutation,
   useDeleteFavoriteMutation,
-  useGetFavoritesQuery,
+  useGetResortFavoritesQuery,
+  useGetUserFavoritesQuery,
   useGetProfilesQuery,
   useGetWeatherQuery,
 } = authApi;
