@@ -179,6 +179,8 @@ const UserCommentList = () => {
     }
   }
 
+  commentsWithResorts.reverse();
+
   return (
     <>
       <div className="container">
