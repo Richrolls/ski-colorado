@@ -26,15 +26,16 @@ def get_resort_favorites(
 
 @router.get("/api/accounts/{user_id}/favorites", response_model=FavoriteList)
 def get_user_favorites(
+    user_id: str,
     repo: FavoriteQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
     ):
     return {
-        'favorites': repo.get_all_for_user(user_id=account_data["id"])
+        'favorites': repo.get_all_for_user(user_id=user_id)
         }
 
 @router.get("/api/favorites", response_model=FavoriteList)
-def get_user_favorites(
+def get_all_favorites(
     repo: FavoriteQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
     ):

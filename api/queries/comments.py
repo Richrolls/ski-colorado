@@ -8,18 +8,34 @@ class CommentQueries(Queries):
     DB_NAME = "db"
     COLLECTION = "comments"
 
-    def create(self, params: CommentIn) -> CommentOut:
+    def create(self, params: CommentIn, resort_id, user_id) -> CommentOut:
         comment = params.dict()
+        comment['resort_id'] = resort_id
+        comment['user_id'] = user_id
         self.collection.insert_one(comment)
         comment['id'] = str(comment['_id'])
         return CommentOut(**comment)
 
-    def get_all(self) -> list[CommentOut]:
+    def get_all_for_resort(self, resort_id: str) -> CommentList:
         comments = []
-        for comment in self.collection.find():
+        for comment in self.collection.find({"resort_id": resort_id}):
             comment['id'] = str(comment['_id'])
             comments.append(CommentOut(**comment))
         return comments
+
+    def get_all_for_user(self, user_id: str) -> CommentList:
+        comments = []
+        for comment in self.collection.find({"user_id": user_id}):
+            comment['id'] = str(comment['_id'])
+            comments.append(CommentOut(**comment))
+        return comments
+
+    # def get_all(self) -> CommentList:
+    #     comments = []
+    #     for comment in self.collection.find():
+    #         comment['id'] = str(comment['_id'])
+    #         comments.append(CommentOut(**comment))
+    #     return comments
 
     def get_one(self, comment_id: str) -> Optional[CommentOut]:
         comment = self.collection.find_one({'_id': ObjectId(comment_id)})

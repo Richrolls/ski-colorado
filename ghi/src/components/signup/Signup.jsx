@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   handleFirstNameChange,
@@ -18,7 +18,7 @@ import {
   error,
   reset,
 } from "./signupSlice";
-import { useSignupMutation } from "../login/auth";
+import { useGetAccountQuery, useSignupMutation } from "../login/auth";
 import ErrorMessage from "../errorhandling/ErrorMessage";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -27,6 +27,7 @@ const Signup = () => {
   const dispatch = useDispatch();
   const [signup] = useSignupMutation();
   const { errorMessage, fields } = useSelector((state) => state.signup);
+  const [usernameError, setUsernameError] = useState("");
   const navigate = useNavigate();
 
   // const handleJoinClick = (e) => {
@@ -39,16 +40,20 @@ const Signup = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (fields.password != fields.password_conf) {
-      dispatch(error("Passwords do not match"));
-      return;
+    try {
+      if (fields.password != fields.password_conf) {
+        dispatch(error("Passwords do not match"));
+        return;
+      }
+      dispatch(reset());
+      const result = await signup(fields).unwrap();
+      if (result.access_token) {
+        navigate("/home");
+      }
+    } catch {
+      dispatch(error("Username already taken"));
     }
-    dispatch(reset());
-    const result = await signup(fields).unwrap();
-    if (result.access_token) {
-      navigate("/home");
   };
-}
 
   return (
     <>
@@ -69,9 +74,7 @@ const Signup = () => {
                 className="link-warning"
                 // onClick={(e) => dispatch(handleMainClick(e.target.value))}
               >
-                <button className="butt btn-sm btn-primary">
-                  Back
-                </button>
+                <button className="butt btn-sm btn-primary">Back</button>
               </Link>
               <h1 className="snow">Sign Up</h1>
               <form onSubmit={handleSubmit} id="signup-form">

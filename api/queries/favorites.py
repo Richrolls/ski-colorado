@@ -1,6 +1,6 @@
 from typing import List, Optional
 from .client import Queries
-from models import Favorite
+from models import Favorite, FavoriteList
 from bson.objectid import ObjectId
 
 
@@ -14,21 +14,21 @@ class FavoriteQueries(Queries):
         favorite['id'] = str(favorite['_id'])
         return Favorite(**favorite)
 
-    def get_all_for_resort(self, resort_id: str) -> list[Favorite]:
+    def get_all_for_resort(self, resort_id: str) -> FavoriteList:
         favorites = []
         for favorite in self.collection.find({"resort_id": resort_id}):
             favorite['id'] = str(favorite['_id'])
             favorites.append(Favorite(**favorite))
         return favorites
 
-    def get_all_for_user(self, user_id: str) -> list[Favorite]:
+    def get_all_for_user(self, user_id: str) -> FavoriteList:
         favorites = []
         for favorite in self.collection.find({"user_id": user_id}):
             favorite['id'] = str(favorite['_id'])
             favorites.append(Favorite(**favorite))
         return favorites
 
-    def get_all(self) -> list[Favorite]:
+    def get_all(self) -> FavoriteList:
         favorites = []
         for favorite in self.collection.find():
             favorite['id'] = str(favorite['_id'])

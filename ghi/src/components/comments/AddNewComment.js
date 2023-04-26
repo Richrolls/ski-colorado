@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useGetCommentsQuery, useGetAccountTokenQuery } from '../login/auth'
+import { useGetResortCommentsQuery, useGetAccountTokenQuery } from '../login/auth'
 
 
 export const NewCommentForm = () => {
@@ -8,7 +8,7 @@ export const NewCommentForm = () => {
     const [comment, setComment] = useState('')
     const { thisResort } = useParams();
     const  { data: token } = useGetAccountTokenQuery()
-    const { refetch } = useGetCommentsQuery(thisResort)
+    const { refetch } = useGetResortCommentsQuery(thisResort)
 
     const handleRatingChange = e => setRating(e.target.value)
     const handleCommentChange = e => setComment(e.target.value)

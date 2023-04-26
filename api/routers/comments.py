@@ -10,65 +10,38 @@ router = APIRouter()
 @router.post("/api/resorts/{resort_id}/comments", response_model=CommentOut)
 async def create_comment(
     comment: CommentIn,
+    resort_id: str,
     repo: CommentQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    comment = repo.create(comment)
+    comment = repo.create(comment, resort_id=resort_id, user_id=account_data['id'])
     return comment
 
+@router.get("/api/resorts/{resort_id}/comments", response_model=CommentList)
+def get_resort_comments(
+    resort_id: str,
+    repo: CommentQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+    ):
+    return {'comments': repo.get_all_for_resort(resort_id=resort_id)}
 
-# @router.post("/api/resorts", response_model=ResortOut)
-# async def create_resort(
-#     resort: ResortIn,
-#     repo: ResortQueries = Depends(),
-# ):
-#     resort = repo.create(resort)
-#     return resort
+@router.get("/api/accounts/{user_id}/comments", response_model=CommentList)
+def get_user_comments(
+    user_id: str,
+    repo: CommentQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+    ):
+    return {
+        'comments': repo.get_all_for_user(user_id=user_id)
+        }
 
-# @router.post("/api/resorts/{resort_id}/comments", response_model=CommentOut)
-# async def create_comment(
-#     rating: int,
-#     comment: str,
+# @router.get("/api/resorts/{resort_id}/comments", response_model=CommentList)
+# async def get_comments(
 #     resort_id: str,
 #     repo: CommentQueries = Depends(),
 #     account_data: dict = Depends(authenticator.get_current_account_data),
-# ):
-#     new_comment = CommentIn(rating=rating, comment=comment, resort_id=resort_id, user_id=account_data['id'])
-#     comment = repo.create(new_comment)
-#     return comment
-
-#### BELOW THIS LINE IS FUNCTIONALITY FOR POSTING/SEEDING MULTIPLE COMMENTS AT ONCE. TO USE, UNCOMMENT LINES 24-41 AND COMMENT OUT LINES 11-20. NOT YET INTEGRATING DUE TO FRONTEND CONCERNS ###
-
-# @router.post("/api/resorts/{resort_id}/comments", response_model=CommentList)
-# async def create_comments(
-#     comments: List[CommentIn],
-#     resort_id: int,
-#     repo: CommentQueries = Depends(),
-#     account_data: dict = Depends(authenticator.get_current_account_data)
-# ):
-#     created_comments = []
-#     for comment in comments:
-#         new_comment = CommentIn(
-#             rating=comment.rating,
-#             comment=comment.comment,
-#             resort_id=resort_id,
-#             user_id=account_data['id']
-#         )
-#         created_comment = repo.create(new_comment)
-#         created_comments.append(created_comment)
-#     return CommentList(comments=created_comments)
-
-@router.get("/api/resorts/{resort_id}/comments", response_model=CommentList)
-async def get_comments(
-    repo: CommentQueries = Depends(),
-    account_data: dict = Depends(authenticator.get_current_account_data),
-    resort_id: Optional[str] = '_'
-    ):
-    if resort_id:
-        comments = repo.get_all()
-    else:
-        comments = repo.get_all()
-    return {'comments': comments}
+#     ):
+#     return {'comments': repo.get_all(resort_id=resort_id)}
 
 
 @router.get("/api/resorts/{resort_id}/comments/{comment_id}", response_model=CommentOut)
