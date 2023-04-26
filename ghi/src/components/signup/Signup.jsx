@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   handleFirstNameChange,
@@ -27,7 +27,6 @@ const Signup = () => {
   const dispatch = useDispatch();
   const [signup] = useSignupMutation();
   const { errorMessage, fields } = useSelector((state) => state.signup);
-  const [usernameError, setUsernameError] = useState("");
   const navigate = useNavigate();
 
   // const handleJoinClick = (e) => {
@@ -54,6 +53,12 @@ const Signup = () => {
       dispatch(error("Username already taken"));
     }
   };
+
+  useEffect(() => {
+    return () => {
+      dispatch(error(""));
+    };
+  }, [dispatch]);
 
   return (
     <>
