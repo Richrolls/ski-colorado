@@ -83,8 +83,8 @@ export const authApi = createApi({
         `/api/directions?origin=${origin}&destination=${destination}`,
     }),
     getWeather: builder.query({
-      query: ({ thisResort, resort_address }) =>
-        `/api/resort/${thisResort}/weather/?resort_address=${resort_address}`,
+      query: ({ thisResort, coordinates }) =>
+        `/api/resort/${thisResort}/weather/?coordinates=${coordinates}`,
     }),
     getProfile: builder.query({
       query: (accountId) => `/api/accounts/${accountId}`,

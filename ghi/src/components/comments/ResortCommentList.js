@@ -40,7 +40,7 @@ export default function ResortCommentList() {
                       </Link>
                       </h4>
                     <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
-                      <h4>
+                      <h4 className="m-0">
                       {comment.comment} {comment.rating}/5
                       </h4>
                     </div>

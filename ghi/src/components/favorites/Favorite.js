@@ -27,7 +27,7 @@ export default function Favorite() {
 if (thisFavorite.length >= 1) {
     return (
       <>
-        <div>
+        <div style={{ paddingBottom: 12 }}>
           <button
             className="butt btn-sm btn-primary"
             onClick={handleUnfavorite}
