@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, Request, Response, status, HTTPException
 from pydantic import BaseModel
-from models import AccountIn, AccountOut, AccountList, AccountForm, AccountToken
+from models import AccountIn, AccountOut, AccountOutPublic, AccountList, AccountForm, AccountToken
 from queries.accounts import AccountsRepo, DuplicateAccountError
 from authenticator import authenticator
 from typing import Optional
@@ -45,17 +45,8 @@ async def get_token(
             "account": account,
         }
 
-#Have to add post /token and Delete /token function
 
-# @router.post("/api/accounts", response_model=AccountOut)
-# async def create_account(
-#     account: AccountIn,
-#     repo: AccountQueries = Depends(),
-# ):
-#     account = repo.create(account)
-#     return account
-
-@router.get("/api/accounts", response_model=AccountList)
+@router.get("/api/accounts", response_model = AccountList)
 def get_accounts(
     repo: AccountsRepo = Depends()
     ):
@@ -63,7 +54,7 @@ def get_accounts(
         'accounts': repo.get_all()
     }
 
-@router.get("/api/accounts/{account_id}", response_model=AccountOut)
+@router.get("/api/accounts/{account_id}", response_model=AccountOutPublic)
 async def get_account(
     account_id: str,
     repo: AccountsRepo = Depends(),

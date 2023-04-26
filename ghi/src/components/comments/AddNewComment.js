@@ -52,7 +52,8 @@ export const NewCommentForm = () => {
 
     return (
       <section>
-        <h2>Post a Comment</h2>
+        <br/>
+        <h2 className="underlined">Post a Comment</h2>
         <form>
           <label htmlFor="commentRating">Rating:&nbsp;&nbsp;</label>
           <input

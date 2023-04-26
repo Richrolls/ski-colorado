@@ -28,18 +28,21 @@ export default function ResortFilteredCommentList() {
           <div>
             <div style={{ borderRadius: 8, marginLeft: 0 }}>
               <div>
-                <h2 className="underlined">Comments</h2>
+                <h2 className="underlined">Recent Comments</h2>
               </div>
-              <br />
+              <br/>
               <div className="row mx-auto w-75">
                 {commentsWithUsernames.map((comment) => (
                   <div key={comment.id}>
-
+                      <h4>
+                      <Link to={`/profile/${comment.user_id}`}>
+                        {comment.userName}
+                      </Link>
+                      </h4>
                     <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
-                      <Link to={`/profile/${comment.user_id}`}>{comment.userName}</Link>
-                    </div>
-                    <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
+                      <h4>
                       {comment.comment} {comment.rating}/5
+                      </h4>
                     </div>
                     <br />
                   </div>

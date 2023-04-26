@@ -8,9 +8,9 @@ export default function ProfileInfo() {
 
   const { data: account } = useGetAccountQuery();
 
-  function getLastInitial(lastname) {
-    return lastname.charAt(0) + ".";
-  }
+  // function getLastInitial(lastname) {
+  //   return lastname.charAt(0) + ".";
+  // }
 
   if (data?.id == account?.id) {
     return (
@@ -21,7 +21,8 @@ export default function ProfileInfo() {
   } else {
     return (
       <h1 className="snow">
-        {data?.first_name} {getLastInitial(data?.last_name)}
+        {data?.username}
+        {/* {getLastInitial(data?.last_name)} */}
       </h1>
     );
   }
