@@ -7,7 +7,14 @@ export const authApi = createApi({
     baseUrl: `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}`,
     credentials: "include", // sends cookie to FastAPI
   }),
-  tagTypes: ["Account", "Resorts", "Resort", "CommentsList", "FavoriteList", "Accounts"],
+  tagTypes: [
+    "Account",
+    "Resorts",
+    "Resort",
+    "CommentsList",
+    "FavoriteList",
+    "Accounts",
+  ],
   endpoints: (builder) => ({
     getAccount: builder.query({
       query: () => "/token",
@@ -74,14 +81,13 @@ export const authApi = createApi({
     getWeather: builder.query({
       query: ({ thisResort, resort_address }) =>
         `/api/resort/${thisResort}/weather/?resort_address=${resort_address}`,
-
-      }),
+    }),
     getProfile: builder.query({
       query: (accountId) => `/api/accounts/${accountId}`,
     }),
     getProfiles: builder.query({
       query: () => `/api/accounts`,
-      providesTags: ["Accounts"]
+      providesTags: ["Accounts"],
     }),
     favorite: builder.mutation({
       query: (info) => {
@@ -94,14 +100,14 @@ export const authApi = createApi({
       invalidatesTags: ["FavoriteList"],
     }),
     deleteFavorite: builder.mutation({
-      query: ({thisResort, thisFavorite}) => ({
+      query: ({ thisResort, thisFavorite }) => ({
         url: `/api/resorts/${thisResort}/favorites/${thisFavorite}`,
         method: "DELETE",
       }),
       invalidatesTags: ["FavoriteList"],
     }),
     getFavorites: builder.query({
-      query: ({ thisResort }) => `/api/resorts/${thisResort}/favorites`,
+      query: (resort_id) => `/api/resorts/${resort_id}/favorites`,
       providesTags: ["FavoriteList"],
     }),
   }),

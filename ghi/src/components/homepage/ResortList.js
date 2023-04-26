@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useGetResortsQuery } from "../login/auth";
+import { Link } from "react-router-dom";
 
 const ResortList = ({ filters }) => {
   const { data: resorts } = useGetResortsQuery();
@@ -46,15 +47,21 @@ const ResortList = ({ filters }) => {
               {filteredResorts
                 ?.sort((a, b) => a.name.localeCompare(b.name))
                 .map((resort) => (
-                  <div className="col-4 mb-3" key={resort.id}>
-                    <div className="card">
-                      <div className="card-body">
-                        <h5 className="card-title">{resort.name}</h5>
-                        <p className="card-text">
-                          {resort.pass_type} Pass, {getDollarString(resort.price)}
-                        </p>
+                  <div>
+                    <div className="card bg-secondary bg-opacity-50 bg-gradient white-border">
+                      <div>
+                        <h3>
+                          <Link to={`/resorts/${resort.id}`}>
+                            {resort.name}
+                          </Link>
+                        </h3>
+                        <h4>
+                          {resort.pass_type} Pass,{" "}
+                          {getDollarString(resort.price)}
+                        </h4>
                       </div>
                     </div>
+                    <br />
                   </div>
                 ))}
             </div>

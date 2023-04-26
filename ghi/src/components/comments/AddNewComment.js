@@ -51,28 +51,44 @@ export const NewCommentForm = () => {
     }
 
     return (
-        <section>
-        <h2>Add a New Comment</h2>
+      <section>
+        <h2>Post a Comment</h2>
         <form>
-            <label htmlFor="commentRating">Rating:</label>
-            <input
+          <label htmlFor="commentRating">Rating:&nbsp;&nbsp;</label>
+          <input
             type="text"
             id="commentRating"
             name="commentRating"
             value={rating}
-            style={{ backgroundColor: 'black' }}
+            style={{ width: "10%" }}
             onChange={(e) => validateRating(e.target.value)}
-            />
-            <label htmlFor="commentContent">Content:</label>
+            className="mx-auto bg-secondary bg-opacity-50 bg-gradient white-border"
+          />
+          <br />
+          <div className="mb-3">
             <textarea
-            id="commentContent"
-            name="commentContent"
-            value={comment}
-            onChange={handleCommentChange}
+              id="commentContent"
+              name="commentContent"
+              value={comment}
+              onChange={handleCommentChange}
+              style={{
+                width: "80%",
+                height: "86px",
+              }}
+              className="mx-auto bg-secondary bg-opacity-50 bg-gradient white-border"
             />
-            <button type="button" onClick={handleSubmit}>Save Comment</button>
+          </div>
+          <br />
+          <br />
+          <button
+            type="button"
+            className="butt btn-sm btn-primary"
+            onClick={handleSubmit}
+          >
+            Post
+          </button>
         </form>
-        </section>
-  )
+      </section>
+    );
 
 }

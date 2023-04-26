@@ -65,9 +65,9 @@ async def get_comments(
     resort_id: Optional[str] = '_'
     ):
     if resort_id:
-        comments = repo.get_all(user_id=account_data['id'], resort_id=resort_id)
+        comments = repo.get_all()
     else:
-        comments = repo.get_all(user_id=account_data['id'])
+        comments = repo.get_all()
     return {'comments': comments}
 
 
@@ -79,6 +79,7 @@ async def get_comment(
     account_data: dict = Depends(authenticator.get_current_account_data),
     ):
     return repo.get_one(resort_id, comment_id, user_id=account_data['id'])
+
 
 @router.delete("/api/resorts/{resort_id}/comments/{comment_id}", response_model=bool)
 def delete_comment(

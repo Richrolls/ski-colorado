@@ -8,10 +8,11 @@ export default function Favorite() {
   const [unfavorite] = useDeleteFavoriteMutation();
   const { data: resortFavorites } = useGetFavoritesQuery(thisResort);
   let thisFavorite = ""
-  if (resortFavorites?.favorites.some(e => e.user_id === (account.id))) {
-    thisFavorite = resortFavorites?.favorites[0].id;
+  let thisUserResortFavorite = resortFavorites?.favorites.filter(e => e.user_id === (account.id))
+  console.log(thisUserResortFavorite)
+  if (thisUserResortFavorite?.length > 0) {
+    thisFavorite = thisUserResortFavorite[0].id
   }
-
 
   const handleFavorite = async (event) => {
     event.preventDefault();
@@ -24,12 +25,15 @@ export default function Favorite() {
     const result = await unfavorite({thisResort, thisFavorite});
   };
 
-if (thisFavorite.length > 1) {
+if (thisFavorite.length >= 1) {
     return (
       <>
         <div>
-          <button onClick={handleUnfavorite}>
-          Unfavorite
+          <button
+            className="butt btn-sm btn-primary"
+            onClick={handleUnfavorite}
+          >
+            Unfavorite
           </button>
         </div>
       </>
@@ -38,7 +42,9 @@ if (thisFavorite.length > 1) {
     return (
       <>
         <div>
-          <button onClick={handleFavorite}>Favorite</button>
+          <button className="butt btn-sm btn-primary" onClick={handleFavorite}>
+            Favorite
+          </button>
         </div>
       </>
     );
