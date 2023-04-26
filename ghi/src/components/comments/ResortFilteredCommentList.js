@@ -1,23 +1,20 @@
 import { Link, useParams } from "react-router-dom";
-import { useGetCommentsQuery, useGetProfilesQuery } from "../login/auth.js";
+import { useGetResortCommentsQuery, useGetProfilesQuery } from "../login/auth.js";
 
 
 export default function ResortFilteredCommentList() {
   const { thisResort } = useParams();
-  const { data: commentsData, isLoading } = useGetCommentsQuery(thisResort);
-  const { data: accountsData, isLoading: isAccountsLoading } = useGetProfilesQuery();
+  const { data: commentsData, isLoading: isCommentsLoading } = useGetResortCommentsQuery(thisResort);
+  const { data: profilesData, isLoading: isProfilesLoading } = useGetProfilesQuery();
 
 
-  if (isLoading || isAccountsLoading) {
+  if (isCommentsLoading || isProfilesLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
-  const filteredComments = commentsData.comments.filter(
-    (comment) => comment.resort_id === thisResort
-  );
 
-  const commentsWithUsernames = filteredComments.map(comment => {
-    const user = accountsData.accounts.find(user => user.id === comment.user_id);
+  const commentsWithUsernames = commentsData.map(comment => {
+    const user = profilesData.accounts.find(user => user.id === comment.user_id);
     return {
       ...comment,
       userName: user ? user.username : 'Unknown User',

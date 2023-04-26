@@ -1,9 +1,9 @@
-import { useGetCommentsQuery, useGetResortsQuery } from "../login/auth.js";
+import { useGetUserCommentsQuery, useGetResortsQuery } from "../login/auth.js";
 import {useParams, Link } from "react-router-dom"
 import ResortList from "../homepage/ResortList.js";
 
 const UserFilteredCommentList = () => {
-  const { data, isLoading } = useGetCommentsQuery('');
+  const { data, isLoading } = useGetUserCommentsQuery('');
   const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery()
   const {accountId} = useParams()
 
