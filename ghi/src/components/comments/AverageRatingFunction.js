@@ -11,11 +11,11 @@ export default function AverageRatingByResort() {
 
 
   function averageRating(data) {
-    const sum = data.reduce(
+    const sum = data.comments.reduce(
       (total, comment) => total + comment.rating,
       0
     );
-    const average = sum / data.length;
+    const average = sum / data.comments.length;
     return parseFloat(average.toFixed(2));
   }
 

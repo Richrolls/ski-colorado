@@ -12,9 +12,6 @@ export default function ResortCommentList() {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
-  // console.log(commentsData);
-  console.log(profilesData);
-
 
   const commentsWithUsernames = commentsData.comments.map(comment => {
     const user = profilesData.accounts.find(user => user.id === comment.user_id);
@@ -23,7 +20,6 @@ export default function ResortCommentList() {
       userName: user ? user.username : 'Unknown User',
     }
   })
-  console.log(commentsWithUsernames)
 
   return (
     <>

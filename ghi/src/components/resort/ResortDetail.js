@@ -5,7 +5,7 @@ import {
 } from "../login/auth.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import ResortCommentList from "../comments/ResortCommentList.js";
-// import AverageRatingByResort from "../comments/AverageRatingFunction.js";
+import AverageRatingByResort from "../comments/AverageRatingFunction.js";
 import Directions from "../directions/Directions.js";
 import Weather from "../weather/Weather.js";
 import { NewCommentForm } from "../comments/AddNewComment.js";
@@ -144,7 +144,7 @@ export default function ResortDetail() {
                           className="col shadow p-4 mt-4 bg-primary bg-gradient"
                           style={{ borderRadius: 8, marginLeft: 0 }}
                         >
-                          {/* <AverageRatingByResort /> */}
+                          <AverageRatingByResort />
                         </div>
                       </div>
                     </div>
