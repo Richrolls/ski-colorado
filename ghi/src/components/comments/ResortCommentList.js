@@ -181,25 +181,19 @@ export default function ResortCommentList() {
   commentsWithUsernames.reverse();
 
   return (
-    <>
-      <div className="container">
-        <div className="row">
-          <div>
-            <div style={{ borderRadius: 8, marginLeft: 0 }}>
-              <div>
-                <h2 className="underlined">Recent Comments</h2>
-              </div>
-              <div className="row mx-auto w-75">
-                {commentsWithUsernames.map((comment) => (
-<<<<<<< HEAD
-                  <div>
-                  <br/>
+    <div className="container">
+      <div className="row">
+        <div>
+          <div style={{ borderRadius: 8, marginLeft: 0 }}>
+            <div>
+              <h2 className="underlined">Recent Comments</h2>
+            </div>
+            <div className="row mx-auto w-75">
+              {commentsWithUsernames.map((comment) => (
+                <div>
+                  <br />
                   <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
                     <div key={comment.id}>
-=======
-                  <div className="bg-secondary bg-opacity-50 bg-gradient white-border" key={comment.id}>
-                    <div>
->>>>>>> a825083da50a1efd68f4413fcde320924765a93f
                       <h3>"{comment.comment}"</h3>
                       <h4 className="m-0">
                         <Link to={`/profile/${comment.user_id}`}>
@@ -209,14 +203,13 @@ export default function ResortCommentList() {
                       </h4>
                     </div>
                   </div>
-                  </div>
-                ))}
-                <br/>
-              </div>
+                </div>
+              ))}
+              <br />
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
