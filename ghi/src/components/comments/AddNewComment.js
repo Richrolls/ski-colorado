@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import {useGetResortCommentsQuery, useGetAccountTokenQuery} from "../login/auth";
+import {
+  useGetResortCommentsQuery,
+  useGetAccountTokenQuery,
+} from "../login/auth";
 
 const StarRating = ({ selectedRating, handleStarClick }) => {
   const [hoveredRating, setHoveredRating] = useState(null);
