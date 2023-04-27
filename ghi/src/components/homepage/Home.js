@@ -190,8 +190,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
-// <thead className="bg-primary bg-gradient">
-//   <tr>
-//     <th>
-//       <h1 className="snow">Resorts</h1>
