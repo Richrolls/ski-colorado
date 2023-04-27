@@ -181,19 +181,19 @@ export default function ResortCommentList() {
   commentsWithUsernames.reverse();
 
   return (
-    <>
-      <div className="container" style={{ maxHeight: "762px", overflowY: "scroll", scrollbarWidth: "thin" }}>
-        <div className="row">
-          <div>
-            <div style={{ borderRadius: 8, marginLeft: 0 }}>
-              <div>
-                <h2 className="underlined">Recent Comments</h2>
-              </div>
-
-              <div className="row mx-auto w-75">
-                {commentsWithUsernames.map((comment) => (
-                  <div className="bg-secondary bg-opacity-50 bg-gradient white-border" key={comment.id}>
-                    <div>
+    <div className="container" style={{ maxHeight: "762px", overflowY: "scroll", scrollbarWidth: "thin" }}>
+      <div className="row">
+        <div>
+          <div style={{ borderRadius: 8, marginLeft: 0 }}>
+            <div>
+              <h2 className="underlined">Recent Comments</h2>
+            </div>
+            <div className="row mx-auto">
+              {commentsWithUsernames.map((comment) => (
+                <div>
+                  <br />
+                  <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
+                    <div key={comment.id}>
                       <h3>"{comment.comment}"</h3>
                       <h4 className="m-0">
                         <Link to={`/profile/${comment.user_id}`}>
@@ -203,8 +203,9 @@ export default function ResortCommentList() {
                       </h4>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
+              <br />
             </div>
           </div>
         </div>
@@ -225,6 +226,6 @@ export default function ResortCommentList() {
         `}
       </style>
       </div>
-    </>
+    </div>
   );
 }

@@ -67,3 +67,8 @@
     Noticed there was a bug with the favorites button. Was able to fix it. We also met with Riley and we were told that the way our queries were done, there were security vulnerabilities. I was able to redo the query to create a favorite automatically get the resort_id and user_id of the logged in user and to not take any user input data so another user can't send in a post request and make a favorite for another user. We are currently working on comments to fix the same vulnerabilities.
 
     Looking forward to getting the comments fixed.
+
+4/26/2023
+    We finished refactoring the routes/queries for the comments and favorites. Was also able get the Favorite list to show on the profile page. Used the same logic to get the favorites to list on the navbar. I believe we have most of the major features done, we will now be more focused on cleaning up the code.
+
+    Looking forward to being done with the project.
