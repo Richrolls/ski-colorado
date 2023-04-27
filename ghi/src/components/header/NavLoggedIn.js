@@ -36,7 +36,7 @@ function NavLoggedIn() {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Favorites
+            Favorites&nbsp;&nbsp;
           </button>
           <div
             className="dropdown-menu dropdown-menu-center"
