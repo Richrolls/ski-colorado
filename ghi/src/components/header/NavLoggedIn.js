@@ -11,7 +11,7 @@ function NavLoggedIn() {
   const navigate = useNavigate();
   const { data } = useGetAccountQuery();
 
-  const handleLogout = (e) => {
+  const handleLogout = async (e) => {
     e.preventDefault();
     const result = logout();
 
@@ -30,7 +30,7 @@ function NavLoggedIn() {
         </div>
         <div className="dropdown">
           <button
-            className="btn btn-secondary dropdown-toggle"
+            className="butt btn-sm btn-primary dropdown-toggle"
             type="button"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
@@ -38,9 +38,12 @@ function NavLoggedIn() {
           >
             Favorites
           </button>
-          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <div
+            className="dropdown-menu dropdown-menu-center"
+            aria-labelledby="dropdownMenuButton"
+          >
             <NavbarFavoriteList />
-          </ul>
+          </div>
         </div>
         <div>
           {data && (

@@ -181,7 +181,14 @@ export default function ResortCommentList() {
   commentsWithUsernames.reverse();
 
   return (
-    <div className="container" style={{ maxHeight: "762px", overflowY: "scroll", scrollbarWidth: "thin" }}>
+    <div
+      className="container"
+      style={{
+        maxHeight: "740px",
+        overflowY: "scroll",
+        scrollbarWidth: "thin",
+      }}
+    >
       <div className="row">
         <div>
           <div style={{ borderRadius: 8, marginLeft: 0 }}>
@@ -209,22 +216,22 @@ export default function ResortCommentList() {
             </div>
           </div>
         </div>
-              <style>
-        {`
+        <style>
+          {`
           .container::-webkit-scrollbar {
             width: 10px;
           }
 
           .container::-webkit-scrollbar-track {
-            background-color: #f5f5f5;
+            background-color: #839CC6;
           }
 
           .container::-webkit-scrollbar-thumb {
-            background-color: #000000;
+            background-color: #f5f5f5;
             border-radius: 5px;
           }
         `}
-      </style>
+        </style>
       </div>
     </div>
   );
