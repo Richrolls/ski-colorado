@@ -94,7 +94,7 @@ This project uses FastAPI for the backend framework, MongoDB for the database, D
             SIGNING_KEY: ${SIGNING_KEY}
             MONGO_URL: mongodb://admin:password@mongo
             GOOGLE_MAPS_API_KEY: ${GOOGLE_MAPS_API_KEY}
-            OPENWEATHER_API_KEY: ${OPENWEATHER_API_KEY}
+            WEATHER_API_KEY: ${WEATHER_API_KEY}
         ghi:
             image: node:lts-bullseye
             command: /bin/bash run.sh
