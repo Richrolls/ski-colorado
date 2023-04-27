@@ -114,7 +114,6 @@ export const NewCommentForm = () => {
 
     return (
       <section>
-        <br/>
         <h2 className="underlined">Post a Comment</h2>
         <form>
           <label htmlFor="commentRating">Rating:&nbsp;&nbsp;</label>
@@ -146,6 +145,7 @@ export const NewCommentForm = () => {
             Post
           </button>
         </form>
+        <br/>
       </section>
     );
 
