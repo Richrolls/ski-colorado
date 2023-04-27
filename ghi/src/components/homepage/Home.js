@@ -4,7 +4,6 @@ import ResortList from "./ResortList.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import { Timeline } from "react-twitter-widgets";
 import { useGetAccountQuery } from "../login/auth";
-import Closed from "./Closed.png";
 
 function Checkbox(props) {
   const { name, label, setFilters, isChecked } = props;
@@ -179,35 +178,35 @@ function HomePage() {
           <br />
           <br />
         </h5>
-      <div class="container">
-        <div className="row">
-          <div className="offset-3 col-6">
-            <div
-              className="shadow p-4 mt-4 bg-primary bg-gradient text-center"
-              style={{ borderRadius: 8 }}
-            >
-              <h1 className="snow">Unauthorized</h1>
-              <h2>Please log in or sign up.</h2>
-              <br />
-              <div>
-                <img className="resort-photo rounded" src={Closed}></img>
+        <div class="container">
+          <div className="row">
+            <div className="offset-3 col-6">
+              <div
+                className="shadow p-4 mt-4 bg-primary bg-gradient text-center"
+                style={{ borderRadius: 8 }}
+              >
+                <h1 className="snow">Unauthorized</h1>
+                <h2>Please log in or sign up.</h2>
+                <br />
+                <div>
+                  <img className="resort-photo rounded" src={Closed}></img>
+                </div>
+                <br />
+                <h3>
+                  <Link to="/login" className="link-warning">
+                    Click here to log in.
+                  </Link>
+                </h3>
+                <br />
+                <h3>
+                  <Link to="/signup" className="link-warning">
+                    Click here to sign up.
+                  </Link>
+                </h3>
               </div>
-              <br />
-              <h3>
-                <Link to="/login" className="link-warning">
-                  Click here to log in.
-                </Link>
-              </h3>
-              <br />
-              <h3>
-                <Link to="/signup" className="link-warning">
-                  Click here to sign up.
-                </Link>
-              </h3>
             </div>
           </div>
         </div>
-      </div>
       </div>
     );
   }
