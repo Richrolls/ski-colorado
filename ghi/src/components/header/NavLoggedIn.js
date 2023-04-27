@@ -28,9 +28,9 @@ function NavLoggedIn() {
             SC
           </NavLink>
         </div>
-        <div class="dropdown">
+        <div className="dropdown">
           <button
-            class="butt btn-sm btn-primary dropdown-toggle"
+            className="butt btn-sm btn-primary dropdown-toggle"
             type="button"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
@@ -39,7 +39,7 @@ function NavLoggedIn() {
             Favorites
           </button>
           <div
-            class="dropdown-menu dropdown-menu-center"
+            className="dropdown-menu dropdown-menu-center"
             aria-labelledby="dropdownMenuButton"
           >
             <NavbarFavoriteList />

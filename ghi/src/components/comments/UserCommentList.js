@@ -196,10 +196,10 @@ const UserCommentList = () => {
             <div className="mx-auto container">
               <div>
                 {commentsWithResorts.map((comment) => (
-                  <div>
-                    <br />
-                    <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
-                      <div key={comment.id}>
+                  <div key={comment.id}>
+                    <div>
+                      <br />
+                      <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
                         <h3>"{comment.comment}"</h3>
                         <h4>
                           <Link to={`/resorts/${comment.resort_id}`}>
