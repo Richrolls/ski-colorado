@@ -57,7 +57,7 @@ function NavLoggedIn() {
           &nbsp;&nbsp;
           <NavLink
             className="navbar-misc"
-            onClick={(e) => dispatch(handleLogout(e))}
+            onClick={(e) => handleLogout(e)}
           >
             Log Out
           </NavLink>
