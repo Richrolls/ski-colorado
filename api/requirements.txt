@@ -5,3 +5,4 @@ pymongo==4.3.3
 jwtdown-fastapi==0.5.0
 requests
 pytest==7.3.1
+black==23.3.0

@@ -1,12 +1,14 @@
 import { useGetUserCommentsQuery, useGetResortsQuery } from "../login/auth.js";
 import { useParams, Link } from "react-router-dom";
 import ResortList from "../homepage/ResortList.js";
+import { useState } from 'react'
 
 const UserCommentList = () => {
   const { accountId } = useParams();
   const { data: commentsData, isLoading: isCommentsLoading } =
     useGetUserCommentsQuery(accountId);
   const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery();
+
 
   if (isCommentsLoading || isResortsLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -17,10 +19,15 @@ const UserCommentList = () => {
     return {
       ...comment,
       resortName: resort ? resort.name : "Unknown resort",
+
     };
   });
 
-  console.log(commentsWithResorts);
+  console.log(commentsWithResorts)
+  // let thisComment = ""
+  // let thisUserResortComment = commentsWithResorts?.comments.filter()
+  // if
+
 
   const emptystar = (
     <svg
@@ -177,6 +184,7 @@ const UserCommentList = () => {
   }
 
   commentsWithResorts.reverse();
+
 
   return (
     <div

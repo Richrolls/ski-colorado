@@ -77,7 +77,6 @@ export const NewCommentForm = () => {
       setRating("");
       setComment("");
       refetch();
-      alert("Created new comment!");
     } else {
       alert("Failed to create new comment :(");
     }
