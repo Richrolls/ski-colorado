@@ -10,11 +10,11 @@ export default function ProfileInfo() {
   let ski = "";
   let snowboard = "";
   if (otherUser?.ski == true) {
-    ski = <img src="https://i.imgur.com/trwig2h.gif" className="" />;
+    ski = <img src="https://i.imgur.com/trwig2h.gif" />;
   }
 
   if (otherUser?.snowboard == true) {
-    snowboard = <img src="https://i.imgur.com/oW26dZg.gif" className="" />;
+    snowboard = <img src="https://i.imgur.com/oW26dZg.gif" />;
   }
 
   function add2(add_2) {

@@ -56,7 +56,7 @@ function HomePage() {
                 marginLeft: 52,
               }}
             >
-              <h2 style={{ paddingBottom: 14 }}>Filters</h2>
+              <h2 className="underlined" style={{ paddingBottom: 14 }}>Filters</h2>
               <div
                 className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
                 style={{ paddingTop: 20 }}
@@ -113,8 +113,6 @@ function HomePage() {
                 />
               </div>
               <br />
-              <br />
-              <br />
               <div
                 className="shadow p-4 mt-4 bg-primary bg-gradient"
                 style={{
@@ -144,7 +142,7 @@ function HomePage() {
                   borderRadius: 8,
                   marginRight: 0,
                   marginLeft: 52,
-                  height: 950,
+                  height: 880,
                   width: "30%",
                 }}
               >
@@ -155,7 +153,7 @@ function HomePage() {
                       screenName: "ColoradoDOT",
                     }}
                     options={{
-                      height: "900",
+                      height: "830",
                       width: "100%",
                     }}
                   />

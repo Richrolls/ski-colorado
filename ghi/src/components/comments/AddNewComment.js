@@ -114,10 +114,9 @@ export const NewCommentForm = () => {
 
     return (
       <section>
-        <br/>
         <h2 className="underlined">Post a Comment</h2>
         <form>
-          <label htmlFor="commentRating">Rating:&nbsp;&nbsp;</label>
+          <h3 htmlFor="commentRating">Rating&nbsp;</h3>
           <StarRating
             selectedRating={selectedRating}
             handleStarClick={handleStarClick}
@@ -146,6 +145,7 @@ export const NewCommentForm = () => {
             Post
           </button>
         </form>
+        <br/>
       </section>
     );
 

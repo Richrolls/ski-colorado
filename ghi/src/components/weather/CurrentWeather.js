@@ -47,7 +47,7 @@ const CurrentWeather = () => {
             <br />
             <div className="mx-auto w-75 bg-secondary bg-opacity-50 bg-gradient white-border">
               <h4 className="m-0">
-                Precipitation: {CurrentWeather.current.precip_in} in
+                Precipitation: {CurrentWeather.current.precip_in} in/hr
               </h4>
             </div>
             <br />

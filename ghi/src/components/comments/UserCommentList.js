@@ -192,7 +192,14 @@ const UserCommentList = () => {
   }
 
   return (
-    <div className="container">
+    <div
+      className="container"
+      style={{
+        maxHeight: "762px",
+        overflowY: "scroll",
+        scrollbarWidth: "thin",
+      }}
+    >
       <div className="row justify-content-center">
         <div>
           <div style={{ borderRadius: 8, marginLeft: 0 }}>
@@ -203,9 +210,9 @@ const UserCommentList = () => {
               <div>
                 {commentsWithResorts.map((comment) => (
                   <div key={comment.id}>
-                    <br />
-                    <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
-                      <div>
+                    <div>
+                      <br />
+                      <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
                         <h3>"{comment.comment}"</h3>
                         <h4>
                           <Link to={`/resorts/${comment.resort_id}`}>
@@ -231,6 +238,22 @@ const UserCommentList = () => {
             </div>
           </div>
         </div>
+        <style>
+          {`
+          .container::-webkit-scrollbar {
+            width: 10px;
+          }
+
+          .container::-webkit-scrollbar-track {
+            background-color: #839CC6;
+          }
+
+          .container::-webkit-scrollbar-thumb {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+          }
+        `}
+        </style>
       </div>
     </div>
   );
