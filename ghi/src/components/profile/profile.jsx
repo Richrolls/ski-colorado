@@ -55,7 +55,7 @@ const Profile = () => {
                 <ProfileInfo />
                 <div className="shadow p-4 mt-4 bg-primary bg-gradient rounded">
                   <h2 className="underlined">Favorite Resorts</h2>
-                  <FavoriteList/>
+                  <FavoriteList />
                 </div>
               </div>
               <div className="col">

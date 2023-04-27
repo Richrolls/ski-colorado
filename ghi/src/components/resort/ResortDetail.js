@@ -33,7 +33,7 @@ export default function ResortDetail() {
     }
   }
 
-  if (account) {
+  try {
     return (
       <>
         <NavLoggedIn />
@@ -173,7 +173,7 @@ export default function ResortDetail() {
         </div>
       </>
     );
-  } else {
+  } catch {
     return (
       <div>
         <h1>Please log in/sign up to use website functionality</h1>
