@@ -81,8 +81,7 @@ if (account) {
                     style={{ borderRadius: 8 }}
                   >
                     <div
-                      className="d-flex justify-content-center"
-                      style={{ paddingBottom: 14 }}
+                      className="d-flex justify-content-left"
                     >
                       <Favorite />
                     </div>
