@@ -42,8 +42,7 @@ const ResortList = ({ filters }) => {
             <div>
               <h1 className="snow">Resorts</h1>
             </div>
-            <br />
-            <div className="row mx-auto w-75">
+            <div className="row mx-auto w-75" style={{ paddingTop: 8 }}>
               {filteredResorts
                 ?.sort((a, b) => a.name.localeCompare(b.name))
                 .map((resort) => (
