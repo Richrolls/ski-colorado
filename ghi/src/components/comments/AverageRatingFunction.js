@@ -9,7 +9,6 @@ export default function AverageRatingByResort() {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
-
   function averageRating(data) {
     const sum = data.comments.reduce(
       (total, comment) => total + comment.rating,

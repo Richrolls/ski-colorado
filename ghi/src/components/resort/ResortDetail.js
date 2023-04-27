@@ -80,10 +80,7 @@ export default function ResortDetail() {
                       className="center shadow p-4 mt-4 bg-primary bg-gradient"
                       style={{ borderRadius: 8 }}
                     >
-                      <div
-                        className="d-flex justify-content-center"
-                        style={{ paddingBottom: 14 }}
-                      >
+                      <div className="d-flex justify-content-left">
                         <Favorite />
                       </div>
                       <h1
