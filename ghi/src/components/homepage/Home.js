@@ -177,7 +177,7 @@ function HomePage() {
           <br />
           <br />
         </h5>
-        <div class="container">
+        <div className="container">
           <div className="row">
             <div className="offset-3 col-6">
               <div

@@ -110,7 +110,7 @@ json
 
 
 
-Response: UPDATE A RESORT (if we eff up seeding DB, or for future-proofing resort pages)
+Response: UPDATE A RESORT 
 Endpoint Path: api/resorts/{resort_id}
 Endpoint Method: PUT
 Query Parameters: {resort_id}
