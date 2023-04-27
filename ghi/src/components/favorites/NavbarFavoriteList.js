@@ -19,7 +19,7 @@ export default function FavoriteList() {
 
   return (
     <>
-      <div className="row mx-auto w-75">
+      <div className="row mx-auto text-center">
         {favoritesWithResorts.map((favorite) => (
           <div key={favorite.id}>
             <p>
