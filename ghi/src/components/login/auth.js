@@ -78,6 +78,13 @@ export const authApi = createApi({
     query: ( user_id ) => `/api/accounts/${user_id}/comments`,
     providesTags: ["UserCommentsList"],
     }),
+    deleteUserComment: builder.mutation({
+      query: ( user_id, comment_id ) => ({
+        url: `/api/accounts/${user_id}/comments/${comment_id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["ResortCommentsList", "UserCommentsList"], // is this how to invalidate multiple tags?
+    }),
     getDistance: builder.query({
       query: ({ origin, destination }) =>
         `/api/directions?origin=${origin}&destination=${destination}`,
@@ -130,6 +137,7 @@ export const {
   useGetResortQuery,
   useGetResortCommentsQuery,
   useGetUserCommentsQuery,
+  useDeleteUserCommentMutation,
   useGetDistanceQuery,
   useGetProfileQuery,
   useGetAccountTokenQuery,

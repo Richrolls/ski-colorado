@@ -1,12 +1,15 @@
-import { useGetUserCommentsQuery, useGetResortsQuery } from "../login/auth.js";
+import { useGetUserCommentsQuery, useGetResortsQuery, useDeleteUserCommentMutation } from "../login/auth.js";
 import { useParams, Link } from "react-router-dom";
 import ResortList from "../homepage/ResortList.js";
+import { useState } from 'react'
 
 const UserCommentList = () => {
   const { accountId } = useParams();
   const { data: commentsData, isLoading: isCommentsLoading } =
     useGetUserCommentsQuery(accountId);
+  const [deleteUserComment] = useDeleteUserCommentMutation();
   const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery();
+
 
   if (isCommentsLoading || isResortsLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -17,10 +20,15 @@ const UserCommentList = () => {
     return {
       ...comment,
       resortName: resort ? resort.name : "Unknown resort",
+
     };
   });
 
-  console.log(commentsWithResorts);
+  console.log(commentsWithResorts)
+  // let thisComment = ""
+  // let thisUserResortComment = commentsWithResorts?.comments.filter()
+  // if
+
 
   const emptystar = (
     <svg
@@ -178,6 +186,11 @@ const UserCommentList = () => {
 
   commentsWithResorts.reverse();
 
+  const handleCommentDelete = async (event) => {
+    event.preventDefault();
+    const result = await deleteUserComment(user_id, id)
+  }
+
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -189,10 +202,10 @@ const UserCommentList = () => {
             <div className="mx-auto container">
               <div>
                 {commentsWithResorts.map((comment) => (
-                  <div>
+                  <div key={comment.id}>
                     <br />
                     <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
-                      <div key={comment.id}>
+                      <div>
                         <h3>"{comment.comment}"</h3>
                         <h4>
                           <Link to={`/resorts/${comment.resort_id}`}>
@@ -201,6 +214,14 @@ const UserCommentList = () => {
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           {stars(comment.rating)}
                         </h4>
+                          <div style={{ paddingBottom: 12 }}>
+                            <button
+                            className="butt btn-sm btn-primary"
+                            onClick={handleCommentDelete(comment.user_id, comment.id)}
+                            >
+                            Delete Comment
+                            </button>
+                          </div>
                       </div>
                     </div>
                   </div>
