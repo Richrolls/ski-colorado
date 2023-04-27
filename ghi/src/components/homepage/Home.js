@@ -117,8 +117,6 @@ function HomePage() {
                   />
                 </div>
                 <br />
-                <br />
-                <br />
                 <div
                   className="shadow p-4 mt-4 bg-primary bg-gradient"
                   style={{
@@ -148,7 +146,7 @@ function HomePage() {
                     borderRadius: 8,
                     marginRight: 0,
                     marginLeft: 52,
-                    height: 950,
+                    height: 875,
                     width: "30%",
                   }}
                 >
@@ -159,7 +157,7 @@ function HomePage() {
                         screenName: "ColoradoDOT",
                       }}
                       options={{
-                        height: "900",
+                        height: "825",
                         width: "100%",
                       }}
                     />
@@ -179,35 +177,35 @@ function HomePage() {
           <br />
           <br />
         </h5>
-      <div class="container">
-        <div className="row">
-          <div className="offset-3 col-6">
-            <div
-              className="shadow p-4 mt-4 bg-primary bg-gradient text-center"
-              style={{ borderRadius: 8 }}
-            >
-              <h1 className="snow">Unauthorized</h1>
-              <h2>Please log in or sign up.</h2>
-              <br />
-              <div>
-                <img className="resort-photo rounded" src={Closed}></img>
+        <div class="container">
+          <div className="row">
+            <div className="offset-3 col-6">
+              <div
+                className="shadow p-4 mt-4 bg-primary bg-gradient text-center"
+                style={{ borderRadius: 8 }}
+              >
+                <h1 className="snow">Unauthorized</h1>
+                <h2>Please log in or sign up.</h2>
+                <br />
+                <div>
+                  <img className="resort-photo rounded" src={Closed}></img>
+                </div>
+                <br />
+                <h3>
+                  <Link to="/login" className="link-warning">
+                    Click here to log in.
+                  </Link>
+                </h3>
+                <br />
+                <h3>
+                  <Link to="/signup" className="link-warning">
+                    Click here to sign up.
+                  </Link>
+                </h3>
               </div>
-              <br />
-              <h3>
-                <Link to="/login" className="link-warning">
-                  Click here to log in.
-                </Link>
-              </h3>
-              <br />
-              <h3>
-                <Link to="/signup" className="link-warning">
-                  Click here to sign up.
-                </Link>
-              </h3>
             </div>
           </div>
         </div>
-      </div>
       </div>
     );
   }

@@ -5,6 +5,7 @@ from typing import List, Optional, Union
 from jwtdown_fastapi.authentication import Token
 from fastapi import Path
 
+
 class PydanticObjectId(ObjectId):
     @classmethod
     def __get_validators__(cls):
@@ -18,6 +19,7 @@ class PydanticObjectId(ObjectId):
             except:
                 raise ValueError(f"Not a valid object id: {value}")
         return value
+
 
 class ResortIn(BaseModel):
     address: Optional[str]
@@ -35,35 +37,42 @@ class ResortIn(BaseModel):
     pass_type: Optional[str] = None
     resort_website: Optional[str] = None
 
+
 class ResortOut(ResortIn):
     id: str
 
+
 class ResortList(BaseModel):
     resorts: List[ResortOut]
+
 
 class AccountLogin(BaseModel):
     username: str
     password: str
 
-class AccountForm(BaseModel): #dont DRY/inherit from AccountIn bc this is specific to jwtdown
+
+class AccountForm(
+    BaseModel
+):  # dont DRY/inherit from AccountIn bc this is specific to jwtdown
     username: str
-    password: str #user's pw
+    password: str  # user's pw
 
 
-class AccountIn(BaseModel): #what we send into the database/collection
+class AccountIn(BaseModel):  # what we send into the database/collection
     first_name: str
     last_name: str
     username: str
-    password: str #user's pw
+    password: str  # user's pw
     email: str
     address_1: str
     address_2: Optional[str] = None
     city: str
     state: str
     zipcode: int
-    ski: bool=False
-    snowboard: bool=False
+    ski: bool = False
+    snowboard: bool = False
     picture_url: Optional[str] = None
+
 
 class AccountOut(BaseModel):
     id: str
@@ -80,6 +89,7 @@ class AccountOut(BaseModel):
     snowboard: bool
     picture_url: Optional[str] = None
 
+
 class AccountOutPublic(BaseModel):
     id: str
     username: str
@@ -89,18 +99,23 @@ class AccountOutPublic(BaseModel):
     snowboard: bool
     picture_url: Optional[str] = None
 
+
 class AccountToken(Token):
     account: AccountOut
 
+
 class AccountOutWithHashedPassword(AccountOut):
-    hashed_password: str #encrypted user's pw
+    hashed_password: str  # encrypted user's pw
+
 
 class AccountList(BaseModel):
     accounts: List[AccountOutPublic]
 
+
 class CommentIn(BaseModel):
     rating: int
     comment: str
+
 
 class CommentOut(CommentIn):
     id: str
@@ -111,10 +126,12 @@ class CommentOut(CommentIn):
 class CommentList(BaseModel):
     comments: List[CommentOut]
 
+
 class Favorite(BaseModel):
     id: str
     user_id: str
     resort_id: str
+
 
 class FavoriteList(BaseModel):
     favorites: List[Favorite]
