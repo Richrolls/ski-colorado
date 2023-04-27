@@ -179,7 +179,14 @@ const UserCommentList = () => {
   commentsWithResorts.reverse();
 
   return (
-    <div className="container">
+    <div
+      className="container"
+      style={{
+        maxHeight: "762px",
+        overflowY: "scroll",
+        scrollbarWidth: "thin",
+      }}
+    >
       <div className="row justify-content-center">
         <div>
           <div style={{ borderRadius: 8, marginLeft: 0 }}>
