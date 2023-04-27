@@ -15,7 +15,7 @@ export default function ProfileInfo() {
   if (accountId == account?.id) {
     return (
       <>
-        <h1 className="snow">
+        <h1 className="snow" style={{ paddingTop: 24 }}>
           {account.first_name} {account.last_name}
         </h1>
         <h3>@{account.username}</h3>

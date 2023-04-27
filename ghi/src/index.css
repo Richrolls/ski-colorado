@@ -282,3 +282,11 @@ Link:hover {
 textarea {
   color: white !important;
 }
+
+.dropdown-menu {
+  background-color: #8f9fbc !important;
+  min-width: 15rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin: 0 !important;
+}
