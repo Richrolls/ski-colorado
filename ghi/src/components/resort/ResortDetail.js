@@ -16,24 +16,24 @@ export default function ResortDetail() {
   const { thisResort } = useParams();
   const { data, error, isLoading } = useGetResortQuery(thisResort);
 
-  if (!data) {
-    return <div>Loading...</div>;
-  }
-
-  function dollarPrice(resortprice) {
-    return "$".repeat(resortprice);
-  }
-
-  function addComma(num) {
-    const str = num.toString();
-    if (str.length == 5 || str.length == 4) {
-      return str.slice(0, -3) + "," + str.slice(-3);
-    } else {
-      return num;
+  if (account) {
+    if (!data) {
+      return <div>Loading...</div>;
     }
-  }
 
-  try {
+    function dollarPrice(resortprice) {
+      return "$".repeat(resortprice);
+    }
+
+    function addComma(num) {
+      const str = num.toString();
+      if (str.length == 5 || str.length == 4) {
+        return str.slice(0, -3) + "," + str.slice(-3);
+      } else {
+        return num;
+      }
+    }
+
     return (
       <>
         <NavLoggedIn />
@@ -173,7 +173,7 @@ export default function ResortDetail() {
         </div>
       </>
     );
-  } catch {
+  } else {
     return (
       <div>
         <h1>Please log in/sign up to use website functionality</h1>
