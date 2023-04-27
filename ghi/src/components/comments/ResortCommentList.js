@@ -188,7 +188,7 @@ export default function ResortCommentList() {
             <div>
               <h2 className="underlined">Recent Comments</h2>
             </div>
-            <div className="row mx-auto w-75">
+            <div className="row mx-auto">
               {commentsWithUsernames.map((comment) => (
                 <div>
                   <br />
