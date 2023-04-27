@@ -184,7 +184,7 @@ export default function ResortCommentList() {
     <div
       className="container"
       style={{
-        maxHeight: "762px",
+        maxHeight: "740px",
         overflowY: "scroll",
         scrollbarWidth: "thin",
       }}

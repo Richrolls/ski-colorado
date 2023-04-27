@@ -160,8 +160,6 @@ export default function ResortDetail() {
               </div>
               <div>
                 <ResortCommentList
-                  // comments={data.comments}
-                  // thisResort={thisResort}
                 />
               </div>
             </div>
