@@ -29,10 +29,6 @@ const Signup = () => {
   const { errorMessage, fields } = useSelector((state) => state.signup);
   const navigate = useNavigate();
 
-  // const handleJoinClick = (e) => {
-  //   navigate("/login");
-  // };
-
   const handleMainClick = (e) => {
     navigate("/");
   };
@@ -87,11 +83,7 @@ const Signup = () => {
                 <div>
                   <h3>
                     Already have an account?&nbsp;&nbsp;
-                    <Link
-                      to="/login"
-                      className="link-warning"
-                      // onClick={(e) => dispatch(handleJoinClick(e.target.value))}
-                    >
+                    <Link to="/login" className="link-warning">
                       Click here!
                     </Link>
                   </h3>

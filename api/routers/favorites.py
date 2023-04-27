@@ -1,7 +1,7 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, status, HTTPException
 from pydantic import BaseModel
 from models import Favorite, FavoriteList
-from queries.favorites import FavoriteQueries
+from queries.favorites import FavoriteQueries, DuplicateFavoriteError
 from authenticator import authenticator
 from typing import List, Optional
 
@@ -13,7 +13,13 @@ async def create_favorite(
     repo: FavoriteQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
-    favorite = repo.insert_one(resort_id=resort_id, user_id=account_data['id'])
+    try:
+        favorite = repo.insert_one(resort_id=resort_id, user_id=account_data['id'])
+    except DuplicateFavoriteError:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Already favorited",
+        )
     return favorite
 
 @router.get("/api/resorts/{resort_id}/favorites", response_model=FavoriteList)

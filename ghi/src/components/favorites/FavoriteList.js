@@ -18,16 +18,10 @@ export default function FavoriteList() {
     };
   });
 
-  const filteredFavorites = favoritesWithResorts.filter((currentFavorite, index, array) => {
-      const duplicates = array.find(
-        (favorite) => favorite.resortName === currentFavorite.resortName);
-        return duplicates === currentFavorite || index === array.indexOf(duplicates);
-    });
-
   return (
     <>
       <div className="row mx-auto w-75">
-        {filteredFavorites.map((favorite) => (
+        {favoritesWithResorts.map((favorite) => (
           <div key={favorite.id}>
             <h4>
               <Link to={`/resorts/${favorite.resort_id}`}>

@@ -13,7 +13,7 @@ function NavLoggedIn() {
 
   const handleLogout = async (e) => {
     e.preventDefault();
-    const result = await logout();
+    const result = logout();
 
     if (result) {
       navigate("/");
@@ -55,10 +55,7 @@ function NavLoggedIn() {
             </NavLink>
           )}
           &nbsp;&nbsp;
-          <NavLink
-            className="navbar-misc"
-            onClick={(e) => handleLogout(e)}
-          >
+          <NavLink className="navbar-misc" onClick={(e) => handleLogout(e)}>
             Log Out
           </NavLink>
         </div>
