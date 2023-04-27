@@ -3,13 +3,17 @@ from .client import Queries
 from models import Favorite, FavoriteList
 from bson.objectid import ObjectId
 
+class DuplicateFavoriteError(ValueError):
+    pass
 
 class FavoriteQueries(Queries):
     DB_NAME = "db"
     COLLECTION = "favorites"
 
-    def insert_one(self, resort_id, user_id) -> Favorite:
+    def insert_one(self, resort_id: str, user_id:str) -> Favorite:
         favorite = {'resort_id': resort_id,'user_id': user_id}
+        if self.get(favorite['resort_id'], favorite['user_id']) is not None:
+            raise DuplicateFavoriteError
         self.collection.insert_one(favorite)
         favorite['id'] = str(favorite['_id'])
         return Favorite(**favorite)
@@ -34,6 +38,13 @@ class FavoriteQueries(Queries):
             favorite['id'] = str(favorite['_id'])
             favorites.append(Favorite(**favorite))
         return favorites
+
+    def get(self, resort_id: str, user_id: str) -> Optional[Favorite]:
+        favorite = self.collection.find_one({'resort_id': resort_id, 'user_id': user_id})
+        if favorite is None:
+            return None
+        favorite['id'] = str(favorite['_id'])
+        return Favorite(**favorite)
 
     def get_one(self, favorite_id: str) -> Optional[Favorite]:
         favorite = self.collection.find_one({'_id': ObjectId(favorite_id)})
