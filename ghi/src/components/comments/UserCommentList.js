@@ -1,12 +1,9 @@
 import { useGetUserCommentsQuery, useGetResortsQuery } from "../login/auth.js";
 import { useParams, Link } from "react-router-dom";
-import ResortList from "../homepage/ResortList.js";
-import { useState } from 'react'
 
 const UserCommentList = () => {
   const { accountId } = useParams();
-  const { data: commentsData, isLoading: isCommentsLoading } =
-    useGetUserCommentsQuery(accountId);
+  const { data: commentsData, isLoading: isCommentsLoading } = useGetUserCommentsQuery(accountId);
   const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery();
 
 
@@ -22,12 +19,6 @@ const UserCommentList = () => {
 
     };
   });
-
-  console.log(commentsWithResorts)
-  // let thisComment = ""
-  // let thisUserResortComment = commentsWithResorts?.comments.filter()
-  // if
-
 
   const emptystar = (
     <svg
@@ -198,9 +189,6 @@ const UserCommentList = () => {
       <div className="row justify-content-center">
         <div>
           <div style={{ borderRadius: 8, marginLeft: 0 }}>
-            {/* <div>
-                <h2 className="underlined">Comments</h2>
-              </div> */}
             <div className="mx-auto container">
               <div>
                 {commentsWithResorts.map((comment) => (

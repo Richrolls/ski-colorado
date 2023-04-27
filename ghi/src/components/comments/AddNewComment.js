@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {
-  useGetResortCommentsQuery,
-  useGetAccountTokenQuery,
-} from "../login/auth";
+import {useGetResortCommentsQuery, useGetAccountTokenQuery} from "../login/auth";
 
 const StarRating = ({ selectedRating, handleStarClick }) => {
   const [hoveredRating, setHoveredRating] = useState(null);
-
   return (
     <>
       {[...Array(5)].map((_, index) => {
@@ -42,7 +38,6 @@ const StarRating = ({ selectedRating, handleStarClick }) => {
 };
 
 export const NewCommentForm = () => {
-  const [rating, setRating] = useState("");
   const [comment, setComment] = useState("");
   const [selectedRating, setSelectedRating] = useState(0);
   const { thisResort } = useParams();
@@ -74,38 +69,11 @@ export const NewCommentForm = () => {
     const response = await fetch(commentUrl, fetchConfig);
     if (response.ok) {
       setSelectedRating(0);
-      setRating("");
       setComment("");
       refetch();
     } else {
       alert("Failed to create new comment :(");
     }
-  };
-
-  const validateRating = (value) => {
-    const intValue = parseInt(value, 10);
-    if (intValue < 1 || intValue > 5) {
-      alert("Please enter a rating value between 1 and 5.");
-      setRating("");
-    } else {
-      setRating(value);
-      setSelectedRating(intValue);
-    }
-  };
-
-  const renderStars = () => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      const style = {
-        color: i <= selectedRating ? "gold" : "gray",
-      };
-      stars.push(
-        <span key={i} onClick={() => handleStarClick(i)} style={style}>
-          &#9733;
-        </span>
-      );
-    }
-    return stars;
   };
 
   return (
