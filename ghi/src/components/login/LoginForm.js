@@ -21,10 +21,6 @@ const LoginForm = () => {
     navigate("/signup");
   };
 
-  // const handleMainClick = (e) => {
-  //   navigate("/");
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(reset());
@@ -54,21 +50,13 @@ const LoginForm = () => {
               className="shadow p-4 mt-4 bg-primary bg-gradient"
               style={{ borderRadius: 8 }}
             >
-              <Link
-                to="/"
-                className="link-warning"
-                // onClick={(e) => dispatch(handleMainClick(e.target.value))}
-              >
+              <Link to="/" className="link-warning">
                 <button className="butt btn-sm btn-primary">Back</button>
               </Link>
               <h1 className="snow">Login</h1>
               <h3>
                 Don't have an account?&nbsp;&nbsp;
-                <Link
-                  to="/signup"
-                  className="link-warning"
-                  // onClick={(e) => dispatch(handleJoinClick(e.target.value))}
-                >
+                <Link to="/signup" className="link-warning">
                   Click here!
                 </Link>
               </h3>

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import ResortList from "./ResortList.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import { Timeline } from "react-twitter-widgets";
+import { useGetAccountQuery } from "../login/auth";
 
 function Checkbox(props) {
   const { name, label, setFilters, isChecked } = props;
@@ -31,6 +32,7 @@ function Checkbox(props) {
 }
 
 function HomePage() {
+  const { data: account } = useGetAccountQuery();
   const [filters, setFilters] = useState({
     epic: true,
     ikon: true,
@@ -41,132 +43,150 @@ function HomePage() {
     $$$$$: true,
   });
 
-  return (
-    <>
-      <NavLoggedIn />
-      <div className="text-center">
-        <div className="col">
-          <div className="row row-cols-3">
-            <div
-              className="shadow p-4 mt-4 bg-primary bg-gradient"
-              style={{
-                borderRadius: 8,
-                height: 560,
-                width: "20%",
-                marginLeft: 52,
-              }}
-            >
-              <h2 style={{ paddingBottom: 14 }}>Filters</h2>
-              <div
-                className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
-                style={{ paddingTop: 20 }}
-              >
-                <h3>Pass</h3>
-                <Checkbox
-                  isChecked={filters.epic}
-                  setFilters={setFilters}
-                  name="epic"
-                  label="&nbsp;Epic"
-                />
-                <Checkbox
-                  isChecked={filters.ikon}
-                  setFilters={setFilters}
-                  name="ikon"
-                  label="&nbsp;Ikon"
-                />
-              </div>
-              <br />
-              <div
-                className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
-                style={{ paddingTop: 20 }}
-              >
-                <h3>Price</h3>
-                <Checkbox
-                  setFilters={setFilters}
-                  isChecked={filters.$}
-                  name="$"
-                  label="&nbsp;$"
-                />
-                <Checkbox
-                  setFilters={setFilters}
-                  isChecked={filters.$$}
-                  name="$$"
-                  label="&nbsp;$$"
-                />
-                <Checkbox
-                  setFilters={setFilters}
-                  isChecked={filters.$$$}
-                  name="$$$"
-                  label="&nbsp;$$$"
-                />
-                <Checkbox
-                  setFilters={setFilters}
-                  isChecked={filters.$$$$}
-                  name="$$$$"
-                  label="&nbsp;$$$$"
-                />
-                <Checkbox
-                  setFilters={setFilters}
-                  isChecked={filters.$$$$$}
-                  name="$$$$$"
-                  label="&nbsp;$$$$$"
-                />
-              </div>
-              <br />
-              <br />
-              <br />
+  if (account) {
+    return (
+      <>
+        <NavLoggedIn />
+        <div className="text-center">
+          <div className="col">
+            <div className="row row-cols-3">
               <div
                 className="shadow p-4 mt-4 bg-primary bg-gradient"
                 style={{
                   borderRadius: 8,
-                  left: 0,
-                  height: 300,
-                  width: "100%",
-                }}
-              >
-                <iframe
-                  width="100%"
-                  height="250"
-                  src="https://embed.windy.com/embed2.html?lat=38.840&lon=-105.381&detailLat=30.175&detailLon=-97.820&width=650&height=450&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
-                  frameBorder="0"
-                ></iframe>
-              </div>
-            </div>
-            <div>
-              <div>
-                <ResortList filters={filters} />
-              </div>
-            </div>
-            <div>
-              <div
-                className="right shadow p-4 mt-4 bg-primary bg-gradient"
-                style={{
-                  borderRadius: 8,
-                  marginRight: 0,
+                  height: 560,
+                  width: "20%",
                   marginLeft: 52,
-                  height: 950,
-                  width: "30%",
                 }}
               >
-                <div>
-                  <Timeline
-                    dataSource={{
-                      sourceType: "profile",
-                      screenName: "ColoradoDOT",
-                    }}
-                    options={{
-                      height: "900",
-                      width: "100%",
-                    }}
+                <h2 style={{ paddingBottom: 14 }}>Filters</h2>
+                <div
+                  className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
+                  style={{ paddingTop: 20 }}
+                >
+                  <h3>Pass</h3>
+                  <Checkbox
+                    isChecked={filters.epic}
+                    setFilters={setFilters}
+                    name="epic"
+                    label="&nbsp;Epic"
                   />
+                  <Checkbox
+                    isChecked={filters.ikon}
+                    setFilters={setFilters}
+                    name="ikon"
+                    label="&nbsp;Ikon"
+                  />
+                </div>
+                <br />
+                <div
+                  className="mx-auto w-50 bg-secondary bg-opacity-50 bg-gradient white-border"
+                  style={{ paddingTop: 20 }}
+                >
+                  <h3>Price</h3>
+                  <Checkbox
+                    setFilters={setFilters}
+                    isChecked={filters.$}
+                    name="$"
+                    label="&nbsp;$"
+                  />
+                  <Checkbox
+                    setFilters={setFilters}
+                    isChecked={filters.$$}
+                    name="$$"
+                    label="&nbsp;$$"
+                  />
+                  <Checkbox
+                    setFilters={setFilters}
+                    isChecked={filters.$$$}
+                    name="$$$"
+                    label="&nbsp;$$$"
+                  />
+                  <Checkbox
+                    setFilters={setFilters}
+                    isChecked={filters.$$$$}
+                    name="$$$$"
+                    label="&nbsp;$$$$"
+                  />
+                  <Checkbox
+                    setFilters={setFilters}
+                    isChecked={filters.$$$$$}
+                    name="$$$$$"
+                    label="&nbsp;$$$$$"
+                  />
+                </div>
+                <br />
+                <br />
+                <br />
+                <div
+                  className="shadow p-4 mt-4 bg-primary bg-gradient"
+                  style={{
+                    borderRadius: 8,
+                    left: 0,
+                    height: 300,
+                    width: "100%",
+                  }}
+                >
+                  <iframe
+                    width="100%"
+                    height="250"
+                    src="https://embed.windy.com/embed2.html?lat=38.840&lon=-105.381&detailLat=30.175&detailLon=-97.820&width=650&height=450&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
+                    frameBorder="0"
+                  ></iframe>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <ResortList filters={filters} />
+                </div>
+              </div>
+              <div>
+                <div
+                  className="right shadow p-4 mt-4 bg-primary bg-gradient"
+                  style={{
+                    borderRadius: 8,
+                    marginRight: 0,
+                    marginLeft: 52,
+                    height: 950,
+                    width: "30%",
+                  }}
+                >
+                  <div>
+                    <Timeline
+                      dataSource={{
+                        sourceType: "profile",
+                        screenName: "ColoradoDOT",
+                      }}
+                      options={{
+                        height: "900",
+                        width: "100%",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </>
+    );
+  } else {
+    return (
+      <div>
+        <h1>Please log in/sign up to use website functionality</h1>
+        <h3>
+          <Link to="/login" className="link-warning">
+            Click here to login.
+          </Link>
+        </h3>
+        <h3>
+          <Link to="/signup" className="link-warning">
+            Click here to signup.
+          </Link>
+        </h3>
       </div>
-    </>
-  );
+    );
+  }
 }
 
 export default HomePage;

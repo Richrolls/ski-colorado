@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import ErrorPic from "./ErrorPic.jpg"
+import ErrorPic from "./ErrorPic.jpg";
 import { useGetAccountQuery } from "../login/auth";
+
 const NotFound = () => {
   const { data: account } = useGetAccountQuery();
   const navigate = useNavigate();
@@ -77,11 +78,5 @@ const NotFound = () => {
       </div>
     );
   }
-
-
-
-
-
-
-}
+};
 export default NotFound;
