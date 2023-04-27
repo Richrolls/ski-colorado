@@ -223,11 +223,11 @@ export default function ResortCommentList() {
           }
 
           .container::-webkit-scrollbar-track {
-            background-color: #f5f5f5;
+            background-color: #839CC6;
           }
 
           .container::-webkit-scrollbar-thumb {
-            background-color: #000000;
+            background-color: #f5f5f5;
             border-radius: 5px;
           }
         `}

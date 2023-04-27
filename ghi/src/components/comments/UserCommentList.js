@@ -217,6 +217,22 @@ const UserCommentList = () => {
             </div>
           </div>
         </div>
+        <style>
+          {`
+          .container::-webkit-scrollbar {
+            width: 10px;
+          }
+
+          .container::-webkit-scrollbar-track {
+            background-color: #839CC6;
+          }
+
+          .container::-webkit-scrollbar-thumb {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+          }
+        `}
+        </style>
       </div>
     </div>
   );

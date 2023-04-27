@@ -114,7 +114,6 @@ function HomePage() {
               </div>
               <br />
               <br />
-              <br />
               <div
                 className="shadow p-4 mt-4 bg-primary bg-gradient"
                 style={{
