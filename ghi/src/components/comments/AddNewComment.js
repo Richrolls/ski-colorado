@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { useGetResortCommentsQuery, useGetAccountTokenQuery } from '../login/auth'
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import {
+  useGetResortCommentsQuery,
+  useGetAccountTokenQuery,
+} from "../login/auth";
 
 const StarRating = ({ selectedRating, handleStarClick }) => {
   const [hoveredRating, setHoveredRating] = useState(null);
 
   return (
-    <div>
+    <>
       {[...Array(5)].map((_, index) => {
         const ratingValue = index + 1;
         const filled = ratingValue <= (hoveredRating || selectedRating);
@@ -34,107 +37,105 @@ const StarRating = ({ selectedRating, handleStarClick }) => {
           </span>
         );
       })}
-    </div>
+    </>
   );
 };
 
 export const NewCommentForm = () => {
-    const [rating, setRating]  = useState('')
-    const [comment, setComment] = useState('')
-    const [selectedRating, setSelectedRating] = useState(0)
-    const { thisResort } = useParams();
-    const  { data: token } = useGetAccountTokenQuery()
-    const { refetch } = useGetResortCommentsQuery(thisResort)
+  const [rating, setRating] = useState("");
+  const [comment, setComment] = useState("");
+  const [selectedRating, setSelectedRating] = useState(0);
+  const { thisResort } = useParams();
+  const { data: token } = useGetAccountTokenQuery();
+  const { refetch } = useGetResortCommentsQuery(thisResort);
 
-    const handleStarClick = (rating) => {
-      setSelectedRating(rating);
-    }
+  const handleStarClick = (rating) => {
+    setSelectedRating(rating);
+  };
 
-    const handleCommentChange = e => setComment(e.target.value)
+  const handleCommentChange = (e) => setComment(e.target.value);
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const data = {}
-        data.rating = selectedRating;
-        data.comment = comment;
-        data.user_id = token?.account.id;
-        data.resort_id = thisResort
-        const commentUrl = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/resorts/${thisResort}/comments`
-        const fetchConfig = {
-            method: "post",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token.access_token}`
-            }
-        };
-        const response = await fetch(commentUrl, fetchConfig);
-        if (response.ok) {
-            setSelectedRating(0);
-            setRating('');
-            setComment('');
-            refetch();
-            alert("Created new comment!")
-        } else {
-            alert("Failed to create new comment :(")
-        }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = {};
+    data.rating = selectedRating;
+    data.comment = comment;
+    data.user_id = token?.account.id;
+    data.resort_id = thisResort;
+    const commentUrl = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/resorts/${thisResort}/comments`;
+    const fetchConfig = {
+      method: "post",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token.access_token}`,
+      },
     };
-
-    const validateRating = (value) => {
-        const intValue = parseInt(value, 10)
-        if ( intValue < 1 || intValue > 5) {
-            alert('Please enter a rating value between 1 and 5.')
-            setRating('')
-        } else {
-            setRating(value)
-            setSelectedRating(intValue)
-        }
+    const response = await fetch(commentUrl, fetchConfig);
+    if (response.ok) {
+      setSelectedRating(0);
+      setRating("");
+      setComment("");
+      refetch();
+      alert("Created new comment!");
+    } else {
+      alert("Failed to create new comment :(");
     }
+  };
 
-    const renderStars = () => {
-      const stars = [];
-      for (let i = 1; i <= 5; i++) {
-          const style = {
-              color: i <= selectedRating ? 'gold' : 'gray'
-          }
-          stars.push(
-              <span
-                  key={i}
-                  onClick={() => handleStarClick(i)}
-                  style={style}
-              >
-                  &#9733;
-              </span>
-            )
-        }
-        return stars;
+  const validateRating = (value) => {
+    const intValue = parseInt(value, 10);
+    if (intValue < 1 || intValue > 5) {
+      alert("Please enter a rating value between 1 and 5.");
+      setRating("");
+    } else {
+      setRating(value);
+      setSelectedRating(intValue);
     }
+  };
 
-    return (
-      <section>
-        <h2 className="underlined">Post a Comment</h2>
-        <form>
-          <h3 htmlFor="commentRating">Rating&nbsp;</h3>
+  const renderStars = () => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      const style = {
+        color: i <= selectedRating ? "gold" : "gray",
+      };
+      stars.push(
+        <span key={i} onClick={() => handleStarClick(i)} style={style}>
+          &#9733;
+        </span>
+      );
+    }
+    return stars;
+  };
+
+  return (
+    <section>
+      <h2 className="underlined">Post a Comment</h2>
+      <form>
+        <br />
+        <div className="mb-3">
+          <textarea
+            id="commentContent"
+            name="commentContent"
+            value={comment}
+            onChange={handleCommentChange}
+            style={{
+              width: "80%",
+              height: "86px",
+            }}
+            className="mx-auto bg-secondary bg-opacity-50 bg-gradient white-border"
+          />
+        </div>
+        <br />
+        <br />
+        <h3 htmlFor="commentRating">
+          Rating:&nbsp;&nbsp;
           <StarRating
             selectedRating={selectedRating}
             handleStarClick={handleStarClick}
           />
-          <br />
-          <div className="mb-3">
-            <textarea
-              id="commentContent"
-              name="commentContent"
-              value={comment}
-              onChange={handleCommentChange}
-              style={{
-                width: "80%",
-                height: "86px",
-              }}
-              className="mx-auto bg-secondary bg-opacity-50 bg-gradient white-border"
-            />
-          </div>
-          <br />
-          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;
           <button
             type="button"
             className="butt btn-sm btn-primary"
@@ -142,9 +143,9 @@ export const NewCommentForm = () => {
           >
             Post
           </button>
-        </form>
-        <br/>
-      </section>
-    );
-
-}
+        </h3>
+      </form>
+      <br />
+    </section>
+  );
+};
