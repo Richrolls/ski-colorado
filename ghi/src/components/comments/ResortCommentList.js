@@ -190,9 +190,12 @@ export default function ResortCommentList() {
                 <h2 className="underlined">Recent Comments</h2>
               </div>
 
-              <div className="row mx-auto w-75">
+              <div className="row mx-auto">
                 {commentsWithUsernames.map((comment) => (
-                  <div className="bg-secondary bg-opacity-50 bg-gradient white-border" key={comment.id}>
+                  <div
+                    className="bg-secondary bg-opacity-50 bg-gradient white-border"
+                    key={comment.id}
+                  >
                     <div>
                       <h3>"{comment.comment}"</h3>
                       <h4 className="m-0">
