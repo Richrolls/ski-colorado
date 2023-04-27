@@ -10,7 +10,7 @@ class ResortQueries(Queries):
 
     def create(self, params: ResortIn) -> ResortOut:
         resort = params.dict()
-        self.collection.insert_one(resort)  # Queries superclass used here
+        self.collection.insert_one(resort)
         resort["id"] = str(resort["_id"])
         return ResortOut(**resort)
 

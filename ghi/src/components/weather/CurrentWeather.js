@@ -21,10 +21,6 @@ const CurrentWeather = () => {
       coordinates,
     });
 
-  // if (isWeatherLoading || isResortLoading || !weather || !weather.data) {
-  // return <progress className="progress is-primary" max="100"></progress>;
-  // }
-
   return (
     <div>
       {CurrentWeather && (
@@ -63,7 +59,7 @@ const CurrentWeather = () => {
           </div>
         </div>
       )}
-      <br/>
+      <br />
     </div>
   );
 };

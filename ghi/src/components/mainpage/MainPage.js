@@ -12,10 +12,6 @@ function MainPage() {
     navigate("/signup");
   };
 
-  // const handleLoginClick = (e) => {
-  //   navigate("/login");
-  // };
-
   return (
     <>
       <NavLoggedOut />
@@ -26,15 +22,10 @@ function MainPage() {
         <h2>
           The ultimate community of Colorado ski and snowboard enthusiasts!
         </h2>
-        {/* <h3>View current conditions, explore new mountains, and so much more!</h3> */}
         <div>
           <h3>
             Already have an account?&nbsp;&nbsp;
-            <Link
-            to="/login"
-              className="link-warning"
-              // onClick={(e) => dispatch(handleLoginClick(e.target.value))}
-            >
+            <Link to="/login" className="link-warning">
               Click here!
             </Link>
           </h3>
@@ -46,7 +37,6 @@ function MainPage() {
           </button>
         </h3>
         <br />
-
         <Footer />
       </>
     </>

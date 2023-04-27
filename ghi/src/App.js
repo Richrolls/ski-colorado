@@ -19,16 +19,12 @@ function App() {
   useEffect(() => {
     async function getData() {
       let url = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/launch-details`;
-      //console.log("fastapi url: ", url);
       let response = await fetch(url);
-      //console.log("------- hello? -------");
       let data = await response.json();
 
       if (response.ok) {
-        //console.log("got launch data!");
         setLaunchInfo(data.launch_details);
       } else {
-        //console.log("drat! something happened");
         setError(data.message);
       }
     }
@@ -36,14 +32,8 @@ function App() {
   }, []);
 
   return (
-    // <div>
-    //   {/* <ErrorNotification error={error} />
-    //   <Construct info={launch_info} /> */}
-
-    // </div>
     <>
       <BrowserRouter>
-        {/* <div className="container"> */}
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<MainPage />} />
@@ -53,7 +43,6 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="profile/:accountId" element={<Profile />} />
         </Routes>
-        {/* </div> */}
       </BrowserRouter>
     </>
   );

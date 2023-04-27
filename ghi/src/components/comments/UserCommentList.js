@@ -3,9 +3,9 @@ import { useParams, Link } from "react-router-dom";
 
 const UserCommentList = () => {
   const { accountId } = useParams();
-  const { data: commentsData, isLoading: isCommentsLoading } = useGetUserCommentsQuery(accountId);
+  const { data: commentsData, isLoading: isCommentsLoading } =
+    useGetUserCommentsQuery(accountId);
   const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery();
-
 
   if (isCommentsLoading || isResortsLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -16,7 +16,6 @@ const UserCommentList = () => {
     return {
       ...comment,
       resortName: resort ? resort.name : "Unknown resort",
-
     };
   });
 
@@ -175,7 +174,6 @@ const UserCommentList = () => {
   }
 
   commentsWithResorts.reverse();
-
 
   return (
     <div

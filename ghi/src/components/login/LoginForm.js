@@ -27,7 +27,6 @@ const LoginForm = () => {
 
     try {
       const result = await login(fields).unwrap();
-      console.log(result);
       if (result.access_token) {
         navigate("/home");
       }

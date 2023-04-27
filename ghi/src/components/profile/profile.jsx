@@ -12,25 +12,6 @@ const Profile = () => {
   const { data } = useGetAccountQuery();
   const { data: profile } = useGetProfileQuery(accountId);
 
-  //   const getLoggedInUserData = (data) => {
-  //     if (data) {
-  //       let userData = data;
-  //       return userData;
-  //     }
-  //   }
-
-  //   const getProfileUserData = (profile) => {
-  //     if (profile) {
-  //       let profileData = profile;
-  //       return profileData;
-  //     }
-  //   }
-
-  //     const loggedInUserData = getLoggedInUserData(data);
-  //     console.log(loggedInUserData)
-  //     const profileData = getProfileUserData(profile);
-  //     console.log(profileData)
-
   return (
     <>
       <NavLoggedIn />
@@ -40,7 +21,7 @@ const Profile = () => {
             <div className="row">
               <div className="col-md-4 text-center">
                 <img
-                  style={{ height: 200, width: 200 }}
+                  style={{ height: 180, width: 180 }}
                   src={profile.picture_url}
                   className="profilep"
                 />

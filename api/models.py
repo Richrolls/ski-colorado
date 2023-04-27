@@ -51,18 +51,16 @@ class AccountLogin(BaseModel):
     password: str
 
 
-class AccountForm(
-    BaseModel
-):  # dont DRY/inherit from AccountIn bc this is specific to jwtdown
+class AccountForm(BaseModel):
     username: str
-    password: str  # user's pw
+    password: str
 
 
-class AccountIn(BaseModel):  # what we send into the database/collection
+class AccountIn(BaseModel):
     first_name: str
     last_name: str
     username: str
-    password: str  # user's pw
+    password: str
     email: str
     address_1: str
     address_2: Optional[str] = None
