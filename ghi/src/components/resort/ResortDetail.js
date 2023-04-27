@@ -156,13 +156,13 @@ export default function ResortDetail() {
               }}
             >
               <div>
+                <NewCommentForm />
+              </div>
+              <div>
                 <ResortCommentList
                   // comments={data.comments}
                   // thisResort={thisResort}
                 />
-              </div>
-              <div>
-                <NewCommentForm />
               </div>
             </div>
           </div>

@@ -181,19 +181,19 @@ export default function ResortCommentList() {
   commentsWithUsernames.reverse();
 
   return (
-    <div className="container">
+    <div className="container" style={{ maxHeight: "762px", overflowY: "scroll", scrollbarWidth: "thin" }}>
       <div className="row">
         <div>
           <div style={{ borderRadius: 8, marginLeft: 0 }}>
             <div>
               <h2 className="underlined">Recent Comments</h2>
             </div>
-            <div className="row mx-auto w-75">
+            <div className="row mx-auto">
               {commentsWithUsernames.map((comment) => (
-                <div>
+                <div key={comment.id}>
                   <br />
                   <div className="bg-secondary bg-opacity-50 bg-gradient white-border">
-                    <div key={comment.id}>
+                    <div>
                       <h3>"{comment.comment}"</h3>
                       <h4 className="m-0">
                         <Link to={`/profile/${comment.user_id}`}>
@@ -209,6 +209,22 @@ export default function ResortCommentList() {
             </div>
           </div>
         </div>
+              <style>
+        {`
+          .container::-webkit-scrollbar {
+            width: 10px;
+          }
+
+          .container::-webkit-scrollbar-track {
+            background-color: #f5f5f5;
+          }
+
+          .container::-webkit-scrollbar-thumb {
+            background-color: #000000;
+            border-radius: 5px;
+          }
+        `}
+      </style>
       </div>
     </div>
   );
