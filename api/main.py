@@ -4,7 +4,7 @@ import os
 from routers import resorts, comments, accounts, favorites
 from authenticator import authenticator
 from directions_api import directions_router
-from openweather_api import openweather_router
+from weather_api import openweather_router
 
 app = FastAPI()
 
