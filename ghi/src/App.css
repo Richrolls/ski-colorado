@@ -17,6 +17,12 @@
   font-family: snow;
   src: url(../public/IceAndsnowNormal-2ve8.ttf);
 }
+
+@font-face {
+  font-family: "Aileron-Regular";
+  src: url(../public/Aileron-Regular.otf);
+}
+
 .snow {
   font-family: snow;
 }

@@ -10,22 +10,26 @@ const UserCommentList = () => {
   const { accountId } = useParams();
   const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery();
   const { data: token, isLoading: isTokenLoading } = useGetAccountTokenQuery();
-  const { data: commentsData, isLoading: isCommentsLoading } =
-    useGetUserCommentsQuery(accountId);
-  const [comments, setComments] = useState(null);
   const { refetch } = useGetUserCommentsQuery(accountId);
+  const { data: commentsData, isLoading: isCommentsLoading } = useGetUserCommentsQuery(accountId);
+
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    if (comments) {
-      setComments(comments);
+    if (commentsData && !isCommentsLoading) {
+      setComments(commentsData.comments);
     }
-  }, [commentsData]);
+  }, [commentsData, isCommentsLoading]);
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
 
   if (isCommentsLoading || isResortsLoading || isTokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
-  const commentsWithResorts = commentsData.comments.map((comment) => {
+  const commentsWithResorts = comments.map((comment) => {
     const resort = resorts.find((resort) => resort.id === comment.resort_id);
     return {
       ...comment,
