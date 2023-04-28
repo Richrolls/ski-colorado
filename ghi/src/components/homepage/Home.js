@@ -4,6 +4,7 @@ import ResortList from "./ResortList.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import { Timeline } from "react-twitter-widgets";
 import { useGetAccountQuery } from "../login/auth";
+import Closed from "../homepage/Closed.png";
 
 function Checkbox(props) {
   const { name, label, setFilters, isChecked } = props;
