@@ -285,3 +285,15 @@ textarea {
   transform: translateX(-50%) !important;
   margin: 0 !important;
 }
+
+.delete-button {
+  float: right;
+  padding-right: 20;
+  border: none;
+  background: none;
+  box-shadow: none;
+  outline: none;
+  padding: none;
+  margin: 0;
+  color: white;
+}

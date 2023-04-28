@@ -23,12 +23,12 @@ export default function Favorite() {
   const handleFavorite = async (event) => {
     event.preventDefault();
     const info = { user_id: account.id, resort_id: thisResort };
-    const result = await favorite(info).unwrap();
+    await favorite(info).unwrap();
   };
 
   const handleUnfavorite = async (event) => {
     event.preventDefault();
-    const result = await unfavorite({ thisResort, thisFavorite });
+    await unfavorite({ thisResort, thisFavorite });
   };
 
   if (thisFavorite.length >= 1) {

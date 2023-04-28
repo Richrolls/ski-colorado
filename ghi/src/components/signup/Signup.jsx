@@ -46,11 +46,10 @@ const Signup = () => {
         navigate("/home");
       }
     } catch (e){
-      console.log(e)
       if (e.status === 400){
         dispatch(error("Username already taken"));
       } else if (e.status === 422){
-        dispatch(error("Incorrect data field, please try again"))
+        dispatch(error("Incorrect data, please try again"))
       }
 
     }

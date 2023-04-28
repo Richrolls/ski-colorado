@@ -1,9 +1,7 @@
 from fastapi import APIRouter, Depends, status, HTTPException
-from pydantic import BaseModel
 from models import Favorite, FavoriteList
 from queries.favorites import FavoriteQueries, DuplicateFavoriteError
 from authenticator import authenticator
-from typing import List, Optional
 
 router = APIRouter()
 

@@ -1,8 +1,6 @@
-from typing import List, Optional
 from .client import Queries
 from models import (
     AccountIn,
-    AccountOut,
     AccountOutPublic,
     AccountList,
     AccountOutWithHashedPassword,
@@ -23,20 +21,13 @@ class AccountsRepo(Queries):
         account = info.dict()
         del account[
             "password"
-        ]  # deletes password attribute on account for security AFTER it has been hashed already
+        ]
         account["hashed_password"] = hashed_password
-        # TODO: make sure username is unique
         if self.get(account["username"]) is not None:
             raise DuplicateAccountError
         self.collection.insert_one(account)
         account["id"] = str(account["_id"])
         return AccountOutWithHashedPassword(**account)
-
-    # def create(self, params: AccountIn) -> AccountOut:
-    #     account = params.dict()
-    #     self.collection.insert_one(account)
-    #     account['id'] = str(account['_id'])
-    #     return AccountOut(**account)
 
     def get_all(self, account_id: str = None) -> AccountList:
         query = {}
@@ -50,7 +41,7 @@ class AccountsRepo(Queries):
 
     def get(self, username: str):
         result = self.collection.find_one({"username": username.lower()})
-        if result is None:  # what happens if nothing is found?
+        if result is None:
             return None
         result["id"] = str(result["_id"])
         return AccountOutWithHashedPassword(**result)
