@@ -18,7 +18,7 @@ import {
   error,
   reset,
 } from "./signupSlice";
-import { useGetAccountQuery, useSignupMutation } from "../login/auth";
+import { useSignupMutation } from "../login/auth";
 import ErrorMessage from "../errorhandling/ErrorMessage";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -45,8 +45,14 @@ const Signup = () => {
       if (result.access_token) {
         navigate("/home");
       }
-    } catch {
-      dispatch(error("Username already taken"));
+    } catch (e){
+      console.log(e)
+      if (e.status === 400){
+        dispatch(error("Username already taken"));
+      } else if (e.status === 422){
+        dispatch(error("Incorrect data field, please try again"))
+      }
+
     }
   };
 
