@@ -11,7 +11,7 @@ Anton Zaitsev
 
 __________________________________________________________________________________________________________________________________
 
-PROJECT SUMMARY
+PRODUCT SUMMARY
 
 SkiColorado is an application that allows users to view and interact with information about various Colorado resorts.
 
@@ -29,7 +29,7 @@ SkiColorado is an application that allows users to view and interact with inform
 
 __________________________________________________________________________________________________________________________________
 
-PROJECT SETUP INSTRUCTIONS
+PRODUCT SETUP INSTRUCTIONS
 
 This project uses FastAPI for the backend framework, MongoDB for the database, Docker for containerization, React for the frontend framework, and Redux for select frontend functionalities. It also requires API keys from GoogleMapsAPI, and WeatherAPI.com. Follow instructions on those websites to obtain API keys before launching this project. To get started with this project, follow these instructions:
 
