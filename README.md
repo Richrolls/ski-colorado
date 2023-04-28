@@ -116,3 +116,7 @@ This project uses FastAPI for the backend framework, MongoDB for the database, D
 
 11. Your project is now ready to run and interact with! Begin by navigating to 'http://localhost:3000' in your preferred browser, and sign up for an account.
 __________________________________________________________________________________________________________________________________
+
+![Wireframe Design](docs/Wireframe.png)
+
+[Initial API Design](docs/api-design.md)
