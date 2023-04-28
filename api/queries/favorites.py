@@ -34,13 +34,6 @@ class FavoriteQueries(Queries):
             favorites.append(Favorite(**favorite))
         return favorites
 
-    def get_all(self) -> FavoriteList:
-        favorites = []
-        for favorite in self.collection.find():
-            favorite["id"] = str(favorite["_id"])
-            favorites.append(Favorite(**favorite))
-        return favorites
-
     def get(self, resort_id: str, user_id: str) -> Optional[Favorite]:
         favorite = self.collection.find_one(
             {"resort_id": resort_id, "user_id": user_id}

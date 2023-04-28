@@ -4,15 +4,23 @@ import {
   useGetProfilesQuery,
   useGetAccountTokenQuery,
 } from "../login/auth.js";
+import { useEffect, useState } from "react";
 
 export default function ResortCommentList() {
   const { thisResort } = useParams();
   const { data: token, isLoading: isTokenLoading } = useGetAccountTokenQuery();
-  const { refetch } = useGetResortCommentsQuery(thisResort);
   const { data: commentsData, isLoading: isCommentsLoading } =
     useGetResortCommentsQuery(thisResort);
   const { data: profilesData, isLoading: isProfilesLoading } =
     useGetProfilesQuery();
+  const [comments, setComments] = useState(null);
+  const { refetch } = useGetResortCommentsQuery(thisResort);
+
+  useEffect(() => {
+    if (comments) {
+      setComments(comments);
+    }
+  }, [commentsData]);
 
   if (isCommentsLoading || isProfilesLoading || isTokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;

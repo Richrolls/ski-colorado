@@ -1,12 +1,9 @@
-import { NavLink, Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { useLogoutMutation, useGetAccountQuery } from "../login/auth";
 import { useNavigate } from "react-router-dom";
-import skierIcon from "./Skier_Icon.png";
 import NavbarFavoriteList from "../favorites/NavbarFavoriteList";
 
 function NavLoggedIn() {
-  const dispatch = useDispatch();
   const [logout] = useLogoutMutation();
   const navigate = useNavigate();
   const { data } = useGetAccountQuery();

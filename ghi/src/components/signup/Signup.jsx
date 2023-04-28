@@ -29,10 +29,6 @@ const Signup = () => {
   const { errorMessage, fields } = useSelector((state) => state.signup);
   const navigate = useNavigate();
 
-  const handleMainClick = (e) => {
-    navigate("/");
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -45,13 +41,12 @@ const Signup = () => {
       if (result.access_token) {
         navigate("/home");
       }
-    } catch (e){
-      if (e.status === 400){
+    } catch (e) {
+      if (e.status === 400) {
         dispatch(error("Username already taken"));
-      } else if (e.status === 422){
-        dispatch(error("Incorrect data, please try again"))
+      } else if (e.status === 422) {
+        dispatch(error("Incorrect data, please try again"));
       }
-
     }
   };
 

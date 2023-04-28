@@ -33,7 +33,7 @@ PRODUCT SETUP INSTRUCTIONS
 
 This project uses FastAPI for the backend framework, MongoDB for the database, Docker for containerization, React for the frontend framework, and Redux for select frontend functionalities. It also requires API keys from GoogleMapsAPI, and WeatherAPI.com. Follow instructions on those websites to obtain API keys before launching this project. To get started with this project, follow these instructions:
 
-1. Fork and clone this repository into your chosen directory on your local machine.
+1. Create your desired project directory on your local machine. Fork and clone this repository into this chosen directory on your local machine.
 
 2. Install Docker Desktop on your local machine.
 
@@ -116,3 +116,7 @@ This project uses FastAPI for the backend framework, MongoDB for the database, D
 
 11. Your project is now ready to run and interact with! Begin by navigating to 'http://localhost:3000' in your preferred browser, and sign up for an account.
 __________________________________________________________________________________________________________________________________
+
+![Wireframe Design](docs/Wireframe.png)
+
+[Initial API Design](docs/api-design.md)

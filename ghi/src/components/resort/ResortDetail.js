@@ -11,11 +11,19 @@ import { NewCommentForm } from "../comments/AddNewComment.js";
 import Favorite from "../favorites/Favorite.js";
 import { useGetAccountQuery } from "../login/auth";
 import Closed from "../homepage/Closed.png";
+import { useState, useEffect } from "react";
 
 export default function ResortDetail() {
   const { data: account } = useGetAccountQuery();
   const { thisResort } = useParams();
-  const { data, error, isLoading } = useGetResortQuery(thisResort);
+  const { data } = useGetResortQuery(thisResort);
+  const [resort, setResort] = useState(null);
+
+  useEffect(() => {
+    if (resort) {
+      setResort(resort);
+    }
+  }, [data]);
 
   if (account) {
     if (!data) {

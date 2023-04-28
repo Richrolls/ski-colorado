@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   useGetUserCommentsQuery,
   useGetResortsQuery,
@@ -10,9 +10,16 @@ const UserCommentList = () => {
   const { accountId } = useParams();
   const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery();
   const { data: token, isLoading: isTokenLoading } = useGetAccountTokenQuery();
-  const { refetch } = useGetUserCommentsQuery(accountId);
   const { data: commentsData, isLoading: isCommentsLoading } =
     useGetUserCommentsQuery(accountId);
+  const [comments, setComments] = useState(null);
+  const { refetch } = useGetUserCommentsQuery(accountId);
+
+  useEffect(() => {
+    if (comments) {
+      setComments(comments);
+    }
+  }, [commentsData]);
 
   const [comments, setComments] = useState([]);
 

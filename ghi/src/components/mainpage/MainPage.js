@@ -2,10 +2,8 @@ import Footer from "../footer/Footer.js";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NavLoggedOut from "../header/NavLoggedOut.js";
-import { useDispatch } from "react-redux";
 
 function MainPage() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleJoinClick = () => {
