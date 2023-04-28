@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 from .client import Queries
 from models import Favorite, FavoriteList
 from bson.objectid import ObjectId

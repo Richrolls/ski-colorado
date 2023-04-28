@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 from .client import Queries
 from models import ResortIn, ResortOut, ResortList
 from bson.objectid import ObjectId
@@ -14,7 +14,7 @@ class ResortQueries(Queries):
         resort["id"] = str(resort["_id"])
         return ResortOut(**resort)
 
-    def get_all(self) -> list[ResortOut]:
+    def get_all(self) -> ResortList:
         resorts = []
         for resort in self.collection.find():
             resort["id"] = str(resort["_id"])
