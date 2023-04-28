@@ -34,4 +34,4 @@ and API data was successfully queried and returned via Insomnia.
 
 4/27/23 - Revisited our punch list as a group to decide what to prioritize before project submission. Spent first half of day attempting to implement "Delete Commnet" functionality without success...so so close but unable to find final data-passing issues. Temporarily abandoning that item to work on error handling and bug fixing, will return tomorrow if time permits. Began working on final README.md implementation.
 
-
+4/28/23 - DEADLINE DAY! Finished README.md and API markdown files. Implemented ability to Delete a comment (finally!) as well as globally re-render state when a Comment is deleted. Project submitted, and there was much rejoicing!
