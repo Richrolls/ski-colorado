@@ -16,6 +16,7 @@ export default function AverageRatingByResort() {
     );
     const average = sum / data.comments.length;
     return parseFloat(average.toFixed(2));
+
   }
 
   const emptystar = (
@@ -172,14 +173,27 @@ export default function AverageRatingByResort() {
     }
   }
 
-  return (
-    <>
-      <div>
-        <h2 className="underlined">Community Rating</h2>
-      </div>
-      <br />
-      <h3 className="">{averageRating(data)} / 5.0</h3>
-      <div>{stars(averageRating(data))}</div>
-    </>
-  );
+  if (data.comments.length) {
+    return (
+      <>
+        <div>
+          <h2 className="underlined">Community Rating</h2>
+        </div>
+        <br />
+        <h3 className="">{averageRating(data)} / 5</h3>
+        <div>{stars(averageRating(data))}</div>
+      </>
+    )
+  }
+  else {
+        return (
+      <>
+        <div>
+          <h2 className="underlined">Community Rating</h2>
+        </div>
+        <br />
+        <h3 className="">No ratings yet!</h3>
+      </>
+    );
+  }
 }
