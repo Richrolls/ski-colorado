@@ -22,6 +22,10 @@ export default function ResortCommentList() {
     }
   }, [commentsData]);
 
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
+
   if (isCommentsLoading || isProfilesLoading || isTokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }

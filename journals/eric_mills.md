@@ -55,3 +55,5 @@ Day 2: Reconfigured and stylized buttons on comment/rating input. Assisted Jack/
 Day 3: WEATHER API!!! WOOO!!!! 404 Page!!! YAHOO!!!
 
 Day 4: Various aesthetic/styling cleanups. Stylized NavBar Favorites dropdown and scroll bars on resort detail and profile page. We're almost done!!!
+
+Day 5: Final touches. Code cleanliness. New font.
