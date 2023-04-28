@@ -1,9 +1,7 @@
-import pydantic, typing
 from bson.objectid import ObjectId
 from pydantic import BaseModel
-from typing import List, Optional, Union
+from typing import List, Optional
 from jwtdown_fastapi.authentication import Token
-from fastapi import Path
 
 
 class PydanticObjectId(ObjectId):
@@ -103,7 +101,7 @@ class AccountToken(Token):
 
 
 class AccountOutWithHashedPassword(AccountOut):
-    hashed_password: str  # encrypted user's pw
+    hashed_password: str 
 
 
 class AccountList(BaseModel):

@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 from .client import Queries
 from models import CommentIn, CommentOut, CommentList
 from bson.objectid import ObjectId
@@ -29,13 +29,6 @@ class CommentQueries(Queries):
             comment["id"] = str(comment["_id"])
             comments.append(CommentOut(**comment))
         return comments
-
-    # def get_all(self) -> CommentList:
-    #     comments = []
-    #     for comment in self.collection.find():
-    #         comment['id'] = str(comment['_id'])
-    #         comments.append(CommentOut(**comment))
-    #     return comments
 
     def get_one(self, comment_id: str) -> Optional[CommentOut]:
         comment = self.collection.find_one({"_id": ObjectId(comment_id)})

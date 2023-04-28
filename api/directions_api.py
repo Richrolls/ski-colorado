@@ -1,6 +1,5 @@
 from fastapi import APIRouter
 import requests
-from models import AccountOut
 import os
 
 GOOGLE_MAPS_API_KEY = os.environ["GOOGLE_MAPS_API_KEY"]
@@ -14,6 +13,3 @@ async def directions(origin: str, destination: str):
     response = requests.get(url)
     data = response.json()
     return data
-
-
-# RUN FROM DOCKERFILE.DEV??
