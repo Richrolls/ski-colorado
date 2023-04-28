@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import {
   useGetUserCommentsQuery,
   useGetResortsQuery,
@@ -10,10 +10,9 @@ const UserCommentList = () => {
   const { accountId } = useParams();
   const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery();
   const { data: token, isLoading: isTokenLoading } = useGetAccountTokenQuery();
-  const { refetch } = useGetUserCommentsQuery(accountId)
+  const { refetch } = useGetUserCommentsQuery(accountId);
   const { data: commentsData, isLoading: isCommentsLoading } =
     useGetUserCommentsQuery(accountId);
-
 
   if (isCommentsLoading || isResortsLoading || isTokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -183,7 +182,6 @@ const UserCommentList = () => {
 
   commentsWithResorts.reverse();
 
-
   // commentsWithResortsId = commentsWithResorts.map((comment) => {
   //   return comment.id
   // })
@@ -191,8 +189,8 @@ const UserCommentList = () => {
   const handleCommentDelete = async (event, comment) => {
     event.preventDefault();
     const data = {};
-    const user_id = accountId
-    const comment_id = comment.id
+    const user_id = accountId;
+    const comment_id = comment.id;
     const commentUrl = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/accounts/${user_id}/comments/${comment_id}`;
     const fetchConfig = {
       method: "delete",
@@ -237,13 +235,17 @@ const UserCommentList = () => {
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           {stars(comment.rating)}
                         </h4>
-                        <button
-                          type="button"
-                          className="butt btn-sm btn-primary"
-                          onClick={(event) => handleCommentDelete(event, comment)}
-                        >
-                          Delete Comment
-                        </button>
+                        {comment.user_id === token.account.id ? (
+                          <button
+                            type="button"
+                            className="butt btn-sm btn-primary"
+                            onClick={(event) =>
+                              handleCommentDelete(event, comment)
+                            }
+                          >
+                            Delete Comment
+                          </button>
+                        ) : null}
                       </div>
                     </div>
                   </div>
