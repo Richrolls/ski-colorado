@@ -14,6 +14,12 @@ const UserCommentList = () => {
   const { data: commentsData, isLoading: isCommentsLoading } =
     useGetUserCommentsQuery(accountId);
 
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    if (!icCommentLoading) { setComments(commentsData.comments);}
+  })
+
   if (isCommentsLoading || isResortsLoading || isTokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
@@ -181,10 +187,6 @@ const UserCommentList = () => {
   }
 
   commentsWithResorts.reverse();
-
-  // commentsWithResortsId = commentsWithResorts.map((comment) => {
-  //   return comment.id
-  // })
 
   const handleCommentDelete = async (event, comment) => {
     event.preventDefault();
