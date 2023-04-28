@@ -17,13 +17,13 @@ export default function ResortDetail() {
   const { data: account } = useGetAccountQuery();
   const { thisResort } = useParams();
   const { data } = useGetResortQuery(thisResort);
-  const [resort, setResort] = useState(null)
+  const [resort, setResort] = useState(null);
 
   useEffect(() => {
-    if (data) {
-      setResort(data);
+    if (resort) {
+      setResort(resort);
     }
-  }, [data])
+  }, [data]);
 
   if (account) {
     if (!data) {

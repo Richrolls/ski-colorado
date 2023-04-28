@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetResortQuery, useGetWeatherQuery } from "../login/auth";
 
 const DailyForecast = () => {
   const { thisResort } = useParams();
-  const { data: resorts, isLoading: isResortLoading } =
+  const { data: resorts } =
     useGetResortQuery(thisResort);
 
   const get_coordinates = (resorts) => {
@@ -15,7 +15,7 @@ const DailyForecast = () => {
   };
 
   const coordinates = get_coordinates(resorts);
-  const { data: DailyForecast, isLoading: isWeatherLoading } =
+  const { data: DailyForecast } =
     useGetWeatherQuery({
       thisResort,
       coordinates,

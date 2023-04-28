@@ -19,7 +19,7 @@ const UserCommentList = () => {
     if (comments) {
       setComments(comments);
     }
-  }, [comments]); // dependency var
+  }, [commentsData]);
 
   if (isCommentsLoading || isResortsLoading || isTokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;

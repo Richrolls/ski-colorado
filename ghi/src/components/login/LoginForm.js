@@ -17,10 +17,6 @@ const LoginForm = () => {
   const { errorMessage, fields } = useSelector((state) => state.login);
   const navigate = useNavigate();
 
-  const handleJoinClick = (e) => {
-    navigate("/signup");
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(reset());

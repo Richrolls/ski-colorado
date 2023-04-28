@@ -13,23 +13,23 @@ import NotFound from "./components/errorhandling/404Page.js";
 import "./App.css";
 
 function App() {
-  const [launch_info, setLaunchInfo] = useState([]);
-  const [error, setError] = useState(null);
+  // const [launch_info, setLaunchInfo] = useState([]);
+  // const [error, setError] = useState(null);
 
-  useEffect(() => {
-    async function getData() {
-      let url = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/launch-details`;
-      let response = await fetch(url);
-      let data = await response.json();
+  // useEffect(() => {
+  //   async function getData() {
+  //     let url = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/launch-details`;
+  //     let response = await fetch(url);
+  //     let data = await response.json();
 
-      if (response.ok) {
-        setLaunchInfo(data.launch_details);
-      } else {
-        setError(data.message);
-      }
-    }
-    getData();
-  }, []);
+  //     if (response.ok) {
+  //       setLaunchInfo(data.launch_details);
+  //     } else {
+  //       setError(data.message);
+  //     }
+  //   }
+  //   getData();
+  // }, []);
 
   return (
     <>
