@@ -1,6 +1,4 @@
 from fastapi import APIRouter, Depends
-from pydantic import BaseModel
-from typing import List, Optional
 from models import CommentIn, CommentOut, CommentList
 from queries.comments import CommentQueries
 from authenticator import authenticator

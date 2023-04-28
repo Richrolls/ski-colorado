@@ -17,7 +17,6 @@ from models import (
 )
 from queries.accounts import AccountsRepo, DuplicateAccountError
 from authenticator import authenticator
-from typing import Optional
 
 
 class HttpError(BaseModel):
