@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   useGetUserCommentsQuery,
   useGetResortsQuery,
@@ -13,6 +13,13 @@ const UserCommentList = () => {
   const { refetch } = useGetUserCommentsQuery(accountId);
   const { data: commentsData, isLoading: isCommentsLoading } =
     useGetUserCommentsQuery(accountId);
+  const [comments, setComments] = useState(null);
+
+  useEffect(() => {
+    if (comments) {
+      setComments(comments);
+    }
+  }, [comments]);
 
   if (isCommentsLoading || isResortsLoading || isTokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;

@@ -4,6 +4,7 @@ import {
   useGetProfilesQuery,
   useGetAccountTokenQuery,
 } from "../login/auth.js";
+import { useEffect, useState} from "react"
 
 export default function ResortCommentList() {
   const { thisResort } = useParams();
@@ -13,6 +14,13 @@ export default function ResortCommentList() {
     useGetResortCommentsQuery(thisResort);
   const { data: profilesData, isLoading: isProfilesLoading } =
     useGetProfilesQuery();
+  const [comments, setComments] = useState(null);
+
+  useEffect(() => {
+    if (comments) {
+      setComments(comments);
+    }
+  }, [comments]);
 
   if (isCommentsLoading || isProfilesLoading || isTokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
@@ -181,7 +189,7 @@ export default function ResortCommentList() {
     }
   }
 
-  const handleCommentDelete = async (event, comment) => {
+  const handleCommentDelete = async (event, comment, commentsData) => {
     event.preventDefault();
     const data = {};
     const user_id = token.account.id;
