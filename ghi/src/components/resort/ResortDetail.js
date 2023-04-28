@@ -10,6 +10,7 @@ import DailyForecast from "../weather/DailyForecast.js";
 import { NewCommentForm } from "../comments/AddNewComment.js";
 import Favorite from "../favorites/Favorite.js";
 import { useGetAccountQuery } from "../login/auth";
+import Closed from "../homepage/Closed.png";
 
 export default function ResortDetail() {
   const { data: account } = useGetAccountQuery();
@@ -159,10 +160,7 @@ export default function ResortDetail() {
                   <NewCommentForm />
                 </div>
                 <div>
-                  <ResortCommentList
-                  // comments={data.comments}
-                  // thisResort={thisResort}
-                  />
+                  <ResortCommentList />
                 </div>
               </div>
             </div>
@@ -178,7 +176,7 @@ export default function ResortDetail() {
           <br />
           <br />
         </h5>
-        <div class="container">
+        <div className="container">
           <div className="row">
             <div className="offset-3 col-6">
               <div

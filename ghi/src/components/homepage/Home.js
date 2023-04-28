@@ -116,8 +116,6 @@ function HomePage() {
                   />
                 </div>
                 <br />
-                <br />
-                <br />
                 <div
                   className="shadow p-4 mt-4 bg-primary bg-gradient"
                   style={{
@@ -147,7 +145,7 @@ function HomePage() {
                     borderRadius: 8,
                     marginRight: 0,
                     marginLeft: 52,
-                    height: 950,
+                    height: 875,
                     width: "30%",
                   }}
                 >
@@ -158,7 +156,7 @@ function HomePage() {
                         screenName: "ColoradoDOT",
                       }}
                       options={{
-                        height: "900",
+                        height: "825",
                         width: "100%",
                       }}
                     />
@@ -178,7 +176,7 @@ function HomePage() {
           <br />
           <br />
         </h5>
-        <div class="container">
+        <div className="container">
           <div className="row">
             <div className="offset-3 col-6">
               <div

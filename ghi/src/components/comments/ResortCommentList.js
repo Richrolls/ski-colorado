@@ -1,5 +1,8 @@
 import { Link, useParams } from "react-router-dom";
-import {useGetResortCommentsQuery, useGetProfilesQuery,} from "../login/auth.js";
+import {
+  useGetResortCommentsQuery,
+  useGetProfilesQuery,
+} from "../login/auth.js";
 
 export default function ResortCommentList() {
   const { thisResort } = useParams();

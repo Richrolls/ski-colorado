@@ -27,7 +27,6 @@ function SignupForm() {
         "Content-Type": "application/json",
       },
     };
-    console.log(JSON.stringify(formData));
     const response = await fetch(accountUrl, fetchConfig);
 
     if (response.ok) {

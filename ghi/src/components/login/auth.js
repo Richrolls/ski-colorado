@@ -1,11 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}`,
-    credentials: "include", // sends cookie to FastAPI
+    credentials: "include",
   }),
   tagTypes: [
     "Account",
@@ -75,15 +74,15 @@ export const authApi = createApi({
       providesTags: ["ResortCommentsList"],
     }),
     getUserComments: builder.query({
-    query: ( user_id ) => `/api/accounts/${user_id}/comments`,
-    providesTags: ["UserCommentsList"],
+      query: (user_id) => `/api/accounts/${user_id}/comments`,
+      providesTags: ["UserCommentsList"],
     }),
     deleteUserComment: builder.mutation({
-      query: ( user_id, comment_id ) => ({
+      query: (user_id, comment_id) => ({
         url: `/api/accounts/${user_id}/comments/${comment_id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["ResortCommentsList", "UserCommentsList"], // is this how to invalidate multiple tags?
+      invalidatesTags: ["ResortCommentsList", "UserCommentsList"],
     }),
     getDistance: builder.query({
       query: ({ origin, destination }) =>

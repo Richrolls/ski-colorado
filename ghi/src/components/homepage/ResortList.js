@@ -10,26 +10,22 @@ const ResortList = ({ filters }) => {
     if (resorts && resorts.length > 0) {
       const tempFilteredResorts = resorts.filter((resort) => {
         return (
-          (filters.epic && resort.pass_type === "Epic") ||
-          (filters.ikon && resort.pass_type === "Ikon")
-        ) && (
-          (filters.$ && resort.price === 1) ||
-          (filters.$$ && resort.price === 2) ||
-          (filters.$$$ && resort.price === 3) ||
-          (filters.$$$$ && resort.price === 4) ||
-          (filters.$$$$$ && resort.price === 5)
+          ((filters.epic && resort.pass_type === "Epic") ||
+            (filters.ikon && resort.pass_type === "Ikon")) &&
+          ((filters.$ && resort.price === 1) ||
+            (filters.$$ && resort.price === 2) ||
+            (filters.$$$ && resort.price === 3) ||
+            (filters.$$$$ && resort.price === 4) ||
+            (filters.$$$$$ && resort.price === 5))
         );
       });
       setFilteredResorts(tempFilteredResorts);
     }
-
   }, [filters, resorts]);
 
-    const getDollarString = (price) => {
+  const getDollarString = (price) => {
     return "$".repeat(price);
-  }
-
-
+  };
 
   return (
     <div className="container">

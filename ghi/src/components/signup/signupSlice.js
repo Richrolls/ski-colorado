@@ -1,24 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    fields: {
-        first_name: "",
-        last_name: "",
-        username: "",
-        password: "",
-        password_conf: "",
-        email: "",
-        address_1: "",
-        address_2: "",
-        city: "",
-        state: "",
-        zipcode: "",
-        ski: false,
-        snowboard: false,
-        picture_url: ""
-    },
-    errorMessage: null
-}
+  fields: {
+    first_name: "",
+    last_name: "",
+    username: "",
+    password: "",
+    password_conf: "",
+    email: "",
+    address_1: "",
+    address_2: "",
+    city: "",
+    state: "",
+    zipcode: "",
+    ski: false,
+    snowboard: false,
+    picture_url: "",
+  },
+  errorMessage: null,
+};
 
 const signupSlice = createSlice({
   name: "signup",
@@ -89,7 +89,7 @@ export const {
   handleSnowboardChange,
   handlePictureUrlChange,
   reset,
-  error
+  error,
 } = signupSlice.actions;
 
 export default signupSlice.reducer;

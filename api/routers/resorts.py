@@ -17,10 +17,10 @@ router = APIRouter()
 
 ### BELOW THIS LINE IS A POST METHOD FOR CREATING MULTIPLE RESORT INSTANCES AT ONCE. TO REVERT TO SINGLE-INSTANCE, COMMENT OUT LINES 20-29 AND COMMENT IN LINES 10-16. ###
 
+
 @router.post("/api/resorts", response_model=List[ResortOut])
 async def create_resorts(
-    resorts: List[ResortIn],
-    repo: ResortQueries = Depends()
+    resorts: List[ResortIn], repo: ResortQueries = Depends()
 ):
     created_resorts = []
     for resort in resorts:
@@ -33,10 +33,8 @@ async def create_resorts(
 def get_resorts(
     repo: ResortQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
-    ):
-        return {
-            'resorts': repo.get_all()
-        }
+):
+    return {"resorts": repo.get_all()}
 
 
 @router.get("/api/resorts/{resort_id}", response_model=ResortOut)
@@ -44,12 +42,10 @@ async def get_resort(
     resort_id: str,
     repo: ResortQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data),
-    ):
+):
     return repo.get_one(resort_id)
 
+
 @router.delete("/api/resorts/{resort_id}", response_model=bool)
-def delete_resort(
-    resort_id = str,
-    repo: ResortQueries = Depends()
-):
+def delete_resort(resort_id=str, repo: ResortQueries = Depends()):
     return repo.delete(resort_id)

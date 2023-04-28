@@ -23,11 +23,9 @@ function NavLoggedIn() {
   return (
     <nav className="navbar navbar-expand-s navbar-dark bg-gradient">
       <div className="container-fluid">
-        <div className="snow">
-          <NavLink className="navbar-brand" to="/home">
-            SC
-          </NavLink>
-        </div>
+        <NavLink className="navbar-brand" to="/home">
+          <div className="snow">SC</div>
+        </NavLink>
         <div className="dropdown">
           <button
             className="butt btn-sm btn-primary dropdown-toggle"
