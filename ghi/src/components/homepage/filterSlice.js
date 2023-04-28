@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import loginSlice from "../login/loginSlice";
 
 const initialState = {
   pass: [],

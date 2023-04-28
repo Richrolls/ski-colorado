@@ -16,7 +16,7 @@ import { useState, useEffect } from "react";
 export default function ResortDetail() {
   const { data: account } = useGetAccountQuery();
   const { thisResort } = useParams();
-  const { data, error, isLoading } = useGetResortQuery(thisResort);
+  const { data } = useGetResortQuery(thisResort);
   const [resort, setResort] = useState(null)
 
   useEffect(() => {

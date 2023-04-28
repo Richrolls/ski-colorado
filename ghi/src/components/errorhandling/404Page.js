@@ -1,15 +1,10 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ErrorPic from "./ErrorPic.jpg";
 import { useGetAccountQuery } from "../login/auth";
 
 const NotFound = () => {
   const { data: account } = useGetAccountQuery();
-  const navigate = useNavigate();
-
-  const handleHomeClick = (e) => {
-    navigate("/");
-  };
 
   if (account) {
     return (
