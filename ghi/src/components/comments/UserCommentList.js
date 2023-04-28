@@ -1,13 +1,21 @@
-import { useGetUserCommentsQuery, useGetResortsQuery } from "../login/auth.js";
+import React, {useState } from "react";
+import {
+  useGetUserCommentsQuery,
+  useGetResortsQuery,
+  useGetAccountTokenQuery,
+} from "../login/auth.js";
 import { useParams, Link } from "react-router-dom";
 
 const UserCommentList = () => {
   const { accountId } = useParams();
+  const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery();
+  const { data: token, isLoading: isTokenLoading } = useGetAccountTokenQuery();
+  const { refetch } = useGetUserCommentsQuery(accountId)
   const { data: commentsData, isLoading: isCommentsLoading } =
     useGetUserCommentsQuery(accountId);
-  const { data: resorts, isLoading: isResortsLoading } = useGetResortsQuery();
 
-  if (isCommentsLoading || isResortsLoading) {
+
+  if (isCommentsLoading || isResortsLoading || isTokenLoading) {
     return <progress className="progress is-primary" max="100"></progress>;
   }
 
@@ -175,6 +183,33 @@ const UserCommentList = () => {
 
   commentsWithResorts.reverse();
 
+
+  // commentsWithResortsId = commentsWithResorts.map((comment) => {
+  //   return comment.id
+  // })
+
+  const handleCommentDelete = async (event, comment) => {
+    event.preventDefault();
+    const data = {};
+    const user_id = accountId
+    const comment_id = comment.id
+    const commentUrl = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/accounts/${user_id}/comments/${comment_id}`;
+    const fetchConfig = {
+      method: "delete",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token.access_token}`,
+      },
+    };
+    const response = await fetch(commentUrl, fetchConfig);
+    if (response.ok) {
+      refetch();
+    } else {
+      alert("Failed to delete comment :(");
+    }
+  };
+
   return (
     <div
       className="container"
@@ -202,6 +237,13 @@ const UserCommentList = () => {
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           {stars(comment.rating)}
                         </h4>
+                        <button
+                          type="button"
+                          className="butt btn-sm btn-primary"
+                          onClick={(event) => handleCommentDelete(event, comment)}
+                        >
+                          Delete Comment
+                        </button>
                       </div>
                     </div>
                   </div>
