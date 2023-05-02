@@ -48,6 +48,7 @@ class FakeAccountsRepo:
             }
         ]
 
+
 def test_get_account():
     # Arrange
     app.dependency_overrides[AccountsRepo] = FakeAccountsRepo
