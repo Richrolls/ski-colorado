@@ -6,6 +6,7 @@ from authenticator import authenticator
 
 router = APIRouter()
 
+
 @router.post("/api/resorts", response_model=list[ResortOut])
 async def create_resorts(
     resorts: List[ResortIn], repo: ResortQueries = Depends()

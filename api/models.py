@@ -14,7 +14,7 @@ class PydanticObjectId(ObjectId):
         if value:
             try:
                 ObjectId(value)
-            except:
+            except ValueError:
                 raise ValueError(f"Not a valid object id: {value}")
         return value
 
@@ -101,7 +101,7 @@ class AccountToken(Token):
 
 
 class AccountOutWithHashedPassword(AccountOut):
-    hashed_password: str 
+    hashed_password: str
 
 
 class AccountList(BaseModel):

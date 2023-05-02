@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 from main import app
-from queries.resorts import ResortQueries  ##Pathing issues?
+from queries.resorts import ResortQueries
 from authenticator import authenticator
 
 
@@ -20,7 +20,9 @@ class FakeResortQueries:
             "zipcode": 80435,
             "coordinates": "teststring",
             "name": "Keystone Resort",
-            "photo_url": "https://dam-assets.vailresorts.com/is/image/vailresorts/20180123_KY_balluff_001:Product-Cards-Landing?resMode=sharp2&w=1002&h=668&wid=382&fit=constrain,1&dpr=on,2.625",
+            "photo_url": "https://dam-assets.vailresorts.com/is/image/vailresorts/"
+            "20180123_KY_balluff_001:Product-Cards-Landing?resMode=sharp2&w=1002&h="
+            "668&wid=382&fit=constrain,1&dpr=on,2.625",
             "average_rating": 0,
             "elevation": 12408,
             "price": 4,
@@ -40,7 +42,9 @@ class FakeResortQueries:
                 "zipcode": 80435,
                 "coordinates": "teststring",
                 "name": "Keystone Resort",
-                "photo_url": "https://dam-assets.vailresorts.com/is/image/vailresorts/20180123_KY_balluff_001:Product-Cards-Landing?resMode=sharp2&w=1002&h=668&wid=382&fit=constrain,1&dpr=on,2.625",
+                "photo_url": "https://dam-assets.vailresorts.com/is/image/vailresorts/"
+                "20180123_KY_balluff_001:Product-Cards-Landing?resMode=sharp2&w=1002&"
+                "h=668&wid=382&fit=constrain,1&dpr=on,2.625",
                 "average_rating": 0,
                 "elevation": 12408,
                 "price": 4,
