@@ -6,11 +6,16 @@ WORKDIR /app
 # Modify these instructions to do that
 COPY requirements.txt requirements.txt
 COPY main.py main.py
+COPY authenticator.py authenticator.py
+COPY directions_api.py directions_api.py
+COPY models.py models.py
+COPY weather_api.py weather_api.py
 
 # Copy all of the subdirectories in your service's directory
 # Modify these instructions to do that
-# COPY queries queries
-# COPY routers routers
+COPY queries queries
+COPY routers routers
+# COPY tests tests
 
 RUN python -m pip install -r requirements.txt
 
