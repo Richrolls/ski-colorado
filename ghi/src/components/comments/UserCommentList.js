@@ -78,7 +78,7 @@ const UserCommentList = () => {
 
   function stars(rating) {
     let rounded = Math.round(rating * 2) / 2;
-    if (rounded == 0) {
+    if (rounded === 0) {
       return (
         <>
           {emptystar}

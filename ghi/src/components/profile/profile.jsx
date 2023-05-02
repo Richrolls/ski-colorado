@@ -24,7 +24,7 @@ const Profile = () => {
                   style={{ height: 180, width: 180 }}
                   src={profile.picture_url}
                   className="profilep"
-                  alt="profile picture"
+                  alt="profile"
                 />
               </div>
               <div className="col-md-8">
