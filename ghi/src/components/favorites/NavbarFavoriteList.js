@@ -4,7 +4,6 @@ import {
   useGetResortsQuery,
   useGetUserFavoritesQuery,
 } from "../login/auth";
-import { current } from "@reduxjs/toolkit";
 
 export default function FavoriteList() {
   const { data: account } = useGetAccountQuery();

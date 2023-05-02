@@ -23,7 +23,7 @@ export default function ResortDetail() {
     if (resort) {
       setResort(resort);
     }
-  }, [data]);
+  }, [data, resort]);
 
   if (account) {
     if (!data) {

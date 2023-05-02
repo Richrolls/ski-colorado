@@ -127,6 +127,7 @@ function HomePage() {
                   }}
                 >
                   <iframe
+                    title="Resorts"
                     width="100%"
                     height="250"
                     src="https://embed.windy.com/embed2.html?lat=38.840&lon=-105.381&detailLat=30.175&detailLon=-97.820&width=650&height=450&zoom=6&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"

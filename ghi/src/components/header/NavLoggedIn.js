@@ -45,6 +45,7 @@ function NavLoggedIn() {
             <NavLink className="navbar-misc" to={`/profile/${data.id}`}>
               <img
                 className="profile-icon rounded-circle"
+                alt="profile"
                 src={data.picture_url}
               />
             </NavLink>

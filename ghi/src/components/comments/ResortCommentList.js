@@ -20,7 +20,7 @@ export default function ResortCommentList() {
     if (comments) {
       setComments(comments);
     }
-  }, [commentsData]);
+  }, [commentsData, comments]);
 
   useEffect(() => {
     refetch();

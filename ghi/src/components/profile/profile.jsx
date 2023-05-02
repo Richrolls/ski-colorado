@@ -1,6 +1,5 @@
 import { useGetAccountQuery, useGetProfileQuery } from "../login/auth";
 import { useParams } from "react-router-dom";
-import skierIcon from "../header/Skier_Icon.png";
 import ProfileInfo from "./ProfileInfo";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import UserCommentList from "../comments/UserCommentList";
