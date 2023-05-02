@@ -15,12 +15,12 @@ COPY weather_api.py weather_api.py
 # Modify these instructions to do that
 COPY queries queries
 COPY routers routers
-# COPY tests tests
+COPY tests tests
 
 RUN python -m pip install -r requirements.txt
 
 # !! PORT env var needs to match with exposed port in caprover dashboard
-CMD uvicorn main:app --reload --host 0.0.0.0 --port 80
+CMD uvicorn main:app --host 0.0.0.0
 
 
 
