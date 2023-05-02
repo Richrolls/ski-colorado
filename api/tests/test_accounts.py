@@ -2,7 +2,7 @@ from fastapi.testclient import TestClient
 from main import app
 from queries.accounts import AccountsRepo
 from authenticator import authenticator
-import pytest
+from unittest.mock import patch
 
 client = TestClient(app)
 
@@ -49,14 +49,14 @@ class FakeAccountsRepo:
             }
         ]
 
-
-def test_get_account(monkeypatch):
+@patch.object(authenticator, "get_current_account_data", fake_get_current_account_data)
+@patch.object(AccountsRepo, "get_one", FakeAccountsRepo().get_one)
+def test_get_account():
     # Arrange
     app.dependency_overrides[AccountsRepo] = FakeAccountsRepo
     app.dependency_overrides[
         authenticator.get_current_account_data
     ] = fake_get_current_account_data
-    monkeypatch.setenv("SIGNING_KEY", "fake-signing-key")
 
     # Act
     res = client.get("/api/accounts/6448218ba64084c036a7dd29")
@@ -68,7 +68,6 @@ def test_get_account(monkeypatch):
 
     # Cleanup
     app.dependency_overrides = {}
-    monkeypatch.delenv("SIGNING_KEY")
 
 
 def test_get_accounts():
