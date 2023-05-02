@@ -49,7 +49,9 @@ class FakeAccountsRepo:
             }
         ]
 
-@patch.object(authenticator, "get_current_account_data", fake_get_current_account_data)
+
+@patch.object(authenticator, "get_current_account_data",
+              fake_get_current_account_data)
 @patch.object(AccountsRepo, "get_one", FakeAccountsRepo().get_one)
 def test_get_account():
     # Arrange
