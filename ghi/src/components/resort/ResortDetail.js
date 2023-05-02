@@ -36,7 +36,7 @@ export default function ResortDetail() {
 
     function addComma(num) {
       const str = num.toString();
-      if (str.length == 5 || str.length == 4) {
+      if (str.length === 5 || str.length === 4) {
         return str.slice(0, -3) + "," + str.slice(-3);
       } else {
         return num;
@@ -195,7 +195,11 @@ export default function ResortDetail() {
                 <h2>Please log in or sign up.</h2>
                 <br />
                 <div>
-                  <img className="resort-photo rounded" src={Closed}></img>
+                  <img
+                    className="resort-photo rounded"
+                    alt="Unauthorized, please log in or sign up"
+                    src={Closed}
+                  ></img>
                 </div>
                 <br />
                 <h3>

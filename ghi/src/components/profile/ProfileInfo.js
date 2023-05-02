@@ -9,16 +9,16 @@ export default function ProfileInfo() {
 
   let ski = "";
   let snowboard = "";
-  if (otherUser?.ski == true) {
-    ski = <img src="https://i.imgur.com/trwig2h.gif" />;
+  if (otherUser?.ski === true) {
+    ski = <img alt="skier" src="https://i.imgur.com/trwig2h.gif" />;
   }
 
-  if (otherUser?.snowboard == true) {
-    snowboard = <img src="https://i.imgur.com/oW26dZg.gif" />;
+  if (otherUser?.snowboard === true) {
+    snowboard = <img alt="snowboarder" src="https://i.imgur.com/oW26dZg.gif" />;
   }
 
   function add2(add_2) {
-    if (add_2 != "") {
+    if (add_2 !== "") {
       return (
         <div>
           {add_2} <br />
@@ -27,7 +27,7 @@ export default function ProfileInfo() {
     }
   }
 
-  if (accountId == account?.id) {
+  if (accountId === account?.id) {
     return (
       <div>
         <h3>

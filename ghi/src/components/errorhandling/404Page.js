@@ -25,7 +25,7 @@ const NotFound = () => {
                 <h2>The page you requested could not be found.</h2>
                 <br />
                 <div>
-                  <img className="resort-photo rounded" src={ErrorPic}></img>
+                  <img className="resort-photo rounded" alt="error" src={ErrorPic}></img>
                 </div>
                 <br />
                 <h3>
@@ -58,7 +58,11 @@ const NotFound = () => {
                 <h2>The page you requested could not be found.</h2>
                 <br />
                 <div>
-                  <img className="resort-photo rounded" src={ErrorPic}></img>
+                  <img
+                    className="resort-photo rounded"
+                    alt="error"
+                    src={ErrorPic}
+                  ></img>
                 </div>
                 <br />
                 <h3>

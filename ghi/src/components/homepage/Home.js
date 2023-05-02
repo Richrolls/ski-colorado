@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import ResortList from "./ResortList.js";
 import NavLoggedIn from "../header/NavLoggedIn.js";
 import { Timeline } from "react-twitter-widgets";
@@ -188,7 +188,11 @@ function HomePage() {
                 <h2>Please log in or sign up.</h2>
                 <br />
                 <div>
-                  <img className="resort-photo rounded" src={Closed}></img>
+                  <img
+                    className="resort-photo rounded"
+                    alt="error"
+                    src={Closed}
+                  ></img>
                 </div>
                 <br />
                 <h3>

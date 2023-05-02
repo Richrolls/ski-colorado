@@ -39,7 +39,7 @@ export default function Directions() {
   const { data: distance } = useGetDistanceQuery({ origin, destination });
 
   function add2(add_2) {
-    if (add_2 != "") {
+    if (add_2 !== "") {
       return (
         <div>
           {add_2} <br />

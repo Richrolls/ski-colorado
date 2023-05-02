@@ -8,7 +8,7 @@ export default function ProfileInfo() {
 
   const { data: account } = useGetAccountQuery();
 
-  if (accountId == account?.id) {
+  if (accountId === account?.id) {
     return (
       <>
         <h1 className="snow" style={{ paddingTop: 24 }}>

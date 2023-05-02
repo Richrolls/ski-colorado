@@ -80,7 +80,7 @@ export default function ResortCommentList() {
 
   function stars(rating) {
     let rounded = Math.round(rating * 2) / 2;
-    if (rounded == 0) {
+    if (rounded === 0) {
       return (
         <>
           {emptystar}
@@ -90,7 +90,7 @@ export default function ResortCommentList() {
           {emptystar}
         </>
       );
-    } else if (rounded == 0.5) {
+    } else if (rounded === 0.5) {
       return (
         <>
           {halfstar}
@@ -100,7 +100,7 @@ export default function ResortCommentList() {
           {emptystar}
         </>
       );
-    } else if (rounded == 1) {
+    } else if (rounded === 1) {
       return (
         <>
           {fullstar}
@@ -110,7 +110,7 @@ export default function ResortCommentList() {
           {emptystar}
         </>
       );
-    } else if (rounded == 1.5) {
+    } else if (rounded === 1.5) {
       return (
         <>
           {fullstar}
@@ -120,7 +120,7 @@ export default function ResortCommentList() {
           {emptystar}
         </>
       );
-    } else if (rounded == 2) {
+    } else if (rounded === 2) {
       return (
         <>
           {fullstar}
@@ -130,7 +130,7 @@ export default function ResortCommentList() {
           {emptystar}
         </>
       );
-    } else if (rounded == 2.5) {
+    } else if (rounded === 2.5) {
       return (
         <>
           {fullstar}
@@ -140,7 +140,7 @@ export default function ResortCommentList() {
           {emptystar}
         </>
       );
-    } else if (rounded == 3) {
+    } else if (rounded === 3) {
       return (
         <>
           {fullstar}
@@ -150,7 +150,7 @@ export default function ResortCommentList() {
           {emptystar}
         </>
       );
-    } else if (rounded == 3.5) {
+    } else if (rounded === 3.5) {
       return (
         <>
           {fullstar}
@@ -160,7 +160,7 @@ export default function ResortCommentList() {
           {emptystar}
         </>
       );
-    } else if (rounded == 4) {
+    } else if (rounded === 4) {
       return (
         <>
           {fullstar}
@@ -170,7 +170,7 @@ export default function ResortCommentList() {
           {emptystar}
         </>
       );
-    } else if (rounded == 4.5) {
+    } else if (rounded === 4.5) {
       return (
         <>
           {fullstar}
@@ -180,7 +180,7 @@ export default function ResortCommentList() {
           {halfstar}
         </>
       );
-    } else if (rounded == 5) {
+    } else if (rounded === 5) {
       return (
         <>
           {fullstar}

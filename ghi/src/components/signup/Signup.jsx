@@ -32,7 +32,7 @@ const Signup = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      if (fields.password != fields.password_conf) {
+      if (fields.password !== fields.password_conf) {
         dispatch(error("Passwords do not match"));
         return;
       }
@@ -304,12 +304,14 @@ const Signup = () => {
                       <img
                         src="https://i.imgur.com/trwig2h.gif"
                         className="img-fluid rounded mx-auto d-block"
+                        alt="snowboarder gif"
                       />
                     </div>
                     <div className="col justify-content-center">
                       <img
                         src="https://i.imgur.com/oW26dZg.gif"
                         className="img-fluid rounded mx-auto d-block"
+                        alt="skier gif"
                       />
                     </div>
                   </div>
