@@ -28,7 +28,7 @@ class MyAuthenticator(
 
     def get_account_data_for_cookie(
         self, account: AccountOut
-    ): 
+    ):
         return account.username, AccountOut(**account.dict())
 
 

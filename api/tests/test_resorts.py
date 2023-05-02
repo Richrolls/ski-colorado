@@ -20,8 +20,9 @@ class FakeResortQueries:
             "zipcode": 80435,
             "coordinates": "teststring",
             "name": "Keystone Resort",
-            "photo_url": "https://dam-assets.vailresorts.com/is/image/vailresorts/"
-            "20180123_KY_balluff_001:Product-Cards-Landing?resMode=sharp2&w=1002&h="
+            "photo_url": "https://dam-assets.vailresorts.com/"
+            "is/image/vailresorts/20180123_KY_balluff_001:"
+            "Product-Cards-Landing?resMode=sharp2&w=1002&h="
             "668&wid=382&fit=constrain,1&dpr=on,2.625",
             "average_rating": 0,
             "elevation": 12408,
@@ -42,8 +43,9 @@ class FakeResortQueries:
                 "zipcode": 80435,
                 "coordinates": "teststring",
                 "name": "Keystone Resort",
-                "photo_url": "https://dam-assets.vailresorts.com/is/image/vailresorts/"
-                "20180123_KY_balluff_001:Product-Cards-Landing?resMode=sharp2&w=1002&"
+                "photo_url": "https://dam-assets.vailresorts.com/is"
+                "/image/vailresorts/20180123_KY_balluff_001:"
+                "Product-Cards-Landing?resMode=sharp2&w=1002&"
                 "h=668&wid=382&fit=constrain,1&dpr=on,2.625",
                 "average_rating": 0,
                 "elevation": 12408,
