@@ -10,8 +10,8 @@ directions_router = APIRouter()
 @directions_router.get("/api/directions")
 async def directions(origin: str, destination: str):
     url = f"https://maps.googleapis.com/maps/api/directions/" \
-    f"json?origin={origin}&destination={destination}&" \
-    f"key={GOOGLE_MAPS_API_KEY}"
+        f"json?origin={origin}&destination={destination}&" \
+        f"key={GOOGLE_MAPS_API_KEY}"
     response = requests.get(url)
     data = response.json()
     return data
