@@ -14,13 +14,13 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<MainPage />} />
           <Route path="/resorts/:thisResort" element={<ResortDetail />} />
           <Route path="login" element={<LoginForm />} />
           <Route path="signup" element={<Signup />} />
           <Route path="home" element={<Home />} />
           <Route path="profile/:accountId" element={<Profile />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>
