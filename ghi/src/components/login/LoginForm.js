@@ -45,7 +45,7 @@ const LoginForm = () => {
               className="shadow p-4 mt-4 bg-primary bg-gradient"
               style={{ borderRadius: 8 }}
             >
-              <Link to="/" className="link-warning">
+              <Link to="/ski-colorado" className="link-warning">
                 <button className="butt btn-sm btn-primary">Back</button>
               </Link>
               <h1 className="snow">Login</h1>
