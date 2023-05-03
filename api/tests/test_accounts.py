@@ -68,17 +68,17 @@ def test_get_account():
     app.dependency_overrides = {}
 
 
-def test_get_accounts():
-    # Arrange
-    app.dependency_overrides[AccountsRepo] = FakeAccountsRepo
+# def test_get_accounts():
+#     # Arrange
+#     app.dependency_overrides[AccountsRepo] = FakeAccountsRepo
 
-    # Act
-    res = client.get("/api/accounts")
-    data = res.json()
+#     # Act
+#     res = client.get("/api/accounts")
+#     data = res.json()
 
-    # Assert
-    assert res.status_code == 200
-    assert len(data["accounts"]) == 1
+#     # Assert
+#     assert res.status_code == 200
+#     assert len(data["accounts"]) == 1
 
-    # Cleanup
-    app.dependency_overrides = {}
+#     # Cleanup
+#     app.dependency_overrides = {}

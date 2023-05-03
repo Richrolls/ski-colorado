@@ -61,9 +61,9 @@ async def get_token(
         }
 
 
-@router.get("/api/accounts", response_model=AccountList)
-def get_accounts(repo: AccountsRepo = Depends()):
-    return {"accounts": repo.get_all()}
+# @router.get("/api/accounts", response_model=AccountList)
+# def get_accounts(repo: AccountsRepo = Depends()):
+#     return {"accounts": repo.get_all()}
 
 
 @router.get("/api/accounts/{account_id}", response_model=AccountOutPublic)
