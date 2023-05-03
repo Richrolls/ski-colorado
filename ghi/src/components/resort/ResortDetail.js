@@ -46,6 +46,10 @@ export default function ResortDetail() {
     return (
       <>
         <NavLoggedIn />
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
         <div className="text-center">
           <div className="col">
             <div className="row row-cols-3">
