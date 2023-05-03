@@ -14,7 +14,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/module3-project-gamma/" element={<MainPage />} />
+          <Route path="/ski-colorado/" element={<MainPage />} />
           <Route path="/resorts/:thisResort" element={<ResortDetail />} />
           <Route path="login" element={<LoginForm />} />
           <Route path="signup" element={<Signup />} />

@@ -13,7 +13,7 @@ function NavLoggedIn() {
     const result = logout();
 
     if (result) {
-      navigate("/");
+      navigate("/ski-colorado/");
     }
   };
 
