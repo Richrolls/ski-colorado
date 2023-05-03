@@ -76,5 +76,9 @@ async def get_account(
 
 
 @router.delete("/api/accounts/{account_id}", response_model=bool)
-def delete_account(account_id=str, repo: AccountsRepo = Depends()):
-    return repo.delete(account_id)
+def delete_account(
+    account_id=str,
+    repo: AccountsRepo = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data)
+    ):
+    return repo.delete(account_id, id=account_data["id"])
